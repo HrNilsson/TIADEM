@@ -1,0 +1,2 @@
+COMPONENT=DFTSPAppC
+include $(MAKERULES)

@@ -277,8 +277,7 @@ implementation
             outgoingMsg->seqNum = msg->seqNum;
         }
         else
-        	goto exit;
-            
+            goto exit;
 
         call Leds.led0Toggle();
         if( outgoingMsg->rootID < TOS_NODE_ID )
@@ -287,23 +286,34 @@ implementation
         addNewEntry(msg);
         calculateConversion();
         signal TimeSyncNotify.msg_received();
+
     exit:
         state &= ~STATE_PROCESSING;
     }
 
     event message_t* Receive.receive(message_t* msg, void* payload, uint8_t len)
     {
+#ifdef TIMESYNC_DEBUG   // this code can be used to simulate multiple hopsf
+        uint8_t incomingID = (uint8_t)((TimeSyncMsg*)payload)->nodeID;
+        int8_t diff = (incomingID & 0x0F) - (TOS_NODE_ID & 0x0F);
+        if( diff < -1 || diff > 1 )
+            return msg;
+        diff = (incomingID & 0xF0) - (TOS_NODE_ID & 0xF0);
+        if( diff < -16 || diff > 16 )
+            return msg;
+#endif
         if( (state & STATE_PROCESSING) == 0 ) {
             message_t* old = processedMsg;
-			
+
             processedMsg = msg;
             ((TimeSyncMsg*)(payload))->localTime = call TimeSyncPacket.eventTime(msg);
 
             state |= STATE_PROCESSING;
             post processMsg();
+
             return old;
         }
-		
+
         return msg;
     }
 
@@ -333,7 +343,7 @@ implementation
         }
 
         outgoingMsg->globalTime = globalTime;
-		
+
         // we don't send time sync msg, if we don't have enough data
         if( numEntries < ENTRY_SEND_LIMIT && outgoingMsg->rootID != TOS_NODE_ID ){
             ++heartBeats;
