@@ -42,6 +42,16 @@ typedef nx_struct TimeSyncMsg
 	nx_uint32_t 	localTime;
 } TimeSyncMsg;
 
+typedef nx_struct SyncReportMsg
+{
+	nx_uint16_t	nodeID;			// the node if of the sender
+	nx_uint32_t	globalTimeEst;	// the senders estimation of the global time
+	nx_uint8_t  syncPeriod;		// the senders synchronization period
+	nx_int16_t  drift;			// the senders estimation of its child's drift
+	nx_int16_t  temp;			// the senders temperature measurement
+
+} SyncReportMsg;
+
 enum {
     AM_TIMESYNCMSG = 0x3E,
     TIMESYNCMSG_LEN = sizeof(TimeSyncMsg) - sizeof(nx_uint32_t),

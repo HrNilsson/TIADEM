@@ -24,6 +24,7 @@
  */
 
 #include "TimeSyncMsg.h"
+#define TIMESYNC_LEDS
 
 configuration TimeSyncC
 {

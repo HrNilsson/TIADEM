@@ -6,10 +6,7 @@
 <target>telosb</target>
 <make-extras>
 <extra name="install">
-<parameter ask="true" name="Mote Id"/>
-</extra>
-<extra name="reinstall">
-<parameter ask="true" name="Mote Id"/>
+<parameter ask="false" name="Mote Id">100</parameter>
 </extra>
 </make-extras>
 <includes/>
@@ -21,7 +18,7 @@
 <boards/>
 <no-std-incl>false</no-std-incl>
 <component/>
-<component-file>/FTSP/src/DFTSPAppC.nc</component-file>
+<component-file>/FTSPBroadcast/src/DFTSPAppC.nc</component-file>
 <include-last-build>true</include-last-build>
 <include-env-default-paths>true</include-env-default-paths>
 <environment_variables/>

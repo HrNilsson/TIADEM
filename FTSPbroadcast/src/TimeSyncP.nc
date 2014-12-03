@@ -62,6 +62,8 @@ implementation
         ENTRY_VALID_LIMIT     = 4,              // number of entries to become synchronized
         ENTRY_SEND_LIMIT      = 3,              // number of entries to send sync messages
         ENTRY_THROWOUT_LIMIT  = 100,            // if time sync error is bigger than this clear the table
+        BROADCAST_RATE 		  = 2,				// 30,
+        TO_PC_LEN			  = 11,
     };
 
     typedef struct TableItem
@@ -102,11 +104,13 @@ implementation
     uint32_t    localAverage;
     int32_t     offsetAverage;
     uint8_t     numEntries; // the number of full entries in the table
+    uint8_t 	toPcBuffer[TO_PC_LEN]; //buffer used for sending to pc
 
     message_t processedMsgBuffer;
     message_t* processedMsg;
 
     message_t outgoingMsgBuffer;
+    message_t broadcastMsgBuffer;
     TimeSyncMsg* outgoingMsg;
 
     uint8_t heartBeats; // the number of sucessfully sent messages
@@ -319,7 +323,15 @@ implementation
 
     task void sendMsg()
     {
-        uint32_t localTime, globalTime;
+    	uint32_t localTime;
+    	
+    	//call Leds.led2Toggle();
+    	
+    	localTime = call GlobalTime.getLocalTime();
+		call Send.send(AM_BROADCAST_ADDR, &broadcastMsgBuffer, 1, localTime);
+        signal TimeSyncNotify.msg_sent();
+		
+        /*uint32_t localTime, globalTime;
 
         globalTime = localTime = call GlobalTime.getLocalTime();
         call GlobalTime.local2Global(&globalTime);
@@ -352,7 +364,7 @@ implementation
         else if( call Send.send(AM_BROADCAST_ADDR, &outgoingMsgBuffer, TIMESYNCMSG_LEN, localTime ) != SUCCESS ){
             state &= ~STATE_SENDING;
             signal TimeSyncNotify.msg_sent();
-        }
+        }*/
     }
 
     event void Send.sendDone(message_t* ptr, error_t error)
@@ -388,11 +400,13 @@ implementation
 
     event void Timer.fired()
     {
-      if (mode == TS_TIMER_MODE) {
+    	
+    	post sendMsg();
+      /*if (mode == TS_TIMER_MODE) {
         timeSyncMsgSend();
       }
       else
-        call Timer.stop();
+        call Timer.stop();*/
     }
 
     command error_t TimeSyncMode.setMode(uint8_t mode_){
@@ -442,16 +456,18 @@ implementation
 
     event void Boot.booted()
     {
+      call Leds.led0On();
       call RadioControl.start();
       call StdControl.start();
     }
 
     command error_t StdControl.start()
     {
-        mode = TS_TIMER_MODE;
+        /*mode = TS_TIMER_MODE;
         heartBeats = 0;
-        outgoingMsg->nodeID = TOS_NODE_ID;
-        call Timer.startPeriodic((uint32_t)1000 * BEACON_RATE);
+        outgoingMsg->nodeID = TOS_NODE_ID; */
+        broadcastMsgBuffer.data[0] = 0xAA;
+        call Timer.startPeriodic((uint32_t)1000 * BROADCAST_RATE);
 
         return SUCCESS;
     }
