@@ -295,30 +295,16 @@ implementation
         state &= ~STATE_PROCESSING;
     }
 
+    void task sendMsgToPC()
+    {
+    	
+    }
+
     event message_t* Receive.receive(message_t* msg, void* payload, uint8_t len)
     {
-#ifdef TIMESYNC_DEBUG   // this code can be used to simulate multiple hopsf
-        uint8_t incomingID = (uint8_t)((TimeSyncMsg*)payload)->nodeID;
-        int8_t diff = (incomingID & 0x0F) - (TOS_NODE_ID & 0x0F);
-        if( diff < -1 || diff > 1 )
-            return msg;
-        diff = (incomingID & 0xF0) - (TOS_NODE_ID & 0xF0);
-        if( diff < -16 || diff > 16 )
-            return msg;
-#endif
-        if( (state & STATE_PROCESSING) == 0 ) {
-            message_t* old = processedMsg;
-
-            processedMsg = msg;
-            ((TimeSyncMsg*)(payload))->localTime = call TimeSyncPacket.eventTime(msg);
-
-            state |= STATE_PROCESSING;
-            post processMsg();
-
-            return old;
-        }
-
-        return msg;
+    	memcpy(payload,&toPcBuffer,len);
+    	post sendMsgToPC();
+    	return msg;
     }
 
     task void sendMsg()
