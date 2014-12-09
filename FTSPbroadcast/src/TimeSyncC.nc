@@ -50,6 +50,7 @@ implementation
   TimeSyncInfo    =   TimeSyncP;
   TimeSyncMode    =   TimeSyncP;
   TimeSyncNotify  =   TimeSyncP;
+  
 
   components TimeSyncMessageC as ActiveMessageC;
   TimeSyncP.RadioControl    ->  ActiveMessageC;
@@ -70,4 +71,9 @@ implementation
 #endif
   TimeSyncP.Leds  ->  LedsC;
 
+  components SerialActiveMessageC as PCSerial;
+  TimeSyncP.SerialControl -> PCSerial;
+  TimeSyncP.PCReceive -> PCSerial.Receive[AM_TEST_SERIAL_MSG];
+  TimeSyncP.PCTransmit -> PCSerial.AMSend[AM_TEST_SERIAL_MSG];
+  TimeSyncP.PCPacket -> PCSerial; 
 }

@@ -22,6 +22,7 @@
  * Ported to T2: 3/17/08 by Brano Kusy (branislav.kusy@gmail.com)
  */
 #include "TimeSyncMsg.h"
+#include "TestSerial.h"
 
 generic module TimeSyncP(typedef precision_tag)
 {
@@ -46,6 +47,10 @@ generic module TimeSyncP(typedef precision_tag)
         interface Leds;
         interface TimeSyncPacket<precision_tag,uint32_t>;
         interface LocalTime<precision_tag> as LocalTime;
+        interface SplitControl as SerialControl;
+        interface Receive as PCReceive;
+        interface AMSend as PCTransmit;
+        interface Packet as PCPacket;
     }
 }
 implementation
@@ -62,8 +67,7 @@ implementation
         ENTRY_VALID_LIMIT     = 4,              // number of entries to become synchronized
         ENTRY_SEND_LIMIT      = 3,              // number of entries to send sync messages
         ENTRY_THROWOUT_LIMIT  = 100,            // if time sync error is bigger than this clear the table
-        BROADCAST_RATE 		  = 2,				// 30,
-        TO_PC_LEN			  = 11,
+        BROADCAST_RATE 		  = 5,				// 30,
     };
 
     typedef struct TableItem
@@ -104,17 +108,24 @@ implementation
     uint32_t    localAverage;
     int32_t     offsetAverage;
     uint8_t     numEntries; // the number of full entries in the table
-    uint8_t 	toPcBuffer[TO_PC_LEN]; //buffer used for sending to pc
+    SyncReportMsg 	toPcBuffer; //buffer used for sending to pc
+    SyncReportMsg* 	toPcPtr; //buffer used for sending to pc
 
     message_t processedMsgBuffer;
     message_t* processedMsg;
 
     message_t outgoingMsgBuffer;
     message_t broadcastMsgBuffer;
+    message_t toPcMsgBuffer;
     TimeSyncMsg* outgoingMsg;
 
     uint8_t heartBeats; // the number of sucessfully sent messages
                         // since adding a new entry with lower beacon id than ours
+    
+ 	message_t packet;
+
+  	bool locked = FALSE;
+ 	uint16_t counter = 0;
 
     async command uint32_t GlobalTime.getLocalTime()
     {
@@ -297,12 +308,22 @@ implementation
 
     void task sendMsgToPC()
     {
+    	call Leds.led2Toggle();
     	
+    	atomic toPcPtr = (SyncReportMsg*)call Send.getPayload(&broadcastMsgBuffer, sizeof(SyncReportMsg));
+    	toPcPtr->nodeID = toPcBuffer.nodeID;
+    	toPcPtr->globalTimeEst = toPcBuffer.globalTimeEst;
+    	toPcPtr->syncPeriod = toPcBuffer.syncPeriod;
+    	toPcPtr->drift = toPcBuffer.drift;
+    	toPcPtr->temp = toPcBuffer.temp;
+    	toPcPtr->seqNum = toPcBuffer.seqNum;
+
+    	call PCTransmit.send(AM_BROADCAST_ADDR, &broadcastMsgBuffer, sizeof(SyncReportMsg));
     }
 
     event message_t* Receive.receive(message_t* msg, void* payload, uint8_t len)
     {
-    	memcpy(payload,&toPcBuffer,len);
+    	memcpy(payload,&toPcBuffer,sizeof(SyncReportMsg));
     	post sendMsgToPC();
     	return msg;
     }
@@ -385,15 +406,67 @@ implementation
     }
 
     event void Timer.fired()
-    {
+    {	
+    	// PC serial testing
     	
-    	post sendMsg();
+    	/*toPcBuffer.seqNum = toPcBuffer.seqNum +1;
+    	post sendMsgToPC();*/
+    
+    	// Ref broadcaster implementation
+    	 post sendMsg();
+    	
+    	// FTSP implementation
       /*if (mode == TS_TIMER_MODE) {
         timeSyncMsgSend();
       }
       else
         call Timer.stop();*/
     }
+    
+    event message_t* PCReceive.receive(message_t* bufPtr, 
+				   void* payload, uint8_t len) {
+				   	/*
+    if (len != sizeof(test_serial_msg_t)) {return bufPtr;}
+    else {
+      test_serial_msg_t* rcm = (test_serial_msg_t*)payload;
+      if (rcm->counter & 0x1) {
+	call Leds.led0On();
+      }
+      else {
+	call Leds.led0Off();
+      }
+      if (rcm->counter & 0x2) {
+	call Leds.led1On();
+      }
+      else {
+	call Leds.led1Off();
+      }
+      if (rcm->counter & 0x4) {
+	call Leds.led2On();
+      }
+      else {
+	call Leds.led2Off();
+      }
+      return bufPtr;
+    }*/
+    call Leds.set(7);
+    return bufPtr;
+  }
+
+  event void PCTransmit.sendDone(message_t* bufPtr, error_t error) {
+    if (&packet == bufPtr) {
+      locked = FALSE;
+    }
+  }
+  
+	event void SerialControl.startDone(error_t error)
+	{
+
+	}
+	
+	event void SerialControl.stopDone(error_t error)
+	{
+	}
 
     command error_t TimeSyncMode.setMode(uint8_t mode_){
         if (mode == mode_)
@@ -442,7 +515,8 @@ implementation
 
     event void Boot.booted()
     {
-      call Leds.led0On();
+      //call Leds.led0On();
+      call SerialControl.start();
       call RadioControl.start();
       call StdControl.start();
     }
@@ -453,6 +527,15 @@ implementation
         heartBeats = 0;
         outgoingMsg->nodeID = TOS_NODE_ID; */
         broadcastMsgBuffer.data[0] = 0xAA;
+        
+        /*toPcBuffer.nodeID = 5;
+        toPcBuffer.globalTimeEst = 1200;
+        toPcBuffer.drift = 30;
+        toPcBuffer.syncPeriod = 20;
+        toPcBuffer.temp = 20;
+        toPcBuffer.seqNum = 0;*/
+        
+        
         call Timer.startPeriodic((uint32_t)1000 * BROADCAST_RATE);
 
         return SUCCESS;

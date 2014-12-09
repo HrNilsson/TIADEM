@@ -49,7 +49,7 @@ typedef nx_struct SyncReportMsg
 	nx_uint8_t  syncPeriod;		// the senders synchronization period
 	nx_int16_t  drift;			// the senders estimation of its child's drift
 	nx_int16_t  temp;			// the senders temperature measurement
-
+	nx_uint8_t	seqNum;		// sequence number for the root
 } SyncReportMsg;
 
 enum {
@@ -57,6 +57,7 @@ enum {
     TIMESYNCMSG_LEN = sizeof(TimeSyncMsg) - sizeof(nx_uint32_t),
     TS_TIMER_MODE = 0,      // see TimeSyncMode interface
     TS_USER_MODE = 1,       // see TimeSyncMode interface
+    PC_SERIAL_MSG_LEN = sizeof(SyncReportMsg), 
 };
 
 #endif
