@@ -277,8 +277,7 @@ implementation
             outgoingMsg->seqNum = msg->seqNum;
         }
         else
-        	goto exit;
-            
+            goto exit;
 
         call Leds.led0Toggle();
         if( outgoingMsg->rootID < TOS_NODE_ID )
@@ -287,6 +286,7 @@ implementation
         addNewEntry(msg);
         calculateConversion();
         signal TimeSyncNotify.msg_received();
+
     exit:
         state &= ~STATE_PROCESSING;
     }
@@ -295,15 +295,16 @@ implementation
     {
         if( (state & STATE_PROCESSING) == 0 ) {
             message_t* old = processedMsg;
-			
+
             processedMsg = msg;
             ((TimeSyncMsg*)(payload))->localTime = call TimeSyncPacket.eventTime(msg);
 
             state |= STATE_PROCESSING;
             post processMsg();
+
             return old;
         }
-		
+
         return msg;
     }
 
@@ -333,7 +334,7 @@ implementation
         }
 
         outgoingMsg->globalTime = globalTime;
-		
+
         // we don't send time sync msg, if we don't have enough data
         if( numEntries < ENTRY_SEND_LIMIT && outgoingMsg->rootID != TOS_NODE_ID ){
             ++heartBeats;

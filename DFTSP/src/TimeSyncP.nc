@@ -50,13 +50,12 @@ generic module TimeSyncP(typedef precision_tag)
 }
 implementation
 {
-#ifndef TIMESYNC_RATE
-#define TIMESYNC_RATE   10
-#endif
-
     enum {
         MAX_ENTRIES           = 8,              // number of entries in the table
-        BEACON_RATE           = TIMESYNC_RATE,  // how often send the beacon msg (in seconds)
+        MAX_CHILDREN		  = 5,				// Maximum number of children
+        MAX_BEACON_INTERVAL   = 180,  			// Maximum time between sending the beacon msg (in seconds)
+        MIN_BEACON_INTERVAL   = 10,  			// Minimum time between sending the beacon msg (in seconds)
+        OFFSET_ERROR_BOUND	  = 620,				// Average offset error bound (in milliseconds) - 62ms ~ 2 ticks.
         ROOT_TIMEOUT          = 5,              //time to declare itself the root if no msg was received (in sync periods)
         IGNORE_ROOT_MSG       = 4,              // after becoming the root ignore other roots messages (in send period)
         ENTRY_VALID_LIMIT     = 4,              // number of entries to become synchronized
@@ -85,8 +84,16 @@ implementation
         STATE_SENDING = 0x02,
         STATE_INIT = 0x04,
     };
+    
+    typedef struct ChildItem {
+    	uint16_t nodeId;
+    	float oldSkew;
+    	float drift;
+    } ChildItem;
 
-    uint8_t state, mode;
+    uint8_t state, mode, beaconPeriod;
+    ChildItem childTable[MAX_CHILDREN];
+    uint8_t childEntries;
 
 /*
     We do linear regression from localTime to timeOffset (globalTime - localTime).
@@ -144,6 +151,23 @@ implementation
         *time = approxLocalTime - (int32_t)(skew * (int32_t)(approxLocalTime - localAverage));
         return is_synced();
     }
+    
+    union f_and_u {
+	  uint32_t u;
+	  float f;
+	};
+    
+    float u2f(uint32_t x)
+	{
+	  union f_and_u y = { .u = x};
+	  return y.f;
+	}
+	
+	uint32_t f2u(float x)
+	{
+	  union f_and_u y = { .f = x};
+	  return y.u;
+	}
 
     void calculateConversion()
     {
@@ -201,7 +225,78 @@ implementation
             numEntries = tableEntries;
         }
     }
-
+	
+    void updateBeaconPeriod(float maxDrift)
+    {
+    	float error = 0, tau = MIN_BEACON_INTERVAL;
+    	float c = 0.1;
+    	if(maxDrift != 0)
+    	{
+    		while(error < OFFSET_ERROR_BOUND)
+    		{
+    			tau = tau + c;
+    			error = maxDrift*((tau*tau)/2);
+			}
+			
+			if(tau < MIN_BEACON_INTERVAL)
+				tau = MIN_BEACON_INTERVAL;
+			else if(tau > MAX_BEACON_INTERVAL)
+				tau = MAX_BEACON_INTERVAL;
+				
+			atomic beaconPeriod = (unsigned char)(tau);
+    	}
+    }
+    
+    void clearChildTable()
+    {
+    	uint8_t i;
+    	for(i = 0; i < MAX_CHILDREN; i++) {
+    		childTable[i].nodeId = 0xFFFF;
+    		childTable[i].drift = 0;
+		}
+    	
+    	atomic childEntries = 0;
+    }
+    
+    void handleNewChildSkew(TimeSyncMsg *msg) 
+    {
+    	uint8_t i, childExist = 0;
+    	float maxDrift = 0;
+		for(i = 0; i < childEntries; i++)
+		{
+			if(childTable[i].nodeId == msg->nodeID)
+			{
+				float drift = 0;
+				childExist = 1;
+				
+				drift = u2f(msg->skew) - childTable[i].oldSkew;				
+				if(drift < 0)
+				{
+					drift = -drift;
+				}
+				childTable[i].drift = drift;
+				childTable[i].oldSkew = u2f(msg->skew);
+			}
+			
+			if(childTable[i].drift > maxDrift)
+				maxDrift = childTable[i].drift;
+		}
+		
+		// Create new entry
+		if(childExist == 0)
+		{
+			if(childEntries < MAX_BEACON_INTERVAL)
+			{
+				childTable[childEntries].nodeId = msg->nodeID;
+				childTable[childEntries].oldSkew = u2f(msg->skew);
+				childEntries++;
+			}
+		} else {
+			updateBeaconPeriod(maxDrift);
+		}
+		
+    }
+    
     void clearTable()
     {
         int8_t i;
@@ -267,53 +362,52 @@ implementation
     {
         TimeSyncMsg* msg = (TimeSyncMsg*)(call Send.getPayload(processedMsg, sizeof(TimeSyncMsg)));
 
-        if( msg->rootID < outgoingMsg->rootID &&
-            // jw: after becoming the root ignore other roots messages (in send period)
-            ~(heartBeats < IGNORE_ROOT_MSG && outgoingMsg->rootID == TOS_NODE_ID) ){
-            outgoingMsg->rootID = msg->rootID;
-            outgoingMsg->seqNum = msg->seqNum;
+		if( msg->hop <= outgoingMsg->hop){
+			//This is a parent broadcast
+	        if( msg->rootID < outgoingMsg->rootID &&
+	            // jw: after becoming the root ignore other roots messages (in send period)
+	            ~(heartBeats < IGNORE_ROOT_MSG && outgoingMsg->rootID == TOS_NODE_ID) ){
+	            outgoingMsg->rootID = msg->rootID;
+	            outgoingMsg->seqNum = msg->seqNum;
+	            outgoingMsg->hop = ++(msg->hop);
+	        }
+	        else if( outgoingMsg->rootID == msg->rootID && (int8_t)(msg->seqNum - outgoingMsg->seqNum) > 0 ) {
+	            outgoingMsg->seqNum = msg->seqNum;
+	            outgoingMsg->hop = ++(msg->hop);
+	        }
+	        else
+	        	goto exit;
+	            
+	
+	        call Leds.led0Toggle();
+	        if( outgoingMsg->rootID < TOS_NODE_ID )
+	            heartBeats = 0;
+	
+	        addNewEntry(msg);
+	        calculateConversion();
+	        outgoingMsg->skew = f2u(skew);
+	        signal TimeSyncNotify.msg_received();
+        } else if(msg->hop > outgoingMsg->hop) {
+        	// This is a child broadcast
+        	handleNewChildSkew(msg);
         }
-        else if( outgoingMsg->rootID == msg->rootID && (int8_t)(msg->seqNum - outgoingMsg->seqNum) > 0 ) {
-            outgoingMsg->seqNum = msg->seqNum;
-        }
-        else
-            goto exit;
-
-        call Leds.led0Toggle();
-        if( outgoingMsg->rootID < TOS_NODE_ID )
-            heartBeats = 0;
-
-        addNewEntry(msg);
-        calculateConversion();
-        signal TimeSyncNotify.msg_received();
-
     exit:
         state &= ~STATE_PROCESSING;
     }
 
     event message_t* Receive.receive(message_t* msg, void* payload, uint8_t len)
     {
-#ifdef TIMESYNC_DEBUG   // this code can be used to simulate multiple hopsf
-        uint8_t incomingID = (uint8_t)((TimeSyncMsg*)payload)->nodeID;
-        int8_t diff = (incomingID & 0x0F) - (TOS_NODE_ID & 0x0F);
-        if( diff < -1 || diff > 1 )
-            return msg;
-        diff = (incomingID & 0xF0) - (TOS_NODE_ID & 0xF0);
-        if( diff < -16 || diff > 16 )
-            return msg;
-#endif
         if( (state & STATE_PROCESSING) == 0 ) {
             message_t* old = processedMsg;
-
+			
             processedMsg = msg;
             ((TimeSyncMsg*)(payload))->localTime = call TimeSyncPacket.eventTime(msg);
 
             state |= STATE_PROCESSING;
             post processMsg();
-
             return old;
         }
-
+		
         return msg;
     }
 
@@ -340,10 +434,11 @@ implementation
             heartBeats = 0; //to allow ROOT_SWITCH_IGNORE to work
             outgoingMsg->rootID = TOS_NODE_ID;
             ++(outgoingMsg->seqNum); // maybe set it to zero?
+            outgoingMsg->hop = 0;
         }
 
         outgoingMsg->globalTime = globalTime;
-
+		
         // we don't send time sync msg, if we don't have enough data
         if( numEntries < ENTRY_SEND_LIMIT && outgoingMsg->rootID != TOS_NODE_ID ){
             ++heartBeats;
@@ -378,6 +473,7 @@ implementation
         if( outgoingMsg->rootID == 0xFFFF && ++heartBeats >= ROOT_TIMEOUT ) {
             outgoingMsg->seqNum = 0;
             outgoingMsg->rootID = TOS_NODE_ID;
+            outgoingMsg->hop = 0;
         }
 
         if( outgoingMsg->rootID != 0xFFFF && (state & STATE_SENDING) == 0 ) {
@@ -391,7 +487,10 @@ implementation
       if (mode == TS_TIMER_MODE) {
         timeSyncMsgSend();
       }
-      else
+      else if(mode == TS_DFTSP_MODE) {
+      	call Timer.startOneShot((uint32_t)1000*beaconPeriod);
+  		timeSyncMsgSend();
+  	  } else
         call Timer.stop();
     }
 
@@ -400,7 +499,7 @@ implementation
             return SUCCESS;
 
         if (mode_ == TS_USER_MODE){
-            call Timer.startPeriodic((uint32_t)1000 * BEACON_RATE);
+            call Timer.startPeriodic((uint32_t)1000*beaconPeriod);
         }
         else
             call Timer.stop();
@@ -427,12 +526,15 @@ implementation
             skew = 0.0;
             localAverage = 0;
             offsetAverage = 0;
+    		beaconPeriod = MIN_BEACON_INTERVAL;
         };
-
+		
+		clearChildTable();
         clearTable();
 
         atomic outgoingMsg = (TimeSyncMsg*)call Send.getPayload(&outgoingMsgBuffer, sizeof(TimeSyncMsg));
         outgoingMsg->rootID = 0xFFFF;
+        outgoingMsg->hop = 0xFF;
 
         processedMsg = &processedMsgBuffer;
         state = STATE_INIT;
@@ -448,10 +550,10 @@ implementation
 
     command error_t StdControl.start()
     {
-        mode = TS_TIMER_MODE;
+        mode = TS_DFTSP_MODE;
         heartBeats = 0;
         outgoingMsg->nodeID = TOS_NODE_ID;
-        call Timer.startPeriodic((uint32_t)1000 * BEACON_RATE);
+        call Timer.startOneShot((uint32_t)1000*beaconPeriod);
 
         return SUCCESS;
     }
