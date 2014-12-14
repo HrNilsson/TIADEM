@@ -6,10 +6,12 @@
 <target>telosb</target>
 <make-extras>
 <extra name="install">
-<parameter ask="true" name="Mote Id">3</parameter>
+<parameter ask="true" name="Mote Id">1</parameter>
 </extra>
 </make-extras>
-<includes/>
+<includes>
+<include global="false" include="source" ncc="true" recursive="true">/home/rene/tinyos/apps/tutorials/Printf</include>
+</includes>
 <excludes>
 <exclude>.*\.svn.*</exclude>
 </excludes>
@@ -23,5 +25,61 @@
 <include-env-default-paths>true</include-env-default-paths>
 <environment_variables/>
 </default>
-<client-data/>
+<custom>
+<target loop="false" name="DFTSP_root" time="0.0" version="4">
+<default>false</default>
+<project use-custom="true"/>
+<target use-custom="false"/>
+<make-extras use-custom="true" use-default="true">
+<extra name="bsl">
+<parameter ask="true" name="ref">/dev/ttyUSB1</parameter>
+</extra>
+<extra name="install">
+<parameter ask="false" name="Mote Id">1</parameter>
+</extra>
+</make-extras>
+<includes use-custom="true" use-default="true">
+<include global="false" include="source" ncc="true" recursive="false">/home/rene/tinyos/apps/tutorials/Printf</include>
+</includes>
+<excludes use-custom="true" use-default="true"/>
+<typedefs use-custom="true" use-default="true"/>
+<macros use-custom="true" use-default="true"/>
+<boards use-custom="true" use-default="true"/>
+<no-std-incl use-custom="true">false</no-std-incl>
+<component use-custom="false"/>
+<component-file use-custom="false"/>
+<include-last-build use-custom="true">false</include-last-build>
+<include-env-default-paths use-custom="true">false</include-env-default-paths>
+<environment_variables use-custom="true" use-default="true"/>
+</target>
+<target loop="false" name="DFTSP_child" time="0.0" version="4">
+<default>false</default>
+<project use-custom="true"/>
+<target use-custom="false"/>
+<make-extras use-custom="true" use-default="true">
+<extra name="bsl">
+<parameter ask="true" name="ref">/dev/ttyUSB1</parameter>
+</extra>
+<extra name="install">
+<parameter ask="false" name="Mote Id">3</parameter>
+</extra>
+</make-extras>
+<includes use-custom="true" use-default="true">
+<include global="false" include="source" ncc="true" recursive="false">/home/rene/tinyos/apps/tutorials/Printf</include>
+</includes>
+<excludes use-custom="true" use-default="true"/>
+<typedefs use-custom="true" use-default="true"/>
+<macros use-custom="true" use-default="true"/>
+<boards use-custom="true" use-default="true"/>
+<no-std-incl use-custom="true">false</no-std-incl>
+<component use-custom="false"/>
+<component-file use-custom="false"/>
+<include-last-build use-custom="true">false</include-last-build>
+<include-env-default-paths use-custom="true">false</include-env-default-paths>
+<environment_variables use-custom="true" use-default="true"/>
+</target>
+</custom>
+<client-data>
+<data key="MakeOptionsView.expansionState">true</data>
+</client-data>
 </buildTargets>

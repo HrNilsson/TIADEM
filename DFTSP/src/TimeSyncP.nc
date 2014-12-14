@@ -23,6 +23,10 @@
  */
 #include "TimeSyncMsg.h"
 
+#ifdef DEBUG_WITH_PRINTF
+	#include "printf.h"
+#endif //DEBUG_WITH_PRINTF	
+
 generic module TimeSyncP(typedef precision_tag)
 {
     provides
@@ -55,7 +59,7 @@ implementation
         MAX_CHILDREN		  = 5,				// Maximum number of children
         MAX_BEACON_INTERVAL   = 180,  			// Maximum time between sending the beacon msg (in seconds)
         MIN_BEACON_INTERVAL   = 10,  			// Minimum time between sending the beacon msg (in seconds)
-        OFFSET_ERROR_BOUND	  = 620,				// Average offset error bound (in milliseconds) - 62ms ~ 2 ticks.
+        OFFSET_ERROR_BOUND	  = 62,				// Average offset error bound (in milliseconds) - 62ms ~ 2 ticks.
         ROOT_TIMEOUT          = 5,              //time to declare itself the root if no msg was received (in sync periods)
         IGNORE_ROOT_MSG       = 4,              // after becoming the root ignore other roots messages (in send period)
         ENTRY_VALID_LIMIT     = 4,              // number of entries to become synchronized
@@ -88,6 +92,7 @@ implementation
     typedef struct ChildItem {
     	uint16_t nodeId;
     	float oldSkew;
+    	uint32_t oldTime;
     	float drift;
     } ChildItem;
 
@@ -151,6 +156,33 @@ implementation
         *time = approxLocalTime - (int32_t)(skew * (int32_t)(approxLocalTime - localAverage));
         return is_synced();
     }
+    
+#ifndef DEBUG_WITH_PRINTF
+	void printf(const char *format, ...) {}
+	void printfflush(){}
+#endif //DEBUG_WITH_PRINTF	
+    
+    void printfFloat(float toBePrinted) {
+     uint32_t fi, f0, f1, f2;
+     char c;
+     float f = toBePrinted;
+
+     if (f<0){
+       c = '-'; f = -f;
+     } else {
+       c = ' ';
+     }
+
+     // integer portion.
+     fi = (uint32_t) f;
+
+     // decimal portion...get index for up to 3 decimal places.
+     f = f - ((float) fi);
+     f0 = f*10;   f0 %= 10;
+     f1 = f*100;  f1 %= 10;
+     f2 = f*1000; f2 %= 10;
+     printf("%c%ld.%d%d%d", c, fi, (uint8_t) f0, (uint8_t) f1, (uint8_t) f2);
+   }
     
     union f_and_u {
 	  uint32_t u;
@@ -229,7 +261,10 @@ implementation
     void updateBeaconPeriod(float maxDrift)
     {
     	float error = 0, tau = MIN_BEACON_INTERVAL;
-    	float c = 0.1;
+    	float c = 10;
+    	printf("MaxDrift: ");
+    	printfFloat(maxDrift);
+    	printf("\n\r");
     	if(maxDrift != 0)
     	{
     		while(error < OFFSET_ERROR_BOUND)
@@ -244,6 +279,7 @@ implementation
 				tau = MAX_BEACON_INTERVAL;
 				
 			atomic beaconPeriod = (unsigned char)(tau);
+			printf("beacon period: %u\n\r", beaconPeriod);
     	}
     }
     
@@ -266,29 +302,59 @@ implementation
 		{
 			if(childTable[i].nodeId == msg->nodeID)
 			{
-				float drift = 0;
+				float skewChange = 0, drift = 0;
+				int32_t timeSinceLastSkew = 0;
 				childExist = 1;
 				
-				drift = u2f(msg->skew) - childTable[i].oldSkew;				
-				if(drift < 0)
+				printf("Msg skew: ");
+				printfFloat(u2f(msg->skew));
+				printf("\n\r");
+				
+				printf("Old skew: ");
+				printfFloat(childTable[i].oldSkew);
+				printf("\n\r");
+				
+				skewChange = u2f(msg->skew) - childTable[i].oldSkew;				
+				if(skewChange < 0)
 				{
-					drift = -drift;
+					skewChange = -skewChange; // unit is [ms/s]
 				}
+				printf("Skew change: ");
+				printfFloat(skewChange);
+				printf("\n\r");
+    			printf("Msg time: %ld\n\r",msg->localTime);
+    			printf("Table time: %ld\n\r",childTable[i].oldTime);
+    			
+				timeSinceLastSkew = (msg->localTime - childTable[i].oldTime); // unit is [ms]
+				printf("Time since last: %ld s\n\r", timeSinceLastSkew);
+				
+				if(timeSinceLastSkew != 0) {
+					drift = (skewChange*1000)/timeSinceLastSkew;	// unit is [ms/s²]
+				} else if((timeSinceLastSkew > 0 && timeSinceLastSkew > (uint32_t)MAX_BEACON_INTERVAL*1000*2) || 
+						(timeSinceLastSkew < 0 && -timeSinceLastSkew < (uint32_t)MAX_BEACON_INTERVAL*1000*2)) {
+					printf("Unvalid timestamp\n\r");
+					break;	
+				} 
+				printf("Drift: ");
+				printfFloat(drift);
+				printf("\n\r");
 				childTable[i].drift = drift;
 				childTable[i].oldSkew = u2f(msg->skew);
+				childTable[i].oldTime = msg->localTime;
 			}
 			
 			if(childTable[i].drift > maxDrift)
 				maxDrift = childTable[i].drift;
 		}
-		
 		// Create new entry
 		if(childExist == 0)
 		{
-			if(childEntries < MAX_BEACON_INTERVAL)
+			printf("Child did not exist.\n\r");
+			if(childEntries < MAX_CHILDREN)
 			{
 				childTable[childEntries].nodeId = msg->nodeID;
 				childTable[childEntries].oldSkew = u2f(msg->skew);
+				childTable[childEntries].oldTime = msg->localTime;
 				childEntries++;
 			}
 		} else {
@@ -364,6 +430,7 @@ implementation
 
 		if( msg->hop <= outgoingMsg->hop){
 			//This is a parent broadcast
+			printf("Parent broadcast. Hop: %u vs own %u\n\r",msg->hop, outgoingMsg->hop);
 	        if( msg->rootID < outgoingMsg->rootID &&
 	            // jw: after becoming the root ignore other roots messages (in send period)
 	            ~(heartBeats < IGNORE_ROOT_MSG && outgoingMsg->rootID == TOS_NODE_ID) ){
@@ -371,7 +438,7 @@ implementation
 	            outgoingMsg->seqNum = msg->seqNum;
 	            outgoingMsg->hop = ++(msg->hop);
 	        }
-	        else if( outgoingMsg->rootID == msg->rootID && (int8_t)(msg->seqNum - outgoingMsg->seqNum) > 0 ) {
+	        else if( outgoingMsg->rootID == msg->rootID && (int8_t)(msg->seqNum - outgoingMsg->seqNum) >= 0 ) {
 	            outgoingMsg->seqNum = msg->seqNum;
 	            outgoingMsg->hop = ++(msg->hop);
 	        }
@@ -389,9 +456,14 @@ implementation
 	        signal TimeSyncNotify.msg_received();
         } else if(msg->hop > outgoingMsg->hop) {
         	// This is a child broadcast
+        	//printf("Child broadcast\n\r");
+        	printf("Child broadcast. Hop: %u vs own %u\n\r",msg->hop, outgoingMsg->hop);
         	handleNewChildSkew(msg);
         }
+        
     exit:
+    	printf("Done processing message.\n\n\r");
+        printfflush();
         state &= ~STATE_PROCESSING;
     }
 
@@ -400,14 +472,20 @@ implementation
         if( (state & STATE_PROCESSING) == 0 ) {
             message_t* old = processedMsg;
 			
+			//printf("Receive.receive(): state=%u \n\r", state);
+      					
             processedMsg = msg;
             ((TimeSyncMsg*)(payload))->localTime = call TimeSyncPacket.eventTime(msg);
 
+			//printf("Timestamping done \n\r");
+      		printfflush();
             state |= STATE_PROCESSING;
             post processMsg();
             return old;
         }
 		
+		printf("Receive.receive(): state=Processing: %u \n\r", state);
+  		printfflush();
         return msg;
     }
 
@@ -484,6 +562,8 @@ implementation
 
     event void Timer.fired()
     {
+      	printf("Timer.fired()\n\r");
+      	printfflush();
       if (mode == TS_TIMER_MODE) {
         timeSyncMsgSend();
       }
