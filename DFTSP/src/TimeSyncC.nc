@@ -33,7 +33,7 @@ configuration TimeSyncC
   provides interface StdControl;
   provides interface GlobalTime<TMilli>;
 
-  //interfaces for extra funcionality: need not to be wired
+  //interfaces for extra functionality: need not to be wired
   provides interface TimeSyncInfo;
   provides interface TimeSyncMode;
   provides interface TimeSyncNotify;

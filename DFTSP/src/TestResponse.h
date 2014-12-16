@@ -16,7 +16,8 @@ typedef nx_struct SyncReportMsg
 
 enum
 {
-	AM_DTEST_FTSP_MSG = 150
+	AM_DTEST_FTSP_MSG_UP = 150,
+	AM_DTEST_FTSP_MSG_DOWN = 149
 };
 
 #endif

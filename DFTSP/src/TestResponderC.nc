@@ -1,5 +1,6 @@
 
 #include "TestResponse.h"
+#include "printf.h"
 
 module TestResponderC
 {
@@ -33,9 +34,12 @@ implementation
     event message_t* Receive.receive(message_t* msgPtr, void* payload, uint8_t len)
     {
         call Leds.led2Toggle();
+        printf("Received packet\n\r");
         
         if (!locked)
         {
+        	printf("Not locked\n\r");
+        	printfflush();
 			payloadPtr = (SyncReportMsg*)call Packet.getPayload(&msg, sizeof(SyncReportMsg));
 			
 			payloadPtr->nodeID = TOS_NODE_ID;

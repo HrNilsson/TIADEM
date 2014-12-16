@@ -4,6 +4,8 @@
 	#include "printf.h"
 #endif //DEBUG_WITH_PRINTF	
 
+#include "TestResponse.h"
+
 configuration DFTSPAppC{
 }
 implementation {
@@ -12,6 +14,23 @@ implementation {
 	
 	MainC.SoftwareInit -> TimeSyncC;
 	TimeSyncC -> MainC.Boot;
+	
+	// Test Responder 
+	components TestResponderC as App;
+    App.Boot -> MainC;
+
+    components TimeSyncMessageC as ActiveMessageC;
+    App.RadioControl -> ActiveMessageC;
+    App.Receive -> ActiveMessageC.Receive[AM_DTEST_FTSP_MSG_DOWN];
+    App.AMSend -> ActiveMessageC.TimeSyncAMSendMilli[AM_DTEST_FTSP_MSG_UP];
+    App.Packet -> ActiveMessageC;
+
+    components LedsC;
+
+    App.GlobalTime -> TimeSyncC;
+    App.TimeSyncInfo -> TimeSyncC;
+    App.Leds -> LedsC;
+	
 	
 #ifdef DEBUG_WITH_PRINTF
 	// Printf specific

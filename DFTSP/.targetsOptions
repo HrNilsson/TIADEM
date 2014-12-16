@@ -58,7 +58,7 @@
 <target use-custom="false"/>
 <make-extras use-custom="true" use-default="true">
 <extra name="bsl">
-<parameter ask="true" name="ref">/dev/ttyUSB1</parameter>
+<parameter ask="true" name="ref">/dev/ttyUSB2</parameter>
 </extra>
 <extra name="install">
 <parameter ask="false" name="Mote Id">3</parameter>

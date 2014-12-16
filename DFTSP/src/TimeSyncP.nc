@@ -562,7 +562,7 @@ implementation
 
     event void Timer.fired()
     {
-      	printf("Timer.fired()\n\r");
+      	printf("Timer.fired(): State = %u\n\r",state);
       	printfflush();
       if (mode == TS_TIMER_MODE) {
         timeSyncMsgSend();

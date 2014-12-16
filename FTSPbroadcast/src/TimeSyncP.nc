@@ -28,14 +28,7 @@ generic module TimeSyncP(typedef precision_tag)
 {
     provides
     {
-        interface Init;
         interface StdControl;
-        interface GlobalTime<precision_tag>;
-
-        //interfaces for extra functionality: need not to be wired
-        interface TimeSyncInfo;
-        interface TimeSyncMode;
-        interface TimeSyncNotify;
     }
     uses
     {
@@ -46,7 +39,6 @@ generic module TimeSyncP(typedef precision_tag)
         interface Timer<TMilli>;
         interface Leds;
         interface TimeSyncPacket<precision_tag,uint32_t>;
-        interface LocalTime<precision_tag> as LocalTime;
         interface SplitControl as SerialControl;
         interface Receive as PCReceive;
         interface AMSend as PCTransmit;
@@ -55,262 +47,24 @@ generic module TimeSyncP(typedef precision_tag)
 }
 implementation
 {
-#ifndef TIMESYNC_RATE
-#define TIMESYNC_RATE   10
-#endif
 
     enum {
-        MAX_ENTRIES           = 8,              // number of entries in the table
-        BEACON_RATE           = TIMESYNC_RATE,  // how often send the beacon msg (in seconds)
-        ROOT_TIMEOUT          = 5,              //time to declare itself the root if no msg was received (in sync periods)
-        IGNORE_ROOT_MSG       = 4,              // after becoming the root ignore other roots messages (in send period)
-        ENTRY_VALID_LIMIT     = 4,              // number of entries to become synchronized
-        ENTRY_SEND_LIMIT      = 3,              // number of entries to send sync messages
-        ENTRY_THROWOUT_LIMIT  = 100,            // if time sync error is bigger than this clear the table
         BROADCAST_RATE 		  = 2,				// 30,
     };
 
-    typedef struct TableItem
-    {
-        uint8_t     state;
-        uint32_t    localTime;
-        int32_t     timeOffset; // globalTime - localTime
-    } TableItem;
-
-    enum {
-        ENTRY_EMPTY = 0,
-        ENTRY_FULL = 1,
-    };
-
-    TableItem   table[MAX_ENTRIES];
-    uint8_t tableEntries;
-
-    enum {
-        STATE_IDLE = 0x00,
-        STATE_PROCESSING = 0x01,
-        STATE_SENDING = 0x02,
-        STATE_INIT = 0x04,
-    };
-
-    uint8_t state, mode;
-
-/*
-    We do linear regression from localTime to timeOffset (globalTime - localTime).
-    This way we can keep the slope close to zero (ideally) and represent it
-    as a float with high precision.
-
-        timeOffset - offsetAverage = skew * (localTime - localAverage)
-        timeOffset = offsetAverage + skew * (localTime - localAverage)
-        globalTime = localTime + offsetAverage + skew * (localTime - localAverage)
-*/
-
-    float       skew;
-    uint32_t    localAverage;
-    int32_t     offsetAverage;
-    uint8_t     numEntries; // the number of full entries in the table
     SyncReportMsg 	toPcBuffer; //buffer used for sending to pc
-    SyncReportMsg* 	toPcPtr; //buffer used for sending to pc
+    SyncReportMsg* 	toPcPtr; //buffer pointer used for sending to pc
 
-    message_t processedMsgBuffer;
-    message_t* processedMsg;
-
-    message_t outgoingMsgBuffer;
     message_t broadcastMsgBuffer;
     message_t toPcMsgBuffer;
-    TimeSyncMsg* outgoingMsg;
 
-    uint8_t heartBeats; // the number of sucessfully sent messages
-                        // since adding a new entry with lower beacon id than ours
-    
- 	message_t packet;
-
-  	bool locked = FALSE;
  	uint16_t counter = 0;
-
-    async command uint32_t GlobalTime.getLocalTime()
-    {
-        return call LocalTime.get();
-    }
-
-    async command error_t GlobalTime.getGlobalTime(uint32_t *time)
-    {
-        *time = call GlobalTime.getLocalTime();
-        return call GlobalTime.local2Global(time);
-    }
-
-    error_t is_synced()
-    {
-      if (numEntries>=ENTRY_VALID_LIMIT || outgoingMsg->rootID==TOS_NODE_ID)
-        return SUCCESS;
-      else
-        return FAIL;
-    }
-
-
-    async command error_t GlobalTime.local2Global(uint32_t *time)
-    {
-        *time += offsetAverage + (int32_t)(skew * (int32_t)(*time - localAverage));
-        return is_synced();
-    }
-
-    async command error_t GlobalTime.global2Local(uint32_t *time)
-    {
-        uint32_t approxLocalTime = *time - offsetAverage;
-        *time = approxLocalTime - (int32_t)(skew * (int32_t)(approxLocalTime - localAverage));
-        return is_synced();
-    }
-
-    void calculateConversion()
-    {
-        float newSkew = skew;
-        uint32_t newLocalAverage;
-        int32_t newOffsetAverage;
-
-        int64_t localSum;
-        int64_t offsetSum;
-
-        int8_t i;
-
-        for(i = 0; i < MAX_ENTRIES && table[i].state != ENTRY_FULL; ++i)
-            ;
-
-        if( i >= MAX_ENTRIES )  // table is empty
-            return;
-/*
-        We use a rough approximation first to avoid time overflow errors. The idea
-        is that all times in the table should be relatively close to each other.
-*/
-        newLocalAverage = table[i].localTime;
-        newOffsetAverage = table[i].timeOffset;
-
-        localSum = 0;
-        offsetSum = 0;
-
-        while( ++i < MAX_ENTRIES )
-            if( table[i].state == ENTRY_FULL ) {
-                localSum += (int32_t)(table[i].localTime - newLocalAverage) / tableEntries;
-                offsetSum += (int32_t)(table[i].timeOffset - newOffsetAverage) / tableEntries;
-            }
-
-        newLocalAverage += localSum;
-        newOffsetAverage += offsetSum;
-
-        localSum = offsetSum = 0;
-        for(i = 0; i < MAX_ENTRIES; ++i)
-            if( table[i].state == ENTRY_FULL ) {
-                int32_t a = table[i].localTime - newLocalAverage;
-                int32_t b = table[i].timeOffset - newOffsetAverage;
-
-                localSum += (int64_t)a * a;
-                offsetSum += (int64_t)a * b;
-            }
-
-        if( localSum != 0 )
-            newSkew = (float)offsetSum / (float)localSum;
-
-        atomic
-        {
-            skew = newSkew;
-            offsetAverage = newOffsetAverage;
-            localAverage = newLocalAverage;
-            numEntries = tableEntries;
-        }
-    }
-
-    void clearTable()
-    {
-        int8_t i;
-        for(i = 0; i < MAX_ENTRIES; ++i)
-            table[i].state = ENTRY_EMPTY;
-
-        atomic numEntries = 0;
-    }
-
-    uint8_t numErrors=0;
-    void addNewEntry(TimeSyncMsg *msg)
-    {
-        int8_t i, freeItem = -1, oldestItem = 0;
-        uint32_t age, oldestTime = 0;
-        int32_t timeError;
-
-        tableEntries = 0;
-
-        // clear table if the received entry's been inconsistent for some time
-        timeError = msg->localTime;
-        call GlobalTime.local2Global((uint32_t*)(&timeError));
-        timeError -= msg->globalTime;
-        if( (is_synced() == SUCCESS) &&
-            (timeError > ENTRY_THROWOUT_LIMIT || timeError < -ENTRY_THROWOUT_LIMIT))
-        {
-            if (++numErrors>3)
-                clearTable();
-        }
-        else
-            numErrors = 0;
-
-
-        for(i = 0; i < MAX_ENTRIES; ++i) {
-            age = msg->localTime - table[i].localTime;
-
-            //logical time error compensation
-            if( age >= 0x7FFFFFFFL )
-                table[i].state = ENTRY_EMPTY;
-
-            if( table[i].state == ENTRY_EMPTY )
-                freeItem = i;
-            else
-                ++tableEntries;
-
-            if( age >= oldestTime ) {
-                oldestTime = age;
-                oldestItem = i;
-            }
-        }
-
-        if( freeItem < 0 )
-            freeItem = oldestItem;
-        else
-            ++tableEntries;
-
-        table[freeItem].state = ENTRY_FULL;
-
-        table[freeItem].localTime = msg->localTime;
-        table[freeItem].timeOffset = msg->globalTime - msg->localTime;
-    }
-
-    void task processMsg()
-    {
-        TimeSyncMsg* msg = (TimeSyncMsg*)(call Send.getPayload(processedMsg, sizeof(TimeSyncMsg)));
-
-        if( msg->rootID < outgoingMsg->rootID &&
-            // jw: after becoming the root ignore other roots messages (in send period)
-            ~(heartBeats < IGNORE_ROOT_MSG && outgoingMsg->rootID == TOS_NODE_ID) ){
-            outgoingMsg->rootID = msg->rootID;
-            outgoingMsg->seqNum = msg->seqNum;
-        }
-        else if( outgoingMsg->rootID == msg->rootID && (int8_t)(msg->seqNum - outgoingMsg->seqNum) > 0 ) {
-            outgoingMsg->seqNum = msg->seqNum;
-        }
-        else
-            goto exit;
-
-        call Leds.led0Toggle();
-        if( outgoingMsg->rootID < TOS_NODE_ID )
-            heartBeats = 0;
-
-        addNewEntry(msg);
-        calculateConversion();
-        signal TimeSyncNotify.msg_received();
-
-    exit:
-        state &= ~STATE_PROCESSING;
-    }
 
     void task sendMsgToPC()
     {
-    	call Leds.led2Toggle();
+    	call Leds.led0Toggle();
     	
-    	atomic toPcPtr = (SyncReportMsg*)call Send.getPayload(&broadcastMsgBuffer, sizeof(SyncReportMsg));
+    	atomic toPcPtr = (SyncReportMsg*)call Send.getPayload(&toPcMsgBuffer, sizeof(SyncReportMsg));
     	toPcPtr->nodeID = toPcBuffer.nodeID;
     	toPcPtr->globalTimeEst = toPcBuffer.globalTimeEst;
     	toPcPtr->syncPeriod = toPcBuffer.syncPeriod;
@@ -318,146 +72,40 @@ implementation
     	toPcPtr->temp = toPcBuffer.temp;
     	toPcPtr->seqNum = toPcBuffer.seqNum;
 
-    	call PCTransmit.send(AM_BROADCAST_ADDR, &broadcastMsgBuffer, sizeof(SyncReportMsg));
+    	call PCTransmit.send(AM_BROADCAST_ADDR, &toPcMsgBuffer, sizeof(SyncReportMsg));
     }
 
     event message_t* Receive.receive(message_t* msg, void* payload, uint8_t len)
     {
-    	memcpy(payload,&toPcBuffer,sizeof(SyncReportMsg));
+    	memcpy(&toPcBuffer,payload,sizeof(SyncReportMsg));
     	post sendMsgToPC();
     	return msg;
     }
 
     task void sendMsg()
     {
-    	uint32_t localTime;
-    	
     	call Leds.led2Toggle();
     	
-    	localTime = call GlobalTime.getLocalTime();
-		call Send.send(AM_BROADCAST_ADDR, &broadcastMsgBuffer, 1, localTime);
-        signal TimeSyncNotify.msg_sent();
-		
-        /*uint32_t localTime, globalTime;
-
-        globalTime = localTime = call GlobalTime.getLocalTime();
-        call GlobalTime.local2Global(&globalTime);
-
-        // we need to periodically update the reference point for the root
-        // to avoid wrapping the 32-bit (localTime - localAverage) value
-        if( outgoingMsg->rootID == TOS_NODE_ID ) {
-            if( (int32_t)(localTime - localAverage) >= 0x20000000 )
-            {
-                atomic
-                {
-                    localAverage = localTime;
-                    offsetAverage = globalTime - localTime;
-                }
-            }
-        }
-        else if( heartBeats >= ROOT_TIMEOUT ) {
-            heartBeats = 0; //to allow ROOT_SWITCH_IGNORE to work
-            outgoingMsg->rootID = TOS_NODE_ID;
-            ++(outgoingMsg->seqNum); // maybe set it to zero?
-        }
-
-        outgoingMsg->globalTime = globalTime;
-
-        // we don't send time sync msg, if we don't have enough data
-        if( numEntries < ENTRY_SEND_LIMIT && outgoingMsg->rootID != TOS_NODE_ID ){
-            ++heartBeats;
-            state &= ~STATE_SENDING;
-        }
-        else if( call Send.send(AM_BROADCAST_ADDR, &outgoingMsgBuffer, TIMESYNCMSG_LEN, localTime ) != SUCCESS ){
-            state &= ~STATE_SENDING;
-            signal TimeSyncNotify.msg_sent();
-        }*/
+		call Send.send(AM_BROADCAST_ADDR, &broadcastMsgBuffer, 1, 0);
     }
 
     event void Send.sendDone(message_t* ptr, error_t error)
     {
-        if (ptr != &outgoingMsgBuffer)
-          return;
-
-        if(error == SUCCESS)
-        {
-            ++heartBeats;
-            call Leds.led1Toggle();
-
-            if( outgoingMsg->rootID == TOS_NODE_ID )
-                ++(outgoingMsg->seqNum);
-        }
-
-        state &= ~STATE_SENDING;
-        signal TimeSyncNotify.msg_sent();
-    }
-
-    void timeSyncMsgSend()
-    {
-        if( outgoingMsg->rootID == 0xFFFF && ++heartBeats >= ROOT_TIMEOUT ) {
-            outgoingMsg->seqNum = 0;
-            outgoingMsg->rootID = TOS_NODE_ID;
-        }
-
-        if( outgoingMsg->rootID != 0xFFFF && (state & STATE_SENDING) == 0 ) {
-           state |= STATE_SENDING;
-           post sendMsg();
-        }
+        
     }
 
     event void Timer.fired()
     {	
-    	// PC serial testing
-    	
-    	//toPcBuffer.seqNum = toPcBuffer.seqNum +1;
-    	///post sendMsgToPC();
-    
     	// Ref broadcaster implementation
     	 post sendMsg();
-    	
-    	// FTSP implementation
-      /*if (mode == TS_TIMER_MODE) {
-        timeSyncMsgSend();
-      }
-      else
-        call Timer.stop();*/
     }
     
-    event message_t* PCReceive.receive(message_t* bufPtr, 
-				   void* payload, uint8_t len) {
-				   	/*
-    if (len != sizeof(test_serial_msg_t)) {return bufPtr;}
-    else {
-      test_serial_msg_t* rcm = (test_serial_msg_t*)payload;
-      if (rcm->counter & 0x1) {
-	call Leds.led0On();
-      }
-      else {
-	call Leds.led0Off();
-      }
-      if (rcm->counter & 0x2) {
-	call Leds.led1On();
-      }
-      else {
-	call Leds.led1Off();
-      }
-      if (rcm->counter & 0x4) {
-	call Leds.led2On();
-      }
-      else {
-	call Leds.led2Off();
-      }
-      return bufPtr;
-    }*/
-    call Leds.set(7);
-    return bufPtr;
-  }
+    event message_t* PCReceive.receive(message_t* bufPtr, void* payload, uint8_t len) {
+    	return bufPtr;
+  	}
 
-  event void PCTransmit.sendDone(message_t* bufPtr, error_t error) {
-    if (&packet == bufPtr) {
-      locked = FALSE;
-    }
-  }
+	event void PCTransmit.sendDone(message_t* bufPtr, error_t error) {
+	}
   
 	event void SerialControl.startDone(error_t error)
 	{
@@ -467,51 +115,6 @@ implementation
 	event void SerialControl.stopDone(error_t error)
 	{
 	}
-
-    command error_t TimeSyncMode.setMode(uint8_t mode_){
-        if (mode == mode_)
-            return SUCCESS;
-
-        if (mode_ == TS_USER_MODE){
-            call Timer.startPeriodic((uint32_t)1000 * BEACON_RATE);
-        }
-        else
-            call Timer.stop();
-
-        mode = mode_;
-        return SUCCESS;
-    }
-
-    command uint8_t TimeSyncMode.getMode(){
-        return mode;
-    }
-
-    command error_t TimeSyncMode.send(){
-        if (mode == TS_USER_MODE){
-            timeSyncMsgSend();
-            return SUCCESS;
-        }
-        return FAIL;
-    }
-
-    command error_t Init.init()
-    {
-        atomic{
-            skew = 0.0;
-            localAverage = 0;
-            offsetAverage = 0;
-        };
-
-        clearTable();
-
-        atomic outgoingMsg = (TimeSyncMsg*)call Send.getPayload(&outgoingMsgBuffer, sizeof(TimeSyncMsg));
-        outgoingMsg->rootID = 0xFFFF;
-
-        processedMsg = &processedMsgBuffer;
-        state = STATE_INIT;
-
-        return SUCCESS;
-    }
 
     event void Boot.booted()
     {
@@ -523,18 +126,7 @@ implementation
 
     command error_t StdControl.start()
     {
-        /*mode = TS_TIMER_MODE;
-        heartBeats = 0;
-        outgoingMsg->nodeID = TOS_NODE_ID; */
-        broadcastMsgBuffer.data[0] = 0xAA;
-        
-        /*toPcBuffer.nodeID = 5;
-        toPcBuffer.globalTimeEst = 1200;
-        toPcBuffer.drift = 30;
-        toPcBuffer.syncPeriod = 20;
-        toPcBuffer.temp = 20;
-        toPcBuffer.seqNum = 0;*/
-        
+        broadcastMsgBuffer.data[0] = 0xAA;        
         
         call Timer.startPeriodic((uint32_t)1000 * BROADCAST_RATE);
 
@@ -546,17 +138,6 @@ implementation
         call Timer.stop();
         return SUCCESS;
     }
-
-    async command float     TimeSyncInfo.getSkew() { return skew; }
-    async command uint32_t  TimeSyncInfo.getOffset() { return offsetAverage; }
-    async command uint32_t  TimeSyncInfo.getSyncPoint() { return localAverage; }
-    async command uint16_t  TimeSyncInfo.getRootID() { return outgoingMsg->rootID; }
-    async command uint8_t   TimeSyncInfo.getSeqNum() { return outgoingMsg->seqNum; }
-    async command uint8_t   TimeSyncInfo.getNumEntries() { return numEntries; }
-    async command uint8_t   TimeSyncInfo.getHeartBeats() { return heartBeats; }
-
-    default event void TimeSyncNotify.msg_received(){}
-    default event void TimeSyncNotify.msg_sent(){}
 
     event void RadioControl.startDone(error_t error){}
     event void RadioControl.stopDone(error_t error){}

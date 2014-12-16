@@ -24,42 +24,27 @@
  */
 
 #include "TimeSyncMsg.h"
+#include "Timer.h"
 #define TIMESYNC_LEDS
 
 configuration TimeSyncC
 {
   uses interface Boot;
-  provides interface Init;
   provides interface StdControl;
-  provides interface GlobalTime<TMilli>;
-
-  //interfaces for extra fcionality: need not to be wired
-  provides interface TimeSyncInfo;
-  provides interface TimeSyncMode;
-  provides interface TimeSyncNotify;
 }
 
 implementation
 {
   components new TimeSyncP(TMilli);
 
-  GlobalTime      =   TimeSyncP;
   StdControl      =   TimeSyncP;
-  Init            =   TimeSyncP;
-  Boot            =   TimeSyncP;
-  TimeSyncInfo    =   TimeSyncP;
-  TimeSyncMode    =   TimeSyncP;
-  TimeSyncNotify  =   TimeSyncP;
-  
+  Boot            =   TimeSyncP;  
 
   components TimeSyncMessageC as ActiveMessageC;
   TimeSyncP.RadioControl    ->  ActiveMessageC;
-  TimeSyncP.Send            ->  ActiveMessageC.TimeSyncAMSendMilli[AM_DTEST_FTSP_MSG];
-  TimeSyncP.Receive         ->  ActiveMessageC.Receive[AM_DTEST_FTSP_MSG];
+  TimeSyncP.Send            ->  ActiveMessageC.TimeSyncAMSendMilli[AM_DTEST_FTSP_MSG_DOWN];
+  TimeSyncP.Receive         ->  ActiveMessageC.Receive[AM_DTEST_FTSP_MSG_UP];
   TimeSyncP.TimeSyncPacket  ->  ActiveMessageC;
-
-  components HilTimerMilliC;
-  TimeSyncP.LocalTime       ->  HilTimerMilliC;
 
   components new TimerMilliC() as TimerC;
   TimeSyncP.Timer ->  TimerC;
@@ -73,7 +58,7 @@ implementation
 
   components SerialActiveMessageC as PCSerial;
   TimeSyncP.SerialControl -> PCSerial;
-  TimeSyncP.PCReceive -> PCSerial.Receive[137];
-  TimeSyncP.PCTransmit -> PCSerial.AMSend[137];
+  TimeSyncP.PCReceive -> PCSerial.Receive[AM_PC_SERIAL];
+  TimeSyncP.PCTransmit -> PCSerial.AMSend[AM_PC_SERIAL];
   TimeSyncP.PCPacket -> PCSerial; 
 }
