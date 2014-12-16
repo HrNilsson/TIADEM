@@ -25,7 +25,7 @@ implementation
 	message_t msg;
     bool locked = FALSE;
     SyncReportMsg* payloadPtr;
-    nx_uint32_t time;
+    uint32_t time;
     uint16_t temp;
 
     event void Boot.booted() {
@@ -49,8 +49,7 @@ implementation
 			
 			payloadPtr->nodeID = TOS_NODE_ID;
 			
-			time = call GlobalTime.getLocalTime();
-			call GlobalTime.local2Global((uint32_t*)&time);
+			call GlobalTime.getGlobalTime(&time);
 			payloadPtr->globalTimeEst = time;
 			payloadPtr->syncPeriod = call TimeSyncInfo.getSyncPeriod();
 			payloadPtr->drift = call TimeSyncInfo.getDrift();

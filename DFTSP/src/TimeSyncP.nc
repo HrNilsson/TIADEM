@@ -60,7 +60,7 @@ implementation
         MAX_BEACON_INTERVAL   = 180,  			// Maximum time between sending the beacon msg (in seconds)
         MIN_BEACON_INTERVAL   = 10,  			// Minimum time between sending the beacon msg (in seconds)
         OFFSET_ERROR_BOUND	  = 62,				// Average offset error bound (in milliseconds) - 62ms ~ 2 ticks.
-        ROOT_TIMEOUT          = 50,              //time to declare itself the root if no msg was received (in sync periods)
+        ROOT_TIMEOUT          = 5,              //time to declare itself the root if no msg was received (in sync periods)
         IGNORE_ROOT_MSG       = 4,              // after becoming the root ignore other roots messages (in send period)
         ENTRY_VALID_LIMIT     = 4,              // number of entries to become synchronized
         ENTRY_SEND_LIMIT      = 3,              // number of entries to send sync messages

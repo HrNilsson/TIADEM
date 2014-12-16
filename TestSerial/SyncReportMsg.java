@@ -33,6 +33,7 @@ public class SyncReportMsg extends Message {
 		str += Float.toString(drift) + " ";
 		str += Float.toString(temp) + " ";
 		str += Long.toString(seqNo) + " ";
+		str += Long.toString(System.currentTimeMillis());
 
 		return str;
 	}
