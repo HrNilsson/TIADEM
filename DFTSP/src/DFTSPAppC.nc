@@ -31,6 +31,8 @@ implementation {
     App.TimeSyncInfo -> TimeSyncC;
     App.Leds -> LedsC;
 	
+	components new SensirionSht11C() as Sensor;
+	App.Read -> Sensor.Temperature;
 	
 #ifdef DEBUG_WITH_PRINTF
 	// Printf specific

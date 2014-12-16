@@ -63,4 +63,8 @@ interface TimeSyncInfo
 	 * Returns the value of heartBeats variable. 
 	 */
 	async command uint8_t getHeartBeats();
+	
+	async command uint8_t getSyncPeriod();
+	
+	async command uint32_t getDrift();
 }

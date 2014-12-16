@@ -15,6 +15,7 @@ module TestResponderC
         //interface PacketTimeStamp<TMilli,uint32_t>;
         interface Boot;
         interface SplitControl as RadioControl;
+        interface Read<uint16_t>;
 	}
 }
 
@@ -25,14 +26,18 @@ implementation
     bool locked = FALSE;
     SyncReportMsg* payloadPtr;
     nx_uint32_t time;
+    uint16_t temp;
 
     event void Boot.booted() {
+    	temp = 0;
+    	call Read.read();
         call RadioControl.start();
         call Leds.led1On();
     }
 
     event message_t* Receive.receive(message_t* msgPtr, void* payload, uint8_t len)
     {
+    	call Read.read();
         call Leds.led2Toggle();
         printf("Received packet\n\r");
         
@@ -47,8 +52,10 @@ implementation
 			time = call GlobalTime.getLocalTime();
 			call GlobalTime.local2Global((uint32_t*)&time);
 			payloadPtr->globalTimeEst = time;
-			
+			payloadPtr->syncPeriod = call TimeSyncInfo.getSyncPeriod();
+			payloadPtr->drift = call TimeSyncInfo.getDrift();
 			payloadPtr->seqNum = call TimeSyncInfo.getSeqNum();
+			payloadPtr->temp = temp;
 			
 
             if (call AMSend.send(AM_BROADCAST_ADDR, &msg, sizeof(SyncReportMsg),0) == SUCCESS) {
@@ -66,4 +73,9 @@ implementation
 
     event void RadioControl.startDone(error_t err) {}
     event void RadioControl.stopDone(error_t error){}	
+
+	event void Read.readDone(error_t result, uint16_t val){
+		if(result == SUCCESS)
+			temp = val;
+	}
 }

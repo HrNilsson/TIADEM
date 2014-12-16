@@ -99,7 +99,7 @@ implementation
     uint8_t state, mode, beaconPeriod;
     ChildItem childTable[MAX_CHILDREN];
     uint8_t childEntries;
-
+	float driftToTest;
 /*
     We do linear regression from localTime to timeOffset (globalTime - localTime).
     This way we can keep the slope close to zero (ideally) and represent it
@@ -296,7 +296,7 @@ implementation
     
     void handleNewChildSkew(TimeSyncMsg *msg) 
     {
-    	uint8_t i, childExist = 0;
+    	uint8_t i, childExist = 0, sign = 1;
     	float maxDrift = 0;
 		for(i = 0; i < childEntries; i++)
 		{
@@ -317,6 +317,7 @@ implementation
 				skewChange = u2f(msg->skew) - childTable[i].oldSkew;				
 				if(skewChange < 0)
 				{
+					sign = 0;
 					skewChange = -skewChange; // unit is [ms/s]
 				}
 				printf("Skew change: ");
@@ -341,6 +342,12 @@ implementation
 				childTable[i].drift = drift;
 				childTable[i].oldSkew = u2f(msg->skew);
 				childTable[i].oldTime = msg->localTime;
+				
+				if(sign == 1)
+					atomic driftToTest = drift;
+				else 
+					atomic driftToTest = -drift;
+				
 			}
 			
 			if(childTable[i].drift > maxDrift)
@@ -607,6 +614,7 @@ implementation
             localAverage = 0;
             offsetAverage = 0;
     		beaconPeriod = MIN_BEACON_INTERVAL;
+    		driftToTest = 0;
         };
 		
 		clearChildTable();
@@ -651,10 +659,15 @@ implementation
     async command uint8_t   TimeSyncInfo.getSeqNum() { return outgoingMsg->seqNum; }
     async command uint8_t   TimeSyncInfo.getNumEntries() { return numEntries; }
     async command uint8_t   TimeSyncInfo.getHeartBeats() { return heartBeats; }
+	async command uint32_t 	TimeSyncInfo.getDrift(){ return f2u(driftToTest);}
+	async command uint8_t 	TimeSyncInfo.getSyncPeriod(){return beaconPeriod;}
 
     default event void TimeSyncNotify.msg_received(){}
     default event void TimeSyncNotify.msg_sent(){}
 
     event void RadioControl.startDone(error_t error){}
     event void RadioControl.stopDone(error_t error){}
+
+	
+	
 }
