@@ -84,10 +84,13 @@ public class TestSerial implements MessageListener {
 
   public void messageReceived(int to, Message message) {
 	  byteBuffer = message.dataGet();
+    
+    SyncReportMsg msg = new SyncReportMsg(byteBuffer);
+
 
     try {
 	  	  
-	  	  String str = Arrays.toString(byteBuffer);
+	  	  String str = msg.getString();//Arrays.toString(byteBuffer);
 
 		  BufferedWriter out = new BufferedWriter(new FileWriter(file,true));
 		  out.append(str);
