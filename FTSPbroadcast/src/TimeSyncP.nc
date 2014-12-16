@@ -67,7 +67,7 @@ implementation
         ENTRY_VALID_LIMIT     = 4,              // number of entries to become synchronized
         ENTRY_SEND_LIMIT      = 3,              // number of entries to send sync messages
         ENTRY_THROWOUT_LIMIT  = 100,            // if time sync error is bigger than this clear the table
-        BROADCAST_RATE 		  = 5,				// 30,
+        BROADCAST_RATE 		  = 2,				// 30,
     };
 
     typedef struct TableItem
@@ -332,7 +332,7 @@ implementation
     {
     	uint32_t localTime;
     	
-    	//call Leds.led2Toggle();
+    	call Leds.led2Toggle();
     	
     	localTime = call GlobalTime.getLocalTime();
 		call Send.send(AM_BROADCAST_ADDR, &broadcastMsgBuffer, 1, localTime);
@@ -409,8 +409,8 @@ implementation
     {	
     	// PC serial testing
     	
-    	/*toPcBuffer.seqNum = toPcBuffer.seqNum +1;
-    	post sendMsgToPC();*/
+    	//toPcBuffer.seqNum = toPcBuffer.seqNum +1;
+    	///post sendMsgToPC();
     
     	// Ref broadcaster implementation
     	 post sendMsg();

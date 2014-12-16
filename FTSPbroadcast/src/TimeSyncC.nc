@@ -54,8 +54,8 @@ implementation
 
   components TimeSyncMessageC as ActiveMessageC;
   TimeSyncP.RadioControl    ->  ActiveMessageC;
-  TimeSyncP.Send            ->  ActiveMessageC.TimeSyncAMSendMilli[AM_TIMESYNCMSG];
-  TimeSyncP.Receive         ->  ActiveMessageC.Receive[AM_TIMESYNCMSG];
+  TimeSyncP.Send            ->  ActiveMessageC.TimeSyncAMSendMilli[AM_DTEST_FTSP_MSG];
+  TimeSyncP.Receive         ->  ActiveMessageC.Receive[AM_DTEST_FTSP_MSG];
   TimeSyncP.TimeSyncPacket  ->  ActiveMessageC;
 
   components HilTimerMilliC;
@@ -73,7 +73,7 @@ implementation
 
   components SerialActiveMessageC as PCSerial;
   TimeSyncP.SerialControl -> PCSerial;
-  TimeSyncP.PCReceive -> PCSerial.Receive[AM_TEST_SERIAL_MSG];
-  TimeSyncP.PCTransmit -> PCSerial.AMSend[AM_TEST_SERIAL_MSG];
+  TimeSyncP.PCReceive -> PCSerial.Receive[137];
+  TimeSyncP.PCTransmit -> PCSerial.AMSend[137];
   TimeSyncP.PCPacket -> PCSerial; 
 }
