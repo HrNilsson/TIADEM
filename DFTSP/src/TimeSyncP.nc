@@ -57,10 +57,10 @@ implementation
     enum {
         MAX_ENTRIES           = 8,              // number of entries in the table
         MAX_CHILDREN		  = 5,				// Maximum number of children
-        MAX_BEACON_INTERVAL   = 180,  			// Maximum time between sending the beacon msg (in seconds)
+        MAX_BEACON_INTERVAL   = 255,  			// Maximum time between sending the beacon msg (in seconds)
         MIN_BEACON_INTERVAL   = 10,  			// Minimum time between sending the beacon msg (in seconds)
-        OFFSET_ERROR_BOUND	  = 62,				// Average offset error bound (in milliseconds) - 62ms ~ 2 ticks.
-        ROOT_TIMEOUT          = 50,             // time to declare itself the root if no msg was received (in sync periods)
+        OFFSET_ERROR_BOUND	  = 2,				// Average offset error bound (in milliseconds) - 62ms ~ 2 ticks.
+        ROOT_TIMEOUT          = 5,             // time to declare itself the root if no msg was received (in sync periods)
         IGNORE_ROOT_MSG       = 4,              // after becoming the root ignore other roots messages (in send period)
         ENTRY_VALID_LIMIT     = 4,              // number of entries to become synchronized
         ENTRY_SEND_LIMIT      = 3,              // number of entries to send sync messages
@@ -287,8 +287,11 @@ implementation
     		while(error < OFFSET_ERROR_BOUND)
     		{
     			tau = tau + c;
-    			error = maxDrift*((tau*tau)/2);
+    			error = maxDrift*1000*((tau*tau)/2);
 			}
+			printf("tau: ");
+			printfFloat(tau);
+			printf("\n\r");
 			
 			if(tau < MIN_BEACON_INTERVAL)
 				tau = MIN_BEACON_INTERVAL;
@@ -692,7 +695,7 @@ implementation
     async command uint8_t   TimeSyncInfo.getSeqNum() { return outgoingMsg->seqNum; }
     async command uint8_t   TimeSyncInfo.getNumEntries() { return numEntries; }
     async command uint8_t   TimeSyncInfo.getHeartBeats() { return heartBeats; }
-	async command uint32_t 	TimeSyncInfo.getDrift(){ return f2u(skew);}
+	async command uint32_t 	TimeSyncInfo.getDrift(){ return f2u(driftToTest);}
 	async command uint8_t 	TimeSyncInfo.getSyncPeriod(){return beaconPeriod;}
 
     default event void TimeSyncNotify.msg_received(){}
