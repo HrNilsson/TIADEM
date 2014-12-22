@@ -39,17 +39,14 @@ implementation
     {
     	call Read.read();
         call Leds.led2Toggle();
-        printf("Received packet\n\r");
         
         if (!locked)
         {
-        	printf("Not locked\n\r");
-        	printfflush();
 			payloadPtr = (SyncReportMsg*)call Packet.getPayload(&msg, sizeof(SyncReportMsg));
 			
 			payloadPtr->nodeID = TOS_NODE_ID;
 			
-			call GlobalTime.getGlobalTime(&time);
+			atomic call GlobalTime.getGlobalTime(&time);
 			payloadPtr->globalTimeEst = time;
 			payloadPtr->syncPeriod = call TimeSyncInfo.getSyncPeriod();
 			payloadPtr->drift = call TimeSyncInfo.getDrift();

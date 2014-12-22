@@ -60,7 +60,7 @@ implementation
         MAX_BEACON_INTERVAL   = 180,  			// Maximum time between sending the beacon msg (in seconds)
         MIN_BEACON_INTERVAL   = 10,  			// Minimum time between sending the beacon msg (in seconds)
         OFFSET_ERROR_BOUND	  = 62,				// Average offset error bound (in milliseconds) - 62ms ~ 2 ticks.
-        ROOT_TIMEOUT          = 5,              //time to declare itself the root if no msg was received (in sync periods)
+        ROOT_TIMEOUT          = 50,             // time to declare itself the root if no msg was received (in sync periods)
         IGNORE_ROOT_MSG       = 4,              // after becoming the root ignore other roots messages (in send period)
         ENTRY_VALID_LIMIT     = 4,              // number of entries to become synchronized
         ENTRY_SEND_LIMIT      = 3,              // number of entries to send sync messages
@@ -249,6 +249,17 @@ implementation
         if( localSum != 0 )
             newSkew = (float)offsetSum / (float)localSum;
 
+		printf("OffsetSum: %lld\n\r",offsetSum);
+		printf("LocalSum: %lld\n\r",localSum);
+		printf("NewSkew:");
+		printfFloat(newSkew);
+		printf(" offset float: ");
+		printfFloat((float)offsetSum);
+		printf(" local float: ");
+		printfFloat((float)localSum);
+		printf("\n\n\r");
+		printfflush();
+		
         atomic
         {
             skew = newSkew;
@@ -256,6 +267,12 @@ implementation
             localAverage = newLocalAverage;
             numEntries = tableEntries;
         }
+        //printf("Skew: ");
+        //printfFloat(skew);
+        //printf("\n\roffsetAverage: %li\n\r",offsetAverage);
+        //printf("localAverage: %lu\n\r",localAverage);
+        //printf("numEntries: %u\n\r",numEntries);
+        printfflush();
     }
 	
     void updateBeaconPeriod(float maxDrift)
@@ -294,8 +311,7 @@ implementation
     	atomic childEntries = 0;
     }
     
-    void handleNewChildSkew(TimeSyncMsg *msg) 
-    {
+    void handleNewChildSkew(TimeSyncMsg *msg) {
     	uint8_t i, childExist = 0, sign = 1;
     	float maxDrift = 0;
 		for(i = 0; i < childEntries; i++)
@@ -390,13 +406,20 @@ implementation
 
         // clear table if the received entry's been inconsistent for some time
         timeError = msg->localTime;
+        printf("Msg local time: %lu\n\r",timeError);
         call GlobalTime.local2Global((uint32_t*)(&timeError));
+        printf("Global time: %lu\n\r",timeError);
         timeError -= msg->globalTime;
+        printf("Time error: %ld\n\r",timeError);
+        printfflush();
         if( (is_synced() == SUCCESS) &&
             (timeError > ENTRY_THROWOUT_LIMIT || timeError < -ENTRY_THROWOUT_LIMIT))
         {
-            if (++numErrors>3)
+        	printf("Eror tooo high\n\r");
+            if (++numErrors>3){
                 clearTable();
+                printf("Clearing table\n\r");
+            }
         }
         else
             numErrors = 0;
@@ -406,8 +429,10 @@ implementation
             age = msg->localTime - table[i].localTime;
 
             //logical time error compensation
-            if( age >= 0x7FFFFFFFL )
+            if( age >= 0x7FFFFFFFL ) {
                 table[i].state = ENTRY_EMPTY;
+            	printf("Entry %d old\n\r",i);   
+            }
 
             if( table[i].state == ENTRY_EMPTY )
                 freeItem = i;
@@ -419,7 +444,8 @@ implementation
                 oldestItem = i;
             }
         }
-
+		printfflush();
+		
         if( freeItem < 0 )
             freeItem = oldestItem;
         else
@@ -429,6 +455,11 @@ implementation
 
         table[freeItem].localTime = msg->localTime;
         table[freeItem].timeOffset = msg->globalTime - msg->localTime;
+        
+        //printf("Global msg time: %lu\n\r",msg->globalTime);
+        //printf("Local msg time: %lu\n\r",msg->localTime);
+        printf("Timeoffset: %li\n\r",table[freeItem].timeOffset);
+        printfflush();
     }
 
     void task processMsg()
@@ -513,6 +544,8 @@ implementation
                     localAverage = localTime;
                     offsetAverage = globalTime - localTime;
                 }
+                printf("Update local times\n\n\r");
+                printfflush();
             }
         }
         else if( heartBeats >= ROOT_TIMEOUT ) {
@@ -659,7 +692,7 @@ implementation
     async command uint8_t   TimeSyncInfo.getSeqNum() { return outgoingMsg->seqNum; }
     async command uint8_t   TimeSyncInfo.getNumEntries() { return numEntries; }
     async command uint8_t   TimeSyncInfo.getHeartBeats() { return heartBeats; }
-	async command uint32_t 	TimeSyncInfo.getDrift(){ return f2u(driftToTest);}
+	async command uint32_t 	TimeSyncInfo.getDrift(){ return f2u(skew);}
 	async command uint8_t 	TimeSyncInfo.getSyncPeriod(){return beaconPeriod;}
 
     default event void TimeSyncNotify.msg_received(){}
