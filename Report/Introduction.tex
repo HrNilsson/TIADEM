@@ -1,0 +1,26 @@
+%!TEX root = Main.tex
+\documentclass[Main]{subfiles}
+
+\begin{document}
+
+\section*{Introduction} % (fold)
+\label{sec:introduction}
+
+	The ability to have an accurate time awareness in wireless sensor networks is an important functionality, as evident in the research published over the past few decades\cite{FTSParticle,dynamicFTSParticle,RBSarticle,TPSNarticle}.
+	\\Time synchronization is important for sensor networks for several reasons.
+	Applications such as localization systems demand accurate time information in order to work properly.
+	Various forms of medium access control (MAC) protocols, like the TDMA\footnote{Time Division Multiple Access}, use timing information to determine when a sensor can access the wireless channel.
+	Lastly time synchronization is also a vital element in duty cycling schemes, which are used to converse power.
+
+	Having the nodes of a network continuously synchronized is further complicated by the phenomenon known as clock drift. 
+	Time is measured in ticks of the local oscillator on the nodes, also referred to as the clock.
+	Since the exact frequency of the clock oscillation differs from node to node, and is influenced by external factors such as temperature, a periodic time synchronization protocol is needed to maintain an accurate global time estimation.
+
+	This report documents a mini-project made in the \emph{Advanced Embedded Sensor Networks} course at Aarhus University, Department of Engineering. 
+	It describes the implementation of the DFTSP (Dynamic Flooding Time Synchronization Protocol), and is based on the work presented in \cite{dynamicFTSParticle}. 
+	The DFTSP extends the well-known FTSP (Flooding Time Synchronization Protocol)\cite{FTSParticle} with a dynamic synchronization period. 
+
+% section introduction (end)
+
+
+\end{document}

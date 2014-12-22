@@ -1,0 +1,882 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ps_",
+				"ps_test"
+			],
+			[
+				"ps",
+				"ps_test"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"To",
+				"Tcoh"
+			],
+			[
+				"DATA",
+				"DATA\\SST_data_subset"
+			],
+			[
+				"suffi",
+				"sufficient"
+			],
+			[
+				"Proba",
+				"Probability"
+			],
+			[
+				"eloq",
+				"eloquent"
+			],
+			[
+				"row",
+				"row-1"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"e",
+				"else"
+			],
+			[
+				"in",
+				"index"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"de",
+				"delList"
+			],
+			[
+				"bf",
+				"bf"
+			],
+			[
+				"sec",
+				"sec	Section"
+			],
+			[
+				"biu",
+				"build"
+			],
+			[
+				"s",
+				"sec	Section"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Main.tex",
+			"settings":
+			{
+				"buffer_size": 1065,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "LevelEstimation.tex",
+			"settings":
+			{
+				"buffer_size": 2674,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"selected_items":
+		[
+			[
+				"git ps",
+				"Git: Push"
+			],
+			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"git ad",
+				"Git: Add..."
+			],
+			[
+				"git q",
+				"Git: Quick Commit"
+			],
+			[
+				"git pu",
+				"Git: Pull"
+			],
+			[
+				"git co",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"git lg",
+				"Git: Log All"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"git cu",
+				"Git: Custom Command"
+			],
+			[
+				"git pul",
+				"Git: Pull Using Rebase"
+			],
+			[
+				"git st",
+				"Git: Status"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git di",
+				"Git: Diff All Files"
+			],
+			[
+				"git s",
+				"Git: Status"
+			],
+			[
+				"git gr",
+				"Git: Graph All"
+			],
+			[
+				"git cus",
+				"Git: Custom Command"
+			],
+			[
+				"git p",
+				"Git: Pull"
+			],
+			[
+				"git c",
+				"Git: Commit"
+			],
+			[
+				"matla",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"git sta",
+				"Git: Status"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"git log",
+				"Git: Log All"
+			],
+			[
+				"git reb",
+				"Git: Pull Using Rebase"
+			],
+			[
+				"git pl",
+				"Git: Pull"
+			],
+			[
+				"git ",
+				"Git: Gitk"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"git diff",
+				"Git: Diff Current File"
+			],
+			[
+				"git stas",
+				"Git: Stash Drop"
+			],
+			[
+				"comma",
+				"Git: Custom Command"
+			],
+			[
+				"reba",
+				"Git: Pull Using Rebase"
+			],
+			[
+				"git lo",
+				"Git: Log All"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"run",
+				"SublimeREPL: Python - RUN current file"
+			],
+			[
+				"pyth",
+				"SublimeREPL: Python"
+			],
+			[
+				"ru",
+				"SublimeREPL: Python - RUN current file"
+			],
+			[
+				"python",
+				"SublimeREPL: Python - RUN current file"
+			],
+			[
+				"pythn",
+				"SublimeREPL: Python"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"git gl",
+				"Git: Graph All"
+			],
+			[
+				"git ph",
+				"Git: Push"
+			],
+			[
+				"git qu",
+				"Git: Quick Commit"
+			],
+			[
+				"diff too",
+				"Git: Diff Tool All"
+			],
+			[
+				"gra",
+				"Git: Graph All"
+			],
+			[
+				"diff",
+				"Git: Diff All Files"
+			],
+			[
+				"sta",
+				"Git: Status"
+			],
+			[
+				"stat",
+				"Git: Status"
+			],
+			[
+				"log",
+				"Git: Log All"
+			],
+			[
+				"pull",
+				"Git: Pull"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"com",
+				"Git: Commit"
+			],
+			[
+				"pus",
+				"Git: Push"
+			],
+			[
+				"commi",
+				"Git: Commit"
+			],
+			[
+				"add",
+				"Git: Add Current File"
+			],
+			[
+				"gitlo",
+				"Git: Log All"
+			],
+			[
+				"git",
+				"Git: Graph All"
+			],
+			[
+				"git l",
+				"Git: Log All"
+			],
+			[
+				"package in",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			],
+			[
+				"comm",
+				"Toggle Comment"
+			],
+			[
+				"Packag",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"togg",
+				"Toggle Comment"
+			],
+			[
+				"blo",
+				"Toggle Block Comment"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Section"
+			],
+			[
+				"late",
+				"LaTeXTools: Reconfigure and migrate settings"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"buil",
+				"Preferences: Key Bindings - Default"
+			]
+		],
+		"width": 386.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"exit",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib2,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Kasper/Documents/GitHub",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI - Copy",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI - Copy/MiniProject",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI - Copy/MiniProject/Report"
+	],
+	"file_history":
+	[
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/Appendix.tex",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/References.bib",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/Background.tex",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/DesignImplementationTestSetup.tex",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/Main.bbl",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TIIPWI1/TIIPWI_share/Mini project/Nøgletal2012_Energistyrelsen.txt",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI - Copy/.git/COMMIT_EDITMSG",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/Main.tex",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/LevelEstimation.tex",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/HEEEELLLPPP",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI - Copy/MiniProject/Report/HEEEELLLPPP.tex",
+		"/C/Users/Kasper/Dropbox/Skole/LaTeX_Kursus/Opgavebesvarelse/filer/opgave9.tex",
+		"/C/Users/Kasper/Dropbox/Skole/LaTeX_Kursus/Opgavebesvarelse/filer/opgave8.tex",
+		"/C/Users/Kasper/Dropbox/Skole/LaTeX_Kursus/Opgaveskabelon/filer/opgave4.tex",
+		"/C/Users/Kasper/Dropbox/Skole/LaTeX_Kursus/Opgaveskabelon/filer/opgave3.tex",
+		"/C/Users/Kasper/Dropbox/Skole/LaTeX_Kursus/Opgaveskabelon/filer/opgave2.tex",
+		"/C/Users/Kasper/Dropbox/Skole/LaTeX_Kursus/Opgaveskabelon/filer/opgave5.tex",
+		"/C/Users/Kasper/Dropbox/Skole/LaTeX_Kursus/Opgaveskabelon/filer/opgave6.tex",
+		"/C/Users/Kasper/Dropbox/Skole/LaTeX_Kursus/Opgaveskabelon/filer/opgave8.tex",
+		"/C/Users/Kasper/Dropbox/Skole/LaTeX_Kursus/Opgaveskabelon/filer/opgave9.tex",
+		"/C/Users/Kasper/Dropbox/Skole/LaTeX_Kursus/Opgaveskabelon/LaTeX _Kursus_20140922.tex",
+		"/C/Users/Kasper/Documents/GitHub/TIADEM/MiniProject/MATLAB/SeaSurfaceTempCS.m",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/MATLAB/20141205_onlinedata.txt",
+		"/C/Users/Kasper/Documents/GitHub/TIADEM/MiniProject/MATLAB/pqfile.txt",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/MATLAB/20140720_onlinedata.txt",
+		"/C/Users/Kasper/AppData/Roaming/Sublime Text 3/Packages/User/DictionaryAutoComplete.sublime-settings",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/Introduction.tex",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/MATLAB/InputData.m",
+		"/C/Users/Kasper/Documents/GitHub/TIADEM/MiniProject/MATLAB/InputData.m",
+		"/C/Users/Kasper/Documents/GitHub/TIADEM/MiniProject/Disposition.txt",
+		"/C/Users/Kasper/AppData/Roaming/Sublime Text 3/Packages/DictionaryAutoComplete/README.md",
+		"/C/Users/Kasper/Documents/GitHub/TIADEM/MiniProject/MATLAB/SensingProbability.m",
+		"/C/Users/Kasper/Documents/GitHub/TIADEM/MiniProject/MATLAB/EvalSparsity.m",
+		"/C/Users/Kasper/Documents/GitHub/TIADEM/MiniProject/Report/Main.tex",
+		"/C/Users/Kasper/Documents/GitHub/TIADEM/MiniProject/Report/Introduction.tex",
+		"/C/Terma/BSv4/MATLAB/fdacoefs2.h",
+		"/C/Terma/BSv4/MATLAB/fdacoefs.h",
+		"/C/Users/Kasper/AppData/Roaming/Sublime Text 3/Packages/DictionaryAutoComplete/DictionaryAutoComplete.sublime-settings",
+		"/C/Users/Kasper/AppData/Roaming/Sublime Text 3/Packages/User/MATLAB.sublime-build",
+		"/C/Users/Kasper/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Kasper/AppData/Roaming/Sublime Text 3/Packages/User/Matlab.sublime-build",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/Modules/OtherMath.tex",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/Preamble.tex",
+		"/C/Users/Kasper/Documents/GitHub/TiNONS/Document/Appendix/PGM_app.tex",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/Modules/FigureSetup.tex",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/.gitignore",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/Main.log",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/20141201_CO2prognose.csv",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/Main.synctex.gz",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/References.tex",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/subfile.tex",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/Experiments.tex",
+		"/C/Users/Kasper/Documents/GitHub/TIIPWI/MiniProject/Report/ConclusionAndFutureWork.tex",
+		"/C/Users/Kasper/Documents/GitHub/Latex/Modules/ChapterStyle.tex",
+		"/C/Users/Kasper/Documents/GitHub/TIWSNE/MiniProject/ImageCompressionSource/ImageCompression/src/doc/nesdoc/telosb/index.html",
+		"/C/Users/Kasper/Documents/GitHub/TIWSNE/MiniProject/ImageCompressionSource/ImageCompression/src/ImageCompressionC.nc",
+		"/C/Users/Kasper/Documents/GitHub/TIWSNE/MiniProject/ImageCompressionSource/ImageCompression/src/ReliableSerialC.nc",
+		"/C/Users/Kasper/Documents/GitHub/TIWSNE/MiniProject/ImageCompressionSource/ImageCompression/src/ImageCompressionAppC.nc",
+		"/C/Users/Kasper/Documents/GitHub/TIWSNE/MiniProject/ImageCompressionSource/ImageCompression/src/ImageCompression.h",
+		"/C/Users/Kasper/Documents/GitHub/TIADEM/MiniProject/MATLAB/DATA/SST_data_subset.mat",
+		"/C/Users/Kasper/Documents/GitHub/TIADEM/MiniProject/MATLAB/SST_data_subset.mat",
+		"/C/Users/Kasper/Documents/GitHub/TIADEM/README.md",
+		"/C/Users/Kasper/Documents/GitHub/Latex/.gitignore",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TIADEM1/MiniProject/Disposition",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TIADEM1/MiniProject/20141129-JPL_OUROCEAN-L4UHfnd-GLOB-v01-fv01_0-G1SST.nc/20141129-JPL_OUROCEAN-L4UHfnd-GLOB-v01-fv01_0-G1SST.nc",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TIIPWI1/Paper Review/10. End-to-End Security for for Sleepy Smart Object/Review/Questions.tex",
+		"/C/Users/Kasper/AppData/Local/Temp/Rar$DIa0.521/20141129-JPL_OUROCEAN-L4UHfnd-GLOB-v01-fv01_0-G1SST.nc",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TIIPWI1/Paper Review/10. End-to-End Security for for Sleepy Smart Object/Review/Review.tex",
+		"/C/Users/Kasper/AppData/Roaming/Sublime Text 3/Packages/User/LaTeXTools.sublime-settings",
+		"/C/Program Files (x86)/GNU/GnuPG/share/gpg4win/README.en.txt",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TIIPWI1/Paper Review/1. Simulation and performance evaluation of DAG construction with RPL/Template1/Review.tex",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TIIPWI1/Paper Review/1. Simulation and performance evaluation of DAG construction with RPL/Template1/Preamble.tex",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TIIPWI1/Paper Review/1. Simulation and performance evaluation of DAG construction with RPL/Template1/Main.tex",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TIIPWI1/Paper Review/1. Simulation and performance evaluation of DAG construction with RPL/Template1/Questions.tex",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/LaTeX/Template1/Preamble.tex",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TIIPWI1/Paper Review/1. Simulation and performance evaluation of DAG construction with RPL/Review/subfile.tex",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TIIPWI1/Paper Review/1. Simulation and performance evaluation of DAG construction with RPL/Review/Main.tex",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TIIPWI1/Paper Review/1. Simulation and performance evaluation of DAG construction with RPL/Review/Preamble.tex",
+		"/C/Users/Kasper/Dropbox/Safty/CD-Key's/Win 8 Pro Key.txt",
+		"/C/Users/Kasper/Dropbox/Safty/CtrlAltDel-Episode - 27-5-2006 - Best... person - (UA).txt",
+		"/C/Users/Kasper/Dropbox/Safty/Sviner til LORTEHOVEDER.txt",
+		"/C/Users/Kasper/Dropbox/Safty/Ramme.txt",
+		"/C/Users/Kasper/Dropbox/Safty/Video kode.txt",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TISTIE1/Assignments/Assignment1/Main.tex",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TISTIE1/Assignments/Assignment1/Preamble.tex",
+		"/C/Users/Kasper/Documents/GitHub/TISOEP/Assignment3/Architecture.tex",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TISTIE1/Assignments/Assignment1/WhyIAmTakingThisCourse.tex",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TISTIE1/Assignments/Assignment1/Headshot.tex",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TISTIE1/Assignments/Assignment1/WhoAmI.tex",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TISTIE1/Assignments/Assignment1/WhoIKnow.tex",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TISTIE1/Assignments/Assignment1/WhatIKnow.tex",
+		"/C/Program Files/MATLAB/R2014b/license.txt",
+		"/C/Users/Kasper/Documents/GitHub/TiNONS/Document/Appendix/GMM_app.tex",
+		"/C/Users/Kasper/Documents/GitHub/Latex/home.tex",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/LaTeX/Template1/subfile.tex",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TIOPTI/TIOPTI Exam/Rene/TISOEP Exam.txt",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TISOE1/Exam/5. Software Architecture",
+		"/C/Users/Kasper/Desktop/Business Model Generation by Osterwalder and Pigneur  2010 [Qwerty80]/Book Description.txt",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TIOPTI/TIOPTI Exam/Rene/TIOPTI Exam.txt",
+		"/C/Users/Kasper/Documents/GitHub/BeerScore/BeerScore.txt",
+		"/C/Program Files/MiKTeX 2.9/tex/latex/base/fontenc.sty",
+		"/C/Users/Kasper/Dropbox/Til Salo/BiologyProject/LaTeX/Modules/TextSetup.tex",
+		"/C/Users/Kasper/Dropbox/Til Salo/BiologyProject/LaTeX/Preamble.tex",
+		"/C/Users/Kasper/Documents/GitHub/TISOEP/Assignment4/Preamble.tex",
+		"/C/Users/Kasper/Documents/GitHub/TISOEP/Assignment4/Main_Assignment4.tex",
+		"/C/Users/Kasper/Dropbox/Til Salo/BiologyProject/LaTeX/main.bbl",
+		"/C/Users/Kasper/Dropbox/Til Salo/BiologyProject/LaTeX/Evolution_of_cardiac_chambers.tex",
+		"/C/Users/Kasper/Dropbox/Til Salo/BiologyProject/LaTeX/Comparison_morphology.tex",
+		"/C/Users/Kasper/Documents/GitHub/TiNONS/Document/Appendix/Appendix_Main.tex",
+		"/C/Users/Kasper/Dropbox/Til Salo/BiologyProject/LaTeX/Evolution of cardiac chambers.tex",
+		"/C/Users/Kasper/Dropbox/Til Salo/BiologyProject/LaTeX/Modules/FigureSetup.tex",
+		"/C/Users/Kasper/Dropbox/Til Salo/BiologyProject/LaTeX/OrganEvo.bib",
+		"/C/Users/Kasper/Documents/GitHub/TISOEP/Modules/FigureSetup.tex",
+		"/C/Users/Kasper/Documents/GitHub/TISOEP/Assignment1/Preamble.tex",
+		"/C/Users/Kasper/Documents/GitHub/TISOEP/Assignment1/Planning.tex",
+		"/C/Users/Kasper/Documents/GitHub/TISOEP/Assignment3/Main_Assignment3.tex",
+		"/C/Users/Kasper/Documents/GitHub/TISOEP/Assignment2/StateChart.tex",
+		"/C/Users/Kasper/Dropbox/Til Salo/BiologyProject/LaTeX/Introduction.tex",
+		"/C/Users/Kasper/Documents/GitHub/TISOEP/Assignment4/UnitTestCase.tex",
+		"/C/Users/Kasper/Documents/GitHub/TISOEP/Assignment1/Main.tex",
+		"/C/Users/Kasper/Dropbox/Til Salo/.dropbox",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TISOE1/Exam/6. Validation and Verification",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TISOE1/Exam/3. Requirements",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TISOE1/Exam/4. Software Quality",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TISOE1/Exam/Exam topics",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TISOE1/Exam/9. Reliability and Fault Tolerance",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TISOE1/Exam/8. Safety Critical Systems",
+		"/C/Users/Kasper/Dropbox/Skole/TI2/TISOE1/Exam/7. Reuse"
+	],
+	"find":
+	{
+		"height": 22.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"	For this project it is elected to use the \n",
+			"\\label{sec:introduction}",
+			"Kjaersgaard",
+			"cite",
+			"Jensen",
+			"jensen",
+			"lst:LoopInvariant",
+			"ctrl+r",
+			"ctrl+d",
+			"ctrl+shitf+p",
+			" \n",
+			"ssessed ",
+			"NETLABtoolbox",
+			"paragraph",
+			"dan",
+			"scheme",
+			"\\input{GaussianClassifier}\n",
+			"\\input{DimensionalityReduction}\n",
+			"Insert",
+			"db",
+			"pdf"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"citep",
+			"subsection"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Main.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1065,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								451,
+								451
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "LevelEstimation.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2674,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2599,
+								2599
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 81.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 30.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.exec":
+	{
+		"height": 179.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 218.0
+	},
+	"project": "TIIPWI_Report.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"con",
+				"TISOEP\\Assignment3\\ConfigurationManagement.tex"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 464.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 254.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
