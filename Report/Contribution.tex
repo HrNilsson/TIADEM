@@ -42,7 +42,7 @@
 					\label{fig:nesdoc_time_sync_c}
 				\end{figure}
 
-				In DFTSP the parent node must receive broadcast from their children in order to calculate their drift and update its time synchronization period.
+				In DFTSP the parent node must receive broadcasts from their children in order to calculate their drift and update its time synchronization period.
 				This have numerous impacts on the protocol.
 
 				\textbf{Time Synchronization Message}
@@ -69,12 +69,12 @@
 				\textbf{Child references}
 
 					The parent must keep reference about its children and their previous skew estimates in order to calculate their drift, since drift is defined as change in skew pr time.
-					In listing \ref{lst:child_table} a type definition for a childItem is shown. 
-					The childItem contains all the needed information that the parent need to know to calculate the drift of the child.
+					In listing \ref{lst:child_table} the type definition for a childItem is shown. 
+					The childItem contains all the needed information that the parent need to calculate the drift of the child.
 					The nodeId is used to differentiate between different children.
 					The oldTime and oldSkew is needed to calculate the drift and the drift is used to iterate through all children and find the child with the maximum drift, and set the time synchronization period accordingly.
 
-					To store multiple children a table of childItems was defined with a constant size. Depending on the application, the table size could vary a lot and should possibly be of dynamic size.
+					To store multiple children a table of childItems is defined with a constant size. Depending on the application, the table size could vary a lot and should possibly be of dynamic size.
 
 					\begin{figure}[H]
 						\begin{lstlisting}[caption=Child table, style=Code-C, label=lst:child_table]
@@ -92,7 +92,7 @@
 			    \newpage
 			    \textbf{Child message handling}	
 
-			    	Since the TimeSyncMsg contains the hop number all received messages are compared with the motes own hop count, and if the hop count is smaller, then the message is assumed to be a child broadcast.
+			    	Since the TimeSyncMsg contains the hop number, all received messages are compared with the motes own hop number, and if the hop number is larger, then the message is assumed to be a child broadcast.
 			    	In listing \ref{lst:child_handling} the handling of incoming child messages is shown.
 			    	If the child exists in the childTable the drift is calculated and the maximum drift for all children is found and used to update the time synchronization period.
 			    	Otherwise the child is added to the table.
@@ -180,7 +180,7 @@ void handleNewChildSkew(TimeSyncMsg *msg) {
 				\textbf{Testing changes}
 
 					In order to test the performance of the DFTSP the TestResponderC module must be able to access both the drift and synchronization period from the motes. 
-					The existing TimeSyncInfo interface have been extended so that both variables is accessible.
+					The existing TimeSyncInfo interface have been extended so that both variables are accessible.
 
 
 			% paragraph timesyncc (end)
@@ -208,7 +208,7 @@ void handleNewChildSkew(TimeSyncMsg *msg) {
 					\begin{lstlisting}[caption=DFTSP Test Data, style=Code-C, label=code:test_data]
 		typedef nx_struct SyncReportMsg
 		{
-			nx_uint16_t	nodeID;			// the node if of the sender
+			nx_uint16_t	nodeID;			// the node id of the sender
 			nx_uint32_t	globalTimeEst;	// the senders estimation of the global time
 			nx_uint8_t  syncPeriod;		// the senders synchronization period
 			nx_uint32_t  drift;			// the senders estimation of its child's drift
@@ -220,15 +220,13 @@ void handleNewChildSkew(TimeSyncMsg *msg) {
 				\end{figure}
 
 				All fields except the $temp$, which holds the temperature of the mote, are provided by the DFTSP module.
-				The temperature is read using the Sensirion SHT11\cite{tempSensorDatasheet} temperature and humidity sensor on the Telosb.
+				The temperature is read using the Sensirion SHT11\cite{tempSensorDatasheet} temperature and humidity sensor on the Telosb motes.
 				The module connection, read invoke and readDone event are shown in listing \ref{code:temp_impl}.
 
 				hvornår læser den tempen?
 
 				\begin{figure}[H]
 					\begin{lstlisting}[caption=Temperature reading implementation, style=Code-C, label=code:temp_impl]
-		typedef nx_struct SyncReportMsg
-		{
 		// Temperature Module Connection
 		components new SensirionSht11C() as Sensor;
 		App.Read -> Sensor.Temperature;
@@ -238,13 +236,13 @@ void handleNewChildSkew(TimeSyncMsg *msg) {
 		{
 	    	call Read.read();
 	    	// Rest of the receive implementation
-
+		}
 
 		// ReadDone event
 		event void Read.readDone(error_t result, uint16_t val)
 		{
 			if(result == SUCCESS)
-			temp = val;
+				temp = val;
 		}
 
 						\end{lstlisting}

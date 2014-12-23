@@ -14,7 +14,7 @@
 		This lead to a root timeout in the child, which meant that the child assumed itself to be the root. 
 		In the FTSP implementation the root timeout was calculated as $5*$TimeSyncPeriod, but the child's TimeSyncPeriod was 10 seconds. This gave a root timeout period on 50 seconds, which is clearly smaller than the time synchronization periods seen in this project.
 
-		An easy way to solve this problem is to introduce a maximum time sync period, and set the root timeout period above the this period.
+		An easy way to solve this problem is to introduce a maximum time sync period, and set the root timeout period above this period.
 
 		Another more flexible solution might be to included the broadcast rate in the broadcast message. 
 		In this way the child will know when to expect the next message.
