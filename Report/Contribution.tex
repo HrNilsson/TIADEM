@@ -343,7 +343,12 @@ void handleNewChildSkew(TimeSyncMsg *msg) {
 				\item Child mote id set to 3
 				\item Synchronization period range limited to 10-255 seconds spaced by 10 seconds
 				\item Broadcast rate set to 2 seconds
+				\item The average error bound is set to 2 ms
 			\end{itemize}
+
+			The tests were performed in two different environments.
+			In the stable environment the temperature of the motes is not actively raised or lowered.
+			In the unstable environment the temperature of the child mote is raised with the blow dryer and lowered by placing the mote outside.
 		
 		% subsubsection test_parameters (end)
 	
@@ -357,7 +362,7 @@ void handleNewChildSkew(TimeSyncMsg *msg) {
 		\subsubsection{Stable Environment} % (fold)
 		\label{sub:stable_environment}
 			
-			In a stable environment the temperature of the nodes is not actively raised or lowered.
+			
 			Figure \ref{fig:stableSynchronization} shows the results from the test in a stable environment.
 			\\The temperature remains approximately constant whilst the synchronization error remains under the average error bound.
 			The synchronization period is quickly set to the maximum allowed value of 255 seconds. This indicates that the drift calculated by the parent mote has been 0 for the duration of the test.   
@@ -371,7 +376,7 @@ void handleNewChildSkew(TimeSyncMsg *msg) {
 
 			The DFTSP behaves as expected under these good conditions with no drift. 
 			The synchronization error remains below the bound even though the synchronization period is large, since the skew estimate in the child holds.
-			\\ In this case, the DFTSP behaves very similarly to the ordinary FTSP, since there is little need for the dynamic behavior. 
+			\\ In this case, the DFTSP behaves very similarly to the ordinary FTSP, since there is little need for dynamic behavior. 
 
 
 		% subsubsection stable_environment (end)
@@ -379,12 +384,39 @@ void handleNewChildSkew(TimeSyncMsg *msg) {
 		\subsubsection{Unstable Environment} % (fold)
 		\label{sub:unstable_environment}
 			
+			 Figure \ref{fig:unstableSynchronization} shows the results from the test in an unstable environment.
+			 \\The temperature of the child mote is kept constant for the first approximately 400 seconds.
+			 The synchronization error is similar to the stable case, however the synchronization period rises somewhat slower.
+			 This indicates that some drift was present at the beginning of the test, even though the temperature was constant. 
+
+			 A clear correlation between synchronization error and temperature is seen when the temperature is raised.
+			 660 seconds into the test, the synchronization period is drastically reduced, leading to an instantaneous reduction in the error.
+			 This showcases the principle behind adjusting the synchronization period dynamically in order to obtain the average error level.
+
+			 As the temperature stabilizes towards the end of the test, the error is lowered and the synchronization period returns to the maximum value.  
+
 			\begin{figure}[H]
 				\centering
 				\includegraphics[width=\linewidth]{Synchronization.eps}
 				\caption{Unstable Environment Test Results}
 				\label{fig:unstableSynchronization}
 			\end{figure}
+
+			The correlation between temperature change and synchronization error is evident from the skew/temperature plots of figure \ref{fig:SkewunStable}.
+			The temperature changes lead to an increase in the skew.
+			This plot further clarifies the drastic drop in synchronization period at 660 seconds.
+			The synchronization period is dependent on the drift, which is skew change. 
+			Hence the period is lowered when the drift changes drastically, as it does at 660 seconds.
+
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=\linewidth]{SkewUnstable.eps}
+				\caption{Clock Skew and Temperature in Unstable Environment}
+				\label{fig:SkewunStable}
+			\end{figure}
+
+			The results show that the DFTSP algorithm successfully adjust the synchronization period during periods of both high and low clock drift.  
 
 		% subsubsection unstable_environment (end)
 	
