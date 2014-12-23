@@ -6,17 +6,31 @@
 \section{Challenges} % (fold)
 \label{sec:challenges}
 
+	During the implementation multiple challenges where faced. In the following subsections each of these are described.
+
 	\subsection{Root Timeout} % (fold)
 	\label{sub:root_timeout}
-		
+		An issue that initially affected the test results of the DFTSP was that the child had no information about which broadcast rate its parent chooses. 
+		This lead to a root timeout in the child, which meant that the child assumed itself to be the root. 
+		In the FTSP implementation the root timeout was calculated as $5*$TimeSyncPeriod, but the child's TimeSyncPeriod was 10 seconds. This gave a root timeout period on 50 seconds, which is clearly smaller than the time synchronization periods seen in this project.
+
+		An easy way to solve this problem is to introduce a maximum time sync period, and set the root timeout period above the this period.
+
+		Another more flexible solution might be to included the broadcast rate in the broadcast message. 
+		In this way the child will know when to expect the next message.
+		The disadvantage is that it ads an additional transmission time overhead, and requires some additional timer handling on the motes.
 	% subsection root_timeout (end)
 
 	\subsection{TinyOS Build Environment} % (fold)
 	\label{sub:tinyos_build_environment}
-		
-	% subsection tinyos_build_environment (end)
+		The TinyOS development environment used in this project was reused from an earlier project. 
+		As a result of this the environment was not fully updated.
+		It turns out that the FTSP implementation will not run properly when compiled with an outdated gcc compiler.
+		For future reference, using the FTSP or this DFSTP implementation requires a msp430-gcc compiler of version 4.6.3 at least.
 
-	How about in dense networks: Receiving telegrams with same sequence number, from parent(s) is that a problem?
+		To be more specific the older compilers have an error when performing arithmetics with floating point numbers, which leads to calculated skew values on the order of 1, instead of in the order of $10^{-5}$.
+		This will deteriorate the synchronization completely! 
+	% subsection tinyos_build_environment (end)
 
 % section challenges (end)
 

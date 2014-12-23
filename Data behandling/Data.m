@@ -1,5 +1,5 @@
-data = dlmread('2014-12-22 20-13-52.txt'); % Stable measurements
-%data = dlmread('2014-12-22 16-37-55.txt'); % Unstable measurements
+%data = dlmread('2014-12-22 20-13-52.txt'); % Stable measurements
+data = dlmread('2014-12-22 16-37-55.txt'); % Unstable measurements
 %data = dlmread('2014-12-22 15-49-36.txt');
 %data = dlmread('2014-12-22 15-26-48.txt');
 %data = dlmread('2014-12-22 12-42-09.txt');
@@ -39,8 +39,8 @@ end
 pairedData  = pairedData(1:j-1,:);
 
 % Remove unwanted parts:
-%pairedData  = pairedData(11:length(pairedData),:); %Unstable
-pairedData  = pairedData(30:length(pairedData)/2-75,:); %Stable
+pairedData  = pairedData(11:length(pairedData),:); %Unstable
+%pairedData  = pairedData(30:length(pairedData)/2-75,:); %Stable
 
 % Normalize timestamps
 pairedData(:,7) = (pairedData(:,7)-pairedData(1,7))/1000;
@@ -56,14 +56,14 @@ set(get(hAx(2),'Ylabel'),'String','Synchronization error [ms]')
 axes(hAx(1))
 hold on
 plot(pairedData(:,7),pairedData(:,5),'--b');
-xlabel('Time')
+xlabel('Time [s]')
 
 axes(hAx(2))
 hold on
 plot(pairedData(:,7),ones(size(pairedData(:,7)))*2,'--r');
-ylim([-2 3])
-hAx(2).YTick = [-2 -1 0 1 2 3];
-title('Time Synchronization Error')
+%ylim([-2 3])
+%hAx(2).YTick = [-2 -1 0 1 2 3];
+%title('Time Synchronization Error')
 xlabel('Time')
 
 grid minor
@@ -79,7 +79,7 @@ figure(2)
 [hAx2,pBeacon,pError] = plotyy(pairedData(:,7),pairedData(:,3),pairedData(:,7),pairedData(:,5)); 
 
 title('Drift and temperature')
-xlabel('Time')
+xlabel('Time [s]')
 
 ylabel(hAx2(1),'Drift ms / s^2') % left y-axis
 ylabel(hAx2(2),'Temperature [C]') % right y-axis
@@ -95,7 +95,7 @@ figure(3)
 [hAx2,pBeacon,pError] = plotyy(pairedData(:,7),pairedData(:,4),pairedData(:,7),pairedData(:,5)); 
 
 title('Skew and temperature')
-xlabel('Time')
+xlabel('Time [s]')
 
 ylabel(hAx2(1),'Skew [ms / s]') % left y-axis
 ylabel(hAx2(2),'Temperature [C]') % right y-axis

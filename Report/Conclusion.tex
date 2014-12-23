@@ -5,6 +5,20 @@
 
 \section{Conclusion} % (fold)
 \label{sec:conclusion}
+	In this project an implementation of the DFTSP on TelosB motes have been developed. 
+	The implementation have been tested on a small scale test setup with two motes in a temperature stable and unstable environment. 
+	The test results shows the correlation between synchronization error, beacon period, temperature and skew.
+	From the results, it is clear to see that motes exposed to unstable environments need lower synchronization interval to maintain the same synchronization accuracy.
+
+	By using the DFTSP instead of the FTSP a variable synchronization period is introduced, which reduces the overall transmission overhead, since the period can be reduced, when the environment is stable and increased when unstable.
+	In a WSN network this will mean lower power consumption in all motes.
+
+	\subsection{Further work} % (fold)
+	\label{sub:further_work}
+		Large scale test
+
+		
+	% subsection further_work (end)
 
 % section conclusion (end)
 
