@@ -1,6 +1,6 @@
 
 #include "TestResponse.h"
-#include "printf.h"
+//#include "printf.h"
 
 module TestResponderC
 {

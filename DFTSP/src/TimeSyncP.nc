@@ -59,7 +59,7 @@ implementation
         MAX_CHILDREN		  = 5,				// Maximum number of children
         MAX_BEACON_INTERVAL   = 255,  			// Maximum time between sending the beacon msg (in seconds)
         MIN_BEACON_INTERVAL   = 10,  			// Minimum time between sending the beacon msg (in seconds)
-        OFFSET_ERROR_BOUND	  = 2,				// Average offset error bound (in milliseconds) - 62ms ~ 2 ticks.
+        OFFSET_ERROR_BOUND	  = 2,				// Average offset error bound (in milliseconds)
         ROOT_TIMEOUT          = 5,             // time to declare itself the root if no msg was received (in sync periods)
         IGNORE_ROOT_MSG       = 4,              // after becoming the root ignore other roots messages (in send period)
         ENTRY_VALID_LIMIT     = 4,              // number of entries to become synchronized
@@ -350,11 +350,7 @@ implementation
 				
 				if(timeSinceLastSkew != 0) {
 					drift = (skewChange*1000)/timeSinceLastSkew;	// unit is [ms/s²]
-				} else if((timeSinceLastSkew > 0 && timeSinceLastSkew > (uint32_t)MAX_BEACON_INTERVAL*1000*2) || 
-						(timeSinceLastSkew < 0 && -timeSinceLastSkew < (uint32_t)MAX_BEACON_INTERVAL*1000*2)) {
-					printf("Unvalid timestamp\n\r");
-					break;	
-				} 
+				}
 				printf("Drift: ");
 				printfFloat(drift);
 				printf("\n\r");

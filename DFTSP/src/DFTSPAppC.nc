@@ -1,4 +1,4 @@
-#define DEBUG_WITH_PRINTF
+//#define DEBUG_WITH_PRINTF
 
 #ifdef DEBUG_WITH_PRINTF
 	#include "printf.h"
