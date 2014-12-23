@@ -7,14 +7,84 @@
 \label{sec:contribution}
 
 	The contribution from this mini-project consists of an implementation and test of the DFTSP.
-	The implementation builds upon the FTSP implementation already available for TinyOS\cite{FTSPImplementationTinyOS:Online}.
 	\subsection{Implementation} % (fold)
 	\label{sub:implementation}
 
 		\subsubsection{DFTSP Mote} % (fold)
 		\label{sub:dftsp_mote}
-			The DFTSP has been implemented on Crossbow Telosb motes\cite{TelosBDatasheet:Online} running the TinyOS\cite{TinyOS:Online} operating system.
+			The DFTSP has been implemented on Crossbow Telosb motes\cite{TelosBDatasheet:Online} running the TinyOS\cite{TinyOS:Online} operating system. 
+			The DFTSP implementation builds upon the FTSP implementation already available for TinyOS\cite{FTSPImplementationTinyOS:Online}.
+			In Figure \ref{fig:nesdoc_dstfp_app_c} a Nesdoc\cite{Nesdoc:Online} overview of the DFTSP application is shown. 
+			The application consists of two major components, which each will be described in the following subsections.
+			
+			\begin{itemize}
+			 	\item TimeSyncC - Handles the DFTSP
+			 	\item TestResponderC - Handles all test communication
+			\end{itemize}
 
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=\linewidth]{NesdocDFTSPAppC}
+				\caption{DFTSP Application module overview}
+				\label{fig:nesdoc_dstfp_app_c}
+			\end{figure}
+
+			\paragraph{TimeSyncC} % (fold)
+			\label{par:timesyncc}
+				The TimeSyncC component was original part of the FTSP implementation, but has been modified and extended to handle the DFTSP.
+				In Figure \ref{fig:nesdoc_time_sync_c} an overview of the TimeSyncC component is shown.
+				This overview is identical to the FTSP implementation, but the interfaces TimeSyncInfo and TimeSyncMode and the TimeSyncP module have been changed.
+					\includegraphics[width=\linewidth]{NesdocTimeSyncC}
+					\caption{TimeSyncC module overview}
+					\label{fig:nesdoc_time_sync_c}
+				\end{figure}
+
+				In DFTSP 
+
+
+				TODO
+			ChildTable\[MAX\_CHILDREN\]
+			-nodeId
+			-oldSkew
+			-oldTime
+			-drift
+
+			childEntries
+			beaconPeriod
+
+			UpdateBeaconPeriod()
+			handleNewChildSkew()
+
+			hop \& sequence number changes
+
+			Added hop and skew in msg
+			\begin{figure}[H]
+				\begin{lstlisting}[caption=TimeSyncMsg, style=Code-C, label=lst:time_sync_msg]
+			typedef nx_struct TimeSyncMsg
+			{
+				nx_uint16_t	rootID;		// The node id of the synchronization root
+				nx_uint16_t	nodeID;		// The node id of the sender
+				nx_uint8_t	seqNum;		// Sequence number for the root
+				nx_uint32_t skew;			// Skew 
+				nx_uint8_t  hop;			// Hop count from root
+				nx_uint32_t	globalTime;
+				nx_uint32_t localTime;
+			} TimeSyncMsg;
+				\end{lstlisting}
+			\end{figure}
+
+			New timer mode?
+
+
+			TimeSyncInfo, Add drift and syncPeriod - only for testing purposes.
+
+
+			% paragraph timesyncc (end)
+
+			
+
+			
+			
 			\paragraph{Test Responder Module} % (fold)
 			\label{par:test_responder_module}
 				The test responder module has been added to the DFTSP application to enable it to participate in the tests.
@@ -121,7 +191,14 @@
 
 		\subsubsection{Stable Environment} % (fold)
 		\label{sub:stable_environment}
-		
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=\linewidth]{StableSynchronization.eps}
+				\caption{Time Synchronization Error}
+				\label{fig:Synchronization}
+			\end{figure}
+
 		% subsubsection stable_environment (end)
 
 		\subsubsection{Unstable Environment} % (fold)
