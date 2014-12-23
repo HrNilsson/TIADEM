@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <LINK rel="stylesheet" href="nesdoc.css" type="text/css" media="screen"><title>Interface: tos.interfaces.TimeSyncPacket</title>
+  </head>
+  <body>
+    <h2>Interface: tos.interfaces.TimeSyncPacket</h2>
+    <b>interface TimeSyncPacket&lt;typedef precision_tag, typedef size_type&gt;</b><p><p><div id=heading>Commands</div><div id=funcsig><span id=funcnameshort>command size_type <a href="#eventTime">eventTime</a>(message_t *msg)
+      </span><menu>
+ This command should be called by the receiver of a message.
+      </menu>
+    </div><div id=funcsig><span id=funcnameshort>command bool <a href="#isValid">isValid</a>(message_t *msg)
+      </span><menu>
+ Returns TRUE if the value returned by <tt>getTime</tt> can be trusted.
+      </menu>
+    </div><p><div id=heading>Commands - Details</div>
+    <a name="eventTime"></a>
+    <h4>eventTime
+    </h4>
+    <span id=funcnameshort>command size_type <b>eventTime</b>(message_t *msg)
+    </span>
+    <p>
+    <menu>
+      
+ This command should be called by the receiver of a message. The time
+ of the synchronization event is returned as expressed in the local
+ clock of the caller. This command MUST BE called only on the receiver
+ side and only for messages transmitted via the TimeSyncSend interface.
+ It is recommended that this command be called from the receive event
+ handler.
+
+    </menu>
+    <hr>
+    <a name="isValid"></a>
+    <h4>isValid
+    </h4>
+    <span id=funcnameshort>command bool <b>isValid</b>(message_t *msg)
+    </span>
+    <p>
+    <menu>
+      
+ Returns TRUE if the value returned by <tt>getTime</tt> can be trusted.
+ Under certain circumstances the received message cannot be properly
+ time stamped, so the sender-receiver synchronization cannot be finished
+ on the receiver side. In this case, this command returns FALSE.
+ This command MUST BE called only on the receiver side and only for
+ messages transmitted via the TimeSyncSend interface. It is recommended
+ that this command be called from the receive event handler.
+
+    </menu>
+  </body>
+</html>

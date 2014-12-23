@@ -1,0 +1,35 @@
+digraph "tos.chips.cc2420.spi.CC2420SpiWireC" {
+  n0xb6dd67a8 [shape=ellipse, style=filled, label="Fifo", fontsize=12];
+  "CC2420SpiP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.spi.CC2420SpiP.html"];
+  n0xb6ddff00 [shape=ellipse, style=filled, label="ChipSpiResource", fontsize=12];
+  "CC2420SpiP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.spi.CC2420SpiP.html"];
+  n0xb6dd5208 [shape=ellipse, style=filled, label="Ram", fontsize=12];
+  "CC2420SpiP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.spi.CC2420SpiP.html"];
+  n0xb6dd59d0 [shape=ellipse, style=filled, label="Reg", fontsize=12];
+  "CC2420SpiP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.spi.CC2420SpiP.html"];
+  n0xb6ddf7b0 [shape=ellipse, style=filled, label="Resource", fontsize=12];
+  "CC2420SpiP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.spi.CC2420SpiP.html"];
+  n0xb6dd41f8 [shape=ellipse, style=filled, label="Strobe", fontsize=12];
+  "CC2420SpiP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.spi.CC2420SpiP.html"];
+  "CC2420SpiP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.spi.CC2420SpiP.html"];
+  "CC2420SpiWireC.WorkingStateC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="StateC\n(WorkingStateC)", URL="../chtml/tos.system.StateC.html"];
+  "CC2420SpiP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.spi.CC2420SpiP.html"];
+  "CC2420SpiWireC.HplCC2420SpiC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="HplCC2420SpiC", URL="../chtml/tos.platforms.telosa.chips.cc2420.HplCC2420SpiC.html"];
+  "CC2420SpiP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.spi.CC2420SpiP.html"];
+  "CC2420SpiWireC.HplCC2420SpiC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="HplCC2420SpiC", URL="../chtml/tos.platforms.telosa.chips.cc2420.HplCC2420SpiC.html"];
+  "CC2420SpiP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.spi.CC2420SpiP.html"];
+  "CC2420SpiWireC.HplCC2420SpiC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="HplCC2420SpiC", URL="../chtml/tos.platforms.telosa.chips.cc2420.HplCC2420SpiC.html"];
+  "CC2420SpiP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.spi.CC2420SpiP.html"];
+  "LedsC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.system.LedsC.html"];
+  "n0xb6dd67a8" -> "CC2420SpiP" [label="CC2420Fifo[uint8_t]", style=bold, URL="../ihtml/tos.chips.cc2420.interfaces.CC2420Fifo.html", fontsize=10];
+  "n0xb6ddff00" -> "CC2420SpiP" [label="ChipSpiResource", URL="../ihtml/tos.chips.cc2420.interfaces.ChipSpiResource.html", fontsize=10];
+  "n0xb6dd5208" -> "CC2420SpiP" [label="CC2420Ram[uint16_t]", style=bold, URL="../ihtml/tos.chips.cc2420.interfaces.CC2420Ram.html", fontsize=10];
+  "n0xb6dd59d0" -> "CC2420SpiP" [label="CC2420Register[uint8_t]", style=bold, URL="../ihtml/tos.chips.cc2420.interfaces.CC2420Register.html", fontsize=10];
+  "n0xb6ddf7b0" -> "CC2420SpiP" [label="Resource[uint8_t]", style=bold, URL="../ihtml/tos.interfaces.Resource.html", fontsize=10];
+  "n0xb6dd41f8" -> "CC2420SpiP" [label="CC2420Strobe[uint8_t]", style=bold, URL="../ihtml/tos.chips.cc2420.interfaces.CC2420Strobe.html", fontsize=10];
+  "CC2420SpiP" -> "CC2420SpiWireC.WorkingStateC" [label="State", URL="../ihtml/tos.interfaces.State.html", fontsize=10];
+  "CC2420SpiP" -> "CC2420SpiWireC.HplCC2420SpiC" [label="Resource", URL="../ihtml/tos.interfaces.Resource.html", fontsize=10];
+  "CC2420SpiP" -> "CC2420SpiWireC.HplCC2420SpiC" [label="SpiByte", URL="../ihtml/tos.interfaces.SpiByte.html", fontsize=10];
+  "CC2420SpiP" -> "CC2420SpiWireC.HplCC2420SpiC" [label="SpiPacket", URL="../ihtml/tos.interfaces.SpiPacket.html", fontsize=10];
+  "CC2420SpiP" -> "LedsC" [label="Leds", URL="../ihtml/tos.interfaces.Leds.html", fontsize=10];
+}

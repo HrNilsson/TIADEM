@@ -1,0 +1,135 @@
+<?xml version="1.0" ?><interfacedef loc="42:/opt/tinyos-2.1.1/tos/lib/serial/SendBytePacket.nc" nicename="tos.lib.serial.SendBytePacket" qname="SendBytePacket">
+      <documentation loc="23:/opt/tinyos-2.1.1/tos/lib/serial/SendBytePacket.nc">
+        <short>
+ This is an interface that a serial framing protocol provides and a serial
+ dispatcher uses.</short>
+        <long>
+ This is an interface that a serial framing protocol provides and a serial
+ dispatcher uses. The call sequence should be as follows:
+ The dispatcher should call startSend, specifying the first byte to
+ send. The framing protocol can then signal as many nextBytes as it
+ wants/needs, to spool in the bytes. It continues to do so until it receives
+ a sendComplete call, which will almost certainly happen within a nextByte
+ signal (i.e., re-entrant to the framing protocol).
+ This allows the framing protocol to buffer as many bytes as it needs to to meet
+ timing requirements, jitter, etc. 
+
+ @author Philip Levis
+ @author Ben Greenstein
+ @date August 7 2005
+
+</long>
+      </documentation>
+      <function command="" loc="60:/opt/tinyos-2.1.1/tos/lib/serial/SendBytePacket.nc" name="completeSend" provided="0" ref="0xb67f3ec8">
+        <documentation loc="53:/opt/tinyos-2.1.1/tos/lib/serial/SendBytePacket.nc">
+          <short>
+ The dispatcher must indicate when the end-of-packet has been reached and does
+ so by calling completeSend.</short>
+          <long>
+ The dispatcher must indicate when the end-of-packet has been reached and does
+ so by calling completeSend. The function may be called from within the
+ implementation of a nextByte event.
+ @return Returns an error_t code indicating whether the framer accepts
+ this notification (SUCCESS) or not (FAIL).
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.lib.serial.SendBytePacket" qname="SendBytePacket"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="error_t" ref="0xb75ec828"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function event="" loc="70:/opt/tinyos-2.1.1/tos/lib/serial/SendBytePacket.nc" name="nextByte" provided="0" ref="0xb67f14f8">
+        <documentation loc="62:/opt/tinyos-2.1.1/tos/lib/serial/SendBytePacket.nc">
+          <short>
+ Used by the framer to request the next byte to transmit.</short>
+          <long>
+ Used by the framer to request the next byte to transmit. The
+ framer may allocate a buffer to pre-spool some or all of a
+ packet; or it may request and transmit a byte at a time. If there
+ are no more bytes to send, the dispatcher must call completeSend
+ before returning from this function.
+ @return The dispatcher must return the next byte to transmit
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.lib.serial.SendBytePacket" qname="SendBytePacket"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="51:/opt/tinyos-2.1.1/tos/lib/serial/SendBytePacket.nc" name="startSend" provided="0" ref="0xb67f38b8">
+        <documentation loc="43:/opt/tinyos-2.1.1/tos/lib/serial/SendBytePacket.nc">
+          <short>
+ The dispatcher may initiate a serial transmission by calling this function
+ and passing the first byte to be transmitted.</short>
+          <long>
+ The dispatcher may initiate a serial transmission by calling this function
+ and passing the first byte to be transmitted.
+ @param first_byte The first byte to be transmitted.
+ @return Returns an error_t code indicating either that the framer
+ has the resources available to transmit the frame (SUCCESS) or
+ not (EBUSY).
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.lib.serial.SendBytePacket" qname="SendBytePacket"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="error_t" ref="0xb75ec828"/></typename>
+          </type-int>
+          <function-parameters>
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+            </type-int>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="51:/opt/tinyos-2.1.1/tos/lib/serial/SendBytePacket.nc" name="first_byte" ref="0xb67f3760">
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+            </type-int>
+          </variable>
+        </parameters>
+      </function>
+      <function event="" loc="80:/opt/tinyos-2.1.1/tos/lib/serial/SendBytePacket.nc" name="sendCompleted" provided="0" ref="0xb67f1c30">
+        <documentation loc="72:/opt/tinyos-2.1.1/tos/lib/serial/SendBytePacket.nc">
+          <short>
+ The framer signals sendCompleted to indicate that it is done transmitting a
+ packet on the dispatcher's behalf.</short>
+          <long>
+ The framer signals sendCompleted to indicate that it is done transmitting a
+ packet on the dispatcher's behalf. A non-SUCCESS error_t code indicates that
+ there was a problem in transmission.
+ @param error The framer indicates whether it has successfully
+ accepted the entirety of the packet from the dispatcher (SUCCESS)
+ or not (FAIL).
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.lib.serial.SendBytePacket" qname="SendBytePacket"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="error_t" ref="0xb75ec828"/></typename>
+            </type-int>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="80:/opt/tinyos-2.1.1/tos/lib/serial/SendBytePacket.nc" name="error" ref="0xb67f1ad8">
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="error_t" ref="0xb75ec828"/></typename>
+            </type-int>
+          </variable>
+        </parameters>
+      </function>
+    </interfacedef>

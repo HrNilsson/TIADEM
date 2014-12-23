@@ -1,0 +1,135 @@
+<?xml version="1.0" ?><component loc="5:TestResponderC.nc" nicename="TestResponderC" qname="TestResponderC">
+      <module/>
+    <specification><interface loc="16:TestResponderC.nc" name="Boot" provided="0" ref="0xb6839970">
+      <component-ref nicename="TestResponderC" qname="TestResponderC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Boot" ref="0xb6839970" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Boot" qname="Boot"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="booted" ref="0xb6839b48" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="9:TestResponderC.nc" name="GlobalTime" provided="0" ref="0xb6841c60">
+      <component-ref nicename="TestResponderC" qname="TestResponderC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="GlobalTime" ref="0xb6841c60" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="GlobalTime" qname="GlobalTime"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72b5c40"/>
+            <typename><typedef-ref name="TMilli" ref="0xb72b5e08"/></typename>
+          </type-tag>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="getLocalTime" ref="0xb683e2e8" scoped=""/>
+        <function-ref name="global2Local" ref="0xb683eae0" scoped=""/>
+        <function-ref name="getGlobalTime" ref="0xb683e560" scoped=""/>
+        <function-ref name="local2Global" ref="0xb683e820" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="12:TestResponderC.nc" name="AMSend" provided="0" ref="0xb683de58">
+      <component-ref nicename="TestResponderC" qname="TestResponderC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="AMSend" ref="0xb683de58" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.TimeSyncAMSend" qname="TimeSyncAMSend"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72b5c40"/>
+            <typename><typedef-ref name="TMilli" ref="0xb72b5e08"/></typename>
+          </type-tag>
+          <type-int alignment="I:2" cname="unsigned long" size="I:4" unsigned="">
+            <typename><typedef-ref name="uint32_t" ref="0xb77c6af8"/></typename>
+          </type-int>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="send" ref="0xb683c5c0" scoped=""/>
+        <function-ref name="getPayload" ref="0xb683b2a0" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0xb683b048" scoped=""/>
+        <function-ref name="cancel" ref="0xb683ca40" scoped=""/>
+        <function-ref name="sendDone" ref="0xb683cce0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="13:TestResponderC.nc" name="Packet" provided="0" ref="0xb683b5f8">
+      <component-ref nicename="TestResponderC" qname="TestResponderC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Packet" ref="0xb683b5f8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Packet" qname="Packet"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="clear" ref="0xb683b7d0" scoped=""/>
+        <function-ref name="payloadLength" ref="0xb683b8b0" scoped=""/>
+        <function-ref name="getPayload" ref="0xb683b990" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0xb683ba70" scoped=""/>
+        <function-ref name="setPayloadLength" ref="0xb683bb50" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="10:TestResponderC.nc" name="TimeSyncInfo" provided="0" ref="0xb683edb8">
+      <component-ref nicename="TestResponderC" qname="TestResponderC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="TimeSyncInfo" ref="0xb683edb8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="TimeSyncInfo" qname="TimeSyncInfo"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="getSyncPoint" ref="0xb683d010" scoped=""/>
+        <function-ref name="getRootID" ref="0xb683d0f0" scoped=""/>
+        <function-ref name="getSeqNum" ref="0xb683d1d0" scoped=""/>
+        <function-ref name="getOffset" ref="0xb683d2b0" scoped=""/>
+        <function-ref name="getNumEntries" ref="0xb683d390" scoped=""/>
+        <function-ref name="getHeartBeats" ref="0xb683d470" scoped=""/>
+        <function-ref name="getSyncPeriod" ref="0xb683d550" scoped=""/>
+        <function-ref name="getDrift" ref="0xb683d630" scoped=""/>
+        <function-ref name="getSkew" ref="0xb683d710" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="17:TestResponderC.nc" name="RadioControl" provided="0" ref="0xb6839da8">
+      <component-ref nicename="TestResponderC" qname="TestResponderC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="RadioControl" ref="0xb6839da8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.SplitControl" qname="SplitControl"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="startDone" ref="0xb6838010" scoped=""/>
+        <function-ref name="stopDone" ref="0xb68380f0" scoped=""/>
+        <function-ref name="start" ref="0xb68381d0" scoped=""/>
+        <function-ref name="stop" ref="0xb68382b0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="11:TestResponderC.nc" name="Receive" provided="0" ref="0xb683d898">
+      <component-ref nicename="TestResponderC" qname="TestResponderC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Receive" ref="0xb683d898" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Receive" qname="Receive"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="receive" ref="0xb683da70" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="18:TestResponderC.nc" name="Read" provided="0" ref="0xb6838508">
+      <component-ref nicename="TestResponderC" qname="TestResponderC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Read" ref="0xb6838508" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Read" qname="Read"/>
+        <arguments>
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0xb77c66e8"/></typename>
+          </type-int>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="read" ref="0xb6838b30" scoped=""/>
+        <function-ref name="readDone" ref="0xb6838d88" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="14:TestResponderC.nc" name="Leds" provided="0" ref="0xb683bcc0">
+      <component-ref nicename="TestResponderC" qname="TestResponderC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Leds" ref="0xb683bcc0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Leds" qname="Leds"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="led0Off" ref="0xb683be98" scoped=""/>
+        <function-ref name="led0Toggle" ref="0xb6839010" scoped=""/>
+        <function-ref name="led1On" ref="0xb68390f0" scoped=""/>
+        <function-ref name="led1Toggle" ref="0xb68391d0" scoped=""/>
+        <function-ref name="led2Toggle" ref="0xb68392b0" scoped=""/>
+        <function-ref name="get" ref="0xb6839390" scoped=""/>
+        <function-ref name="led1Off" ref="0xb6839470" scoped=""/>
+        <function-ref name="led2Off" ref="0xb68397f0" scoped=""/>
+        <function-ref name="set" ref="0xb6839550" scoped=""/>
+        <function-ref name="led0On" ref="0xb6839630" scoped=""/>
+        <function-ref name="led2On" ref="0xb6839710" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced/></component>

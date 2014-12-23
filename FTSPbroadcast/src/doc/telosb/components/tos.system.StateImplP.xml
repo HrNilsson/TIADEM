@@ -1,0 +1,38 @@
+<?xml version="1.0" ?><component loc="64:/opt/tinyos-2.1.1/tos/system/StateImplP.nc" nicename="tos.system.StateImplP" qname="StateImplP" safe="">
+      <documentation loc="32:/opt/tinyos-2.1.1/tos/types/State.h">
+        <short>
+ </short>
+        <long>
+ @author David Moss
+</long>
+      </documentation>
+      <module/>
+    <specification><interface loc="66:/opt/tinyos-2.1.1/tos/system/StateImplP.nc" name="Init" provided="1" ref="0xb6d82128">
+      <component-ref nicename="tos.system.StateImplP" qname="StateImplP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Init" ref="0xb6d82128" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Init" qname="Init"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="init" ref="0xb6d82300" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="67:/opt/tinyos-2.1.1/tos/system/StateImplP.nc" name="State" provided="1" ref="0xb6d82758">
+      <component-ref nicename="tos.system.StateImplP" qname="StateImplP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="State" ref="0xb6d82758" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.State" qname="State"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="getState" ref="0xb6d82930" scoped=""/>
+        <function-ref name="toIdle" ref="0xb6d82a10" scoped=""/>
+        <function-ref name="isState" ref="0xb6d82af0" scoped=""/>
+        <function-ref name="isIdle" ref="0xb6d82bd0" scoped=""/>
+        <function-ref name="requestState" ref="0xb6d82cb0" scoped=""/>
+        <function-ref name="forceState" ref="0xb6d82d90" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced/></component>

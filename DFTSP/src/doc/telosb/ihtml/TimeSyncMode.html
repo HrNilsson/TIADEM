@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <LINK rel="stylesheet" href="nesdoc.css" type="text/css" media="screen"><title>Interface: TimeSyncMode</title>
+  </head>
+  <body>
+    <h2>Interface: TimeSyncMode</h2>
+    <b>interface TimeSyncMode</b><p>
+ the time sync module can work in two modes:
+            - TS_TIMER_MODE (default): TS msgs sent period. from the timer
+            - TS_USER_MODE: TS msgs sent only when explic. asked by user 
+                            via TimeSyncMode.send() command, TimeSync.Timer 
+                            is stopped in this mode
+
+    <p><p><div id=heading>Commands</div><div id=funcsig><span id=funcnameshort>command uint8_t <a href="#getMode">getMode</a>()
+      </span><menu>
+ Gets the current mode of the TimeSync module.
+      </menu>
+    </div><div id=funcsig><span id=funcnameshort>command error_t <a href="#send">send</a>()
+      </span><menu>
+ command to send out time synchronization message.
+      </menu>
+    </div><div id=funcsig><span id=funcnameshort>command error_t <a href="#setMode">setMode</a>(uint8_t mode)
+      </span><menu>
+ Sets the current mode of the TimeSync module.
+      </menu>
+    </div><p><div id=heading>Commands - Details</div>
+    <a name="getMode"></a>
+    <h4>getMode
+    </h4>
+    <span id=funcnameshort>command uint8_t <b>getMode</b>()
+    </span>
+    <p>
+    <menu>
+      
+ Gets the current mode of the TimeSync module.
+
+    </menu>
+    <hr>
+    <a name="send"></a>
+    <h4>send
+    </h4>
+    <span id=funcnameshort>command error_t <b>send</b>()
+    </span>
+    <p>
+    <menu>
+      
+ command to send out time synchronization message.
+ returns FAIL if TimeSync not in TS_USER_MODE
+
+    </menu>
+    <hr>
+    <a name="setMode"></a>
+    <h4>setMode
+    </h4>
+    <span id=funcnameshort>command error_t <b>setMode</b>(uint8_t mode)
+    </span>
+    <p>
+    <menu>
+      
+ Sets the current mode of the TimeSync module.
+ returns FAIL if didn't succeed
+
+    </menu>
+  </body>
+</html>

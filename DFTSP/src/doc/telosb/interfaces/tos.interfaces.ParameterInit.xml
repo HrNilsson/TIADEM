@@ -1,0 +1,48 @@
+<?xml version="1.0" ?><interfacedef loc="42:/opt/tinyos-2.1.1/tos/interfaces/ParameterInit.nc" nicename="tos.interfaces.ParameterInit" qname="ParameterInit">
+      <documentation loc="23:/opt/tinyos-2.1.1/tos/types/TinyError.h">
+        <short>
+ </short>
+        <long>
+ @author Phil Levis
+ @author David Gay
+ Revision:  $Revision: 1.11 $
+
+ Defines global error codes for error_t in TinyOS.
+</long>
+      </documentation>
+      <parameters>
+        <typedef loc="42:/opt/tinyos-2.1.1/tos/interfaces/ParameterInit.nc" name="parameter" ref="0xb698a580">
+          <interfacedef-ref nicename="tos.interfaces.ParameterInit" qname="ParameterInit"/>
+          <type-var alignment="U:" size="U:"><typedef-ref name="parameter" ref="0xb698a580" scoped=""/></type-var>
+        </typedef>
+      </parameters>
+      <function command="" loc="53:/opt/tinyos-2.1.1/tos/interfaces/ParameterInit.nc" name="init" provided="0" ref="0xb698abd0">
+        <documentation loc="44:/opt/tinyos-2.1.1/tos/interfaces/ParameterInit.nc">
+          <short>
+ Initialize this component.</short>
+          <long>
+ Initialize this component. Initialization should not assume that
+ any component is running: init() cannot call any commands besides
+ those that initialize other components. This command behaves
+ identically to Init.init, except that it takes a parameter.
+
+ @param   param   the initialization parameter
+ @return          SUCCESS if initialized properly, FAIL otherwise.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.interfaces.ParameterInit" qname="ParameterInit"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="error_t" ref="0xb7663828"/></typename>
+          </type-int>
+          <function-parameters>
+            <type-var alignment="U:" size="U:"><typedef-ref name="parameter" ref="0xb698a580" scoped=""/></type-var>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="53:/opt/tinyos-2.1.1/tos/interfaces/ParameterInit.nc" name="param" ref="0xb698aa78">
+            <type-var alignment="U:" size="U:"><typedef-ref name="parameter" ref="0xb698a580" scoped=""/></type-var>
+          </variable>
+        </parameters>
+      </function>
+    </interfacedef>

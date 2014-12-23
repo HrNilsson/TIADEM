@@ -1,0 +1,23 @@
+digraph "tos.system.FcfsArbiterC" {
+  n0xb6c3fdc0 [shape=ellipse, style=filled, label="ResourceRequested", fontsize=12];
+  "FcfsArbiterC.Arbiter" [fontsize=12, shape=box, style=dashed, label="ArbiterP\n(Arbiter)", URL="../chtml/tos.system.ArbiterP.html"];
+  n0xb6c39250 [shape=ellipse, style=filled, label="ResourceDefaultOwner", fontsize=12];
+  "FcfsArbiterC.Arbiter" [fontsize=12, shape=box, style=dashed, label="ArbiterP\n(Arbiter)", URL="../chtml/tos.system.ArbiterP.html"];
+  n0xb6c3f398 [shape=ellipse, style=filled, label="Resource", fontsize=12];
+  "FcfsArbiterC.Arbiter" [fontsize=12, shape=box, style=dashed, label="ArbiterP\n(Arbiter)", URL="../chtml/tos.system.ArbiterP.html"];
+  n0xb6c39958 [shape=ellipse, style=filled, label="ArbiterInfo", fontsize=12];
+  "FcfsArbiterC.Arbiter" [fontsize=12, shape=box, style=dashed, label="ArbiterP\n(Arbiter)", URL="../chtml/tos.system.ArbiterP.html"];
+  "MainC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.system.MainC.html"];
+  "FcfsArbiterC.Queue" [fontsize=12, shape=box, style=dashed, label="FcfsResourceQueueC\n(Queue)", URL="../chtml/tos.system.FcfsResourceQueueC.html"];
+  "FcfsArbiterC.Arbiter" [fontsize=12, shape=box, style=dashed, label="ArbiterP\n(Arbiter)", URL="../chtml/tos.system.ArbiterP.html"];
+  n0xb6c3d120 [shape=ellipse, style=filled, label="ResourceConfigure", fontsize=12];
+  "FcfsArbiterC.Arbiter" [fontsize=12, shape=box, style=dashed, label="ArbiterP\n(Arbiter)", URL="../chtml/tos.system.ArbiterP.html"];
+  "FcfsArbiterC.Queue" [fontsize=12, shape=box, style=dashed, label="FcfsResourceQueueC\n(Queue)", URL="../chtml/tos.system.FcfsResourceQueueC.html"];
+  "n0xb6c3fdc0" -> "FcfsArbiterC.Arbiter" [label="ResourceRequested[uint8_t]", style=bold, URL="../ihtml/tos.interfaces.ResourceRequested.html", fontsize=10];
+  "n0xb6c39250" -> "FcfsArbiterC.Arbiter" [label="ResourceDefaultOwner", URL="../ihtml/tos.interfaces.ResourceDefaultOwner.html", fontsize=10];
+  "n0xb6c3f398" -> "FcfsArbiterC.Arbiter" [label="Resource[uint8_t]", style=bold, URL="../ihtml/tos.interfaces.Resource.html", fontsize=10];
+  "n0xb6c39958" -> "FcfsArbiterC.Arbiter" [label="ArbiterInfo", URL="../ihtml/tos.interfaces.ArbiterInfo.html", fontsize=10];
+  "MainC" -> "FcfsArbiterC.Queue" [label="Init", URL="../ihtml/tos.interfaces.Init.html", fontsize=10];
+  "FcfsArbiterC.Arbiter" -> "n0xb6c3d120" [label="ResourceConfigure[uint8_t]", style=bold, URL="../ihtml/tos.interfaces.ResourceConfigure.html", fontsize=10];
+  "FcfsArbiterC.Arbiter" -> "FcfsArbiterC.Queue" [label="ResourceQueue", URL="../ihtml/tos.interfaces.ResourceQueue.html", fontsize=10];
+}

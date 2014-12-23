@@ -1,0 +1,212 @@
+<?xml version="1.0" ?><interfacedef loc="44:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc" nicename="tos.interfaces.Packet" qname="Packet">
+      <documentation loc="31:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc">
+        <short> 
+ The basic message data type accessors.</short>
+        <long> 
+ The basic message data type accessors. Protocols may use
+ additional packet interfaces for their protocol specific
+ data/metadata.
+
+ @author Philip Levis
+ @date   January 5 2005
+ @see    TEP 116: Packet Protocols
+</long>
+      </documentation>
+      <function command="" loc="54:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc" name="clear" provided="0" ref="0xb71cbc30">
+        <documentation loc="47:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc">
+          <short>
+ Clear out this packet.</short>
+          <long>
+ Clear out this packet.  Note that this is a deep operation and
+ total operation: calling clear() on any layer will completely
+ clear the packet for reuse.
+ @param  'message_t* ONE msg'    the packet to clear
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.interfaces.Packet" qname="Packet"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="54:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc" name="msg" ref="0xb71cbad8">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+        </parameters>
+      </function>
+      <function command="" loc="67:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc" name="payloadLength" provided="0" ref="0xb71c7628">
+        <documentation loc="56:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc">
+          <short>
+ Return the length of the payload of msg.</short>
+          <long>
+ Return the length of the payload of msg. This value may be less
+ than what maxPayloadLength() returns, if the packet is smaller than
+ the MTU. If a communication component does not support variably
+ sized data regions, then payloadLength() will always return
+ the same value as maxPayloadLength(). 
+
+ @param  'message_t* ONE msg'    the packet to examine
+ @return        the length of its current payload
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.interfaces.Packet" qname="Packet"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+          </type-int>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="67:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc" name="msg" ref="0xb71c74d0">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+        </parameters>
+      </function>
+      <function command="" loc="115:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc" name="getPayload" provided="0" ref="0xb71c5648">
+        <documentation loc="98:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc">
+          <short>
+ Return a pointer to a protocol's payload region in a packet.</short>
+          <long>
+ Return a pointer to a protocol's payload region in a packet.
+ If the caller intends to write to the payload region then
+ the &lt;tt&gt;len&lt;/tt&gt; parameter must reflect the maximum required
+ length. If the caller (only) wants to read from the payload
+ region, then &lt;tt&gt;len&lt;/tt&gt; may be set to the value of
+ payloadLength(). If the payload region is smaller than 
+ &lt;tt&gt;len&lt;/tt&gt; this command returns NULL. The offset where
+ the payload region starts within a packet is fixed, i.e. for
+ a given &lt;tt&gt;msg&lt;/tt&gt; this command will always return the same
+ pointer or NULL.
+
+ @param 'message_t* ONE msg'   the packet 
+ @param len   the length of payload required
+ @return 'void* COUNT_NOK(len)'     a pointer to the packet's data payload for this layer
+              or NULL if &lt;tt&gt;len&lt;/tt&gt; is too big
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.interfaces.Packet" qname="Packet"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-pointer alignment="I:2" size="I:2">
+            <type-void alignment="I:1" size="I:1"/>
+          </type-pointer>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+            </type-int>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="115:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc" name="msg" ref="0xb71c52e8">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+          <variable loc="115:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc" name="len" ref="0xb71c54c8">
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+            </type-int>
+          </variable>
+        </parameters>
+      </function>
+      <function command="" loc="95:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc" name="maxPayloadLength" provided="0" ref="0xb71c8ce8">
+        <documentation loc="85:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc">
+          <short>
+ Return the maximum payload length that this communication layer
+ can provide.</short>
+          <long>
+ Return the maximum payload length that this communication layer
+ can provide. Note that, depending on protocol fields, a given
+ request to send a packet may not be able to send the maximum
+ payload length (e.g., if there are variable length
+ fields). Protocols may provide specialized interfaces for these
+ circumstances.
+
+ @return   the maximum size payload allowed by this layer
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.interfaces.Packet" qname="Packet"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="83:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc" name="setPayloadLength" provided="0" ref="0xb71c8350">
+        <documentation loc="69:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc">
+          <short>
+ Set the length field of the packet.</short>
+          <long>
+ Set the length field of the packet. This value is not checked
+ for validity (e.g., if it is larger than the maximum payload
+ size). This command is not used when sending packets, as calls
+ to send include a length parameter. Rather, it is used by
+ components, such as queues, that need to buffer requests to
+ send.  This command allows the component to store the length
+ specified in the request and later recover it when actually
+ sending.
+
+ @param 'message_t* ONE msg'   the packet
+ @param len   the value to set its length field to
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.interfaces.Packet" qname="Packet"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+            </type-int>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="83:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc" name="msg" ref="0xb71c8010">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+          <variable loc="83:/opt/tinyos-2.1.1/tos/interfaces/Packet.nc" name="len" ref="0xb71c81f0">
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+            </type-int>
+          </variable>
+        </parameters>
+      </function>
+    </interfacedef>

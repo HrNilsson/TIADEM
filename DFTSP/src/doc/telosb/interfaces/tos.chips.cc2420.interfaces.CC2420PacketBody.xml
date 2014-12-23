@@ -1,0 +1,76 @@
+<?xml version="1.0" ?><interfacedef loc="37:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420PacketBody.nc" nicename="tos.chips.cc2420.interfaces.CC2420PacketBody" qname="CC2420PacketBody">
+      <documentation loc="32:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420PacketBody.nc">
+        <short>
+ Internal interface for the CC2420 to get portions of a packet.</short>
+        <long>
+ Internal interface for the CC2420 to get portions of a packet.
+ @author David Moss
+</long>
+      </documentation>
+      <function command="" loc="42:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420PacketBody.nc" name="getHeader" provided="0" ref="0xb70fa2c8">
+        <documentation loc="39:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420PacketBody.nc">
+          <short>
+ </short>
+          <long>
+ @return pointer to the cc2420_header_t of the given message
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.CC2420PacketBody" qname="CC2420PacketBody"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-pointer alignment="I:2" size="I:2">
+            <type-tag alignment="I:1" size="I:12"><nx_struct-ref name="cc2420_header_t" ref="0xb729d778"/>
+              <typename><typedef-ref name="cc2420_header_t" ref="0xb729c778"/></typename>
+            </type-tag>
+          </type-pointer>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="42:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420PacketBody.nc" name="msg" ref="0xb70fa130">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+        </parameters>
+      </function>
+      <function command="" loc="47:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420PacketBody.nc" name="getMetadata" provided="0" ref="0xb70fad58">
+        <documentation loc="44:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420PacketBody.nc">
+          <short>
+ </short>
+          <long>
+ @return pointer to the cc2420_metadata_t of the given message
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.CC2420PacketBody" qname="CC2420PacketBody"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-pointer alignment="I:2" size="I:2">
+            <type-tag alignment="I:1" size="I:12"><nx_struct-ref name="cc2420_metadata_t" ref="0xb729ce38"/>
+              <typename><typedef-ref name="cc2420_metadata_t" ref="0xb729ad88"/></typename>
+            </type-tag>
+          </type-pointer>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="47:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420PacketBody.nc" name="msg" ref="0xb70fabc0">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+        </parameters>
+      </function>
+    </interfacedef>

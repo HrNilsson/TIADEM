@@ -1,0 +1,35 @@
+digraph "tos.chips.cc2420.lowpan.CC2420TinyosNetworkC" {
+  n0xb6952090 [shape=ellipse, style=filled, label="Send", fontsize=12];
+  "CC2420TinyosNetworkP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.lowpan.CC2420TinyosNetworkP.html"];
+  n0xb6952b40 [shape=ellipse, style=filled, label="ActiveSend", fontsize=12];
+  "CC2420TinyosNetworkP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.lowpan.CC2420TinyosNetworkP.html"];
+  n0xb6952770 [shape=ellipse, style=filled, label="Receive", fontsize=12];
+  "CC2420TinyosNetworkP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.lowpan.CC2420TinyosNetworkP.html"];
+  n0xb69549a0 [shape=ellipse, style=filled, label="Resource", fontsize=12];
+  "CC2420TinyosNetworkP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.lowpan.CC2420TinyosNetworkP.html"];
+  n0xb6951320 [shape=ellipse, style=filled, label="ActiveReceive", fontsize=12];
+  "CC2420TinyosNetworkP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.lowpan.CC2420TinyosNetworkP.html"];
+  "CC2420TinyosNetworkP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.lowpan.CC2420TinyosNetworkP.html"];
+  n0xb6951af8 [shape=ellipse, style=filled, label="SubSend", fontsize=12];
+  "CC2420TinyosNetworkP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.lowpan.CC2420TinyosNetworkP.html"];
+  n0xb6951748 [shape=ellipse, style=filled, label="SubReceive", fontsize=12];
+  "CC2420TinyosNetworkP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.lowpan.CC2420TinyosNetworkP.html"];
+  "CC2420PacketC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.cc2420.packet.CC2420PacketC.html"];
+  "CC2420TinyosNetworkP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.lowpan.CC2420TinyosNetworkP.html"];
+  "CC2420PacketC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.cc2420.packet.CC2420PacketC.html"];
+  "CC2420TinyosNetworkP" [fontsize=12, shape=box, URL="../chtml/tos.chips.cc2420.lowpan.CC2420TinyosNetworkP.html"];
+  "CC2420TinyosNetworkC.FcfsResourceQueueC" [fontsize=12, shape=box, style=dashed, label="FcfsResourceQueueC", URL="../chtml/tos.system.FcfsResourceQueueC.html"];
+  "MainC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.system.MainC.html"];
+  "CC2420TinyosNetworkC.FcfsResourceQueueC" [fontsize=12, shape=box, style=dashed, label="FcfsResourceQueueC", URL="../chtml/tos.system.FcfsResourceQueueC.html"];
+  "n0xb6952090" -> "CC2420TinyosNetworkP" [label="Send", URL="../ihtml/tos.interfaces.Send.html", fontsize=10];
+  "n0xb6952b40" -> "CC2420TinyosNetworkP" [label="Send", URL="../ihtml/tos.interfaces.Send.html", fontsize=10];
+  "n0xb6952770" -> "CC2420TinyosNetworkP" [label="Receive", URL="../ihtml/tos.interfaces.Receive.html", fontsize=10];
+  "n0xb69549a0" -> "CC2420TinyosNetworkP" [label="Resource[uint8_t]", style=bold, URL="../ihtml/tos.interfaces.Resource.html", fontsize=10];
+  "n0xb6951320" -> "CC2420TinyosNetworkP" [label="Receive", URL="../ihtml/tos.interfaces.Receive.html", fontsize=10];
+  "CC2420TinyosNetworkP" -> "n0xb6951af8" [label="Send", URL="../ihtml/tos.interfaces.Send.html", fontsize=10];
+  "CC2420TinyosNetworkP" -> "n0xb6951748" [label="Receive", URL="../ihtml/tos.interfaces.Receive.html", fontsize=10];
+  "CC2420TinyosNetworkP" -> "CC2420PacketC" [label="CC2420Packet", URL="../ihtml/tos.chips.cc2420.interfaces.CC2420Packet.html", fontsize=10];
+  "CC2420TinyosNetworkP" -> "CC2420PacketC" [label="CC2420PacketBody", URL="../ihtml/tos.chips.cc2420.interfaces.CC2420PacketBody.html", fontsize=10];
+  "CC2420TinyosNetworkP" -> "CC2420TinyosNetworkC.FcfsResourceQueueC" [label="ResourceQueue", URL="../ihtml/tos.interfaces.ResourceQueue.html", fontsize=10];
+  "MainC" -> "CC2420TinyosNetworkC.FcfsResourceQueueC" [label="Init", URL="../ihtml/tos.interfaces.Init.html", fontsize=10];
+}

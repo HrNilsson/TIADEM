@@ -1,0 +1,81 @@
+<?xml version="1.0" ?><interfacedef loc="33:TimeSyncMode.nc" nicename="TimeSyncMode" qname="TimeSyncMode">
+      <documentation loc="25:TimeSyncMode.nc">
+        <short>
+ the time sync module can work in two modes:
+            - TS_TIMER_MODE (default): TS msgs sent period.</short>
+        <long>
+ the time sync module can work in two modes:
+            - TS_TIMER_MODE (default): TS msgs sent period. from the timer
+            - TS_USER_MODE: TS msgs sent only when explic. asked by user 
+                            via TimeSyncMode.send() command, TimeSync.Timer 
+                            is stopped in this mode
+</long>
+      </documentation>
+      <function command="" loc="50:TimeSyncMode.nc" name="send" provided="0" ref="0xb72a9308">
+        <documentation loc="46:TimeSyncMode.nc">
+          <short>
+ command to send out time synchronization message.</short>
+          <long>
+ command to send out time synchronization message.
+ returns FAIL if TimeSync not in TS_USER_MODE
+</long>
+        </documentation>
+        <interfacedef-ref nicename="TimeSyncMode" qname="TimeSyncMode"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="error_t" ref="0xb7663828"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="44:TimeSyncMode.nc" name="getMode" provided="0" ref="0xb72b0ea8">
+        <documentation loc="41:TimeSyncMode.nc">
+          <short>
+ Gets the current mode of the TimeSync module.</short>
+          <long>
+ Gets the current mode of the TimeSync module.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="TimeSyncMode" qname="TimeSyncMode"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="39:TimeSyncMode.nc" name="setMode" provided="0" ref="0xb72b0a30">
+        <documentation loc="35:TimeSyncMode.nc">
+          <short>
+ Sets the current mode of the TimeSync module.</short>
+          <long>
+ Sets the current mode of the TimeSync module.
+ returns FAIL if didn't succeed
+</long>
+        </documentation>
+        <interfacedef-ref nicename="TimeSyncMode" qname="TimeSyncMode"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="error_t" ref="0xb7663828"/></typename>
+          </type-int>
+          <function-parameters>
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+            </type-int>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="39:TimeSyncMode.nc" name="mode" ref="0xb72b08d8">
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+            </type-int>
+          </variable>
+        </parameters>
+      </function>
+    </interfacedef>

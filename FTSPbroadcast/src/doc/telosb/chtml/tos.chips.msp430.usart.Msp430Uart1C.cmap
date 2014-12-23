@@ -1,0 +1,18 @@
+<area shape="rect" id="node2" href="../chtml/tos.chips.msp430.usart.Msp430Usart1C.html" title="Msp430Usart1C\n(UsartC)" alt="" coords="84,120,241,181">
+<area shape="poly" id="edge2" href="../ihtml/tos.interfaces.ResourceRequested.html" title="ResourceRequested" alt="" coords="165,54 165,106 160,106 160,54">
+<area shape="rect" id="edge2" href="../ihtml/tos.interfaces.ResourceRequested.html" title="ResourceRequested" alt="" coords="163,78,288,95">
+<area shape="rect" id="node4" href="../chtml/tos.chips.msp430.usart.Msp430Uart1P.html" title="Msp430Uart1P" alt="" coords="359,248,508,307">
+<area shape="poly" id="edge12" href="../ihtml/tos.interfaces.ResourceConfigure.html" title="ResourceConfigure" alt="" coords="84,166 49,175 22,188 13,196 9,204 9,212 15,222 30,230 58,238 144,252 345,270 345,275 143,257 57,243 28,235 12,226 4,214 3,203 9,193 19,184 47,170 83,161">
+<area shape="rect" id="edge12" href="../ihtml/tos.interfaces.ResourceConfigure.html" title="ResourceConfigure" alt="" coords="13,206,133,223">
+<area shape="poly" id="edge4" href="../ihtml/tos.interfaces.UartByte.html" title="UartByte" alt="" coords="537,174 540,200 533,225 521,241 516,238 528,223 534,199 532,175">
+<area shape="rect" id="edge4" href="../ihtml/tos.interfaces.UartByte.html" title="UartByte" alt="" coords="536,206,593,223">
+<area shape="poly" id="edge14" href="../ihtml/tos.interfaces.Resource.html" title="Resource[uint8_t]" alt="" coords="358,275 301,269 243,260 194,246 175,236 162,226 154,211 152,196 157,195 159,210 166,222 178,232 196,241 244,255 302,264 359,270">
+<area shape="rect" id="edge14" href="../ihtml/tos.interfaces.Resource.html" title="Resource[uint8_t]" alt="" coords="164,206,277,223">
+<area shape="poly" id="edge16" href="../ihtml/tos.chips.msp430.usart.HplMsp430UsartInterrupts.html" title="HplMsp430UsartInterrupts[uint8_t]" alt="" coords="357,253 301,226 276,208 244,190 246,185 279,203 304,222 360,248">
+<area shape="rect" id="edge16" href="../ihtml/tos.chips.msp430.usart.HplMsp430UsartInterrupts.html" title="HplMsp430UsartInterrupts[uint8_t]" alt="" coords="303,206,525,223">
+<area shape="poly" id="edge10" href="../ihtml/tos.chips.msp430.usart.Msp430UartConfigure.html" title="Msp430UartConfigure[uint8_t]" alt="" coords="436,307 436,360 431,360 431,307">
+<area shape="rect" id="edge10" href="../ihtml/tos.chips.msp430.usart.Msp430UartConfigure.html" title="Msp430UartConfigure[uint8_t]" alt="" coords="433,331,627,349">
+<area shape="poly" id="edge6" href="../ihtml/tos.interfaces.UartStream.html" title="UartStream" alt="" coords="662,176 634,202 600,226 562,245 522,259 520,254 560,240 597,222 631,198 659,172">
+<area shape="rect" id="edge6" href="../ihtml/tos.interfaces.UartStream.html" title="UartStream" alt="" coords="623,206,700,223">
+<area shape="poly" id="edge8" href="../ihtml/tos.interfaces.Resource.html" title="Resource" alt="" coords="809,174 761,201 706,227 612,253 522,270 521,264 611,248 704,221 759,197 806,169">
+<area shape="rect" id="edge8" href="../ihtml/tos.interfaces.Resource.html" title="Resource" alt="" coords="747,206,805,223">

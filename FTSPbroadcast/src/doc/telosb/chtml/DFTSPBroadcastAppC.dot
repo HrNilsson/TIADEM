@@ -1,0 +1,5 @@
+digraph "DFTSPBroadcastAppC" {
+  "TimeSyncC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/TimeSyncC.html"];
+  "MainC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.system.MainC.html"];
+  "TimeSyncC" -> "MainC" [label="Boot", URL="../ihtml/tos.interfaces.Boot.html", fontsize=10];
+}

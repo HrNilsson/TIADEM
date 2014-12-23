@@ -1,0 +1,25 @@
+<?xml version="1.0" ?><component loc="35:/opt/tinyos-2.1.1/tos/lib/serial/SerialPacketInfoActiveMessageP.nc" nicename="tos.lib.serial.SerialPacketInfoActiveMessageP" qname="SerialPacketInfoActiveMessageP">
+      <documentation loc="60:/opt/tinyos-2.1.1/tos/lib/serial/Serial.h">
+        <short>
+ </short>
+        <long>
+ @author Phil Buonadonna
+ @author Lewis Girod
+ @author Ben Greenstein
+ @author Philip Levis
+ @date   August 7 2005
+</long>
+      </documentation>
+      <module/>
+    <specification><interface loc="36:/opt/tinyos-2.1.1/tos/lib/serial/SerialPacketInfoActiveMessageP.nc" name="Info" provided="1" ref="0xb6648728">
+      <component-ref nicename="tos.lib.serial.SerialPacketInfoActiveMessageP" qname="SerialPacketInfoActiveMessageP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Info" ref="0xb6648728" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.serial.SerialPacketInfo" qname="SerialPacketInfo"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="upperLength" ref="0xb6648900" scoped=""/>
+        <function-ref name="offset" ref="0xb66489e0" scoped=""/>
+        <function-ref name="dataLinkLength" ref="0xb6648ac0" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced/></component>

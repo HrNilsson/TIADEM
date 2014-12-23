@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <LINK rel="stylesheet" href="nesdoc.css" type="text/css" media="screen"><title>Component: tos.chips.cc2420.lowpan.CC2420TinyosNetworkC</title>
+  </head>
+  <body>
+    <h2>Component: tos.chips.cc2420.lowpan.CC2420TinyosNetworkC
+    </h2>
+    <b>configuration CC2420TinyosNetworkC</b>
+    <p>
+ Original TinyOS T-Frames use a packet header that is not compatible with
+ other 6LowPAN networks.  They do not include the network byte 
+ responsible for identifying the packing as being sourced from a TinyOS
+ network.
+
+ TinyOS I-Frames are interoperability packets that do include a network
+ byte as defined by 6LowPAN specifications.  The I-Frame header type is
+ the default packet header used in TinyOS networks.
+
+ Since either packet header is acceptable, this layer must do some 
+ preprocessing (sorry) to figure out whether or not it needs to include 
+ the functionality to process I-frames.  If I-Frames are used, then
+ the network byte is added on the way out and checked on the way in.
+ If the packet came from a network different from a TinyOS network, the
+ user may access it through the DispatchP's NonTinyosReceive[] Receive 
+ interface and process it in a different radio stack.
+
+ If T-Frames are used instead, this layer is simply pass-through wiring to the
+ layer beneath.  
+
+ Define "CC2420_IFRAME_TYPE" to use the interoperability frame and 
+ this layer
+ 
+ 
+    <p>
+    <dl>
+      <dt><b>Author:</b>
+      <dd>
+        David Moss
+
+      </dd>
+    </dl>
+    <p><p><div id=heading>Provides</div><div id=funcsig>interface <a href="../ihtml/tos.interfaces.Receive.html">Receive</a> as <b>ActiveReceive</b></div><div id=funcsig>interface <a href="../ihtml/tos.interfaces.Send.html">Send</a> as <b>ActiveSend</b></div><div id=funcsig>interface <a href="../ihtml/tos.interfaces.Receive.html">Receive</a></div><div id=funcsig>interface <a href="../ihtml/tos.interfaces.Resource.html">Resource</a>[uint8_t]</div><div id=funcsig>interface <a href="../ihtml/tos.interfaces.Send.html">Send</a></div><p><div id=heading>Uses</div><div id=funcsig>interface <a href="../ihtml/tos.interfaces.Receive.html">Receive</a> as <b>SubReceive</b></div><div id=funcsig>interface <a href="../ihtml/tos.interfaces.Send.html">Send</a> as <b>SubSend</b></div><p><div id=heading>Wiring</div><p>
+    <map name="comp">
+      <area shape="rect" id="node2" href="../chtml/tos.chips.cc2420.lowpan.CC2420TinyosNetworkP.html" title="CC2420TinyosNetworkP" alt="" coords="219,125,429,173">
+
+      <area shape="poly" id="edge2" href="../ihtml/tos.interfaces.Send.html" title="Send" alt="" coords="78,42 98,51 254,117 252,122 96,56 76,47">
+
+      <area shape="rect" id="edge2" href="../ihtml/tos.interfaces.Send.html" title="Send" alt="" coords="191,78,224,95">
+
+      <area shape="poly" id="edge12" href="../ihtml/tos.interfaces.Send.html" title="Send" alt="" coords="264,176 203,205 132,248 129,244 200,200 262,171">
+
+      <area shape="rect" id="edge12" href="../ihtml/tos.interfaces.Send.html" title="Send" alt="" coords="201,203,235,221">
+
+      <area shape="poly" id="edge14" href="../ihtml/tos.interfaces.Receive.html" title="Receive" alt="" coords="275,176 259,188 248,204 242,220 241,237 236,237 237,219 243,201 255,185 271,172">
+
+      <area shape="rect" id="edge14" href="../ihtml/tos.interfaces.Receive.html" title="Receive" alt="" coords="245,203,295,221">
+
+      <area shape="rect" id="node9" href="../chtml/tos.chips.cc2420.packet.CC2420PacketC.html" title="CC2420PacketC" alt="" coords="355,245,509,304">
+
+      <area shape="poly" id="edge16" href="../ihtml/tos.chips.cc2420.interfaces.CC2420Packet.html" title="CC2420Packet" alt="" coords="321,174 320,197 328,220 346,239 342,243 323,223 315,198 316,173">
+
+      <area shape="rect" id="edge16" href="../ihtml/tos.chips.cc2420.interfaces.CC2420Packet.html" title="CC2420Packet" alt="" coords="325,203,419,221">
+
+      <area shape="poly" id="edge18" href="../ihtml/tos.chips.cc2420.interfaces.CC2420PacketBody.html" title="CC2420PacketBody" alt="" coords="387,171 405,184 421,201 433,231 428,233 416,204 402,188 384,176">
+
+      <area shape="rect" id="edge18" href="../ihtml/tos.chips.cc2420.interfaces.CC2420PacketBody.html" title="CC2420PacketBody" alt="" coords="427,203,552,221">
+
+      <area shape="rect" id="node10" href="../chtml/tos.system.FcfsResourceQueueC.html" title="FcfsResourceQueueC" alt="" coords="587,251,776,299">
+
+      <area shape="poly" id="edge20" href="../ihtml/tos.interfaces.ResourceQueue.html" title="ResourceQueue" alt="" coords="430,164 494,179 558,200 599,219 636,241 634,246 597,224 556,205 493,184 429,169">
+
+      <area shape="rect" id="edge20" href="../ihtml/tos.interfaces.ResourceQueue.html" title="ResourceQueue" alt="" coords="596,203,697,221">
+
+      <area shape="poly" id="edge4" href="../ihtml/tos.interfaces.Send.html" title="Send" alt="" coords="207,50 286,114 282,118 204,54">
+
+      <area shape="rect" id="edge4" href="../ihtml/tos.interfaces.Send.html" title="Send" alt="" coords="256,78,289,95">
+
+      <area shape="poly" id="edge6" href="../ihtml/tos.interfaces.Receive.html" title="Receive" alt="" coords="327,54 327,111 321,111 321,54">
+
+      <area shape="rect" id="edge6" href="../ihtml/tos.interfaces.Receive.html" title="Receive" alt="" coords="324,78,373,95">
+
+      <area shape="poly" id="edge8" href="../ihtml/tos.interfaces.Resource.html" title="Resource[uint8_t]" alt="" coords="438,53 364,118 360,114 434,49">
+
+      <area shape="rect" id="edge8" href="../ihtml/tos.interfaces.Resource.html" title="Resource[uint8_t]" alt="" coords="404,78,517,95">
+
+      <area shape="poly" id="edge10" href="../ihtml/tos.interfaces.Receive.html" title="Receive" alt="" coords="599,54 564,77 524,98 444,126 442,121 522,94 561,73 597,50">
+
+      <area shape="rect" id="edge10" href="../ihtml/tos.interfaces.Receive.html" title="Receive" alt="" coords="556,78,605,95">
+
+      <area shape="rect" id="node11" href="../chtml/tos.system.MainC.html" title="MainC" alt="" coords="695,120,777,179">
+
+      <area shape="poly" id="edge22" href="../ihtml/tos.interfaces.Init.html" title="Init" alt="" coords="727,180 709,222 702,239 697,237 704,220 722,178">
+
+      <area shape="rect" id="edge22" href="../ihtml/tos.interfaces.Init.html" title="Init" alt="" coords="713,203,733,221">
+
+    </map>
+    <img src="tos.chips.cc2420.lowpan.CC2420TinyosNetworkC.png" usemap="#comp" id=imgwiring>
+  </body>
+</html>

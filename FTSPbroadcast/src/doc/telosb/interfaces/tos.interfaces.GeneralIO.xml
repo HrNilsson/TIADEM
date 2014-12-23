@@ -1,0 +1,95 @@
+<?xml version="1.0" ?><interfacedef loc="27:/opt/tinyos-2.1.1/tos/interfaces/GeneralIO.nc" nicename="tos.interfaces.GeneralIO" qname="GeneralIO">
+      <documentation loc="23:/opt/tinyos-2.1.1/tos/interfaces/GeneralIO.nc">
+        <short>
+ </short>
+        <long>
+ @author Joe Polastre
+</long>
+      </documentation>
+      <function command="" loc="33:/opt/tinyos-2.1.1/tos/interfaces/GeneralIO.nc" name="makeInput" provided="0" ref="0xb70a67a0">
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="34:/opt/tinyos-2.1.1/tos/interfaces/GeneralIO.nc" name="isInput" provided="0" ref="0xb70a6b88">
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="bool" ref="0xb75f29a0"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="31:/opt/tinyos-2.1.1/tos/interfaces/GeneralIO.nc" name="toggle" provided="0" ref="0xb70a6010">
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="36:/opt/tinyos-2.1.1/tos/interfaces/GeneralIO.nc" name="isOutput" provided="0" ref="0xb70a5408">
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="bool" ref="0xb75f29a0"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="32:/opt/tinyos-2.1.1/tos/interfaces/GeneralIO.nc" name="get" provided="0" ref="0xb70a63d0">
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="bool" ref="0xb75f29a0"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="35:/opt/tinyos-2.1.1/tos/interfaces/GeneralIO.nc" name="makeOutput" provided="0" ref="0xb70a5010">
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="29:/opt/tinyos-2.1.1/tos/interfaces/GeneralIO.nc" name="set" provided="0" ref="0xb70ae840">
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="30:/opt/tinyos-2.1.1/tos/interfaces/GeneralIO.nc" name="clr" provided="0" ref="0xb70aebd0">
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+    </interfacedef>

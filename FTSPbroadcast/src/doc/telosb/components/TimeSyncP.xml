@@ -1,0 +1,194 @@
+<?xml version="1.0" ?><component abstract="" loc="27:TimeSyncP.nc" nicename="TimeSyncP" qname="TimeSyncP">
+      <parameters>
+        <typedef loc="27:TimeSyncP.nc" name="precision_tag" ref="0xb723b660">
+          <component-ref nicename="TimeSyncP" qname="TimeSyncP"/>
+          <type-var alignment="U:" size="U:"><typedef-ref name="precision_tag" ref="0xb723b660" scoped=""/></type-var>
+        </typedef>
+      </parameters>
+      <module/>
+    <specification><interface loc="44:TimeSyncP.nc" name="PCTransmit" provided="0" ref="0xb71e4b08">
+      <component-ref nicename="TimeSyncP" qname="TimeSyncP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="PCTransmit" ref="0xb71e4b08" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.AMSend" qname="AMSend"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="send" ref="0xb71e4ce0" scoped=""/>
+        <function-ref name="getPayload" ref="0xb71e4dc0" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0xb71e4ea0" scoped=""/>
+        <function-ref name="cancel" ref="0xb71e9010" scoped=""/>
+        <function-ref name="sendDone" ref="0xb71e90f0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="39:TimeSyncP.nc" name="Timer" provided="0" ref="0xb71f6ba8">
+      <component-ref nicename="TimeSyncP" qname="TimeSyncP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Timer" ref="0xb71f6ba8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.Timer" qname="Timer"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb7241260"/>
+            <typename><typedef-ref name="TMilli" ref="0xb7241428"/></typename>
+          </type-tag>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="getNow" ref="0xb71f56a8" scoped=""/>
+        <function-ref name="fired" ref="0xb71fb948" scoped=""/>
+        <function-ref name="startPeriodicAt" ref="0xb71f5068" scoped=""/>
+        <function-ref name="isOneShot" ref="0xb71fbdf8" scoped=""/>
+        <function-ref name="getdt" ref="0xb71f5b58" scoped=""/>
+        <function-ref name="gett0" ref="0xb71f5900" scoped=""/>
+        <function-ref name="isRunning" ref="0xb71fbba0" scoped=""/>
+        <function-ref name="startPeriodic" ref="0xb71fb1f0" scoped=""/>
+        <function-ref name="startOneShotAt" ref="0xb71f5388" scoped=""/>
+        <function-ref name="startOneShot" ref="0xb71fb470" scoped=""/>
+        <function-ref name="stop" ref="0xb71fb6f0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="35:TimeSyncP.nc" name="Boot" provided="0" ref="0xb723bda8">
+      <component-ref nicename="TimeSyncP" qname="TimeSyncP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Boot" ref="0xb723bda8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Boot" qname="Boot"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="booted" ref="0xb723a010" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="42:TimeSyncP.nc" name="SerialControl" provided="0" ref="0xb71ec010">
+      <component-ref nicename="TimeSyncP" qname="TimeSyncP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SerialControl" ref="0xb71ec010" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.SplitControl" qname="SplitControl"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="startDone" ref="0xb71ec1e8" scoped=""/>
+        <function-ref name="stopDone" ref="0xb71ec2c8" scoped=""/>
+        <function-ref name="start" ref="0xb71ec3a8" scoped=""/>
+        <function-ref name="stop" ref="0xb71ec488" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="45:TimeSyncP.nc" name="PCPacket" provided="0" ref="0xb71deed8">
+      <component-ref nicename="TimeSyncP" qname="TimeSyncP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="PCPacket" ref="0xb71deed8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Packet" qname="Packet"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="clear" ref="0xb71e80c0" scoped=""/>
+        <function-ref name="payloadLength" ref="0xb71e81a0" scoped=""/>
+        <function-ref name="getPayload" ref="0xb71e8280" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0xb71e8360" scoped=""/>
+        <function-ref name="setPayloadLength" ref="0xb71e8440" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="36:TimeSyncP.nc" name="RadioControl" provided="0" ref="0xb7236310">
+      <component-ref nicename="TimeSyncP" qname="TimeSyncP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="RadioControl" ref="0xb7236310" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.SplitControl" qname="SplitControl"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="startDone" ref="0xb72364e8" scoped=""/>
+        <function-ref name="stopDone" ref="0xb72365c8" scoped=""/>
+        <function-ref name="start" ref="0xb72366a8" scoped=""/>
+        <function-ref name="stop" ref="0xb7236788" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="37:TimeSyncP.nc" name="Send" provided="0" ref="0xb7200950">
+      <component-ref nicename="TimeSyncP" qname="TimeSyncP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Send" ref="0xb7200950" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.TimeSyncAMSend" qname="TimeSyncAMSend"/>
+        <arguments>
+          <type-var alignment="U:" size="U:"><typedef-ref name="precision_tag" ref="0xb723b660" scoped=""/></type-var>
+          <type-int alignment="I:2" cname="unsigned long" size="I:4" unsigned="">
+            <typename><typedef-ref name="uint32_t" ref="0xb774faf8"/></typename>
+          </type-int>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="send" ref="0xb7239098" scoped=""/>
+        <function-ref name="getPayload" ref="0xb7239d50" scoped=""/>
+        <function-ref name="maxPayloadLength" ref="0xb7239af8" scoped=""/>
+        <function-ref name="cancel" ref="0xb7239518" scoped=""/>
+        <function-ref name="sendDone" ref="0xb72397b8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="63:TimeSyncP.nc" name="sendMsgToPC" provided="0" ref="0xb71e2bd0">
+      <component-ref nicename="TimeSyncP" qname="TimeSyncP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="sendMsgToPC" ref="0xb71e2bd0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.TaskBasic" qname="TaskBasic"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="postTask" ref="0xb71e2e28" scoped=""/>
+        <function-ref name="runTask" ref="0xb71e2f08" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="38:TimeSyncP.nc" name="Receive" provided="0" ref="0xb71fcd50">
+      <component-ref nicename="TimeSyncP" qname="TimeSyncP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Receive" ref="0xb71fcd50" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Receive" qname="Receive"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="receive" ref="0xb71fcf28" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="85:TimeSyncP.nc" name="sendMsg" provided="0" ref="0xb71d7348">
+      <component-ref nicename="TimeSyncP" qname="TimeSyncP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="sendMsg" ref="0xb71d7348" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.TaskBasic" qname="TaskBasic"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="postTask" ref="0xb71d7520" scoped=""/>
+        <function-ref name="runTask" ref="0xb71d7600" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="40:TimeSyncP.nc" name="Leds" provided="0" ref="0xb71eddf8">
+      <component-ref nicename="TimeSyncP" qname="TimeSyncP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Leds" ref="0xb71eddf8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Leds" qname="Leds"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="led0Off" ref="0xb71f4010" scoped=""/>
+        <function-ref name="led0Toggle" ref="0xb71f40f0" scoped=""/>
+        <function-ref name="led1On" ref="0xb71f41d0" scoped=""/>
+        <function-ref name="led1Toggle" ref="0xb71f42b0" scoped=""/>
+        <function-ref name="led2Toggle" ref="0xb71f4390" scoped=""/>
+        <function-ref name="get" ref="0xb71f4470" scoped=""/>
+        <function-ref name="led1Off" ref="0xb71f4550" scoped=""/>
+        <function-ref name="led2Off" ref="0xb71f48d0" scoped=""/>
+        <function-ref name="set" ref="0xb71f4630" scoped=""/>
+        <function-ref name="led0On" ref="0xb71f4710" scoped=""/>
+        <function-ref name="led2On" ref="0xb71f47f0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="31:TimeSyncP.nc" name="StdControl" provided="1" ref="0xb723b930">
+      <component-ref nicename="TimeSyncP" qname="TimeSyncP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="StdControl" ref="0xb723b930" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.StdControl" qname="StdControl"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="start" ref="0xb723bb08" scoped=""/>
+        <function-ref name="stop" ref="0xb723bbe8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="41:TimeSyncP.nc" name="TimeSyncPacket" provided="0" ref="0xb71ea2a8">
+      <component-ref nicename="TimeSyncP" qname="TimeSyncP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="TimeSyncPacket" ref="0xb71ea2a8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.TimeSyncPacket" qname="TimeSyncPacket"/>
+        <arguments>
+          <type-var alignment="U:" size="U:"><typedef-ref name="precision_tag" ref="0xb723b660" scoped=""/></type-var>
+          <type-int alignment="I:2" cname="unsigned long" size="I:4" unsigned="">
+            <typename><typedef-ref name="uint32_t" ref="0xb774faf8"/></typename>
+          </type-int>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="isValid" ref="0xb71ea9d8" scoped=""/>
+        <function-ref name="eventTime" ref="0xb71eac78" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="43:TimeSyncP.nc" name="PCReceive" provided="0" ref="0xb71ec690">
+      <component-ref nicename="TimeSyncP" qname="TimeSyncP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="PCReceive" ref="0xb71ec690" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Receive" qname="Receive"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="receive" ref="0xb71ec868" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced/></component>

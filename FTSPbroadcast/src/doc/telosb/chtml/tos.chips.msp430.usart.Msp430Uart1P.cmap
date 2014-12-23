@@ -1,0 +1,24 @@
+<area shape="rect" id="node2" href="../chtml/tos.chips.msp430.usart.Msp430UartP.html" title="Msp430UartP\n(UartP)" alt="" coords="621,120,749,171">
+<area shape="poly" id="edge2" href="../ihtml/tos.interfaces.ResourceConfigure.html" title="ResourceConfigure[uint8_t]" alt="" coords="411,53 415,75 426,94 455,110 501,122 608,137 607,143 499,128 453,115 422,98 410,77 406,54">
+<area shape="rect" id="edge2" href="../ihtml/tos.interfaces.ResourceConfigure.html" title="ResourceConfigure[uint8_t]" alt="" coords="424,78,597,95">
+<area shape="poly" id="edge10" href="../ihtml/tos.chips.msp430.usart.Msp430UartConfigure.html" title="Msp430UartConfigure[uint8_t]" alt="" coords="621,150 403,164 293,177 249,186 216,197 188,214 163,235 160,231 184,210 214,192 247,181 292,172 403,158 621,145">
+<area shape="rect" id="edge10" href="../ihtml/tos.chips.msp430.usart.Msp430UartConfigure.html" title="Msp430UartConfigure[uint8_t]" alt="" coords="215,195,408,213">
+<area shape="poly" id="edge12" href="../ihtml/tos.interfaces.Resource.html" title="Resource[uint8_t]" alt="" coords="622,156 517,173 470,185 437,197 416,214 397,234 393,230 412,210 435,192 468,179 516,168 621,151">
+<area shape="rect" id="edge12" href="../ihtml/tos.interfaces.Resource.html" title="Resource[uint8_t]" alt="" coords="436,195,549,213">
+<area shape="poly" id="edge14" href="../ihtml/tos.chips.msp430.usart.HplMsp430UsartInterrupts.html" title="HplMsp430UsartInterrupts[uint8_t]" alt="" coords="622,166 585,180 562,196 557,212 561,230 555,231 552,212 558,193 582,176 620,161">
+<area shape="rect" id="edge14" href="../ihtml/tos.chips.msp430.usart.HplMsp430UsartInterrupts.html" title="HplMsp430UsartInterrupts[uint8_t]" alt="" coords="560,195,783,213">
+<area shape="rect" id="node9" href="../chtml/tos.chips.msp430.usart.HplMsp430Usart1C.html" title="HplMsp430Usart1C" alt="" coords="716,237,900,296">
+<area shape="poly" id="edge16" href="../ihtml/tos.chips.msp430.usart.HplMsp430Usart.html" title="HplMsp430Usart" alt="" coords="751,167 785,193 801,223 797,225 781,196 748,171">
+<area shape="rect" id="edge16" href="../ihtml/tos.chips.msp430.usart.HplMsp430Usart.html" title="HplMsp430Usart" alt="" coords="793,195,900,213">
+<area shape="rect" id="node10" href="../chtml/tos.chips.msp430.timer.Counter32khz16C.html" title="Counter32khz16C" alt="" coords="924,237,1097,296">
+<area shape="poly" id="edge18" href="../ihtml/tos.lib.timer.Counter.html" title="Counter&lt;T32khz, uint16_t&gt;" alt="" coords="750,151 826,166 906,192 937,208 965,227 962,231 934,213 904,197 825,171 749,156">
+<area shape="rect" id="edge18" href="../ihtml/tos.lib.timer.Counter.html" title="Counter&lt;T32khz, uint16_t&gt;" alt="" coords="939,195,1117,213">
+<area shape="rect" id="node11" href="../chtml/tos.system.LedsC.html" title="LedsC" alt="" coords="1149,237,1232,296">
+<area shape="poly" id="edge20" href="../ihtml/tos.interfaces.Leds.html" title="Leds" alt="" coords="750,145 952,158 1053,172 1093,181 1124,192 1146,207 1164,225 1160,229 1142,211 1121,197 1092,186 1052,177 951,163 749,150">
+<area shape="rect" id="edge20" href="../ihtml/tos.interfaces.Leds.html" title="Leds" alt="" coords="1148,195,1179,213">
+<area shape="poly" id="edge4" href="../ihtml/tos.interfaces.UartByte.html" title="UartByte[uint8_t]" alt="" coords="604,54 606,75 613,95 625,109 621,113 608,97 601,76 599,54">
+<area shape="rect" id="edge4" href="../ihtml/tos.interfaces.UartByte.html" title="UartByte[uint8_t]" alt="" coords="611,78,723,95">
+<area shape="poly" id="edge6" href="../ihtml/tos.interfaces.UartStream.html" title="UartStream[uint8_t]" alt="" coords="752,55 730,97 721,111 716,108 726,95 747,52">
+<area shape="rect" id="edge6" href="../ihtml/tos.interfaces.UartStream.html" title="UartStream[uint8_t]" alt="" coords="737,78,868,95">
+<area shape="poly" id="edge8" href="../ihtml/tos.interfaces.Resource.html" title="Resource[uint8_t]" alt="" coords="910,55 895,78 875,98 828,117 763,133 762,128 827,112 872,94 891,75 905,52">
+<area shape="rect" id="edge8" href="../ihtml/tos.interfaces.Resource.html" title="Resource[uint8_t]" alt="" coords="892,78,1005,95">

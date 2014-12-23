@@ -1,0 +1,14 @@
+<area shape="rect" id="node2" href="../chtml/tos.chips.msp430.usart.Msp430UsartShare1P.html" title="Msp430UsartShare1P" alt="" coords="424,120,627,179">
+<area shape="poly" id="edge2" href="../ihtml/tos.interfaces.ResourceRequested.html" title="ResourceRequested" alt="" coords="173,48 301,93 411,122 410,128 299,99 172,53">
+<area shape="rect" id="edge2" href="../ihtml/tos.interfaces.ResourceRequested.html" title="ResourceRequested" alt="" coords="300,78,425,95">
+<area shape="poly" id="edge12" href="../ihtml/tos.interfaces.ResourceConfigure.html" title="ResourceConfigure[uint8_t]" alt="" coords="528,179 528,232 523,232 523,179">
+<area shape="rect" id="edge12" href="../ihtml/tos.interfaces.ResourceConfigure.html" title="ResourceConfigure[uint8_t]" alt="" coords="525,203,699,221">
+<area shape="poly" id="edge4" href="../ihtml/tos.chips.msp430.usart.HplMsp430UsartInterrupts.html" title="HplMsp430UsartInterrupts" alt="" coords="420,52 431,74 446,94 463,110 459,114 442,98 427,77 415,55">
+<area shape="rect" id="edge4" href="../ihtml/tos.chips.msp430.usart.HplMsp430UsartInterrupts.html" title="HplMsp430UsartInterrupts" alt="" coords="444,78,613,95">
+<area shape="poly" id="edge6" href="../ihtml/tos.interfaces.Resource.html" title="Resource" alt="" coords="638,55 629,77 615,98 599,114 595,110 611,94 625,74 634,53">
+<area shape="rect" id="edge6" href="../ihtml/tos.interfaces.Resource.html" title="Resource" alt="" coords="627,78,685,95">
+<area shape="rect" id="node6" href="../chtml/tos.chips.msp430.usart.HplMsp430Usart1C.html" title="HplMsp430Usart1C" alt="" coords="897,120,1081,179">
+<area shape="poly" id="edge8" href="../ihtml/tos.chips.msp430.usart.HplMsp430Usart.html" title="HplMsp430Usart" alt="" coords="992,54 992,106 987,106 987,54">
+<area shape="rect" id="edge8" href="../ihtml/tos.chips.msp430.usart.HplMsp430Usart.html" title="HplMsp430Usart" alt="" coords="989,78,1096,95">
+<area shape="poly" id="edge10" href="../ihtml/tos.interfaces.ArbiterInfo.html" title="ArbiterInfo" alt="" coords="769,53 733,76 692,98 641,119 639,114 690,94 730,72 766,49">
+<area shape="rect" id="edge10" href="../ihtml/tos.interfaces.ArbiterInfo.html" title="ArbiterInfo" alt="" coords="725,78,792,95">

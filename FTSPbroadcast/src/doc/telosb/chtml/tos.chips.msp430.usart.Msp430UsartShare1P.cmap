@@ -1,0 +1,22 @@
+<area shape="rect" id="node2" href="../chtml/tos.system.FcfsArbiterC.html" title="FcfsArbiterC\n(ArbiterC)" alt="" coords="413,248,541,309">
+<area shape="poly" id="edge2" href="../ihtml/tos.interfaces.ResourceRequested.html" title="ResourceRequested[uint8_t]" alt="" coords="130,174 144,200 164,222 205,239 265,253 400,270 399,275 264,258 203,244 161,226 139,203 126,176">
+<area shape="rect" id="edge2" href="../ihtml/tos.interfaces.ResourceRequested.html" title="ResourceRequested[uint8_t]" alt="" coords="163,206,343,223">
+<area shape="poly" id="edge12" href="../ihtml/tos.interfaces.ResourceConfigure.html" title="ResourceConfigure[uint8_t]" alt="" coords="480,310 480,362 475,362 475,310">
+<area shape="rect" id="edge12" href="../ihtml/tos.interfaces.ResourceConfigure.html" title="ResourceConfigure[uint8_t]" alt="" coords="477,334,651,351">
+<area shape="rect" id="node4" href="../chtml/tos.chips.msp430.usart.Msp430UsartShareP.html" title="Msp430UsartShareP\n(UsartShareP)" alt="" coords="892,125,1073,176">
+<area shape="poly" id="edge4" href="../ihtml/tos.chips.msp430.usart.HplMsp430UsartInterrupts.html" title="HplMsp430UsartInterrupts[uint8_t]" alt="" coords="985,54 985,112 980,112 980,54">
+<area shape="rect" id="edge4" href="../ihtml/tos.chips.msp430.usart.HplMsp430UsartInterrupts.html" title="HplMsp430UsartInterrupts[uint8_t]" alt="" coords="983,78,1205,95">
+<area shape="poly" id="edge14" href="../ihtml/tos.interfaces.ArbiterInfo.html" title="ArbiterInfo" alt="" coords="935,178 886,208 873,218 860,226 803,242 723,256 555,275 555,269 722,250 801,237 858,222 870,213 882,203 932,174">
+<area shape="rect" id="edge14" href="../ihtml/tos.interfaces.ArbiterInfo.html" title="ArbiterInfo" alt="" coords="884,206,951,223">
+<area shape="rect" id="node7" href="../chtml/tos.chips.msp430.usart.HplMsp430Usart1C.html" title="HplMsp430Usart1C" alt="" coords="776,249,960,308">
+<area shape="poly" id="edge10" href="../ihtml/tos.chips.msp430.usart.HplMsp430UsartInterrupts.html" title="HplMsp430UsartInterrupts" alt="" coords="980,177 972,202 958,226 941,243 937,239 954,222 967,200 975,175">
+<area shape="rect" id="edge10" href="../ihtml/tos.chips.msp430.usart.HplMsp430UsartInterrupts.html" title="HplMsp430UsartInterrupts" alt="" coords="968,206,1137,223">
+<area shape="poly" id="edge6" href="../ihtml/tos.interfaces.Resource.html" title="Resource[uint8_t]" alt="" coords="336,174 346,199 362,222 381,238 402,250 399,255 377,242 358,226 341,201 331,176">
+<area shape="rect" id="edge6" href="../ihtml/tos.interfaces.Resource.html" title="Resource[uint8_t]" alt="" coords="360,206,473,223">
+<area shape="poly" id="edge8" href="../ihtml/tos.interfaces.ArbiterInfo.html" title="ArbiterInfo" alt="" coords="483,175 481,205 480,234 475,234 476,205 478,175">
+<area shape="rect" id="edge8" href="../ihtml/tos.interfaces.ArbiterInfo.html" title="ArbiterInfo" alt="" coords="479,206,545,223">
+<area shape="rect" id="node9" href="../chtml/tos.lib.power.AsyncStdControlPowerManagerC.html" title="AsyncStdControlPowerManagerC\n(PowerManagerC)" alt="" coords="579,120,867,181">
+<area shape="poly" id="edge16" href="../ihtml/tos.interfaces.ResourceDefaultOwner.html" title="ResourceDefaultOwner" alt="" coords="642,184 591,208 533,242 530,238 588,203 640,179">
+<area shape="rect" id="edge16" href="../ihtml/tos.interfaces.ResourceDefaultOwner.html" title="ResourceDefaultOwner" alt="" coords="589,206,735,223">
+<area shape="poly" id="edge18" href="../ihtml/tos.interfaces.AsyncStdControl.html" title="AsyncStdControl" alt="" coords="732,180 741,202 754,222 775,240 771,244 750,226 736,205 727,182">
+<area shape="rect" id="edge18" href="../ihtml/tos.interfaces.AsyncStdControl.html" title="AsyncStdControl" alt="" coords="752,206,859,223">

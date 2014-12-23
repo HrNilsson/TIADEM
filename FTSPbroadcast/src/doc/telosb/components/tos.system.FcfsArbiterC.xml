@@ -1,0 +1,335 @@
+<?xml version="1.0" ?><component abstract="" loc="79:/opt/tinyos-2.1.1/tos/system/FcfsArbiterC.nc" nicename="tos.system.FcfsArbiterC" qname="FcfsArbiterC">
+      <documentation loc="59:/opt/tinyos-2.1.1/tos/system/FcfsArbiterC.nc">
+        <short>
+ Please refer to TEP 108 for more information about this component and its
+ intended use.&lt;br&gt;&lt;br&gt;
+
+ This component provides the Resource, ArbiterInfo, and ResourceDefaultOwner
+ interfaces and uses the ResourceConfigure interface as
+ described in TEP 108.</short>
+        <long>
+ Please refer to TEP 108 for more information about this component and its
+ intended use.&lt;br&gt;&lt;br&gt;
+
+ This component provides the Resource, ArbiterInfo, and ResourceDefaultOwner
+ interfaces and uses the ResourceConfigure interface as
+ described in TEP 108.  It provides arbitration to a shared resource in
+ an FCFS fashion.  An array is used to keep track of which users have put
+ in requests for the resource.  Upon the release of the resource by one
+ of these users, the array is checked and the next user (in FCFS order)
+ that has a pending request will ge granted control of the resource.  If
+ there are no pending requests, then the resource is granted to the default 
+ user.  If a new request is made, the default user will release the resource, 
+ and it will be granted to the requesting cleint.
+
+ @param &lt;b&gt;resourceName&lt;/b&gt; -- The name of the Resource being shared
+ 
+ @author Kevin Klues (klues@tkn.tu-berlin.de)
+</long>
+      </documentation>
+      <parameters>
+        <constant loc="79:/opt/tinyos-2.1.1/tos/system/FcfsArbiterC.nc" name="resourceName" ref="0xb6c397c0">
+          <component-ref nicename="tos.system.FcfsArbiterC" qname="FcfsArbiterC"/>
+          <type-pointer alignment="I:2" size="I:2">
+            <type-int alignment="I:1" cname="char" size="I:1"/>
+          </type-pointer>
+        </constant>
+      </parameters>
+      <configuration/>
+      <wiring>
+        <wire loc="96:/opt/tinyos-2.1.1/tos/system/FcfsArbiterC.nc">
+          <from><interface-ref name="ResourceRequested" ref="0xb6c36780" scoped=""/></from>
+          <to><interface-ref name="ResourceRequested" ref="0xb6c1f488" scoped=""/></to>
+        </wire>
+        <wire loc="97:/opt/tinyos-2.1.1/tos/system/FcfsArbiterC.nc">
+          <from><interface-ref name="ResourceDefaultOwner" ref="0xb6c31b08" scoped=""/></from>
+          <to><interface-ref name="ResourceDefaultOwner" ref="0xb6c1f890" scoped=""/></to>
+        </wire>
+        <wire loc="95:/opt/tinyos-2.1.1/tos/system/FcfsArbiterC.nc">
+          <from><interface-ref name="Resource" ref="0xb6c39d40" scoped=""/></from>
+          <to><interface-ref name="Resource" ref="0xb6c20cd0" scoped=""/></to>
+        </wire>
+        <wire loc="98:/opt/tinyos-2.1.1/tos/system/FcfsArbiterC.nc">
+          <from><interface-ref name="ArbiterInfo" ref="0xb6c342a0" scoped=""/></from>
+          <to><interface-ref name="ArbiterInfo" ref="0xb6c1ff28" scoped=""/></to>
+        </wire>
+        <wire loc="93:/opt/tinyos-2.1.1/tos/system/FcfsArbiterC.nc">
+          <from><interface-ref name="SoftwareInit" ref="0xb7348de8" scoped=""/></from>
+          <to><interface-ref name="Init" ref="0xb6c21ee0" scoped=""/></to>
+        </wire>
+        <wire loc="99:/opt/tinyos-2.1.1/tos/system/FcfsArbiterC.nc">
+          <from><interface-ref name="ResourceConfigure" ref="0xb6bfa3f8" scoped=""/></from>
+          <to><interface-ref name="ResourceConfigure" ref="0xb6c34a58" scoped=""/></to>
+        </wire>
+        <wire loc="101:/opt/tinyos-2.1.1/tos/system/FcfsArbiterC.nc">
+          <from><interface-ref name="Queue" ref="0xb6bfa820" scoped=""/></from>
+          <to><interface-ref name="FcfsQueue" ref="0xb6c30240" scoped=""/></to>
+        </wire>
+      </wiring>
+    <specification><interface loc="82:/opt/tinyos-2.1.1/tos/system/FcfsArbiterC.nc" name="ResourceRequested" provided="1" ref="0xb6c36780">
+      <component-ref nicename="tos.system.FcfsArbiterC" qname="FcfsArbiterC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="ResourceRequested" ref="0xb6c36780" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.ResourceRequested" qname="ResourceRequested"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="requested" ref="0xb6c36958" scoped=""/>
+        <function-ref name="immediateRequested" ref="0xb6c36a38" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="86:/opt/tinyos-2.1.1/tos/system/FcfsArbiterC.nc" name="ResourceConfigure" provided="0" ref="0xb6c34a58">
+      <component-ref nicename="tos.system.FcfsArbiterC" qname="FcfsArbiterC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="ResourceConfigure" ref="0xb6c34a58" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.ResourceConfigure" qname="ResourceConfigure"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="unconfigure" ref="0xb6c34c30" scoped=""/>
+        <function-ref name="configure" ref="0xb6c34d10" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="83:/opt/tinyos-2.1.1/tos/system/FcfsArbiterC.nc" name="ResourceDefaultOwner" provided="1" ref="0xb6c31b08">
+      <component-ref nicename="tos.system.FcfsArbiterC" qname="FcfsArbiterC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="ResourceDefaultOwner" ref="0xb6c31b08" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.ResourceDefaultOwner" qname="ResourceDefaultOwner"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="release" ref="0xb6c31ce0" scoped=""/>
+        <function-ref name="requested" ref="0xb6c31dc0" scoped=""/>
+        <function-ref name="granted" ref="0xb6c31ea0" scoped=""/>
+        <function-ref name="isOwner" ref="0xb6c34010" scoped=""/>
+        <function-ref name="immediateRequested" ref="0xb6c340f0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="81:/opt/tinyos-2.1.1/tos/system/FcfsArbiterC.nc" name="Resource" provided="1" ref="0xb6c39d40">
+      <component-ref nicename="tos.system.FcfsArbiterC" qname="FcfsArbiterC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Resource" ref="0xb6c39d40" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Resource" qname="Resource"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="release" ref="0xb6c39f18" scoped=""/>
+        <function-ref name="immediateRequest" ref="0xb6c36010" scoped=""/>
+        <function-ref name="request" ref="0xb6c360f0" scoped=""/>
+        <function-ref name="granted" ref="0xb6c361d0" scoped=""/>
+        <function-ref name="isOwner" ref="0xb6c362b0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="84:/opt/tinyos-2.1.1/tos/system/FcfsArbiterC.nc" name="ArbiterInfo" provided="1" ref="0xb6c342a0">
+      <component-ref nicename="tos.system.FcfsArbiterC" qname="FcfsArbiterC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="ArbiterInfo" ref="0xb6c342a0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.ArbiterInfo" qname="ArbiterInfo"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="inUse" ref="0xb6c34478" scoped=""/>
+        <function-ref name="userId" ref="0xb6c34558" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced><interface loc="35:/opt/tinyos-2.1.1/tos/system/FcfsResourceQueueC.nc" name="FcfsQueue" provided="1" ref="0xb6c30240">
+      <component-ref nicename="tos.system.FcfsResourceQueueC" qname="FcfsArbiterC.Queue"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="FcfsQueue" ref="0xb6c30240" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.ResourceQueue" qname="ResourceQueue"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="enqueue" ref="0xb6c30418" scoped=""/>
+        <function-ref name="isEmpty" ref="0xb6c304f8" scoped=""/>
+        <function-ref name="isEnqueued" ref="0xb6c305d8" scoped=""/>
+        <function-ref name="dequeue" ref="0xb6c306b8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="60:/opt/tinyos-2.1.1/tos/system/ArbiterP.nc" name="ResourceConfigure" provided="0" ref="0xb6bfa3f8">
+      <component-ref nicename="tos.system.ArbiterP" qname="FcfsArbiterC.Arbiter"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="ResourceConfigure" ref="0xb6bfa3f8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.ResourceConfigure" qname="ResourceConfigure"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="unconfigure" ref="0xb6bfa5e0" scoped=""/>
+        <function-ref name="configure" ref="0xb6bfa6c0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="61:/opt/tinyos-2.1.1/tos/system/ArbiterP.nc" name="Queue" provided="0" ref="0xb6bfa820">
+      <component-ref nicename="tos.system.ArbiterP" qname="FcfsArbiterC.Arbiter"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Queue" ref="0xb6bfa820" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.ResourceQueue" qname="ResourceQueue"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="enqueue" ref="0xb6bfa9f8" scoped=""/>
+        <function-ref name="isEmpty" ref="0xb6bfaad8" scoped=""/>
+        <function-ref name="isEnqueued" ref="0xb6bfabb8" scoped=""/>
+        <function-ref name="dequeue" ref="0xb6bfac98" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="34:/opt/tinyos-2.1.1/tos/system/FcfsResourceQueueC.nc" name="Init" provided="1" ref="0xb6c21ee0">
+      <component-ref nicename="tos.system.FcfsResourceQueueC" qname="FcfsArbiterC.Queue"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Init" ref="0xb6c21ee0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Init" qname="Init"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="init" ref="0xb6c300e0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="57:/opt/tinyos-2.1.1/tos/system/ArbiterP.nc" name="ArbiterInfo" provided="1" ref="0xb6c1ff28">
+      <component-ref nicename="tos.system.ArbiterP" qname="FcfsArbiterC.Arbiter"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="ArbiterInfo" ref="0xb6c1ff28" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.ArbiterInfo" qname="ArbiterInfo"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="inUse" ref="0xb6bfa110" scoped=""/>
+        <function-ref name="userId" ref="0xb6bfa1f0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="55:/opt/tinyos-2.1.1/tos/system/ArbiterP.nc" name="ResourceRequested" provided="1" ref="0xb6c1f488">
+      <component-ref nicename="tos.system.ArbiterP" qname="FcfsArbiterC.Arbiter"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="ResourceRequested" ref="0xb6c1f488" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.ResourceRequested" qname="ResourceRequested"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="requested" ref="0xb6c1f670" scoped=""/>
+        <function-ref name="immediateRequested" ref="0xb6c1f750" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="47:/opt/tinyos-2.1.1/tos/system/MainC.nc" name="SoftwareInit" provided="0" ref="0xb7348de8">
+      <component-ref nicename="tos.system.MainC" qname="MainC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SoftwareInit" ref="0xb7348de8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Init" qname="Init"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="init" ref="0xb734a010" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="54:/opt/tinyos-2.1.1/tos/system/ArbiterP.nc" name="Resource" provided="1" ref="0xb6c20cd0">
+      <component-ref nicename="tos.system.ArbiterP" qname="FcfsArbiterC.Arbiter"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Resource" ref="0xb6c20cd0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Resource" qname="Resource"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="release" ref="0xb6c20eb8" scoped=""/>
+        <function-ref name="immediateRequest" ref="0xb6c1f010" scoped=""/>
+        <function-ref name="request" ref="0xb6c1f0f0" scoped=""/>
+        <function-ref name="granted" ref="0xb6c1f1d0" scoped=""/>
+        <function-ref name="isOwner" ref="0xb6c1f2b0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="56:/opt/tinyos-2.1.1/tos/system/ArbiterP.nc" name="ResourceDefaultOwner" provided="1" ref="0xb6c1f890">
+      <component-ref nicename="tos.system.ArbiterP" qname="FcfsArbiterC.Arbiter"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="ResourceDefaultOwner" ref="0xb6c1f890" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.ResourceDefaultOwner" qname="ResourceDefaultOwner"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="release" ref="0xb6c1fa68" scoped=""/>
+        <function-ref name="requested" ref="0xb6c1fb48" scoped=""/>
+        <function-ref name="granted" ref="0xb6c1fc28" scoped=""/>
+        <function-ref name="isOwner" ref="0xb6c1fd08" scoped=""/>
+        <function-ref name="immediateRequested" ref="0xb6c1fde8" scoped=""/>
+      </interface-functions>
+    </interface><component loc="45:/opt/tinyos-2.1.1/tos/system/MainC.nc" nicename="tos.system.MainC" qname="MainC">
+      <documentation loc="34:/opt/tinyos-2.1.1/tos/system/MainC.nc">
+        <short>
+ MainC is the system interface the TinyOS boot sequence.</short>
+        <long>
+ MainC is the system interface the TinyOS boot sequence. It wires the
+ boot sequence implementation to the scheduler and hardware resources.
+
+ @author Philip Levis
+ @date   August 6 2005
+ @see    TEP 107: Boot Sequence
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="61:/opt/tinyos-2.1.1/tos/system/MainC.nc">
+          <from><interface-ref name="Boot" ref="0xb73481c0" scoped=""/></from>
+          <to><interface-ref name="Boot" ref="0xb73474f0" scoped=""/></to>
+        </wire>
+        <wire loc="56:/opt/tinyos-2.1.1/tos/system/MainC.nc">
+          <from><interface-ref name="Scheduler" ref="0xb7347888" scoped=""/></from>
+          <to><interface-ref name="Scheduler" ref="0xb75ee098" scoped=""/></to>
+        </wire>
+        <wire loc="57:/opt/tinyos-2.1.1/tos/system/MainC.nc">
+          <from><interface-ref name="PlatformInit" ref="0xb7347e50" scoped=""/></from>
+          <to><interface-ref name="Init" ref="0xb734a6f8" scoped=""/></to>
+        </wire>
+        <wire loc="60:/opt/tinyos-2.1.1/tos/system/MainC.nc">
+          <from><interface-ref name="SoftwareInit" ref="0xb7251280" scoped=""/></from>
+          <to><interface-ref name="SoftwareInit" ref="0xb7348de8" scoped=""/></to>
+        </wire>
+      </wiring>
+    </component><component abstract="" loc="52(FcfsArbiterC.Arbiter):/opt/tinyos-2.1.1/tos/system/ArbiterP.nc" nicename="tos.system.ArbiterP" qname="FcfsArbiterC.Arbiter">
+      <documentation loc="30:/opt/tinyos-2.1.1/tos/system/ArbiterP.nc">
+        <short>
+ Please refer to TEP 108 for more information about this component and its
+ intended use.&lt;br&gt;&lt;br&gt;
+
+ This component provides the Resource, ResourceRequested, ArbiterInfo, 
+ and ResourceDefaultOwner interfaces and uses the ResourceConfigure interface as
+ described in TEP 108.</short>
+        <long>
+ Please refer to TEP 108 for more information about this component and its
+ intended use.&lt;br&gt;&lt;br&gt;
+
+ This component provides the Resource, ResourceRequested, ArbiterInfo, 
+ and ResourceDefaultOwner interfaces and uses the ResourceConfigure interface as
+ described in TEP 108.  It provides arbitration to a shared resource.
+ A Queue is used to keep track of which users have put
+ in requests for the resource.  Upon the release of the resource by one
+ of these users, the queue is checked and the next user
+ that has a pending request will ge granted control of the resource.  If
+ there are no pending requests, then the user of the ResourceDefaultOwner
+ interface gains access to the resource, and holds onto it until
+ another user makes a request.
+
+ @param &lt;b&gt;default_owner_id&lt;/b&gt; -- The id of the default owner of this 
+        resource
+ 
+ @author Kevin Klues (klues@tkn.tu-berlin.de)
+ @author Philip Levis
+</long>
+      </documentation>
+      <instance>
+        <component-ref nicename="tos.system.ArbiterP" qname="ArbiterP"/>
+        <arguments>
+          <value cst="U:">
+            <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned=""/>
+          </value>
+        </arguments>
+      </instance>
+      <module/>
+    </component><component abstract="" loc="32(FcfsArbiterC.Queue):/opt/tinyos-2.1.1/tos/system/FcfsResourceQueueC.nc" nicename="tos.system.FcfsResourceQueueC" qname="FcfsArbiterC.Queue">
+      <instance>
+        <component-ref nicename="tos.system.FcfsResourceQueueC" qname="FcfsResourceQueueC"/>
+        <arguments>
+          <value cst="U:">
+            <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned=""/>
+          </value>
+        </arguments>
+      </instance>
+      <module/>
+    </component></referenced></component>

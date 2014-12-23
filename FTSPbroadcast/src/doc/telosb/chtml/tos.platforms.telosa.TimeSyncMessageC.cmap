@@ -1,0 +1,28 @@
+<area shape="rect" id="node2" href="../chtml/tos.chips.cc2420.CC2420TimeSyncMessageC.html" title="CC2420TimeSyncMessageC" alt="" coords="941,120,1189,179">
+<area shape="poly" id="edge2" href="../ihtml/tos.interfaces.SplitControl.html" title="SplitControl" alt="" coords="112,49 157,73 210,93 270,106 348,116 541,131 747,140 928,145 928,150 747,145 540,136 348,121 269,111 209,99 155,78 109,53">
+<area shape="rect" id="edge2" href="../ihtml/tos.interfaces.SplitControl.html" title="SplitControl" alt="" coords="209,78,284,95">
+<area shape="poly" id="edge4" href="../ihtml/tos.interfaces.TimeSyncPacket.html" title="TimeSyncPacket&lt;TMilli, uint32_t&gt;" alt="" coords="286,53 290,76 302,94 326,101 378,108 542,121 928,141 927,147 542,127 378,113 324,106 298,98 285,78 281,54">
+<area shape="rect" id="edge4" href="../ihtml/tos.interfaces.TimeSyncPacket.html" title="TimeSyncPacket&lt;TMilli, uint32_t&gt;" alt="" coords="300,78,517,95">
+<area shape="poly" id="edge6" href="../ihtml/tos.interfaces.Packet.html" title="Packet" alt="" coords="491,49 520,73 556,94 623,111 718,124 928,141 928,146 718,130 622,116 554,98 517,78 487,53">
+<area shape="rect" id="edge6" href="../ihtml/tos.interfaces.Packet.html" title="Packet" alt="" coords="555,78,597,95">
+<area shape="poly" id="edge8" href="../ihtml/tos.interfaces.TimeSyncAMSend.html" title="TimeSyncAMSend&lt;TMilli, uint32_t&gt;[am_id_t]" alt="" coords="626,54 608,75 606,85 610,94 624,102 650,110 728,123 927,140 927,145 728,128 648,115 622,107 606,98 600,86 603,73 621,51">
+<area shape="rect" id="edge8" href="../ihtml/tos.interfaces.TimeSyncAMSend.html" title="TimeSyncAMSend&lt;TMilli, uint32_t&gt;[am_id_t]" alt="" coords="608,78,897,95">
+<area shape="poly" id="edge10" href="../ihtml/tos.interfaces.Receive.html" title="Receive[am_id_t]" alt="" coords="872,49 899,72 931,94 967,112 965,117 928,98 896,76 868,53">
+<area shape="rect" id="edge10" href="../ihtml/tos.interfaces.Receive.html" title="Receive[am_id_t]" alt="" coords="929,78,1039,95">
+<area shape="poly" id="edge12" href="../ihtml/tos.interfaces.LowPowerListening.html" title="LowPowerListening" alt="" coords="1039,53 1055,106 1050,108 1034,54">
+<area shape="rect" id="edge12" href="../ihtml/tos.interfaces.LowPowerListening.html" title="LowPowerListening" alt="" coords="1048,78,1168,95">
+<area shape="rect" id="node9" href="../chtml/tos.chips.cc2420.packet.CC2420PacketC.html" title="CC2420PacketC" alt="" coords="2521,120,2676,179">
+<area shape="poly" id="edge14" href="../ihtml/tos.interfaces.PacketTimeStamp.html" title="PacketTimeStamp&lt;T32khz, uint32_t&gt;" alt="" coords="2459,54 2459,75 2466,95 2485,114 2510,128 2507,133 2482,118 2462,97 2454,76 2454,54">
+<area shape="rect" id="edge14" href="../ihtml/tos.interfaces.PacketTimeStamp.html" title="PacketTimeStamp&lt;T32khz, uint32_t&gt;" alt="" coords="2464,78,2708,95">
+<area shape="poly" id="edge16" href="../ihtml/tos.interfaces.Receive.html" title="Receive[am_id_t]" alt="" coords="1207,55 1193,77 1175,98 1153,115 1149,111 1172,94 1189,74 1203,52">
+<area shape="rect" id="edge16" href="../ihtml/tos.interfaces.Receive.html" title="Receive[am_id_t]" alt="" coords="1188,78,1297,95">
+<area shape="poly" id="edge18" href="../ihtml/tos.interfaces.PacketAcknowledgements.html" title="PacketAcknowledgements" alt="" coords="1398,55 1353,78 1304,99 1203,127 1202,122 1302,93 1351,73 1395,50">
+<area shape="rect" id="edge18" href="../ihtml/tos.interfaces.PacketAcknowledgements.html" title="PacketAcknowledgements" alt="" coords="1344,78,1511,95">
+<area shape="poly" id="edge20" href="../ihtml/tos.interfaces.TimeSyncAMSend.html" title="TimeSyncAMSend&lt;T32khz, uint32_t&gt;[am_id_t]" alt="" coords="1679,53 1602,77 1517,99 1355,125 1203,142 1203,137 1354,120 1515,93 1601,72 1678,48">
+<area shape="rect" id="edge20" href="../ihtml/tos.interfaces.TimeSyncAMSend.html" title="TimeSyncAMSend&lt;T32khz, uint32_t&gt;[am_id_t]" alt="" coords="1591,78,1895,95">
+<area shape="poly" id="edge22" href="../ihtml/tos.interfaces.AMPacket.html" title="AMPacket" alt="" coords="1951,55 1929,79 1901,98 1862,109 1797,118 1611,132 1203,149 1203,143 1611,127 1796,112 1861,103 1899,94 1926,75 1947,51">
+<area shape="rect" id="edge22" href="../ihtml/tos.interfaces.AMPacket.html" title="AMPacket" alt="" coords="1925,78,1988,95">
+<area shape="poly" id="edge24" href="../ihtml/tos.interfaces.TimeSyncPacket.html" title="TimeSyncPacket&lt;T32khz, uint32_t&gt;" alt="" coords="2129,54 2066,78 1994,99 1927,109 1839,118 1626,133 1203,149 1203,144 1626,128 1839,113 1926,104 1993,93 2064,73 2127,49">
+<area shape="rect" id="edge24" href="../ihtml/tos.interfaces.TimeSyncPacket.html" title="TimeSyncPacket&lt;T32khz, uint32_t&gt;" alt="" coords="2060,78,2292,95">
+<area shape="poly" id="edge26" href="../ihtml/tos.interfaces.PacketTimeStamp.html" title="PacketTimeStamp&lt;TMilli, uint32_t&gt;" alt="" coords="2734,55 2724,77 2710,98 2690,115 2686,111 2706,94 2720,74 2729,53">
+<area shape="rect" id="edge26" href="../ihtml/tos.interfaces.PacketTimeStamp.html" title="PacketTimeStamp&lt;TMilli, uint32_t&gt;" alt="" coords="2720,78,2949,95">

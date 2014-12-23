@@ -1,0 +1,743 @@
+<?xml version="1.0" ?><component loc="2:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430I2C0C.nc" nicename="tos.chips.msp430.usart.HplMsp430I2C0C" qname="HplMsp430I2C0C">
+      <configuration/>
+      <wiring>
+        <wire loc="11:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430I2C0C.nc">
+          <from><interface-ref name="HplMsp430I2C" ref="0xb6bfb580" scoped=""/></from>
+          <to><interface-ref name="HplI2C" ref="0xb6bf59f8" scoped=""/></to>
+        </wire>
+        <wire loc="14:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430I2C0C.nc">
+          <from><interface-ref name="HplI2C" ref="0xb6cd5f10" scoped=""/></from>
+          <to><interface-ref name="HplI2C" ref="0xb6bf59f8" scoped=""/></to>
+        </wire>
+        <wire loc="15:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430I2C0C.nc">
+          <from><interface-ref name="HplUsart" ref="0xb6bef6d8" scoped=""/></from>
+          <to><interface-ref name="Usart" ref="0xb6cf2be0" scoped=""/></to>
+        </wire>
+        <wire loc="18:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430I2C0C.nc">
+          <from><interface-ref name="SIMO" ref="0xb6bec010" scoped=""/></from>
+          <to><interface-ref name="SIMO0" ref="0xb6f8ea00" scoped=""/></to>
+        </wire>
+        <wire loc="19:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430I2C0C.nc">
+          <from><interface-ref name="UCLK" ref="0xb6beb010" scoped=""/></from>
+          <to><interface-ref name="UCLK0" ref="0xb6f8ba00" scoped=""/></to>
+        </wire>
+      </wiring>
+    <specification><interface loc="4:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430I2C0C.nc" name="HplMsp430I2C" provided="1" ref="0xb6bfb580">
+      <component-ref nicename="tos.chips.msp430.usart.HplMsp430I2C0C" qname="HplMsp430I2C0C"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="HplMsp430I2C" ref="0xb6bfb580" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.usart.HplMsp430I2C" qname="HplMsp430I2C"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="disableOwnAddress" ref="0xb6bfb758" scoped=""/>
+        <function-ref name="getStartByte" ref="0xb6bfb838" scoped=""/>
+        <function-ref name="setSlaveAddress" ref="0xb6bfb918" scoped=""/>
+        <function-ref name="setMasterMode" ref="0xb6bfb9f8" scoped=""/>
+        <function-ref name="disableTransmitReady" ref="0xb6bfbad8" scoped=""/>
+        <function-ref name="getClockPrescaler" ref="0xb6bfbbb8" scoped=""/>
+        <function-ref name="setTransmitMode" ref="0xb6bfbc98" scoped=""/>
+        <function-ref name="getStopBit" ref="0xb6bfbd78" scoped=""/>
+        <function-ref name="setClockSource" ref="0xb6bfbe58" scoped=""/>
+        <function-ref name="getRepeatMode" ref="0xb6bf8010" scoped=""/>
+        <function-ref name="getData" ref="0xb6bf80f0" scoped=""/>
+        <function-ref name="enableStartDetect" ref="0xb6bf81d0" scoped=""/>
+        <function-ref name="enableAccessReady" ref="0xb6bf82b0" scoped=""/>
+        <function-ref name="getSlaveAddress" ref="0xb6bf8410" scoped=""/>
+        <function-ref name="isGeneralCallPending" ref="0xb6bf84f0" scoped=""/>
+        <function-ref name="getIV" ref="0xb6bf85d0" scoped=""/>
+        <function-ref name="enableI2C" ref="0xb6bf86b0" scoped=""/>
+        <function-ref name="setStartBit" ref="0xb6bf8790" scoped=""/>
+        <function-ref name="getTransferByteCount" ref="0xb6bf8870" scoped=""/>
+        <function-ref name="getTransmitReceiveMode" ref="0xb6bf8950" scoped=""/>
+        <function-ref name="clearModeI2C" ref="0xb6bf8a30" scoped=""/>
+        <function-ref name="setOwnAddress" ref="0xb6bf8b10" scoped=""/>
+        <function-ref name="isI2C" ref="0xb6bf8bf0" scoped=""/>
+        <function-ref name="enableGeneralCall" ref="0xb6bf8cd0" scoped=""/>
+        <function-ref name="enableOwnAddress" ref="0xb6bf8db0" scoped=""/>
+        <function-ref name="isAccessReadyPending" ref="0xb6bf7010" scoped=""/>
+        <function-ref name="isArbitrationLostPending" ref="0xb6bf70f0" scoped=""/>
+        <function-ref name="disableReceiveReady" ref="0xb6bf71d0" scoped=""/>
+        <function-ref name="disableNoAck" ref="0xb6bf72b0" scoped=""/>
+        <function-ref name="disableStartDetect" ref="0xb6bf7390" scoped=""/>
+        <function-ref name="enableArbitrationLost" ref="0xb6bf7470" scoped=""/>
+        <function-ref name="disableI2C" ref="0xb6bf7550" scoped=""/>
+        <function-ref name="getShiftClock" ref="0xb6bf7630" scoped=""/>
+        <function-ref name="disableArbitrationLost" ref="0xb6bf7710" scoped=""/>
+        <function-ref name="disableAccessReady" ref="0xb6bf77f0" scoped=""/>
+        <function-ref name="setTransferByteCount" ref="0xb6bf78d0" scoped=""/>
+        <function-ref name="isOwnAddressPending" ref="0xb6bf79b0" scoped=""/>
+        <function-ref name="getOwnAddress" ref="0xb6bf7a90" scoped=""/>
+        <function-ref name="enableTransmitReady" ref="0xb6bf7b70" scoped=""/>
+        <function-ref name="setModeI2C" ref="0xb6bf7c50" scoped=""/>
+        <function-ref name="getStartBit" ref="0xb6bf7d30" scoped=""/>
+        <function-ref name="setWordMode" ref="0xb6bf7e10" scoped=""/>
+        <function-ref name="setData" ref="0xb6bf7ef0" scoped=""/>
+        <function-ref name="isStartDetectPending" ref="0xb6bf6010" scoped=""/>
+        <function-ref name="getClockSource" ref="0xb6bf60f0" scoped=""/>
+        <function-ref name="getWordMode" ref="0xb6bf61d0" scoped=""/>
+        <function-ref name="setShiftClock" ref="0xb6bf62b0" scoped=""/>
+        <function-ref name="setSlaveMode" ref="0xb6bf6390" scoped=""/>
+        <function-ref name="enableNoAck" ref="0xb6bf6470" scoped=""/>
+        <function-ref name="enableReceiveReady" ref="0xb6bf6750" scoped=""/>
+        <function-ref name="disableGeneralCall" ref="0xb6bf6830" scoped=""/>
+        <function-ref name="setClockPrescaler" ref="0xb6bf6910" scoped=""/>
+        <function-ref name="setStopBit" ref="0xb6bf69f0" scoped=""/>
+        <function-ref name="setReceiveMode" ref="0xb6bf6ad0" scoped=""/>
+        <function-ref name="isNoAckPending" ref="0xb6bf6bb0" scoped=""/>
+        <function-ref name="setRepeatMode" ref="0xb6bf6c90" scoped=""/>
+        <function-ref name="isTransmitReadyPending" ref="0xb6bf6d70" scoped=""/>
+        <function-ref name="setStartByte" ref="0xb6bf6e50" scoped=""/>
+        <function-ref name="isReceiveReadyPending" ref="0xb6bf5010" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced><interface loc="79:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430Usart0P.nc" name="HplI2C" provided="0" ref="0xb6cd5f10">
+      <component-ref nicename="tos.chips.msp430.usart.HplMsp430Usart0P" qname="HplMsp430Usart0P"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="HplI2C" ref="0xb6cd5f10" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.usart.HplMsp430I2C" qname="HplMsp430I2C"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="disableOwnAddress" ref="0xb6ceb108" scoped=""/>
+        <function-ref name="getStartByte" ref="0xb6ceb1e8" scoped=""/>
+        <function-ref name="setSlaveAddress" ref="0xb6ceb2c8" scoped=""/>
+        <function-ref name="setMasterMode" ref="0xb6ceb3a8" scoped=""/>
+        <function-ref name="disableTransmitReady" ref="0xb6ceb488" scoped=""/>
+        <function-ref name="getClockPrescaler" ref="0xb6ceb568" scoped=""/>
+        <function-ref name="setTransmitMode" ref="0xb6ceb648" scoped=""/>
+        <function-ref name="getStopBit" ref="0xb6ceb728" scoped=""/>
+        <function-ref name="setClockSource" ref="0xb6ceb808" scoped=""/>
+        <function-ref name="getRepeatMode" ref="0xb6ceb8e8" scoped=""/>
+        <function-ref name="getData" ref="0xb6ceb9c8" scoped=""/>
+        <function-ref name="enableStartDetect" ref="0xb6cebaa8" scoped=""/>
+        <function-ref name="enableAccessReady" ref="0xb6cebb88" scoped=""/>
+        <function-ref name="getSlaveAddress" ref="0xb6cebce8" scoped=""/>
+        <function-ref name="isGeneralCallPending" ref="0xb6cebdc8" scoped=""/>
+        <function-ref name="getIV" ref="0xb6cebea8" scoped=""/>
+        <function-ref name="enableI2C" ref="0xb6cea010" scoped=""/>
+        <function-ref name="setStartBit" ref="0xb6cea0f0" scoped=""/>
+        <function-ref name="getTransferByteCount" ref="0xb6cea1d0" scoped=""/>
+        <function-ref name="getTransmitReceiveMode" ref="0xb6cea2b0" scoped=""/>
+        <function-ref name="clearModeI2C" ref="0xb6cea390" scoped=""/>
+        <function-ref name="setOwnAddress" ref="0xb6cea470" scoped=""/>
+        <function-ref name="isI2C" ref="0xb6cea550" scoped=""/>
+        <function-ref name="enableGeneralCall" ref="0xb6cea630" scoped=""/>
+        <function-ref name="enableOwnAddress" ref="0xb6cea710" scoped=""/>
+        <function-ref name="isAccessReadyPending" ref="0xb6cea8f0" scoped=""/>
+        <function-ref name="isArbitrationLostPending" ref="0xb6cea9d0" scoped=""/>
+        <function-ref name="disableReceiveReady" ref="0xb6ceaab0" scoped=""/>
+        <function-ref name="disableNoAck" ref="0xb6ceab90" scoped=""/>
+        <function-ref name="disableStartDetect" ref="0xb6ceac70" scoped=""/>
+        <function-ref name="enableArbitrationLost" ref="0xb6cead50" scoped=""/>
+        <function-ref name="disableI2C" ref="0xb6ceae30" scoped=""/>
+        <function-ref name="getShiftClock" ref="0xb6ceaf10" scoped=""/>
+        <function-ref name="disableArbitrationLost" ref="0xb6cd4010" scoped=""/>
+        <function-ref name="disableAccessReady" ref="0xb6cd40f0" scoped=""/>
+        <function-ref name="setTransferByteCount" ref="0xb6cd41d0" scoped=""/>
+        <function-ref name="isOwnAddressPending" ref="0xb6cd42b0" scoped=""/>
+        <function-ref name="getOwnAddress" ref="0xb6cd4390" scoped=""/>
+        <function-ref name="enableTransmitReady" ref="0xb6cd4470" scoped=""/>
+        <function-ref name="setModeI2C" ref="0xb6cd4550" scoped=""/>
+        <function-ref name="getStartBit" ref="0xb6cd4630" scoped=""/>
+        <function-ref name="setWordMode" ref="0xb6cd4710" scoped=""/>
+        <function-ref name="setData" ref="0xb6cd47f0" scoped=""/>
+        <function-ref name="isStartDetectPending" ref="0xb6cd48d0" scoped=""/>
+        <function-ref name="getClockSource" ref="0xb6cd49b0" scoped=""/>
+        <function-ref name="getWordMode" ref="0xb6cd4a90" scoped=""/>
+        <function-ref name="setShiftClock" ref="0xb6cd4b70" scoped=""/>
+        <function-ref name="setSlaveMode" ref="0xb6cd4c50" scoped=""/>
+        <function-ref name="enableNoAck" ref="0xb6cd4d30" scoped=""/>
+        <function-ref name="enableReceiveReady" ref="0xb6cd3210" scoped=""/>
+        <function-ref name="disableGeneralCall" ref="0xb6cd32f0" scoped=""/>
+        <function-ref name="setClockPrescaler" ref="0xb6cd33d0" scoped=""/>
+        <function-ref name="setStopBit" ref="0xb6cd34b0" scoped=""/>
+        <function-ref name="setReceiveMode" ref="0xb6cd3590" scoped=""/>
+        <function-ref name="isNoAckPending" ref="0xb6cd3670" scoped=""/>
+        <function-ref name="setRepeatMode" ref="0xb6cd3750" scoped=""/>
+        <function-ref name="isTransmitReadyPending" ref="0xb6cd3830" scoped=""/>
+        <function-ref name="setStartByte" ref="0xb6cd3910" scoped=""/>
+        <function-ref name="isReceiveReadyPending" ref="0xb6cd39f0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="43:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430I2C0P.nc" name="UCLK" provided="0" ref="0xb6beb010">
+      <component-ref nicename="tos.chips.msp430.usart.HplMsp430I2C0P" qname="HplMsp430I2C0P"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="UCLK" ref="0xb6beb010" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.pins.HplMsp430GeneralIO" qname="HplMsp430GeneralIO"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="makeInput" ref="0xb6beb1e8" scoped=""/>
+        <function-ref name="isInput" ref="0xb6beb2c8" scoped=""/>
+        <function-ref name="toggle" ref="0xb6beb3a8" scoped=""/>
+        <function-ref name="isOutput" ref="0xb6beb488" scoped=""/>
+        <function-ref name="makeOutput" ref="0xb6beb568" scoped=""/>
+        <function-ref name="get" ref="0xb6beb648" scoped=""/>
+        <function-ref name="selectIOFunc" ref="0xb6beb728" scoped=""/>
+        <function-ref name="getRaw" ref="0xb6beb808" scoped=""/>
+        <function-ref name="set" ref="0xb6beb8e8" scoped=""/>
+        <function-ref name="selectModuleFunc" ref="0xb6beb9c8" scoped=""/>
+        <function-ref name="isIOFunc" ref="0xb6bebaa8" scoped=""/>
+        <function-ref name="isModuleFunc" ref="0xb6bebb88" scoped=""/>
+        <function-ref name="clr" ref="0xb6bebc68" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="41:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430I2C0P.nc" name="HplUsart" provided="0" ref="0xb6bef6d8">
+      <component-ref nicename="tos.chips.msp430.usart.HplMsp430I2C0P" qname="HplMsp430I2C0P"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="HplUsart" ref="0xb6bef6d8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.usart.HplMsp430Usart" qname="HplMsp430Usart"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="isTxEmpty" ref="0xb6bef8b0" scoped=""/>
+        <function-ref name="enableUartRx" ref="0xb6bef990" scoped=""/>
+        <function-ref name="setUctl" ref="0xb6befa70" scoped=""/>
+        <function-ref name="enableUart" ref="0xb6befb50" scoped=""/>
+        <function-ref name="setUrctl" ref="0xb6befc30" scoped=""/>
+        <function-ref name="enableRxIntr" ref="0xb6befd10" scoped=""/>
+        <function-ref name="clrRxIntr" ref="0xb6befdf0" scoped=""/>
+        <function-ref name="getUtctl" ref="0xb6befed0" scoped=""/>
+        <function-ref name="getUrctl" ref="0xb6bee010" scoped=""/>
+        <function-ref name="resetUsart" ref="0xb6bee0f0" scoped=""/>
+        <function-ref name="getUmctl" ref="0xb6bee1d0" scoped=""/>
+        <function-ref name="disableIntr" ref="0xb6bee2b0" scoped=""/>
+        <function-ref name="setUtctl" ref="0xb6bee390" scoped=""/>
+        <function-ref name="getUbr" ref="0xb6bee4f0" scoped=""/>
+        <function-ref name="enableTxIntr" ref="0xb6bee5d0" scoped=""/>
+        <function-ref name="setUmctl" ref="0xb6bee6b0" scoped=""/>
+        <function-ref name="isUartRx" ref="0xb6bee790" scoped=""/>
+        <function-ref name="isUart" ref="0xb6bee870" scoped=""/>
+        <function-ref name="disableRxIntr" ref="0xb6bee950" scoped=""/>
+        <function-ref name="isSpi" ref="0xb6beea30" scoped=""/>
+        <function-ref name="enableUartTx" ref="0xb6beeb10" scoped=""/>
+        <function-ref name="disableTxIntr" ref="0xb6beebf0" scoped=""/>
+        <function-ref name="disableUartRx" ref="0xb6beecd0" scoped=""/>
+        <function-ref name="enableIntr" ref="0xb6beedb0" scoped=""/>
+        <function-ref name="getMode" ref="0xb6beee90" scoped=""/>
+        <function-ref name="isTxIntrPending" ref="0xb6bed110" scoped=""/>
+        <function-ref name="clrIntr" ref="0xb6bed1f0" scoped=""/>
+        <function-ref name="setUbr" ref="0xb6bed2d0" scoped=""/>
+        <function-ref name="tx" ref="0xb6bed3b0" scoped=""/>
+        <function-ref name="getUctl" ref="0xb6bed490" scoped=""/>
+        <function-ref name="disableUart" ref="0xb6bed570" scoped=""/>
+        <function-ref name="enableSpi" ref="0xb6bed650" scoped=""/>
+        <function-ref name="setModeUart" ref="0xb6bed730" scoped=""/>
+        <function-ref name="setModeSpi" ref="0xb6bed810" scoped=""/>
+        <function-ref name="rx" ref="0xb6bed8f0" scoped=""/>
+        <function-ref name="isRxIntrPending" ref="0xb6bed9d0" scoped=""/>
+        <function-ref name="isUartTx" ref="0xb6bedab0" scoped=""/>
+        <function-ref name="clrTxIntr" ref="0xb6bedb90" scoped=""/>
+        <function-ref name="disableSpi" ref="0xb6bedc70" scoped=""/>
+        <function-ref name="disableUartTx" ref="0xb6bedd50" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="131:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc" name="UCLK0" provided="1" ref="0xb6f8ba00">
+      <component-ref nicename="tos.chips.msp430.pins.HplMsp430GeneralIOC" qname="HplMsp430GeneralIOC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="UCLK0" ref="0xb6f8ba00" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.pins.HplMsp430GeneralIO" qname="HplMsp430GeneralIO"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="makeInput" ref="0xb6f8bbd8" scoped=""/>
+        <function-ref name="isInput" ref="0xb6f8bcb8" scoped=""/>
+        <function-ref name="toggle" ref="0xb6f8bd98" scoped=""/>
+        <function-ref name="isOutput" ref="0xb6f8be78" scoped=""/>
+        <function-ref name="makeOutput" ref="0xb6f8a010" scoped=""/>
+        <function-ref name="get" ref="0xb6f8a0f0" scoped=""/>
+        <function-ref name="selectIOFunc" ref="0xb6f8a1d0" scoped=""/>
+        <function-ref name="getRaw" ref="0xb6f8a2b0" scoped=""/>
+        <function-ref name="set" ref="0xb6f8a390" scoped=""/>
+        <function-ref name="selectModuleFunc" ref="0xb6f8a470" scoped=""/>
+        <function-ref name="isIOFunc" ref="0xb6f8a550" scoped=""/>
+        <function-ref name="isModuleFunc" ref="0xb6f8a630" scoped=""/>
+        <function-ref name="clr" ref="0xb6f8a710" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="128:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc" name="SIMO0" provided="1" ref="0xb6f8ea00">
+      <component-ref nicename="tos.chips.msp430.pins.HplMsp430GeneralIOC" qname="HplMsp430GeneralIOC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SIMO0" ref="0xb6f8ea00" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.pins.HplMsp430GeneralIO" qname="HplMsp430GeneralIO"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="makeInput" ref="0xb6f8ebd8" scoped=""/>
+        <function-ref name="isInput" ref="0xb6f8ecb8" scoped=""/>
+        <function-ref name="toggle" ref="0xb6f8ed98" scoped=""/>
+        <function-ref name="isOutput" ref="0xb6f8ee78" scoped=""/>
+        <function-ref name="makeOutput" ref="0xb6f8d010" scoped=""/>
+        <function-ref name="get" ref="0xb6f8d0f0" scoped=""/>
+        <function-ref name="selectIOFunc" ref="0xb6f8d1d0" scoped=""/>
+        <function-ref name="getRaw" ref="0xb6f8d2b0" scoped=""/>
+        <function-ref name="set" ref="0xb6f8d390" scoped=""/>
+        <function-ref name="selectModuleFunc" ref="0xb6f8d470" scoped=""/>
+        <function-ref name="isIOFunc" ref="0xb6f8d550" scoped=""/>
+        <function-ref name="isModuleFunc" ref="0xb6f8d630" scoped=""/>
+        <function-ref name="clr" ref="0xb6f8d710" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="42:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430I2C0P.nc" name="SIMO" provided="0" ref="0xb6bec010">
+      <component-ref nicename="tos.chips.msp430.usart.HplMsp430I2C0P" qname="HplMsp430I2C0P"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SIMO" ref="0xb6bec010" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.pins.HplMsp430GeneralIO" qname="HplMsp430GeneralIO"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="makeInput" ref="0xb6bec1e8" scoped=""/>
+        <function-ref name="isInput" ref="0xb6bec2c8" scoped=""/>
+        <function-ref name="toggle" ref="0xb6bec3a8" scoped=""/>
+        <function-ref name="isOutput" ref="0xb6bec488" scoped=""/>
+        <function-ref name="makeOutput" ref="0xb6bec568" scoped=""/>
+        <function-ref name="get" ref="0xb6bec648" scoped=""/>
+        <function-ref name="selectIOFunc" ref="0xb6bec728" scoped=""/>
+        <function-ref name="getRaw" ref="0xb6bec808" scoped=""/>
+        <function-ref name="set" ref="0xb6bec8e8" scoped=""/>
+        <function-ref name="selectModuleFunc" ref="0xb6bec9c8" scoped=""/>
+        <function-ref name="isIOFunc" ref="0xb6becaa8" scoped=""/>
+        <function-ref name="isModuleFunc" ref="0xb6becb88" scoped=""/>
+        <function-ref name="clr" ref="0xb6becc68" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="39:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430I2C0P.nc" name="HplI2C" provided="1" ref="0xb6bf59f8">
+      <component-ref nicename="tos.chips.msp430.usart.HplMsp430I2C0P" qname="HplMsp430I2C0P"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="HplI2C" ref="0xb6bf59f8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.usart.HplMsp430I2C" qname="HplMsp430I2C"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="disableOwnAddress" ref="0xb6bf5bd0" scoped=""/>
+        <function-ref name="getStartByte" ref="0xb6bf5cb0" scoped=""/>
+        <function-ref name="setSlaveAddress" ref="0xb6bf5d90" scoped=""/>
+        <function-ref name="setMasterMode" ref="0xb6bf5e70" scoped=""/>
+        <function-ref name="disableTransmitReady" ref="0xb6bf2010" scoped=""/>
+        <function-ref name="getClockPrescaler" ref="0xb6bf20f0" scoped=""/>
+        <function-ref name="setTransmitMode" ref="0xb6bf21d0" scoped=""/>
+        <function-ref name="getStopBit" ref="0xb6bf22b0" scoped=""/>
+        <function-ref name="setClockSource" ref="0xb6bf2390" scoped=""/>
+        <function-ref name="getRepeatMode" ref="0xb6bf2470" scoped=""/>
+        <function-ref name="getData" ref="0xb6bf2550" scoped=""/>
+        <function-ref name="enableStartDetect" ref="0xb6bf2630" scoped=""/>
+        <function-ref name="enableAccessReady" ref="0xb6bf2710" scoped=""/>
+        <function-ref name="getSlaveAddress" ref="0xb6bf2870" scoped=""/>
+        <function-ref name="isGeneralCallPending" ref="0xb6bf2950" scoped=""/>
+        <function-ref name="getIV" ref="0xb6bf2a30" scoped=""/>
+        <function-ref name="enableI2C" ref="0xb6bf2b10" scoped=""/>
+        <function-ref name="setStartBit" ref="0xb6bf2bf0" scoped=""/>
+        <function-ref name="getTransferByteCount" ref="0xb6bf2cd0" scoped=""/>
+        <function-ref name="getTransmitReceiveMode" ref="0xb6bf2db0" scoped=""/>
+        <function-ref name="clearModeI2C" ref="0xb6bf2e90" scoped=""/>
+        <function-ref name="setOwnAddress" ref="0xb6bf1010" scoped=""/>
+        <function-ref name="isI2C" ref="0xb6bf10f0" scoped=""/>
+        <function-ref name="enableGeneralCall" ref="0xb6bf11d0" scoped=""/>
+        <function-ref name="enableOwnAddress" ref="0xb6bf12b0" scoped=""/>
+        <function-ref name="isAccessReadyPending" ref="0xb6bf1490" scoped=""/>
+        <function-ref name="isArbitrationLostPending" ref="0xb6bf1570" scoped=""/>
+        <function-ref name="disableReceiveReady" ref="0xb6bf1650" scoped=""/>
+        <function-ref name="disableNoAck" ref="0xb6bf1730" scoped=""/>
+        <function-ref name="disableStartDetect" ref="0xb6bf1810" scoped=""/>
+        <function-ref name="enableArbitrationLost" ref="0xb6bf18f0" scoped=""/>
+        <function-ref name="disableI2C" ref="0xb6bf19d0" scoped=""/>
+        <function-ref name="getShiftClock" ref="0xb6bf1ab0" scoped=""/>
+        <function-ref name="disableArbitrationLost" ref="0xb6bf1b90" scoped=""/>
+        <function-ref name="disableAccessReady" ref="0xb6bf1c70" scoped=""/>
+        <function-ref name="setTransferByteCount" ref="0xb6bf1d50" scoped=""/>
+        <function-ref name="isOwnAddressPending" ref="0xb6bf1e30" scoped=""/>
+        <function-ref name="getOwnAddress" ref="0xb6bf1f10" scoped=""/>
+        <function-ref name="enableTransmitReady" ref="0xb6bf0010" scoped=""/>
+        <function-ref name="setModeI2C" ref="0xb6bf00f0" scoped=""/>
+        <function-ref name="getStartBit" ref="0xb6bf01d0" scoped=""/>
+        <function-ref name="setWordMode" ref="0xb6bf02b0" scoped=""/>
+        <function-ref name="setData" ref="0xb6bf0390" scoped=""/>
+        <function-ref name="isStartDetectPending" ref="0xb6bf0470" scoped=""/>
+        <function-ref name="getClockSource" ref="0xb6bf0550" scoped=""/>
+        <function-ref name="getWordMode" ref="0xb6bf0630" scoped=""/>
+        <function-ref name="setShiftClock" ref="0xb6bf0710" scoped=""/>
+        <function-ref name="setSlaveMode" ref="0xb6bf07f0" scoped=""/>
+        <function-ref name="enableNoAck" ref="0xb6bf08d0" scoped=""/>
+        <function-ref name="enableReceiveReady" ref="0xb6bf0bb0" scoped=""/>
+        <function-ref name="disableGeneralCall" ref="0xb6bf0c90" scoped=""/>
+        <function-ref name="setClockPrescaler" ref="0xb6bf0d70" scoped=""/>
+        <function-ref name="setStopBit" ref="0xb6bf0e50" scoped=""/>
+        <function-ref name="setReceiveMode" ref="0xb6bef010" scoped=""/>
+        <function-ref name="isNoAckPending" ref="0xb6bef0f0" scoped=""/>
+        <function-ref name="setRepeatMode" ref="0xb6bef1d0" scoped=""/>
+        <function-ref name="isTransmitReadyPending" ref="0xb6bef2b0" scoped=""/>
+        <function-ref name="setStartByte" ref="0xb6bef390" scoped=""/>
+        <function-ref name="isReceiveReadyPending" ref="0xb6bef470" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="75:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430Usart0P.nc" name="Usart" provided="1" ref="0xb6cf2be0">
+      <component-ref nicename="tos.chips.msp430.usart.HplMsp430Usart0P" qname="HplMsp430Usart0P"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Usart" ref="0xb6cf2be0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.usart.HplMsp430Usart" qname="HplMsp430Usart"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="isTxEmpty" ref="0xb6cf2db8" scoped=""/>
+        <function-ref name="enableUartRx" ref="0xb6cf2e98" scoped=""/>
+        <function-ref name="setUctl" ref="0xb6cef010" scoped=""/>
+        <function-ref name="enableUart" ref="0xb6cef0f0" scoped=""/>
+        <function-ref name="setUrctl" ref="0xb6cef1d0" scoped=""/>
+        <function-ref name="enableRxIntr" ref="0xb6cef2b0" scoped=""/>
+        <function-ref name="clrRxIntr" ref="0xb6cef390" scoped=""/>
+        <function-ref name="getUtctl" ref="0xb6cef470" scoped=""/>
+        <function-ref name="getUrctl" ref="0xb6cef550" scoped=""/>
+        <function-ref name="resetUsart" ref="0xb6cef630" scoped=""/>
+        <function-ref name="getUmctl" ref="0xb6cef710" scoped=""/>
+        <function-ref name="disableIntr" ref="0xb6cef7f0" scoped=""/>
+        <function-ref name="setUtctl" ref="0xb6cef8d0" scoped=""/>
+        <function-ref name="getUbr" ref="0xb6cefa30" scoped=""/>
+        <function-ref name="enableTxIntr" ref="0xb6cefb10" scoped=""/>
+        <function-ref name="setUmctl" ref="0xb6cefbf0" scoped=""/>
+        <function-ref name="isUartRx" ref="0xb6cefcd0" scoped=""/>
+        <function-ref name="isUart" ref="0xb6cefdb0" scoped=""/>
+        <function-ref name="disableRxIntr" ref="0xb6cefe90" scoped=""/>
+        <function-ref name="isSpi" ref="0xb6cee010" scoped=""/>
+        <function-ref name="enableUartTx" ref="0xb6cee0f0" scoped=""/>
+        <function-ref name="disableTxIntr" ref="0xb6cee1d0" scoped=""/>
+        <function-ref name="disableUartRx" ref="0xb6cee2b0" scoped=""/>
+        <function-ref name="enableIntr" ref="0xb6cee390" scoped=""/>
+        <function-ref name="getMode" ref="0xb6cee470" scoped=""/>
+        <function-ref name="isTxIntrPending" ref="0xb6cee650" scoped=""/>
+        <function-ref name="clrIntr" ref="0xb6cee730" scoped=""/>
+        <function-ref name="setUbr" ref="0xb6cee810" scoped=""/>
+        <function-ref name="tx" ref="0xb6cee8f0" scoped=""/>
+        <function-ref name="getUctl" ref="0xb6cee9d0" scoped=""/>
+        <function-ref name="disableUart" ref="0xb6ceeab0" scoped=""/>
+        <function-ref name="enableSpi" ref="0xb6ceeb90" scoped=""/>
+        <function-ref name="setModeUart" ref="0xb6ceec70" scoped=""/>
+        <function-ref name="setModeSpi" ref="0xb6ceed50" scoped=""/>
+        <function-ref name="rx" ref="0xb6ceee30" scoped=""/>
+        <function-ref name="isRxIntrPending" ref="0xb6ceef10" scoped=""/>
+        <function-ref name="isUartTx" ref="0xb6ced010" scoped=""/>
+        <function-ref name="clrTxIntr" ref="0xb6ced0f0" scoped=""/>
+        <function-ref name="disableSpi" ref="0xb6ced1d0" scoped=""/>
+        <function-ref name="disableUartTx" ref="0xb6ced2b0" scoped=""/>
+      </interface-functions>
+    </interface><component loc="29:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc" nicename="tos.chips.msp430.pins.HplMsp430GeneralIOC" qname="HplMsp430GeneralIOC">
+      <documentation loc="22:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+        <short>
+ HPL for the TI MSP430 family of microprocessors.</short>
+        <long>
+ HPL for the TI MSP430 family of microprocessors. This provides an
+ abstraction for general-purpose I/O.
+
+ @author Joe Polastre
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="234:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port14" ref="0xb6fbc768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f566b8" scoped=""/></to>
+        </wire>
+        <wire loc="247:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port26" ref="0xb6fb2768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f3e530" scoped=""/></to>
+        </wire>
+        <wire loc="323:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="SDA" ref="0xb6f8d9e8" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f37278" scoped=""/></to>
+        </wire>
+        <wire loc="343:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="ADC6" ref="0xb6f7a9f8" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6ef3998" scoped=""/></to>
+        </wire>
+        <wire loc="324:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="SOMI0" ref="0xb6f8ca00" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f356f0" scoped=""/></to>
+        </wire>
+        <wire loc="252:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port30" ref="0xb6fb0768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f3adf0" scoped=""/></to>
+        </wire>
+        <wire loc="265:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port42" ref="0xb6fa5848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f22d08" scoped=""/></to>
+        </wire>
+        <wire loc="278:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port54" ref="0xb6f9b848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f0bb68" scoped=""/></to>
+        </wire>
+        <wire loc="289:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port64" ref="0xb6f93848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6ef7010" scoped=""/></to>
+        </wire>
+        <wire loc="327:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="UTXD0" ref="0xb6f89a00" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f30010" scoped=""/></to>
+        </wire>
+        <wire loc="337:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="ADC0" ref="0xb6f819f8" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f01df0" scoped=""/></to>
+        </wire>
+        <wire loc="349:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="SVSIN" ref="0xb6f76a00" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6ef1df0" scoped=""/></to>
+        </wire>
+        <wire loc="237:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port17" ref="0xb6fb9768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f4f530" scoped=""/></to>
+        </wire>
+        <wire loc="328:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="URXD0" ref="0xb6f88a00" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f2e530" scoped=""/></to>
+        </wire>
+        <wire loc="242:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port21" ref="0xb6fb7768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f4bdf0" scoped=""/></to>
+        </wire>
+        <wire loc="255:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port33" ref="0xb6fad768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f33b68" scoped=""/></to>
+        </wire>
+        <wire loc="268:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port45" ref="0xb6fa2848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f1bb68" scoped=""/></to>
+        </wire>
+        <wire loc="281:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port57" ref="0xb6f98848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f03998" scoped=""/></to>
+        </wire>
+        <wire loc="292:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port67" ref="0xb6f90848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6ef1df0" scoped=""/></to>
+        </wire>
+        <wire loc="232:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port12" ref="0xb6fc3768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f5bd08" scoped=""/></to>
+        </wire>
+        <wire loc="245:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port24" ref="0xb6fb4768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f43c08" scoped=""/></to>
+        </wire>
+        <wire loc="258:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port36" ref="0xb6faa768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f2c998" scoped=""/></to>
+        </wire>
+        <wire loc="322:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="SIMO0" ref="0xb6f8ea00" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f37278" scoped=""/></to>
+        </wire>
+        <wire loc="340:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="ADC3" ref="0xb6f7d9f8" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6efab68" scoped=""/></to>
+        </wire>
+        <wire loc="347:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="DAC1" ref="0xb6f779f8" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6ef1df0" scoped=""/></to>
+        </wire>
+        <wire loc="333:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="UCLK1" ref="0xb6f84a00" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f0d6f0" scoped=""/></to>
+        </wire>
+        <wire loc="263:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port40" ref="0xb6fa8768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f263a8" scoped=""/></to>
+        </wire>
+        <wire loc="276:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port52" ref="0xb6f9d848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f0f278" scoped=""/></to>
+        </wire>
+        <wire loc="287:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port62" ref="0xb6f95848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6efc6f0" scoped=""/></to>
+        </wire>
+        <wire loc="341:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="ADC4" ref="0xb6f7c9f8" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6ef7010" scoped=""/></to>
+        </wire>
+        <wire loc="330:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="STE1" ref="0xb6f879f8" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f14998" scoped=""/></to>
+        </wire>
+        <wire loc="235:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port15" ref="0xb6fbb768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f54b68" scoped=""/></to>
+        </wire>
+        <wire loc="248:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port27" ref="0xb6fb1768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f3c998" scoped=""/></to>
+        </wire>
+        <wire loc="285:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port60" ref="0xb6f97848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f01df0" scoped=""/></to>
+        </wire>
+        <wire loc="253:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port31" ref="0xb6faf768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f37278" scoped=""/></to>
+        </wire>
+        <wire loc="266:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port43" ref="0xb6fa4848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f1f220" scoped=""/></to>
+        </wire>
+        <wire loc="279:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port55" ref="0xb6f9a848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f07010" scoped=""/></to>
+        </wire>
+        <wire loc="290:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port65" ref="0xb6f92848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6ef5530" scoped=""/></to>
+        </wire>
+        <wire loc="332:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="SOMI1" ref="0xb6f85a00" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f0f278" scoped=""/></to>
+        </wire>
+        <wire loc="230:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port10" ref="0xb6fbe7d8" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f733a8" scoped=""/></to>
+        </wire>
+        <wire loc="243:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port22" ref="0xb6fb6768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f48278" scoped=""/></to>
+        </wire>
+        <wire loc="256:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port34" ref="0xb6fac768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f30010" scoped=""/></to>
+        </wire>
+        <wire loc="269:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port46" ref="0xb6fa1848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f18010" scoped=""/></to>
+        </wire>
+        <wire loc="334:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="UTXD1" ref="0xb6f83a00" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f2c998" scoped=""/></to>
+        </wire>
+        <wire loc="338:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="ADC1" ref="0xb6f809f8" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6efe278" scoped=""/></to>
+        </wire>
+        <wire loc="344:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="ADC7" ref="0xb6f799f8" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6ef1df0" scoped=""/></to>
+        </wire>
+        <wire loc="274:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port50" ref="0xb6f9f848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f14998" scoped=""/></to>
+        </wire>
+        <wire loc="335:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="URXD1" ref="0xb6f82a00" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f2adf0" scoped=""/></to>
+        </wire>
+        <wire loc="233:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port13" ref="0xb6fbd768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f58220" scoped=""/></to>
+        </wire>
+        <wire loc="246:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port25" ref="0xb6fb3768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f400b0" scoped=""/></to>
+        </wire>
+        <wire loc="259:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port37" ref="0xb6fa9768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f2adf0" scoped=""/></to>
+        </wire>
+        <wire loc="331:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="SIMO1" ref="0xb6f86a00" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f12df0" scoped=""/></to>
+        </wire>
+        <wire loc="342:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="ADC5" ref="0xb6f7b9f8" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6ef5530" scoped=""/></to>
+        </wire>
+        <wire loc="264:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port41" ref="0xb6fa6848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f24840" scoped=""/></to>
+        </wire>
+        <wire loc="277:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port53" ref="0xb6f9c848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f0d6f0" scoped=""/></to>
+        </wire>
+        <wire loc="288:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port63" ref="0xb6f94848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6efab68" scoped=""/></to>
+        </wire>
+        <wire loc="236:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port16" ref="0xb6fba768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f51010" scoped=""/></to>
+        </wire>
+        <wire loc="286:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port61" ref="0xb6f96848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6efe278" scoped=""/></to>
+        </wire>
+        <wire loc="241:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port20" ref="0xb6fb8768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f4d998" scoped=""/></to>
+        </wire>
+        <wire loc="254:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port32" ref="0xb6fae768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f356f0" scoped=""/></to>
+        </wire>
+        <wire loc="267:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port44" ref="0xb6fa3848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f1d6b8" scoped=""/></to>
+        </wire>
+        <wire loc="280:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port56" ref="0xb6f99848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f05530" scoped=""/></to>
+        </wire>
+        <wire loc="291:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port66" ref="0xb6f91848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6ef3998" scoped=""/></to>
+        </wire>
+        <wire loc="231:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port11" ref="0xb6fc4768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f5d840" scoped=""/></to>
+        </wire>
+        <wire loc="244:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port23" ref="0xb6fb5768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f456f0" scoped=""/></to>
+        </wire>
+        <wire loc="257:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port35" ref="0xb6fab768" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f2e530" scoped=""/></to>
+        </wire>
+        <wire loc="270:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port47" ref="0xb6fa0848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f16530" scoped=""/></to>
+        </wire>
+        <wire loc="326:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="SCL" ref="0xb6f8a9e8" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f33b68" scoped=""/></to>
+        </wire>
+        <wire loc="339:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="ADC2" ref="0xb6f7e9f8" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6efc6f0" scoped=""/></to>
+        </wire>
+        <wire loc="325:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="UCLK0" ref="0xb6f8ba00" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f33b68" scoped=""/></to>
+        </wire>
+        <wire loc="275:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="Port51" ref="0xb6f9e848" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f12df0" scoped=""/></to>
+        </wire>
+        <wire loc="346:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="DAC0" ref="0xb6f789f8" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6ef3998" scoped=""/></to>
+        </wire>
+        <wire loc="350:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="SVSOUT" ref="0xb6f75a08" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f03998" scoped=""/></to>
+        </wire>
+        <wire loc="321:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOC.nc">
+          <from><interface-ref name="STE0" ref="0xb6f8f868" scoped=""/></from>
+          <to><interface-ref name="IO" ref="0xb6f3adf0" scoped=""/></to>
+        </wire>
+      </wiring>
+    </component><component loc="74:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430Usart0P.nc" nicename="tos.chips.msp430.usart.HplMsp430Usart0P" qname="HplMsp430Usart0P" safe="">
+      <documentation loc="62:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430Usart0P.nc">
+        <short>
+ Implementation of USART0 lowlevel functionality - stateless.</short>
+        <long>
+ Implementation of USART0 lowlevel functionality - stateless.
+ Setting a mode will by default disable USART-Interrupts.
+
+ @author: Jan Hauer &lt;hauer@tkn.tu-berlin.de&gt;
+ @author: Jonathan Hui &lt;jhui@archedrock.com&gt;
+ @author: Vlado Handziski &lt;handzisk@tkn.tu-berlin.de&gt;
+ @author: Joe Polastre
+ @author: Philipp Huppertz &lt;huppertz@tkn.tu-berlin.de&gt;
+ @version $Revision: 1.7 $ $Date: 2008/06/24 05:32:31 $
+</long>
+      </documentation>
+      <module/>
+    </component><component loc="37:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430I2C0P.nc" nicename="tos.chips.msp430.usart.HplMsp430I2C0P" qname="HplMsp430I2C0P" safe="">
+      <documentation loc="32:/opt/tinyos-2.1.1/tos/chips/msp430/usart/HplMsp430I2C0P.nc">
+        <short>
+ </short>
+        <long>
+ @author Jonathan Hui &lt;jhui@archrock.com&gt;
+ @version $Revision: 1.5 $ $Date: 2008/06/24 05:32:31 $
+</long>
+      </documentation>
+      <module/>
+    </component></referenced></component>

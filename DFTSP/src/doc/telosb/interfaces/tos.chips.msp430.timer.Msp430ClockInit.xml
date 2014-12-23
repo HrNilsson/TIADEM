@@ -1,0 +1,90 @@
+<?xml version="1.0" ?><interfacedef loc="27:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430ClockInit.nc" nicename="tos.chips.msp430.timer.Msp430ClockInit" qname="Msp430ClockInit">
+      <documentation loc="22:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430ClockInit.nc">
+        <short>
+ </short>
+        <long>
+ @author Cory Sharp &lt;cssharp@eecs.berkeley.edu&gt;
+ @author Vlado Handziski &lt;handzisk@tkn.tu-berlin.de&gt;
+</long>
+      </documentation>
+      <function command="" loc="37:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430ClockInit.nc" name="defaultInitTimerB" provided="0" ref="0xb73a1558">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430ClockInit" qname="Msp430ClockInit"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function event="" loc="32:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430ClockInit.nc" name="initTimerB" provided="0" ref="0xb73a34f0">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430ClockInit" qname="Msp430ClockInit"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="36:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430ClockInit.nc" name="defaultInitTimerA" provided="0" ref="0xb73a1158">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430ClockInit" qname="Msp430ClockInit"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function event="" loc="31:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430ClockInit.nc" name="initTimerA" provided="0" ref="0xb73a3138">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430ClockInit" qname="Msp430ClockInit"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="34:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430ClockInit.nc" name="defaultSetupDcoCalibrate" provided="0" ref="0xb73a3938">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430ClockInit" qname="Msp430ClockInit"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function event="" loc="29:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430ClockInit.nc" name="setupDcoCalibrate" provided="0" ref="0xb73a69b0">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430ClockInit" qname="Msp430ClockInit"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function event="" loc="30:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430ClockInit.nc" name="initClocks" provided="0" ref="0xb73a6d68">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430ClockInit" qname="Msp430ClockInit"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="35:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430ClockInit.nc" name="defaultInitClocks" provided="0" ref="0xb73a3d38">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430ClockInit" qname="Msp430ClockInit"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+    </interfacedef>

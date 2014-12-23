@@ -1,0 +1,441 @@
+<?xml version="1.0" ?><component loc="38:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc" nicename="tos.chips.cc2420.packet.CC2420PacketC" qname="CC2420PacketC">
+      <documentation loc="32:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc">
+        <short>
+ </short>
+        <long>
+ @author Jonathan Hui &lt;jhui@archrock.com&gt;
+ @author David Moss
+ @author Chad Metcalf
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="58:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc">
+          <from><interface-ref name="LinkPacketMetadata" ref="0xb6a67128" scoped=""/></from>
+          <to><interface-ref name="LinkPacketMetadata" ref="0xb6a5ea40" scoped=""/></to>
+        </wire>
+        <wire loc="55:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc">
+          <from><interface-ref name="CC2420Packet" ref="0xb6a6bd68" scoped=""/></from>
+          <to><interface-ref name="CC2420Packet" ref="0xb6a626f0" scoped=""/></to>
+        </wire>
+        <wire loc="59:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc">
+          <from><interface-ref name="PacketTimeStamp32khz" ref="0xb6a67780" scoped=""/></from>
+          <to><interface-ref name="PacketTimeStamp32khz" ref="0xb6a5c100" scoped=""/></to>
+        </wire>
+        <wire loc="57:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc">
+          <from><interface-ref name="CC2420PacketBody" ref="0xb6a68c60" scoped=""/></from>
+          <to><interface-ref name="CC2420PacketBody" ref="0xb6a5e590" scoped=""/></to>
+        </wire>
+        <wire loc="61:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc">
+          <from><interface-ref name="PacketTimeSyncOffset" ref="0xb6a638c0" scoped=""/></from>
+          <to><interface-ref name="PacketTimeSyncOffset" ref="0xb6a58308" scoped=""/></to>
+        </wire>
+        <wire loc="60:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc">
+          <from><interface-ref name="PacketTimeStampMilli" ref="0xb6a64178" scoped=""/></from>
+          <to><interface-ref name="PacketTimeStampMilli" ref="0xb6a5baf8" scoped=""/></to>
+        </wire>
+        <wire loc="56:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc">
+          <from><interface-ref name="Acks" ref="0xb6a686e0" scoped=""/></from>
+          <to><interface-ref name="Acks" ref="0xb6a5e010" scoped=""/></to>
+        </wire>
+        <wire loc="64:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc">
+          <from><interface-ref name="Counter" ref="0xb6a32a38" scoped=""/></from>
+          <to><interface-ref name="Counter" ref="0xb70160b0" scoped=""/></to>
+        </wire>
+        <wire loc="65:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc">
+          <from><interface-ref name="LocalTime32khz" ref="0xb6a571e0" scoped=""/></from>
+          <to><interface-ref name="LocalTime" ref="0xb6a320a0" scoped=""/></to>
+        </wire>
+        <wire loc="69:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc">
+          <from><interface-ref name="LocalTimeMilli" ref="0xb6a57c38" scoped=""/></from>
+          <to><interface-ref name="LocalTime" ref="0xb6a256a8" scoped=""/></to>
+        </wire>
+      </wiring>
+    <specification><interface loc="44:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc" name="LinkPacketMetadata" provided="1" ref="0xb6a67128">
+      <component-ref nicename="tos.chips.cc2420.packet.CC2420PacketC" qname="CC2420PacketC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="LinkPacketMetadata" ref="0xb6a67128" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.LinkPacketMetadata" qname="LinkPacketMetadata"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="highChannelQuality" ref="0xb6a67300" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="41:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc" name="CC2420Packet" provided="1" ref="0xb6a6bd68">
+      <component-ref nicename="tos.chips.cc2420.packet.CC2420PacketC" qname="CC2420PacketC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="CC2420Packet" ref="0xb6a6bd68" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.CC2420Packet" qname="CC2420Packet"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="setPower" ref="0xb6a68010" scoped=""/>
+        <function-ref name="setNetwork" ref="0xb6a680f0" scoped=""/>
+        <function-ref name="getRssi" ref="0xb6a681d0" scoped=""/>
+        <function-ref name="getNetwork" ref="0xb6a682b0" scoped=""/>
+        <function-ref name="getPower" ref="0xb6a68390" scoped=""/>
+        <function-ref name="getLqi" ref="0xb6a68470" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="46:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc" name="PacketTimeStamp32khz" provided="1" ref="0xb6a67780">
+      <component-ref nicename="tos.chips.cc2420.packet.CC2420PacketC" qname="CC2420PacketC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="PacketTimeStamp32khz" ref="0xb6a67780" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.PacketTimeStamp" qname="PacketTimeStamp"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72b30a0"/>
+            <typename><typedef-ref name="T32khz" ref="0xb72b3268"/></typename>
+          </type-tag>
+          <type-int alignment="I:2" cname="unsigned long" size="I:4" unsigned="">
+            <typename><typedef-ref name="uint32_t" ref="0xb77c6af8"/></typename>
+          </type-int>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="timestamp" ref="0xb6a662a0" scoped=""/>
+        <function-ref name="clear" ref="0xb6a66650" scoped=""/>
+        <function-ref name="isValid" ref="0xb6a67ed0" scoped=""/>
+        <function-ref name="set" ref="0xb6a66a00" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="43:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc" name="CC2420PacketBody" provided="1" ref="0xb6a68c60">
+      <component-ref nicename="tos.chips.cc2420.packet.CC2420PacketC" qname="CC2420PacketC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="CC2420PacketBody" ref="0xb6a68c60" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.CC2420PacketBody" qname="CC2420PacketBody"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="getHeader" ref="0xb6a68e38" scoped=""/>
+        <function-ref name="getMetadata" ref="0xb6a68f18" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="48:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc" name="PacketTimeSyncOffset" provided="1" ref="0xb6a638c0">
+      <component-ref nicename="tos.chips.cc2420.packet.CC2420PacketC" qname="CC2420PacketC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="PacketTimeSyncOffset" ref="0xb6a638c0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.PacketTimeSyncOffset" qname="PacketTimeSyncOffset"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="get" ref="0xb6a63a98" scoped=""/>
+        <function-ref name="isSet" ref="0xb6a63b78" scoped=""/>
+        <function-ref name="cancel" ref="0xb6a63c58" scoped=""/>
+        <function-ref name="set" ref="0xb6a63d38" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="47:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc" name="PacketTimeStampMilli" provided="1" ref="0xb6a64178">
+      <component-ref nicename="tos.chips.cc2420.packet.CC2420PacketC" qname="CC2420PacketC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="PacketTimeStampMilli" ref="0xb6a64178" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.PacketTimeStamp" qname="PacketTimeStamp"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72b5c40"/>
+            <typename><typedef-ref name="TMilli" ref="0xb72b5e08"/></typename>
+          </type-tag>
+          <type-int alignment="I:2" cname="unsigned long" size="I:4" unsigned="">
+            <typename><typedef-ref name="uint32_t" ref="0xb77c6af8"/></typename>
+          </type-int>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="timestamp" ref="0xb6a64c78" scoped=""/>
+        <function-ref name="clear" ref="0xb6a63048" scoped=""/>
+        <function-ref name="isValid" ref="0xb6a648c8" scoped=""/>
+        <function-ref name="set" ref="0xb6a633f8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="42:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketC.nc" name="Acks" provided="1" ref="0xb6a686e0">
+      <component-ref nicename="tos.chips.cc2420.packet.CC2420PacketC" qname="CC2420PacketC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Acks" ref="0xb6a686e0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.PacketAcknowledgements" qname="PacketAcknowledgements"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="requestAck" ref="0xb6a688b8" scoped=""/>
+        <function-ref name="noAck" ref="0xb6a68998" scoped=""/>
+        <function-ref name="wasAcked" ref="0xb6a68a78" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced><interface loc="37:/opt/tinyos-2.1.1/tos/lib/timer/CounterToLocalTimeC.nc" name="LocalTime" provided="1" ref="0xb6a320a0">
+      <component-ref nicename="tos.lib.timer.CounterToLocalTimeC" qname="CC2420PacketC.CounterToLocalTimeC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="LocalTime" ref="0xb6a320a0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.LocalTime" qname="LocalTime"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72b30a0"/>
+            <typename><typedef-ref name="T32khz" ref="0xb72b3268"/></typename>
+          </type-tag>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="get" ref="0xb6a326e8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="32:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Counter32khz32C.nc" name="Counter" provided="1" ref="0xb70160b0">
+      <component-ref nicename="tos.chips.msp430.timer.Counter32khz32C" qname="Counter32khz32C"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Counter" ref="0xb70160b0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.Counter" qname="Counter"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72b30a0"/>
+            <typename><typedef-ref name="T32khz" ref="0xb72b3268"/></typename>
+          </type-tag>
+          <type-int alignment="I:2" cname="unsigned long" size="I:4" unsigned="">
+            <typename><typedef-ref name="uint32_t" ref="0xb77c6af8"/></typename>
+          </type-int>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="get" ref="0xb7016800" scoped=""/>
+        <function-ref name="clearOverflow" ref="0xb7016cf0" scoped=""/>
+        <function-ref name="isOverflowPending" ref="0xb7016a78" scoped=""/>
+        <function-ref name="overflow" ref="0xb7015010" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="36:/opt/tinyos-2.1.1/tos/chips/msp430/timer/HilTimerMilliC.nc" name="LocalTime" provided="1" ref="0xb6a256a8">
+      <component-ref nicename="tos.chips.msp430.timer.HilTimerMilliC" qname="HilTimerMilliC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="LocalTime" ref="0xb6a256a8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.LocalTime" qname="LocalTime"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72b5c40"/>
+            <typename><typedef-ref name="TMilli" ref="0xb72b5e08"/></typename>
+          </type-tag>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="get" ref="0xb6a25cf0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="47:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketP.nc" name="Acks" provided="1" ref="0xb6a5e010">
+      <component-ref nicename="tos.chips.cc2420.packet.CC2420PacketP" qname="CC2420PacketP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Acks" ref="0xb6a5e010" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.PacketAcknowledgements" qname="PacketAcknowledgements"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="requestAck" ref="0xb6a5e1e8" scoped=""/>
+        <function-ref name="noAck" ref="0xb6a5e2c8" scoped=""/>
+        <function-ref name="wasAcked" ref="0xb6a5e3a8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="48:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketP.nc" name="CC2420PacketBody" provided="1" ref="0xb6a5e590">
+      <component-ref nicename="tos.chips.cc2420.packet.CC2420PacketP" qname="CC2420PacketP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="CC2420PacketBody" ref="0xb6a5e590" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.CC2420PacketBody" qname="CC2420PacketBody"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="getHeader" ref="0xb6a5e768" scoped=""/>
+        <function-ref name="getMetadata" ref="0xb6a5e848" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="49:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketP.nc" name="LinkPacketMetadata" provided="1" ref="0xb6a5ea40">
+      <component-ref nicename="tos.chips.cc2420.packet.CC2420PacketP" qname="CC2420PacketP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="LinkPacketMetadata" ref="0xb6a5ea40" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.LinkPacketMetadata" qname="LinkPacketMetadata"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="highChannelQuality" ref="0xb6a5ec18" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="46:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketP.nc" name="CC2420Packet" provided="1" ref="0xb6a626f0">
+      <component-ref nicename="tos.chips.cc2420.packet.CC2420PacketP" qname="CC2420PacketP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="CC2420Packet" ref="0xb6a626f0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.CC2420Packet" qname="CC2420Packet"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="setPower" ref="0xb6a628c8" scoped=""/>
+        <function-ref name="setNetwork" ref="0xb6a629a8" scoped=""/>
+        <function-ref name="getRssi" ref="0xb6a62a88" scoped=""/>
+        <function-ref name="getNetwork" ref="0xb6a62b68" scoped=""/>
+        <function-ref name="getPower" ref="0xb6a62c48" scoped=""/>
+        <function-ref name="getLqi" ref="0xb6a62d28" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="53:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketP.nc" name="PacketTimeSyncOffset" provided="1" ref="0xb6a58308">
+      <component-ref nicename="tos.chips.cc2420.packet.CC2420PacketP" qname="CC2420PacketP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="PacketTimeSyncOffset" ref="0xb6a58308" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.PacketTimeSyncOffset" qname="PacketTimeSyncOffset"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="get" ref="0xb6a584e0" scoped=""/>
+        <function-ref name="isSet" ref="0xb6a585c0" scoped=""/>
+        <function-ref name="cancel" ref="0xb6a586a0" scoped=""/>
+        <function-ref name="set" ref="0xb6a58780" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="51:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketP.nc" name="PacketTimeStamp32khz" provided="1" ref="0xb6a5c100">
+      <component-ref nicename="tos.chips.cc2420.packet.CC2420PacketP" qname="CC2420PacketP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="PacketTimeStamp32khz" ref="0xb6a5c100" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.PacketTimeStamp" qname="PacketTimeStamp"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72b30a0"/>
+            <typename><typedef-ref name="T32khz" ref="0xb72b3268"/></typename>
+          </type-tag>
+          <type-int alignment="I:2" cname="unsigned long" size="I:4" unsigned="">
+            <typename><typedef-ref name="uint32_t" ref="0xb77c6af8"/></typename>
+          </type-int>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="timestamp" ref="0xb6a5cc00" scoped=""/>
+        <function-ref name="clear" ref="0xb6a5b010" scoped=""/>
+        <function-ref name="isValid" ref="0xb6a5c850" scoped=""/>
+        <function-ref name="set" ref="0xb6a5b3c0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="52:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketP.nc" name="PacketTimeStampMilli" provided="1" ref="0xb6a5baf8">
+      <component-ref nicename="tos.chips.cc2420.packet.CC2420PacketP" qname="CC2420PacketP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="PacketTimeStampMilli" ref="0xb6a5baf8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.PacketTimeStamp" qname="PacketTimeStamp"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72b5c40"/>
+            <typename><typedef-ref name="TMilli" ref="0xb72b5e08"/></typename>
+          </type-tag>
+          <type-int alignment="I:2" cname="unsigned long" size="I:4" unsigned="">
+            <typename><typedef-ref name="uint32_t" ref="0xb77c6af8"/></typename>
+          </type-int>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="timestamp" ref="0xb6a5a6b8" scoped=""/>
+        <function-ref name="clear" ref="0xb6a5aa68" scoped=""/>
+        <function-ref name="isValid" ref="0xb6a5a308" scoped=""/>
+        <function-ref name="set" ref="0xb6a5ae18" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="38:/opt/tinyos-2.1.1/tos/lib/timer/CounterToLocalTimeC.nc" name="Counter" provided="0" ref="0xb6a32a38">
+      <component-ref nicename="tos.lib.timer.CounterToLocalTimeC" qname="CC2420PacketC.CounterToLocalTimeC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Counter" ref="0xb6a32a38" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.Counter" qname="Counter"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72b30a0"/>
+            <typename><typedef-ref name="T32khz" ref="0xb72b3268"/></typename>
+          </type-tag>
+          <type-int alignment="I:2" cname="unsigned long" size="I:4" unsigned="">
+            <typename><typedef-ref name="uint32_t" ref="0xb77c6af8"/></typename>
+          </type-int>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="get" ref="0xb6a2b200" scoped=""/>
+        <function-ref name="clearOverflow" ref="0xb6a2b6f0" scoped=""/>
+        <function-ref name="isOverflowPending" ref="0xb6a2b478" scoped=""/>
+        <function-ref name="overflow" ref="0xb6a2b968" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="57:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketP.nc" name="LocalTime32khz" provided="0" ref="0xb6a571e0">
+      <component-ref nicename="tos.chips.cc2420.packet.CC2420PacketP" qname="CC2420PacketP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="LocalTime32khz" ref="0xb6a571e0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.LocalTime" qname="LocalTime"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72b30a0"/>
+            <typename><typedef-ref name="T32khz" ref="0xb72b3268"/></typename>
+          </type-tag>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="get" ref="0xb6a57828" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="58:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketP.nc" name="LocalTimeMilli" provided="0" ref="0xb6a57c38">
+      <component-ref nicename="tos.chips.cc2420.packet.CC2420PacketP" qname="CC2420PacketP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="LocalTimeMilli" ref="0xb6a57c38" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.LocalTime" qname="LocalTime"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72b5c40"/>
+            <typename><typedef-ref name="TMilli" ref="0xb72b5e08"/></typename>
+          </type-tag>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="get" ref="0xb6a56298" scoped=""/>
+      </interface-functions>
+    </interface><component loc="35(CC2420PacketC.CounterToLocalTimeC):/opt/tinyos-2.1.1/tos/lib/timer/CounterToLocalTimeC.nc" nicename="tos.lib.timer.CounterToLocalTimeC" qname="CC2420PacketC.CounterToLocalTimeC">
+      <documentation loc="25:/opt/tinyos-2.1.1/tos/lib/timer/CounterToLocalTimeC.nc">
+        <short>
+ CounterToLocalTimeC converts a 32-bit LocalTime to a Counter.</short>
+        <long>
+ CounterToLocalTimeC converts a 32-bit LocalTime to a Counter.  
+
+ &lt;p&gt;See TEP102 for more details.
+ @param precision_tag A type indicating the precision of the LocalTime and
+ Counter being converted.
+
+ @author Cory Sharp &lt;cssharp@eecs.berkeley.edu&gt;
+</long>
+      </documentation>
+      <instance number="0">
+        <component-ref nicename="tos.lib.timer.CounterToLocalTimeC" qname="CounterToLocalTimeC"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72b30a0"/>
+            <typename><typedef-ref name="T32khz" ref="0xb72b3268"/></typename>
+          </type-tag>
+        </arguments>
+      </instance>
+      <module/>
+    </component><component loc="30:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Counter32khz32C.nc" nicename="tos.chips.msp430.timer.Counter32khz32C" qname="Counter32khz32C">
+      <documentation loc="22:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Counter32khz32C.nc">
+        <short>
+ Counter32khz32C provides at 32-bit counter at 32768 ticks per second.</short>
+        <long>
+ Counter32khz32C provides at 32-bit counter at 32768 ticks per second.
+
+ @author Cory Sharp &lt;cssharp@eecs.berkeley.edu&gt;
+ @see  Please refer to TEP 102 for more information about this component and its
+          intended use.
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="39:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Counter32khz32C.nc">
+          <from><interface-ref name="Counter" ref="0xb70160b0" scoped=""/></from>
+          <to><interface-ref name="Counter" ref="0xb7003320" scoped=""/></to>
+        </wire>
+        <wire loc="41:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Counter32khz32C.nc">
+          <from><interface-ref name="CounterFrom" ref="0xb6ff25f8" scoped=""/></from>
+          <to><interface-ref name="Msp430Counter32khz" ref="0xb7015c18" scoped=""/></to>
+        </wire>
+      </wiring>
+    </component><component loc="32:/opt/tinyos-2.1.1/tos/chips/msp430/timer/HilTimerMilliC.nc" nicename="tos.chips.msp430.timer.HilTimerMilliC" qname="HilTimerMilliC">
+      <documentation loc="22:/opt/tinyos-2.1.1/tos/chips/msp430/timer/HilTimerMilliC.nc">
+        <short>
+ HilTimerMilliC provides a parameterized interface to a virtualized
+ millisecond timer.</short>
+        <long>
+ HilTimerMilliC provides a parameterized interface to a virtualized
+ millisecond timer.  TimerMilliC in tos/system/ uses this component to
+ allocate new timers.
+
+ @author Cory Sharp &lt;cssharp@eecs.berkeley.edu&gt;
+ @see  Please refer to TEP 102 for more information about this component and its
+          intended use.
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="47:/opt/tinyos-2.1.1/tos/chips/msp430/timer/HilTimerMilliC.nc">
+          <from><interface-ref name="TimerMilli" ref="0xb6a27380" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0xb69edea8" scoped=""/></to>
+        </wire>
+        <wire loc="48:/opt/tinyos-2.1.1/tos/chips/msp430/timer/HilTimerMilliC.nc">
+          <from><interface-ref name="LocalTime" ref="0xb6a256a8" scoped=""/></from>
+          <to><interface-ref name="LocalTime" ref="0xb69c0970" scoped=""/></to>
+        </wire>
+        <wire loc="46:/opt/tinyos-2.1.1/tos/chips/msp430/timer/HilTimerMilliC.nc">
+          <from><interface-ref name="Init" ref="0xb6a2ab90" scoped=""/></from>
+          <to><interface-ref name="Init" ref="0xb6a21010" scoped=""/></to>
+        </wire>
+        <wire loc="50:/opt/tinyos-2.1.1/tos/chips/msp430/timer/HilTimerMilliC.nc">
+          <from><interface-ref name="TimerFrom" ref="0xb69c4220" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0xb6a08cb0" scoped=""/></to>
+        </wire>
+        <wire loc="51:/opt/tinyos-2.1.1/tos/chips/msp430/timer/HilTimerMilliC.nc">
+          <from><interface-ref name="Alarm" ref="0xb69f0010" scoped=""/></from>
+          <to><interface-ref name="Alarm" ref="0xb6a21468" scoped=""/></to>
+        </wire>
+        <wire loc="52:/opt/tinyos-2.1.1/tos/chips/msp430/timer/HilTimerMilliC.nc">
+          <from><interface-ref name="Counter" ref="0xb69bf360" scoped=""/></from>
+          <to><interface-ref name="Counter" ref="0xb6a1b698" scoped=""/></to>
+        </wire>
+      </wiring>
+    </component><component loc="43:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketP.nc" nicename="tos.chips.cc2420.packet.CC2420PacketP" qname="CC2420PacketP" safe="">
+      <documentation loc="32:/opt/tinyos-2.1.1/tos/chips/cc2420/packet/CC2420PacketP.nc">
+        <short>
+ </short>
+        <long>
+ @author Jonathan Hui &lt;jhui@archrock.com&gt;
+ @author David Moss
+ @author Chad Metcalf
+</long>
+      </documentation>
+      <module/>
+    </component></referenced></component>

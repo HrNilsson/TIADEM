@@ -1,0 +1,26 @@
+<area shape="rect" id="node2" href="../chtml/tos.lib.serial.SerialDispatcherC.html" title="SerialDispatcherC" alt="" coords="233,245,401,304">
+<area shape="poly" id="edge2" href="../ihtml/tos.interfaces.SplitControl.html" title="SplitControl" alt="" coords="151,171 177,195 207,219 236,237 233,241 204,224 173,199 148,175">
+<area shape="rect" id="edge2" href="../ihtml/tos.interfaces.SplitControl.html" title="SplitControl" alt="" coords="205,203,280,221">
+<area shape="poly" id="edge16" href="../ihtml/tos.interfaces.Leds.html" title="Leds" alt="" coords="295,306 248,364 244,361 291,303">
+<area shape="rect" id="edge16" href="../ihtml/tos.interfaces.Leds.html" title="Leds" alt="" coords="271,329,301,346">
+<area shape="rect" id="node11" href="../chtml/tos.lib.serial.SerialPacketInfoActiveMessageP.html" title="SerialPacketInfoActiveMessageP" alt="" coords="281,371,551,419">
+<area shape="poly" id="edge22" href="../ihtml/tos.lib.serial.SerialPacketInfo.html" title="SerialPacketInfo[uart_id_t]" alt="" coords="344,303 390,358 386,362 340,306">
+<area shape="rect" id="edge22" href="../ihtml/tos.lib.serial.SerialPacketInfo.html" title="SerialPacketInfo[uart_id_t]" alt="" coords="375,329,543,346">
+<area shape="rect" id="node4" href="../chtml/tos.lib.serial.SerialActiveMessageP.html" title="SerialActiveMessageP\n(AM)" alt="" coords="224,124,411,175">
+<area shape="poly" id="edge4" href="../ihtml/tos.interfaces.AMSend.html" title="AMSend[am_id_t]" alt="" coords="79,50 99,73 125,94 148,104 167,109 213,117 214,118 212,123 211,123 166,114 146,109 123,98 96,77 75,54">
+<area shape="rect" id="edge4" href="../ihtml/tos.interfaces.AMSend.html" title="AMSend[am_id_t]" alt="" coords="124,78,239,95">
+<area shape="poly" id="edge18" href="../ihtml/tos.interfaces.Send.html" title="Send" alt="" coords="302,176 289,203 288,218 292,232 287,233 283,218 284,202 297,174">
+<area shape="rect" id="edge18" href="../ihtml/tos.interfaces.Send.html" title="Send" alt="" coords="287,203,320,221">
+<area shape="poly" id="edge20" href="../ihtml/tos.interfaces.Receive.html" title="Receive" alt="" coords="322,175 323,203 322,232 317,232 317,203 316,175">
+<area shape="rect" id="edge20" href="../ihtml/tos.interfaces.Receive.html" title="Receive" alt="" coords="320,203,369,221">
+<area shape="poly" id="edge6" href="../ihtml/tos.interfaces.Packet.html" title="Packet" alt="" coords="218,49 283,112 280,116 215,53">
+<area shape="rect" id="edge6" href="../ihtml/tos.interfaces.Packet.html" title="Packet" alt="" coords="259,78,301,95">
+<area shape="poly" id="edge8" href="../ihtml/tos.interfaces.Receive.html" title="Receive[am_id_t]" alt="" coords="320,54 320,110 315,110 315,54">
+<area shape="rect" id="edge8" href="../ihtml/tos.interfaces.Receive.html" title="Receive[am_id_t]" alt="" coords="317,78,427,95">
+<area shape="poly" id="edge10" href="../ihtml/tos.interfaces.PacketAcknowledgements.html" title="PacketAcknowledgements" alt="" coords="505,55 433,98 389,121 387,116 431,94 502,50">
+<area shape="rect" id="edge10" href="../ihtml/tos.interfaces.PacketAcknowledgements.html" title="PacketAcknowledgements" alt="" coords="461,78,628,95">
+<area shape="poly" id="edge12" href="../ihtml/tos.interfaces.AMPacket.html" title="AMPacket" alt="" coords="738,52 690,77 634,99 576,111 529,114 482,115 423,123 418,124 417,118 422,117 482,110 529,108 575,106 633,93 688,72 736,47">
+<area shape="rect" id="edge12" href="../ihtml/tos.interfaces.AMPacket.html" title="AMPacket" alt="" coords="680,78,743,95">
+<area shape="rect" id="node9" href="../chtml/tos.system.MainC.html" title="MainC" alt="" coords="435,120,517,179">
+<area shape="poly" id="edge14" href="../ihtml/tos.interfaces.Init.html" title="Init" alt="" coords="440,181 367,239 364,235 437,177">
+<area shape="rect" id="edge14" href="../ihtml/tos.interfaces.Init.html" title="Init" alt="" coords="405,203,425,221">

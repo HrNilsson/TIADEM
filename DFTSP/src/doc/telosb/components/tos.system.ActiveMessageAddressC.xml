@@ -1,0 +1,68 @@
+<?xml version="1.0" ?><component loc="41:/opt/tinyos-2.1.1/tos/system/ActiveMessageAddressC.nc" nicename="tos.system.ActiveMessageAddressC" qname="ActiveMessageAddressC" safe="">
+      <documentation loc="34:/opt/tinyos-2.1.1/tos/system/ActiveMessageAddressC.nc">
+        <short>
+ Component that stores the node's active message address and group ID.</short>
+        <long>
+ Component that stores the node's active message address and group ID.
+
+ @author Philip Levis
+ @author David Moss
+</long>
+      </documentation>
+      <module/>
+    <specification><interface loc="43:/opt/tinyos-2.1.1/tos/system/ActiveMessageAddressC.nc" name="ActiveMessageAddress" provided="1" ref="0xb6b46968">
+      <component-ref nicename="tos.system.ActiveMessageAddressC" qname="ActiveMessageAddressC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="ActiveMessageAddress" ref="0xb6b46968" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.ActiveMessageAddress" qname="ActiveMessageAddress"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="amAddress" ref="0xb6b46b40" scoped=""/>
+        <function-ref name="changed" ref="0xb6b46c20" scoped=""/>
+        <function-ref name="amGroup" ref="0xb6b46d00" scoped=""/>
+        <function-ref name="setAddress" ref="0xb6b46de0" scoped=""/>
+      </interface-functions>
+    </interface><function command="" loc="95:/opt/tinyos-2.1.1/tos/system/ActiveMessageAddressC.nc" name="amAddress" provided="1" ref="0xb6b43210" safe="">
+      <documentation loc="90:/opt/tinyos-2.1.1/tos/system/ActiveMessageAddressC.nc">
+        <short>
+ Get the node's default AM address.</short>
+        <long>
+ Get the node's default AM address.
+ @return address
+ @deprecated Use ActiveMessageAddress.amAddress() instead
+</long>
+      </documentation>
+      <component-ref nicename="tos.system.ActiveMessageAddressC" qname="ActiveMessageAddressC"/>
+      <type-function alignment="I:1" size="I:1">
+        <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned=""/>
+        <function-parameters>
+        </function-parameters>
+      </type-function>
+      <parameters>
+      </parameters>
+    </function><function command="" loc="107:/opt/tinyos-2.1.1/tos/system/ActiveMessageAddressC.nc" name="setAmAddress" provided="1" ref="0xb6b43778" safe="">
+      <documentation loc="101:/opt/tinyos-2.1.1/tos/system/ActiveMessageAddressC.nc">
+        <short>
+ Set the node's default AM address.</short>
+        <long>
+ Set the node's default AM address.
+
+ @param a - the address.
+ @deprecated Use ActiveMessageAddress.setAddress() instead
+</long>
+      </documentation>
+      <component-ref nicename="tos.system.ActiveMessageAddressC" qname="ActiveMessageAddressC"/>
+      <type-function alignment="I:1" size="I:1">
+        <type-void alignment="I:1" size="I:1"/>
+        <function-parameters>
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned=""/>
+        </function-parameters>
+      </type-function>
+      <parameters>
+        <variable loc="45:/opt/tinyos-2.1.1/tos/system/ActiveMessageAddressC.nc" name="a" ref="0xb6b43620">
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="am_addr_t" ref="0xb7277620"/></typename>
+          </type-int>
+        </variable>
+      </parameters>
+    </function></specification><referenced/></component>

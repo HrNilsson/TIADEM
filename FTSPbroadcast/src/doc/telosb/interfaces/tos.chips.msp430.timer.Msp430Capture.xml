@@ -1,0 +1,154 @@
+<?xml version="1.0" ?><interfacedef loc="28:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc" nicename="tos.chips.msp430.timer.Msp430Capture" qname="Msp430Capture">
+      <documentation loc="22:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc">
+        <short>
+ </short>
+        <long>
+ @author Joe Polastre
+</long>
+      </documentation>
+      <function command="" loc="33:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc" name="getEvent" provided="0" ref="0xb72f4320">
+        <documentation loc="30:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc">
+          <short>
+ Reads the value of the last capture event in TxCCRx
+</short>
+        </documentation>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Capture" qname="Msp430Capture"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0xb774f6e8"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="68:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc" name="setSynchronous" provided="0" ref="0xb72f3918">
+        <documentation loc="59:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc">
+          <short>
+ Set whether the capture should occur synchronously or asynchronously.</short>
+          <long>
+ Set whether the capture should occur synchronously or asynchronously.
+ TinyOS default is synchronous captures.
+ WARNING: if the capture signal is asynchronous to the timer clock,
+          it could case a race condition (see Timer documentation
+          in MSP430F1xx user guide)
+ @param synchronous TRUE to synchronize the timer capture with the
+        next timer clock instead of occurring asynchronously.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Capture" qname="Msp430Capture"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="bool" ref="0xb75f29a0"/></typename>
+            </type-int>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="68:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc" name="synchronous" ref="0xb72f37c0">
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="bool" ref="0xb75f29a0"/></typename>
+            </type-int>
+          </variable>
+        </parameters>
+      </function>
+      <function event="" loc="75:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc" name="captured" provided="0" ref="0xb72f2088">
+        <documentation loc="70:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc">
+          <short>
+ Signalled when an event is captured.</short>
+          <long>
+ Signalled when an event is captured.
+
+ @param time The time of the capture event
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Capture" qname="Msp430Capture"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+            <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+              <typename><typedef-ref name="uint16_t" ref="0xb774f6e8"/></typename>
+            </type-int>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="75:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc" name="time" ref="0xb72f3f10">
+            <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+              <typename><typedef-ref name="uint16_t" ref="0xb774f6e8"/></typename>
+            </type-int>
+          </variable>
+        </parameters>
+      </function>
+      <function command="" loc="57:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc" name="clearOverflow" provided="0" ref="0xb72f3318">
+        <documentation loc="54:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc">
+          <short>
+ Clear the capture overflow flag for when multiple captures occur
+</short>
+        </documentation>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Capture" qname="Msp430Capture"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="52:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc" name="isOverflowPending" provided="0" ref="0xb72f4e58">
+        <documentation loc="47:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc">
+          <short>
+ Determine if a capture overflow is pending.</short>
+          <long>
+ Determine if a capture overflow is pending.
+
+ @return TRUE if the capture register has overflowed
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Capture" qname="Msp430Capture"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="bool" ref="0xb75f29a0"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="45:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc" name="setEdge" provided="0" ref="0xb72f4888">
+        <documentation loc="35:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc">
+          <short>
+ Set the edge that the capture should occur
+
+ </short>
+          <long>
+ Set the edge that the capture should occur
+
+ @param cm Capture Mode for edge capture.
+ enums exist for:
+   MSP430TIMER_CM_NONE is no capture.
+   MSP430TIMER_CM_RISING is rising edge capture.
+   MSP430TIMER_CM_FALLING is a falling edge capture.
+   MSP430TIMER_CM_BOTH captures on both rising and falling edges.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Capture" qname="Msp430Capture"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+            </type-int>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="45:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Capture.nc" name="cm" ref="0xb72f4730">
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+            </type-int>
+          </variable>
+        </parameters>
+      </function>
+    </interfacedef>

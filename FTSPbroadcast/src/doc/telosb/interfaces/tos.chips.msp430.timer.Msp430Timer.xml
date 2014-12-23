@@ -1,0 +1,144 @@
+<?xml version="1.0" ?><interfacedef loc="32:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Timer.nc" nicename="tos.chips.msp430.timer.Msp430Timer" qname="Msp430Timer">
+      <documentation loc="22:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Timer.nc">
+        <short>
+ </short>
+        <long>
+ @author Cory Sharp &lt;cssharp@eecs.berkeley.edu&gt;
+ @author Jan Hauer &lt;hauer@tkn.tu-berlin.de&gt;
+</long>
+      </documentation>
+      <function command="" loc="41:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Timer.nc" name="clear" provided="0" ref="0xb73014a0">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Timer" qname="Msp430Timer"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="44:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Timer.nc" name="setClockSource" provided="0" ref="0xb7300270">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Timer" qname="Msp430Timer"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+            <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+              <typename><typedef-ref name="uint16_t" ref="0xb774f6e8"/></typename>
+            </type-int>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="44:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Timer.nc" name="clockSource" ref="0xb7300118">
+            <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+              <typename><typedef-ref name="uint16_t" ref="0xb774f6e8"/></typename>
+            </type-int>
+          </variable>
+        </parameters>
+      </function>
+      <function command="" loc="42:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Timer.nc" name="enableEvents" provided="0" ref="0xb7301890">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Timer" qname="Msp430Timer"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="34:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Timer.nc" name="get" provided="0" ref="0xb732ebf0">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Timer" qname="Msp430Timer"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0xb774f6e8"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="43:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Timer.nc" name="disableEvents" provided="0" ref="0xb7301c88">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Timer" qname="Msp430Timer"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="36:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Timer.nc" name="clearOverflow" provided="0" ref="0xb7302468">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Timer" qname="Msp430Timer"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="40:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Timer.nc" name="getMode" provided="0" ref="0xb73010f8">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Timer" qname="Msp430Timer"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:2" cname="int" size="I:2"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="35:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Timer.nc" name="isOverflowPending" provided="0" ref="0xb7302070">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Timer" qname="Msp430Timer"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="bool" ref="0xb75f29a0"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function event="" loc="37:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Timer.nc" name="overflow" provided="0" ref="0xb7302830">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Timer" qname="Msp430Timer"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="39:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Timer.nc" name="setMode" provided="0" ref="0xb7302d20">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Timer" qname="Msp430Timer"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+            <type-int alignment="I:2" cname="int" size="I:2"/>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="39:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Timer.nc" name="mode" ref="0xb7302bc8">
+            <type-int alignment="I:2" cname="int" size="I:2"/>
+          </variable>
+        </parameters>
+      </function>
+      <function command="" loc="45:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Timer.nc" name="setInputDivider" provided="0" ref="0xb7300858">
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Timer" qname="Msp430Timer"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+            <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+              <typename><typedef-ref name="uint16_t" ref="0xb774f6e8"/></typename>
+            </type-int>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="45:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Timer.nc" name="inputDivider" ref="0xb7300700">
+            <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+              <typename><typedef-ref name="uint16_t" ref="0xb774f6e8"/></typename>
+            </type-int>
+          </variable>
+        </parameters>
+      </function>
+    </interfacedef>

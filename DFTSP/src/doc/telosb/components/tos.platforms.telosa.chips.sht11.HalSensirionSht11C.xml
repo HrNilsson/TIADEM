@@ -1,0 +1,479 @@
+<?xml version="1.0" ?><component loc="43:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HalSensirionSht11C.nc" nicename="tos.platforms.telosa.chips.sht11.HalSensirionSht11C" qname="HalSensirionSht11C">
+      <documentation loc="32:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HalSensirionSht11C.nc">
+        <short>
+ HalSensirionSht11C is an advanced access component for the
+ Sensirion SHT11 model humidity and temperature sensor, available on
+ the telosb platform.</short>
+        <long>
+ HalSensirionSht11C is an advanced access component for the
+ Sensirion SHT11 model humidity and temperature sensor, available on
+ the telosb platform. This component provides the SensirionSht11
+ interface, which offers full control over the device. Please
+ acquire the Resource before using it.
+
+ @author Gilman Tolle &lt;gtolle@archrock.com&gt;
+ @version $Revision: 1.4 $ $Date: 2006/12/12 18:23:45 $
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="49:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HalSensirionSht11C.nc">
+          <from><interface-ref name="SensirionSht11" ref="0xb67f96c8" scoped=""/></from>
+          <to><interface-ref name="SensirionSht11" ref="0xb67f6e78" scoped=""/></to>
+        </wire>
+        <wire loc="52:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HalSensirionSht11C.nc">
+          <from><interface-ref name="Resource" ref="0xb67fcc00" scoped=""/></from>
+          <to><interface-ref name="Resource" ref="0xb67ac8f8" scoped=""/></to>
+        </wire>
+        <wire loc="53:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HalSensirionSht11C.nc">
+          <from><interface-ref name="DATA" ref="0xb67b49d0" scoped=""/></from>
+          <to><interface-ref name="DATA" ref="0xb67a9090" scoped=""/></to>
+        </wire>
+        <wire loc="54:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HalSensirionSht11C.nc">
+          <from><interface-ref name="CLOCK" ref="0xb67b3358" scoped=""/></from>
+          <to><interface-ref name="SCK" ref="0xb67a9a88" scoped=""/></to>
+        </wire>
+        <wire loc="55:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HalSensirionSht11C.nc">
+          <from><interface-ref name="InterruptDATA" ref="0xb67b3cd0" scoped=""/></from>
+          <to><interface-ref name="InterruptDATA" ref="0xb67a8540" scoped=""/></to>
+        </wire>
+        <wire loc="58:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HalSensirionSht11C.nc">
+          <from><interface-ref name="Timer" ref="0xb67b23c0" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0xb6768a70" scoped=""/></to>
+        </wire>
+        <wire loc="61:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HalSensirionSht11C.nc">
+          <from><interface-ref name="Leds" ref="0xb67af5d8" scoped=""/></from>
+          <to><interface-ref name="Leds" ref="0xb6c88968" scoped=""/></to>
+        </wire>
+      </wiring>
+    <specification><interface loc="45:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HalSensirionSht11C.nc" name="SensirionSht11" provided="1" ref="0xb67f96c8">
+      <component-ref nicename="tos.platforms.telosa.chips.sht11.HalSensirionSht11C" qname="HalSensirionSht11C"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SensirionSht11" ref="0xb67f96c8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.sht11.SensirionSht11" qname="SensirionSht11"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="measureHumidityDone" ref="0xb67f98a0" scoped=""/>
+        <function-ref name="readStatusReg" ref="0xb67f9980" scoped=""/>
+        <function-ref name="measureHumidity" ref="0xb67f9a60" scoped=""/>
+        <function-ref name="measureTemperature" ref="0xb67f9b40" scoped=""/>
+        <function-ref name="writeStatusReg" ref="0xb67f9c20" scoped=""/>
+        <function-ref name="reset" ref="0xb67f9d00" scoped=""/>
+        <function-ref name="writeStatusRegDone" ref="0xb67f9de0" scoped=""/>
+        <function-ref name="readStatusRegDone" ref="0xb67f9ec0" scoped=""/>
+        <function-ref name="resetDone" ref="0xb67f8010" scoped=""/>
+        <function-ref name="measureTemperatureDone" ref="0xb67f80f0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="44:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HalSensirionSht11C.nc" name="Resource" provided="1" ref="0xb67fcc00">
+      <component-ref nicename="tos.platforms.telosa.chips.sht11.HalSensirionSht11C" qname="HalSensirionSht11C"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Resource" ref="0xb67fcc00" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Resource" qname="Resource"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="release" ref="0xb67fcdd8" scoped=""/>
+        <function-ref name="immediateRequest" ref="0xb67fceb8" scoped=""/>
+        <function-ref name="request" ref="0xb67f9010" scoped=""/>
+        <function-ref name="granted" ref="0xb67f90f0" scoped=""/>
+        <function-ref name="isOwner" ref="0xb67f91d0" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced><interface loc="44:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc" name="Resource" provided="1" ref="0xb67ac8f8">
+      <component-ref nicename="tos.platforms.telosa.chips.sht11.HplSensirionSht11C" qname="HplSensirionSht11C"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Resource" ref="0xb67ac8f8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Resource" qname="Resource"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="release" ref="0xb67acad0" scoped=""/>
+        <function-ref name="immediateRequest" ref="0xb67acbb0" scoped=""/>
+        <function-ref name="request" ref="0xb67acc90" scoped=""/>
+        <function-ref name="granted" ref="0xb67acd70" scoped=""/>
+        <function-ref name="isOwner" ref="0xb67ace50" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="54:/opt/tinyos-2.1.1/tos/chips/sht11/SensirionSht11LogicP.nc" name="SensirionSht11" provided="1" ref="0xb67f6e78">
+      <component-ref nicename="tos.chips.sht11.SensirionSht11LogicP" qname="HalSensirionSht11C.SensirionSht11LogicP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SensirionSht11" ref="0xb67f6e78" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.sht11.SensirionSht11" qname="SensirionSht11"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="measureHumidityDone" ref="0xb67b4070" scoped=""/>
+        <function-ref name="readStatusReg" ref="0xb67b4150" scoped=""/>
+        <function-ref name="measureHumidity" ref="0xb67b4230" scoped=""/>
+        <function-ref name="measureTemperature" ref="0xb67b4310" scoped=""/>
+        <function-ref name="writeStatusReg" ref="0xb67b43f0" scoped=""/>
+        <function-ref name="reset" ref="0xb67b44d0" scoped=""/>
+        <function-ref name="writeStatusRegDone" ref="0xb67b45b0" scoped=""/>
+        <function-ref name="readStatusRegDone" ref="0xb67b4690" scoped=""/>
+        <function-ref name="resetDone" ref="0xb67b4770" scoped=""/>
+        <function-ref name="measureTemperatureDone" ref="0xb67b4850" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="57:/opt/tinyos-2.1.1/tos/chips/sht11/SensirionSht11LogicP.nc" name="CLOCK" provided="0" ref="0xb67b3358">
+      <component-ref nicename="tos.chips.sht11.SensirionSht11LogicP" qname="HalSensirionSht11C.SensirionSht11LogicP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="CLOCK" ref="0xb67b3358" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="makeInput" ref="0xb67b3530" scoped=""/>
+        <function-ref name="isInput" ref="0xb67b3610" scoped=""/>
+        <function-ref name="toggle" ref="0xb67b36f0" scoped=""/>
+        <function-ref name="isOutput" ref="0xb67b37d0" scoped=""/>
+        <function-ref name="get" ref="0xb67b38b0" scoped=""/>
+        <function-ref name="makeOutput" ref="0xb67b3990" scoped=""/>
+        <function-ref name="set" ref="0xb67b3a70" scoped=""/>
+        <function-ref name="clr" ref="0xb67b3b50" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="58:/opt/tinyos-2.1.1/tos/chips/sht11/SensirionSht11LogicP.nc" name="InterruptDATA" provided="0" ref="0xb67b3cd0">
+      <component-ref nicename="tos.chips.sht11.SensirionSht11LogicP" qname="HalSensirionSht11C.SensirionSht11LogicP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="InterruptDATA" ref="0xb67b3cd0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.GpioInterrupt" qname="GpioInterrupt"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="fired" ref="0xb67b3ea8" scoped=""/>
+        <function-ref name="disable" ref="0xb67b2010" scoped=""/>
+        <function-ref name="enableFallingEdge" ref="0xb67b20f0" scoped=""/>
+        <function-ref name="enableRisingEdge" ref="0xb67b21d0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="46:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc" name="SCK" provided="1" ref="0xb67a9a88">
+      <component-ref nicename="tos.platforms.telosa.chips.sht11.HplSensirionSht11C" qname="HplSensirionSht11C"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SCK" ref="0xb67a9a88" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="makeInput" ref="0xb67a9c60" scoped=""/>
+        <function-ref name="isInput" ref="0xb67a9d40" scoped=""/>
+        <function-ref name="toggle" ref="0xb67a9e20" scoped=""/>
+        <function-ref name="isOutput" ref="0xb67a9f00" scoped=""/>
+        <function-ref name="get" ref="0xb67a8010" scoped=""/>
+        <function-ref name="makeOutput" ref="0xb67a80f0" scoped=""/>
+        <function-ref name="set" ref="0xb67a81d0" scoped=""/>
+        <function-ref name="clr" ref="0xb67a82b0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="45:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc" name="DATA" provided="1" ref="0xb67a9090">
+      <component-ref nicename="tos.platforms.telosa.chips.sht11.HplSensirionSht11C" qname="HplSensirionSht11C"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="DATA" ref="0xb67a9090" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="makeInput" ref="0xb67a9268" scoped=""/>
+        <function-ref name="isInput" ref="0xb67a9348" scoped=""/>
+        <function-ref name="toggle" ref="0xb67a9428" scoped=""/>
+        <function-ref name="isOutput" ref="0xb67a9508" scoped=""/>
+        <function-ref name="get" ref="0xb67a95e8" scoped=""/>
+        <function-ref name="makeOutput" ref="0xb67a96c8" scoped=""/>
+        <function-ref name="set" ref="0xb67a97a8" scoped=""/>
+        <function-ref name="clr" ref="0xb67a9888" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="47:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc" name="InterruptDATA" provided="1" ref="0xb67a8540">
+      <component-ref nicename="tos.platforms.telosa.chips.sht11.HplSensirionSht11C" qname="HplSensirionSht11C"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="InterruptDATA" ref="0xb67a8540" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.GpioInterrupt" qname="GpioInterrupt"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="fired" ref="0xb67a8718" scoped=""/>
+        <function-ref name="disable" ref="0xb67a87f8" scoped=""/>
+        <function-ref name="enableFallingEdge" ref="0xb67a88d8" scoped=""/>
+        <function-ref name="enableRisingEdge" ref="0xb67a89b8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="35:/opt/tinyos-2.1.1/tos/system/LedsC.nc" name="Leds" provided="1" ref="0xb6c88968">
+      <component-ref nicename="tos.system.LedsC" qname="LedsC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Leds" ref="0xb6c88968" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Leds" qname="Leds"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="led0Off" ref="0xb6c88b40" scoped=""/>
+        <function-ref name="led0Toggle" ref="0xb6c88c20" scoped=""/>
+        <function-ref name="led1On" ref="0xb6c88d00" scoped=""/>
+        <function-ref name="led1Toggle" ref="0xb6c88de0" scoped=""/>
+        <function-ref name="led2Toggle" ref="0xb6c88ec0" scoped=""/>
+        <function-ref name="get" ref="0xb6c85010" scoped=""/>
+        <function-ref name="led1Off" ref="0xb6c850f0" scoped=""/>
+        <function-ref name="led2Off" ref="0xb6c85470" scoped=""/>
+        <function-ref name="set" ref="0xb6c851d0" scoped=""/>
+        <function-ref name="led0On" ref="0xb6c852b0" scoped=""/>
+        <function-ref name="led2On" ref="0xb6c85390" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="60:/opt/tinyos-2.1.1/tos/chips/sht11/SensirionSht11LogicP.nc" name="Timer" provided="0" ref="0xb67b23c0">
+      <component-ref nicename="tos.chips.sht11.SensirionSht11LogicP" qname="HalSensirionSht11C.SensirionSht11LogicP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Timer" ref="0xb67b23c0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.Timer" qname="Timer"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72b5c40"/>
+            <typename><typedef-ref name="TMilli" ref="0xb72b5e08"/></typename>
+          </type-tag>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="getNow" ref="0xb67b1ec8" scoped=""/>
+        <function-ref name="fired" ref="0xb67b1180" scoped=""/>
+        <function-ref name="startPeriodicAt" ref="0xb67b1888" scoped=""/>
+        <function-ref name="isOneShot" ref="0xb67b1630" scoped=""/>
+        <function-ref name="getdt" ref="0xb67af3a8" scoped=""/>
+        <function-ref name="gett0" ref="0xb67af150" scoped=""/>
+        <function-ref name="isRunning" ref="0xb67b13d8" scoped=""/>
+        <function-ref name="startPeriodic" ref="0xb67b29e8" scoped=""/>
+        <function-ref name="startOneShotAt" ref="0xb67b1ba8" scoped=""/>
+        <function-ref name="startOneShot" ref="0xb67b2c68" scoped=""/>
+        <function-ref name="stop" ref="0xb67b2ee8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="62:/opt/tinyos-2.1.1/tos/chips/sht11/SensirionSht11LogicP.nc" name="Leds" provided="0" ref="0xb67af5d8">
+      <component-ref nicename="tos.chips.sht11.SensirionSht11LogicP" qname="HalSensirionSht11C.SensirionSht11LogicP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Leds" ref="0xb67af5d8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Leds" qname="Leds"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="led0Off" ref="0xb67af7b0" scoped=""/>
+        <function-ref name="led0Toggle" ref="0xb67af890" scoped=""/>
+        <function-ref name="led1On" ref="0xb67af970" scoped=""/>
+        <function-ref name="led1Toggle" ref="0xb67afa50" scoped=""/>
+        <function-ref name="led2Toggle" ref="0xb67afb30" scoped=""/>
+        <function-ref name="get" ref="0xb67afc10" scoped=""/>
+        <function-ref name="led1Off" ref="0xb67afcf0" scoped=""/>
+        <function-ref name="led2On" ref="0xb67ae0f0" scoped=""/>
+        <function-ref name="set" ref="0xb67afeb0" scoped=""/>
+        <function-ref name="led2Off" ref="0xb67afdd0" scoped=""/>
+        <function-ref name="led0On" ref="0xb67ae010" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="37:/opt/tinyos-2.1.1/tos/system/TimerMilliC.nc" name="Timer" provided="1" ref="0xb6768a70">
+      <component-ref nicename="tos.system.TimerMilliC" qname="HalSensirionSht11C.TimerMilliC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Timer" ref="0xb6768a70" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.Timer" qname="Timer"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72b5c40"/>
+            <typename><typedef-ref name="TMilli" ref="0xb72b5e08"/></typename>
+          </type-tag>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="getNow" ref="0xb6766570" scoped=""/>
+        <function-ref name="fired" ref="0xb6767810" scoped=""/>
+        <function-ref name="startPeriodicAt" ref="0xb6767f18" scoped=""/>
+        <function-ref name="isOneShot" ref="0xb6767cc0" scoped=""/>
+        <function-ref name="getdt" ref="0xb6766a20" scoped=""/>
+        <function-ref name="gett0" ref="0xb67667c8" scoped=""/>
+        <function-ref name="isRunning" ref="0xb6767a68" scoped=""/>
+        <function-ref name="startPeriodic" ref="0xb67670b8" scoped=""/>
+        <function-ref name="startOneShotAt" ref="0xb6766250" scoped=""/>
+        <function-ref name="startOneShot" ref="0xb6767338" scoped=""/>
+        <function-ref name="stop" ref="0xb67675b8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="56:/opt/tinyos-2.1.1/tos/chips/sht11/SensirionSht11LogicP.nc" name="DATA" provided="0" ref="0xb67b49d0">
+      <component-ref nicename="tos.chips.sht11.SensirionSht11LogicP" qname="HalSensirionSht11C.SensirionSht11LogicP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="DATA" ref="0xb67b49d0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="makeInput" ref="0xb67b4ba8" scoped=""/>
+        <function-ref name="isInput" ref="0xb67b4c88" scoped=""/>
+        <function-ref name="toggle" ref="0xb67b4d68" scoped=""/>
+        <function-ref name="isOutput" ref="0xb67b4e48" scoped=""/>
+        <function-ref name="get" ref="0xb67b4f28" scoped=""/>
+        <function-ref name="makeOutput" ref="0xb67b3018" scoped=""/>
+        <function-ref name="set" ref="0xb67b30f8" scoped=""/>
+        <function-ref name="clr" ref="0xb67b31d8" scoped=""/>
+      </interface-functions>
+    </interface><component loc="43:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc" nicename="tos.platforms.telosa.chips.sht11.HplSensirionSht11C" qname="HplSensirionSht11C">
+      <documentation loc="32:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc">
+        <short>
+ HplSensirionSht11C is a low-level component, intended to provide
+ the physical resources used by the Sensirion SHT11 sensor on the
+ telosb platform so that the chip driver can make use of them.</short>
+        <long>
+ HplSensirionSht11C is a low-level component, intended to provide
+ the physical resources used by the Sensirion SHT11 sensor on the
+ telosb platform so that the chip driver can make use of them. You
+ really shouldn't be wiring to this, unless you're writing a new
+ Sensirion SHT11 driver.
+
+ @author Gilman Tolle &lt;gtolle@archrock.com&gt;
+ @version $Revision: 1.6 $ $Date: 2007/02/04 19:56:29 $
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="74:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc">
+          <from><interface-ref name="InterruptDATA" ref="0xb67a8540" scoped=""/></from>
+          <to><interface-ref name="Interrupt" ref="0xb678fdd8" scoped=""/></to>
+        </wire>
+        <wire loc="61:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc">
+          <from><interface-ref name="SCK" ref="0xb67a9a88" scoped=""/></from>
+          <to><interface-ref name="GeneralIO" ref="0xb67a5a58" scoped=""/></to>
+        </wire>
+        <wire loc="60:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc">
+          <from><interface-ref name="DATA" ref="0xb67a9090" scoped=""/></from>
+          <to><interface-ref name="GeneralIO" ref="0xb67a7518" scoped=""/></to>
+        </wire>
+        <wire loc="77:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc">
+          <from><interface-ref name="Resource" ref="0xb67ac8f8" scoped=""/></from>
+          <to><interface-ref name="Resource" ref="0xb678c1d8" scoped=""/></to>
+        </wire>
+        <wire loc="56:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc">
+          <from><interface-ref name="HplGeneralIO" ref="0xb67a7e90" scoped=""/></from>
+          <to><interface-ref name="Port15" ref="0xb6fbb768" scoped=""/></to>
+        </wire>
+        <wire loc="57:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc">
+          <from><interface-ref name="HplGeneralIO" ref="0xb67a3430" scoped=""/></from>
+          <to><interface-ref name="Port16" ref="0xb6fba768" scoped=""/></to>
+        </wire>
+        <wire loc="58:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc">
+          <from><interface-ref name="HplGeneralIO" ref="0xb67a19d8" scoped=""/></from>
+          <to><interface-ref name="Port17" ref="0xb6fb9768" scoped=""/></to>
+        </wire>
+        <wire loc="64:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc">
+          <from><interface-ref name="PWR" ref="0xb679a9c8" scoped=""/></from>
+          <to><interface-ref name="GeneralIO" ref="0xb67a1060" scoped=""/></to>
+        </wire>
+        <wire loc="65:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc">
+          <from><interface-ref name="DATA" ref="0xb67993e8" scoped=""/></from>
+          <to><interface-ref name="GeneralIO" ref="0xb67a7518" scoped=""/></to>
+        </wire>
+        <wire loc="66:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc">
+          <from><interface-ref name="SCK" ref="0xb6799de0" scoped=""/></from>
+          <to><interface-ref name="GeneralIO" ref="0xb67a5a58" scoped=""/></to>
+        </wire>
+        <wire loc="69:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc">
+          <from><interface-ref name="Timer" ref="0xb679c740" scoped=""/></from>
+          <to><interface-ref name="Timer" ref="0xb6792bb0" scoped=""/></to>
+        </wire>
+        <wire loc="73:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc">
+          <from><interface-ref name="HplInterrupt" ref="0xb678e430" scoped=""/></from>
+          <to><interface-ref name="Port15" ref="0xb6e83528" scoped=""/></to>
+        </wire>
+        <wire loc="80:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc">
+          <from><interface-ref name="SplitControl" ref="0xb6788c88" scoped=""/></from>
+          <to><interface-ref name="SplitControl" ref="0xb679c060" scoped=""/></to>
+        </wire>
+        <wire loc="81:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc">
+          <from><interface-ref name="ArbiterInfo" ref="0xb6787cc0" scoped=""/></from>
+          <to><interface-ref name="ArbiterInfo" ref="0xb678a3f0" scoped=""/></to>
+        </wire>
+        <wire loc="82:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11C.nc">
+          <from><interface-ref name="ResourceDefaultOwner" ref="0xb6787628" scoped=""/></from>
+          <to><interface-ref name="ResourceDefaultOwner" ref="0xb678cd20" scoped=""/></to>
+        </wire>
+      </wiring>
+    </component><component loc="53(HalSensirionSht11C.SensirionSht11LogicP):/opt/tinyos-2.1.1/tos/chips/sht11/SensirionSht11LogicP.nc" nicename="tos.chips.sht11.SensirionSht11LogicP" qname="HalSensirionSht11C.SensirionSht11LogicP">
+      <documentation loc="35:/opt/tinyos-2.1.1/tos/chips/sht11/SensirionSht11LogicP.nc">
+        <short>
+ SensirionSht11LogicP contains the actual driver logic needed to
+ read from the Sensirion SHT11 temperature/humidity sensor.</short>
+        <long>
+ SensirionSht11LogicP contains the actual driver logic needed to
+ read from the Sensirion SHT11 temperature/humidity sensor. It
+ depends on 2 underlying GeneralIO interfaces, one for the data pin
+ and one for the clock pin, and one underlying GpioInterrupt.  It
+ provides the HAL-level SensirionSht11 interface. It's generic, so
+ you can instantiate it multiple times if you have more than one
+ Sensirion SHT11 attached to a node. 
+ 
+ &lt;p&gt;
+ This code assumes that the MCU clock is less than 10 MHz.  If you
+ ever run this on a faster MCU, you'll need to insert a lot of
+ waits to keep the Sensirion happy.
+
+ @author Gilman Tolle &lt;gtolle@archrock.com&gt;
+ @version $Revision: 1.4 $ $Date: 2006/12/12 18:23:12 $
+</long>
+      </documentation>
+      <instance number="0">
+        <component-ref nicename="tos.chips.sht11.SensirionSht11LogicP" qname="SensirionSht11LogicP"/>
+      </instance>
+      <module/>
+    </component><component loc="34:/opt/tinyos-2.1.1/tos/system/LedsC.nc" nicename="tos.system.LedsC" qname="LedsC">
+      <documentation loc="23:/opt/tinyos-2.1.1/tos/system/LedsC.nc">
+        <short>
+
+ The basic TinyOS LEDs abstraction.</short>
+        <long>
+
+ The basic TinyOS LEDs abstraction.
+
+ @author Phil Buonadonna
+ @author David Gay
+ @author Philip Levis
+ @author Joe Polastre
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="40:/opt/tinyos-2.1.1/tos/system/LedsC.nc">
+          <from><interface-ref name="Leds" ref="0xb6c88968" scoped=""/></from>
+          <to><interface-ref name="Leds" ref="0xb6c82060" scoped=""/></to>
+        </wire>
+        <wire loc="42:/opt/tinyos-2.1.1/tos/system/LedsC.nc">
+          <from><interface-ref name="Init" ref="0xb6c6fa38" scoped=""/></from>
+          <to><interface-ref name="Init" ref="0xb6c85cf0" scoped=""/></to>
+        </wire>
+        <wire loc="43:/opt/tinyos-2.1.1/tos/system/LedsC.nc">
+          <from><interface-ref name="Led0" ref="0xb6c82d28" scoped=""/></from>
+          <to><interface-ref name="Led0" ref="0xb6c84c30" scoped=""/></to>
+        </wire>
+        <wire loc="44:/opt/tinyos-2.1.1/tos/system/LedsC.nc">
+          <from><interface-ref name="Led1" ref="0xb6c81740" scoped=""/></from>
+          <to><interface-ref name="Led1" ref="0xb6c70680" scoped=""/></to>
+        </wire>
+        <wire loc="45:/opt/tinyos-2.1.1/tos/system/LedsC.nc">
+          <from><interface-ref name="Led2" ref="0xb6c80200" scoped=""/></from>
+          <to><interface-ref name="Led2" ref="0xb6c6f0b0" scoped=""/></to>
+        </wire>
+      </wiring>
+    </component><component loc="36(HalSensirionSht11C.TimerMilliC):/opt/tinyos-2.1.1/tos/system/TimerMilliC.nc" nicename="tos.system.TimerMilliC" qname="HalSensirionSht11C.TimerMilliC">
+      <documentation loc="25:/opt/tinyos-2.1.1/tos/system/TimerMilliC.nc">
+        <short>
+ The virtualized millisecond timer abstraction.</short>
+        <long>
+ The virtualized millisecond timer abstraction. Instantiating this 
+ component gives an independent millisecond granularity timer.
+
+ @author Philip Levis
+ @date   January 16 2006
+ @see    TEP 102: Timers
+</long>
+      </documentation>
+      <instance number="3">
+        <component-ref nicename="tos.system.TimerMilliC" qname="TimerMilliC"/>
+      </instance>
+      <configuration/>
+      <wiring>
+        <wire>
+          <from><interface-ref name="Timer" ref="0xb6768a70" scoped=""/></from>
+          <to><interface-ref name="TimerMilli" ref="0xb69b7848" scoped=""/>
+          <arguments>
+            <value cst="I:3">
+              <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned=""/>
+            </value>
+          </arguments>
+          </to>
+        </wire>
+      </wiring>
+    </component></referenced></component>

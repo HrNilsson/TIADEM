@@ -1,0 +1,28 @@
+<area shape="rect" id="node1" href="../chtml/tos.system.MainC.html" title="MainC" alt="" coords="5,121,88,180">
+<area shape="rect" id="node2" href="../chtml/TimeSyncC.html" title="TimeSyncC" alt="" coords="52,248,169,307">
+<area shape="poly" id="edge2" href="../ihtml/tos.interfaces.Init.html" title="Init" alt="" coords="37,181 34,202 38,223 48,237 44,240 34,225 29,202 32,180">
+<area shape="rect" id="edge2" href="../ihtml/tos.interfaces.Init.html" title="Init" alt="" coords="36,206,56,223">
+<area shape="poly" id="edge4" href="../ihtml/tos.interfaces.Boot.html" title="Boot" alt="" coords="93,249 65,193 70,191 98,246">
+<area shape="rect" id="edge4" href="../ihtml/tos.interfaces.Boot.html" title="Boot" alt="" coords="83,206,113,223">
+<area shape="rect" id="node3" href="../chtml/TestResponderC.html" title="TestResponderC" alt="" coords="384,5,531,53">
+<area shape="poly" id="edge6" href="../ihtml/tos.interfaces.Boot.html" title="Boot" alt="" coords="384,34 305,38 218,46 140,60 110,69 88,80 74,93 63,110 59,107 70,90 85,75 108,64 139,54 217,41 304,33 384,28">
+<area shape="rect" id="edge6" href="../ihtml/tos.interfaces.Boot.html" title="Boot" alt="" coords="87,78,117,95">
+<area shape="poly" id="edge16" href="../ihtml/GlobalTime.html" title="GlobalTime&lt;TMilli&gt;" alt="" coords="384,45 252,78 194,99 172,110 157,122 146,140 136,169 121,235 115,234 131,167 141,138 153,118 169,106 192,94 251,72 383,40">
+<area shape="rect" id="edge16" href="../ihtml/GlobalTime.html" title="GlobalTime&lt;TMilli&gt;" alt="" coords="155,142,279,159">
+<area shape="poly" id="edge18" href="../ihtml/TimeSyncInfo.html" title="TimeSyncInfo" alt="" coords="385,54 344,79 323,105 312,129 302,155 281,183 233,220 183,249 180,244 230,216 277,179 297,153 307,127 318,102 341,75 382,50">
+<area shape="rect" id="edge18" href="../ihtml/TimeSyncInfo.html" title="TimeSyncInfo" alt="" coords="312,142,397,159">
+<area shape="rect" id="node4" href="../chtml/tos.platforms.telosa.TimeSyncMessageC.html" title="TimeSyncMessageC" alt="" coords="432,121,616,180">
+<area shape="poly" id="edge8" href="../ihtml/tos.interfaces.SplitControl.html" title="SplitControl" alt="" coords="385,52 368,61 356,71 351,82 355,94 377,105 420,120 418,125 375,110 351,98 346,82 351,68 365,57 383,47">
+<area shape="rect" id="edge8" href="../ihtml/tos.interfaces.SplitControl.html" title="SplitControl" alt="" coords="353,78,428,95">
+<area shape="poly" id="edge10" href="../ihtml/tos.interfaces.Receive.html" title="Receive" alt="" coords="456,54 456,75 461,95 471,110 466,113 456,97 450,75 450,54">
+<area shape="rect" id="edge10" href="../ihtml/tos.interfaces.Receive.html" title="Receive" alt="" coords="459,78,508,95">
+<area shape="poly" id="edge12" href="../ihtml/tos.interfaces.TimeSyncAMSend.html" title="TimeSyncAMSend&lt;TMilli, uint32_t&gt;" alt="" coords="491,52 510,76 522,107 517,109 506,79 487,55">
+<area shape="rect" id="edge12" href="../ihtml/tos.interfaces.TimeSyncAMSend.html" title="TimeSyncAMSend&lt;TMilli, uint32_t&gt;" alt="" coords="515,78,743,95">
+<area shape="poly" id="edge14" href="../ihtml/tos.interfaces.Packet.html" title="Packet" alt="" coords="531,34 665,51 720,63 750,75 755,87 750,98 731,112 703,123 630,140 629,135 701,118 729,107 746,94 749,87 746,79 719,68 664,57 530,39">
+<area shape="rect" id="edge14" href="../ihtml/tos.interfaces.Packet.html" title="Packet" alt="" coords="751,78,793,95">
+<area shape="rect" id="node5" href="../chtml/tos.system.LedsC.html" title="LedsC" alt="" coords="828,121,911,180">
+<area shape="poly" id="edge20" href="../ihtml/tos.interfaces.Leds.html" title="Leds" alt="" coords="531,31 680,47 750,59 800,75 822,90 841,109 838,112 819,94 798,80 749,64 680,52 531,37">
+<area shape="rect" id="edge20" href="../ihtml/tos.interfaces.Leds.html" title="Leds" alt="" coords="823,78,853,95">
+<area shape="rect" id="node6" href="../chtml/tos.platforms.telosa.chips.sht11.SensirionSht11C.html" title="SensirionSht11C\n(Sensor)" alt="" coords="935,120,1095,181">
+<area shape="poly" id="edge22" href="../ihtml/tos.interfaces.Read.html" title="Read&lt;uint16_t&gt;" alt="" coords="531,33 710,50 797,62 859,75 906,91 949,111 947,116 904,96 858,80 796,67 709,56 531,38">
+<area shape="rect" id="edge22" href="../ihtml/tos.interfaces.Read.html" title="Read&lt;uint16_t&gt;" alt="" coords="907,78,1012,95">

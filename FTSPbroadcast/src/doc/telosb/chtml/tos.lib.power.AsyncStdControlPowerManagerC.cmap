@@ -1,0 +1,9 @@
+<area shape="rect" id="node1" href="../chtml/tos.lib.power.AsyncPowerManagerP.html" title="AsyncPowerManagerP\n(PowerManager)" alt="" coords="379,5,573,56">
+<area shape="poly" id="edge2" href="../ihtml/tos.interfaces.AsyncStdControl.html" title="AsyncStdControl" alt="" coords="379,57 289,83 170,124 168,119 287,77 378,52">
+<area shape="rect" id="edge2" href="../ihtml/tos.interfaces.AsyncStdControl.html" title="AsyncStdControl" alt="" coords="288,81,395,98">
+<area shape="poly" id="edge4" href="../ihtml/tos.lib.power.PowerDownCleanup.html" title="PowerDownCleanup" alt="" coords="448,58 381,116 378,112 444,54">
+<area shape="rect" id="edge4" href="../ihtml/tos.lib.power.PowerDownCleanup.html" title="PowerDownCleanup" alt="" coords="416,81,541,98">
+<area shape="poly" id="edge6" href="../ihtml/tos.interfaces.ResourceDefaultOwner.html" title="ResourceDefaultOwner" alt="" coords="517,54 548,78 583,111 580,115 545,82 513,58">
+<area shape="rect" id="edge6" href="../ihtml/tos.interfaces.ResourceDefaultOwner.html" title="ResourceDefaultOwner" alt="" coords="565,81,711,98">
+<area shape="poly" id="edge8" href="../ihtml/tos.interfaces.ArbiterInfo.html" title="ArbiterInfo" alt="" coords="574,41 645,56 717,77 757,95 794,116 792,120 755,100 715,83 644,61 573,47">
+<area shape="rect" id="edge8" href="../ihtml/tos.interfaces.ArbiterInfo.html" title="ArbiterInfo" alt="" coords="757,81,824,98">

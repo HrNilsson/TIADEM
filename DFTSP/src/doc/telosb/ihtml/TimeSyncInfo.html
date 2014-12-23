@@ -1,0 +1,138 @@
+<html>
+  <head>
+    <LINK rel="stylesheet" href="nesdoc.css" type="text/css" media="screen"><title>Interface: TimeSyncInfo</title>
+  </head>
+  <body>
+    <h2>Interface: TimeSyncInfo</h2>
+    <b>interface TimeSyncInfo</b><p><p><div id=heading>Commands</div><div id=funcsig><span id=funcnameshort>command uint32_t <a href="#getDrift">getDrift</a>()
+      </span></div><div id=funcsig><span id=funcnameshort>command uint8_t <a href="#getHeartBeats">getHeartBeats</a>()
+      </span><menu>
+ Returns the value of heartBeats variable.
+      </menu>
+    </div><div id=funcsig><span id=funcnameshort>command uint8_t <a href="#getNumEntries">getNumEntries</a>()
+      </span><menu>
+ Returns the number of entries stored currently in the 
+ regerssion table.
+      </menu>
+    </div><div id=funcsig><span id=funcnameshort>command uint32_t <a href="#getOffset">getOffset</a>()
+      </span><menu>
+ Returns current offset of the local time wrt global time.
+      </menu>
+    </div><div id=funcsig><span id=funcnameshort>command uint16_t <a href="#getRootID">getRootID</a>()
+      </span><menu>
+ Returns the current root to which this node is synchronized.
+      </menu>
+    </div><div id=funcsig><span id=funcnameshort>command uint8_t <a href="#getSeqNum">getSeqNum</a>()
+      </span><menu>
+ Returns the latest seq number seen from the current root.
+      </menu>
+    </div><div id=funcsig><span id=funcnameshort>command float <a href="#getSkew">getSkew</a>()
+      </span><menu>
+ Returns current skew of the local time wrt global time.
+      </menu>
+    </div><div id=funcsig><span id=funcnameshort>command uint8_t <a href="#getSyncPeriod">getSyncPeriod</a>()
+      </span></div><div id=funcsig><span id=funcnameshort>command uint32_t <a href="#getSyncPoint">getSyncPoint</a>()
+      </span><menu>
+ Returns the local time of the last synchronization point.
+      </menu>
+    </div><p><div id=heading>Commands - Details</div>
+    <a name="getDrift"></a>
+    <h4>getDrift
+    </h4>
+    <span id=funcnameshort>command uint32_t <b>getDrift</b>()
+    </span><hr>
+    <a name="getHeartBeats"></a>
+    <h4>getHeartBeats
+    </h4>
+    <span id=funcnameshort>command uint8_t <b>getHeartBeats</b>()
+    </span>
+    <p>
+    <menu>
+      
+ Returns the value of heartBeats variable. 
+
+    </menu>
+    <hr>
+    <a name="getNumEntries"></a>
+    <h4>getNumEntries
+    </h4>
+    <span id=funcnameshort>command uint8_t <b>getNumEntries</b>()
+    </span>
+    <p>
+    <menu>
+      
+ Returns the number of entries stored currently in the 
+ regerssion table.
+
+    </menu>
+    <hr>
+    <a name="getOffset"></a>
+    <h4>getOffset
+    </h4>
+    <span id=funcnameshort>command uint32_t <b>getOffset</b>()
+    </span>
+    <p>
+    <menu>
+      
+ Returns current offset of the local time wrt global time.
+
+    </menu>
+    <hr>
+    <a name="getRootID"></a>
+    <h4>getRootID
+    </h4>
+    <span id=funcnameshort>command uint16_t <b>getRootID</b>()
+    </span>
+    <p>
+    <menu>
+      
+ Returns the current root to which this node is synchronized. 
+
+    </menu>
+    <hr>
+    <a name="getSeqNum"></a>
+    <h4>getSeqNum
+    </h4>
+    <span id=funcnameshort>command uint8_t <b>getSeqNum</b>()
+    </span>
+    <p>
+    <menu>
+      
+ Returns the latest seq number seen from the current root.
+
+    </menu>
+    <hr>
+    <a name="getSkew"></a>
+    <h4>getSkew
+    </h4>
+    <span id=funcnameshort>command float <b>getSkew</b>()
+    </span>
+    <p>
+    <menu>
+      
+ Returns current skew of the local time wrt global time.
+ This value is normalized to 0.0 (1.0 is subtracted) to get maximum 
+ representation precision.
+
+    </menu>
+    <hr>
+    <a name="getSyncPeriod"></a>
+    <h4>getSyncPeriod
+    </h4>
+    <span id=funcnameshort>command uint8_t <b>getSyncPeriod</b>()
+    </span><hr>
+    <a name="getSyncPoint"></a>
+    <h4>getSyncPoint
+    </h4>
+    <span id=funcnameshort>command uint32_t <b>getSyncPoint</b>()
+    </span>
+    <p>
+    <menu>
+      
+ Returns the local time of the last synchronization point. This 
+ value is close to the current local time and updated when a new
+ time synchronization message arrives.
+
+    </menu>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <LINK rel="stylesheet" href="nesdoc.css" type="text/css" media="screen"><title>Interface: TimeSyncNotify</title>
+  </head>
+  <body>
+    <h2>Interface: TimeSyncNotify</h2>
+    <b>interface TimeSyncNotify</b><p>
+ time sync module (TimeSyncM) provides notification of arriving
+ and transmitted time-sync msgs through TimeSyncNotify interface:
+
+    <p><p><div id=heading>Events</div><div id=funcsig><span id=funcnameshort>event void <a href="#msg_received">msg_received</a>()
+      </span><menu>
+ fired when time-sync msg is received and accepted
+
+      </menu>
+    </div><div id=funcsig><span id=funcnameshort>event void <a href="#msg_sent">msg_sent</a>()
+      </span><menu>
+ fired when time-sync msg is sent by TimeSyncM or the sending did not
+ succeed
+
+      </menu>
+    </div><p><div id=heading>Events - Details</div>
+    <a name="msg_received"></a>
+    <h4>msg_received
+    </h4>
+    <span id=funcnameshort>event void <b>msg_received</b>()
+    </span>
+    <p>
+    <menu>
+      
+ fired when time-sync msg is received and accepted
+
+    </menu>
+    <hr>
+    <a name="msg_sent"></a>
+    <h4>msg_sent
+    </h4>
+    <span id=funcnameshort>event void <b>msg_sent</b>()
+    </span>
+    <p>
+    <menu>
+      
+ fired when time-sync msg is sent by TimeSyncM or the sending did not
+ succeed
+
+    </menu>
+  </body>
+</html>

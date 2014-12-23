@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <LINK rel="stylesheet" href="nesdoc.css" type="text/css" media="screen"><title>Interface: GlobalTime</title>
+  </head>
+  <body>
+    <h2>Interface: GlobalTime</h2>
+    <b>interface GlobalTime&lt;typedef precision_tag&gt;</b><p><p><div id=heading>Commands</div><div id=funcsig><span id=funcnameshort>command error_t <a href="#getGlobalTime">getGlobalTime</a>(uint32_t *time)
+      </span><menu>
+ Reads the current global time.
+      </menu>
+    </div><div id=funcsig><span id=funcnameshort>command uint32_t <a href="#getLocalTime">getLocalTime</a>()
+      </span><menu>
+ Returns the current local time of this mote.
+      </menu>
+    </div><div id=funcsig><span id=funcnameshort>command error_t <a href="#global2Local">global2Local</a>(uint32_t *time)
+      </span><menu>
+ Converts the global time given in <code>time</code> into the
+ correspoding local time and stores this again in
+ <code>time</code>.
+      </menu>
+    </div><div id=funcsig><span id=funcnameshort>command error_t <a href="#local2Global">local2Global</a>(uint32_t *time)
+      </span><menu>
+ Converts the local time given in <code>time</code> into the
+ corresponding global time and stores this again in
+ <code>time</code>.
+      </menu>
+    </div><p><div id=heading>Commands - Details</div>
+    <a name="getGlobalTime"></a>
+    <h4>getGlobalTime
+    </h4>
+    <span id=funcnameshort>command error_t <b>getGlobalTime</b>(uint32_t *time)
+    </span>
+    <p>
+    <menu>
+      
+ Reads the current global time. This method is a combination
+ of <code>getLocalTime</code> and <code>local2Global</code>.
+ 
+      <p>
+      <dl>
+        <dt><b>Returns:</b>
+        <dd>
+          SUCCESS if this mote is synchronized, FAIL otherwise.
+
+        </dd>
+      </dl>
+    </menu>
+    <hr>
+    <a name="getLocalTime"></a>
+    <h4>getLocalTime
+    </h4>
+    <span id=funcnameshort>command uint32_t <b>getLocalTime</b>()
+    </span>
+    <p>
+    <menu>
+      
+ Returns the current local time of this mote.
+
+    </menu>
+    <hr>
+    <a name="global2Local"></a>
+    <h4>global2Local
+    </h4>
+    <span id=funcnameshort>command error_t <b>global2Local</b>(uint32_t *time)
+    </span>
+    <p>
+    <menu>
+      
+ Converts the global time given in <code>time</code> into the
+ correspoding local time and stores this again in
+ <code>time</code>. This method performs the inverse of the
+ <code>local2Global</clode> transformation.
+
+ 
+      <p>
+      <dl>
+        <dt><b>Returns:</b>
+        <dd>
+          SUCCESS if this mote is synchronized, FAIL otherwise.
+
+        </dd>
+      </dl>
+    </menu>
+    <hr>
+    <a name="local2Global"></a>
+    <h4>local2Global
+    </h4>
+    <span id=funcnameshort>command error_t <b>local2Global</b>(uint32_t *time)
+    </span>
+    <p>
+    <menu>
+      
+ Converts the local time given in <code>time</code> into the
+ corresponding global time and stores this again in
+ <code>time</code>. The following equation is used to compute the
+ conversion:
+
+	globalTime = localTime + offset + skew * (localTime - syncPoint)
+
+ The skew is normalized to 0.0 (1.0 is subtracted) to increase the
+ machine precision. The syncPoint value is periodically updated to
+ increase the machine precision of the floating point arithmetic and
+ also to allow time wrap.
+
+ 
+      <p>
+      <dl>
+        <dt><b>Returns:</b>
+        <dd>
+          SUCCESS if this mote is synchronized, FAIL otherwise.
+
+        </dd>
+      </dl>
+    </menu>
+  </body>
+</html>

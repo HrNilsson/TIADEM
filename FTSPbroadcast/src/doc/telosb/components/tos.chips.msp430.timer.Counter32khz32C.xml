@@ -1,0 +1,175 @@
+<?xml version="1.0" ?><component loc="30:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Counter32khz32C.nc" nicename="tos.chips.msp430.timer.Counter32khz32C" qname="Counter32khz32C">
+      <documentation loc="22:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Counter32khz32C.nc">
+        <short>
+ Counter32khz32C provides at 32-bit counter at 32768 ticks per second.</short>
+        <long>
+ Counter32khz32C provides at 32-bit counter at 32768 ticks per second.
+
+ @author Cory Sharp &lt;cssharp@eecs.berkeley.edu&gt;
+ @see  Please refer to TEP 102 for more information about this component and its
+          intended use.
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="39:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Counter32khz32C.nc">
+          <from><interface-ref name="Counter" ref="0xb700ad18" scoped=""/></from>
+          <to><interface-ref name="Counter" ref="0xb6ff80c0" scoped=""/></to>
+        </wire>
+        <wire loc="41:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Counter32khz32C.nc">
+          <from><interface-ref name="CounterFrom" ref="0xb6fe9380" scoped=""/></from>
+          <to><interface-ref name="Msp430Counter32khz" ref="0xb7009818" scoped=""/></to>
+        </wire>
+      </wiring>
+    <specification><interface loc="32:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Counter32khz32C.nc" name="Counter" provided="1" ref="0xb700ad18">
+      <component-ref nicename="tos.chips.msp430.timer.Counter32khz32C" qname="Counter32khz32C"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Counter" ref="0xb700ad18" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.Counter" qname="Counter"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72416a0"/>
+            <typename><typedef-ref name="T32khz" ref="0xb7241868"/></typename>
+          </type-tag>
+          <type-int alignment="I:2" cname="unsigned long" size="I:4" unsigned="">
+            <typename><typedef-ref name="uint32_t" ref="0xb774faf8"/></typename>
+          </type-int>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="get" ref="0xb700d478" scoped=""/>
+        <function-ref name="clearOverflow" ref="0xb700d968" scoped=""/>
+        <function-ref name="isOverflowPending" ref="0xb700d6f0" scoped=""/>
+        <function-ref name="overflow" ref="0xb700dbe0" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced><interface loc="32:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Counter32khzC.nc" name="Msp430Counter32khz" provided="1" ref="0xb7009818">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430Counter32khzC" qname="Msp430Counter32khzC"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Msp430Counter32khz" ref="0xb7009818" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.Counter" qname="Counter"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72416a0"/>
+            <typename><typedef-ref name="T32khz" ref="0xb7241868"/></typename>
+          </type-tag>
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0xb774f6e8"/></typename>
+          </type-int>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="get" ref="0xb7006010" scoped=""/>
+        <function-ref name="clearOverflow" ref="0xb7006500" scoped=""/>
+        <function-ref name="isOverflowPending" ref="0xb7006288" scoped=""/>
+        <function-ref name="overflow" ref="0xb7006778" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="52:/opt/tinyos-2.1.1/tos/lib/timer/TransformCounterC.nc" name="CounterFrom" provided="0" ref="0xb6fe9380">
+      <component-ref nicename="tos.lib.timer.TransformCounterC" qname="Counter32khz32C.Transform"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="CounterFrom" ref="0xb6fe9380" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.Counter" qname="Counter"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72416a0"/>
+            <typename><typedef-ref name="T32khz" ref="0xb7241868"/></typename>
+          </type-tag>
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0xb774f6e8"/></typename>
+          </type-int>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="get" ref="0xb6fe9ad0" scoped=""/>
+        <function-ref name="clearOverflow" ref="0xb6fe7010" scoped=""/>
+        <function-ref name="isOverflowPending" ref="0xb6fe9d48" scoped=""/>
+        <function-ref name="overflow" ref="0xb6fe7288" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="51:/opt/tinyos-2.1.1/tos/lib/timer/TransformCounterC.nc" name="Counter" provided="1" ref="0xb6ff80c0">
+      <component-ref nicename="tos.lib.timer.TransformCounterC" qname="Counter32khz32C.Transform"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Counter" ref="0xb6ff80c0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.Counter" qname="Counter"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72416a0"/>
+            <typename><typedef-ref name="T32khz" ref="0xb7241868"/></typename>
+          </type-tag>
+          <type-int alignment="I:2" cname="unsigned long" size="I:4" unsigned="">
+            <typename><typedef-ref name="uint32_t" ref="0xb774faf8"/></typename>
+          </type-int>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="get" ref="0xb6ff8810" scoped=""/>
+        <function-ref name="clearOverflow" ref="0xb6ff8d00" scoped=""/>
+        <function-ref name="isOverflowPending" ref="0xb6ff8a88" scoped=""/>
+        <function-ref name="overflow" ref="0xb6fe9010" scoped=""/>
+      </interface-functions>
+    </interface><component loc="43(Counter32khz32C.Transform):/opt/tinyos-2.1.1/tos/lib/timer/TransformCounterC.nc" nicename="tos.lib.timer.TransformCounterC" qname="Counter32khz32C.Transform">
+      <documentation loc="23:/opt/tinyos-2.1.1/tos/lib/timer/TransformCounterC.nc">
+        <short>
+ TransformCounterC decreases precision and/or widens an Counter.</short>
+        <long>
+ TransformCounterC decreases precision and/or widens an Counter.
+
+ &lt;p&gt;See TEP102 for more details.
+
+ @param to_precision_tag A type indicating the precision of the transformed
+   Counter.
+ @param to_size_type The type for the width of the transformed Counter.
+ @param from_precision_tag A type indicating the precision of the original
+   Counter.
+ @param from_size_type The type for the width of the original Counter.
+ @param bit_shift_right Original time units will be 2 to the power 
+   &lt;code&gt;bit_shift_right&lt;/code&gt; larger than transformed time units.
+ @param upper_count_type A type large enough to store the upper bits --
+   those needed above from_size_type after its shift right to fill
+   to_size_type.
+
+ @author Cory Sharp &lt;cssharp@eecs.berkeley.edu&gt;
+</long>
+      </documentation>
+      <instance number="0">
+        <component-ref nicename="tos.lib.timer.TransformCounterC" qname="TransformCounterC"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72416a0"/>
+            <typename><typedef-ref name="T32khz" ref="0xb7241868"/></typename>
+          </type-tag>
+          <type-int alignment="I:2" cname="unsigned long" size="I:4" unsigned="">
+            <typename><typedef-ref name="uint32_t" ref="0xb774faf8"/></typename>
+          </type-int>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72416a0"/>
+            <typename><typedef-ref name="T32khz" ref="0xb7241868"/></typename>
+          </type-tag>
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0xb774f6e8"/></typename>
+          </type-int>
+          <value cst="I:0">
+            <type-int alignment="I:2" cname="int" size="I:2"/>
+          </value>
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0xb774f6e8"/></typename>
+          </type-int>
+        </arguments>
+      </instance>
+      <module/>
+    </component><component loc="30:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Counter32khzC.nc" nicename="tos.chips.msp430.timer.Msp430Counter32khzC" qname="Msp430Counter32khzC">
+      <documentation loc="22:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Counter32khzC.nc">
+        <short>
+ Msp430Counter32khC provides the standard 32khz counter for the MSP430.</short>
+        <long>
+ Msp430Counter32khC provides the standard 32khz counter for the MSP430.
+
+ @author Cory Sharp &lt;cssharp@eecs.berkeley.edu&gt;
+ @see  Please refer to TEP 102 for more information about this component and its
+          intended use.
+</long>
+      </documentation>
+      <configuration/>
+      <wiring>
+        <wire loc="39:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Counter32khzC.nc">
+          <from><interface-ref name="Msp430Counter32khz" ref="0xb7009818" scoped=""/></from>
+          <to><interface-ref name="Counter" ref="0xb7004388" scoped=""/></to>
+        </wire>
+        <wire loc="40:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430Counter32khzC.nc">
+          <from><interface-ref name="Msp430Timer" ref="0xb6ffb4b8" scoped=""/></from>
+          <to><interface-ref name="TimerB" ref="0xb72f9d80" scoped=""/></to>
+        </wire>
+      </wiring>
+    </component></referenced></component>

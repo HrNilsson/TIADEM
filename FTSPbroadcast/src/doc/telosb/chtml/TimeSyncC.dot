@@ -1,0 +1,38 @@
+digraph "TimeSyncC" {
+  n0xb723c218 [shape=ellipse, style=filled, label="StdControl", fontsize=12];
+  "TimeSyncC.TimeSyncP" [fontsize=12, shape=box, style=dashed, label="TimeSyncP", URL="../chtml/TimeSyncP.html"];
+  "TimeSyncC.TimeSyncP" [fontsize=12, shape=box, style=dashed, label="TimeSyncP", URL="../chtml/TimeSyncP.html"];
+  n0xb7241ed8 [shape=ellipse, style=filled, label="Boot", fontsize=12];
+  "TimeSyncC.TimeSyncP" [fontsize=12, shape=box, style=dashed, label="TimeSyncP", URL="../chtml/TimeSyncP.html"];
+  "TimeSyncMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.platforms.telosa.TimeSyncMessageC.html"];
+  "TimeSyncC.TimeSyncP" [fontsize=12, shape=box, style=dashed, label="TimeSyncP", URL="../chtml/TimeSyncP.html"];
+  "TimeSyncMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.platforms.telosa.TimeSyncMessageC.html"];
+  "TimeSyncC.TimeSyncP" [fontsize=12, shape=box, style=dashed, label="TimeSyncP", URL="../chtml/TimeSyncP.html"];
+  "TimeSyncMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.platforms.telosa.TimeSyncMessageC.html"];
+  "TimeSyncC.TimeSyncP" [fontsize=12, shape=box, style=dashed, label="TimeSyncP", URL="../chtml/TimeSyncP.html"];
+  "TimeSyncMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.platforms.telosa.TimeSyncMessageC.html"];
+  "TimeSyncC.TimeSyncP" [fontsize=12, shape=box, style=dashed, label="TimeSyncP", URL="../chtml/TimeSyncP.html"];
+  "TimeSyncC.TimerC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="TimerMilliC\n(TimerC)", URL="../chtml/tos.system.TimerMilliC.html"];
+  "TimeSyncC.TimeSyncP" [fontsize=12, shape=box, style=dashed, label="TimeSyncP", URL="../chtml/TimeSyncP.html"];
+  "LedsC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.system.LedsC.html"];
+  "TimeSyncC.TimeSyncP" [fontsize=12, shape=box, style=dashed, label="TimeSyncP", URL="../chtml/TimeSyncP.html"];
+  "SerialActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.lib.serial.SerialActiveMessageC.html"];
+  "TimeSyncC.TimeSyncP" [fontsize=12, shape=box, style=dashed, label="TimeSyncP", URL="../chtml/TimeSyncP.html"];
+  "SerialActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.lib.serial.SerialActiveMessageC.html"];
+  "TimeSyncC.TimeSyncP" [fontsize=12, shape=box, style=dashed, label="TimeSyncP", URL="../chtml/TimeSyncP.html"];
+  "SerialActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.lib.serial.SerialActiveMessageC.html"];
+  "TimeSyncC.TimeSyncP" [fontsize=12, shape=box, style=dashed, label="TimeSyncP", URL="../chtml/TimeSyncP.html"];
+  "SerialActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.lib.serial.SerialActiveMessageC.html"];
+  "n0xb723c218" -> "TimeSyncC.TimeSyncP" [label="StdControl", URL="../ihtml/tos.interfaces.StdControl.html", fontsize=10];
+  "TimeSyncC.TimeSyncP" -> "n0xb7241ed8" [label="Boot", URL="../ihtml/tos.interfaces.Boot.html", fontsize=10];
+  "TimeSyncC.TimeSyncP" -> "TimeSyncMessageC" [label="SplitControl", URL="../ihtml/tos.interfaces.SplitControl.html", fontsize=10];
+  "TimeSyncC.TimeSyncP" -> "TimeSyncMessageC" [label="TimeSyncAMSend<TMilli, uint32_t>", URL="../ihtml/tos.interfaces.TimeSyncAMSend.html", fontsize=10];
+  "TimeSyncC.TimeSyncP" -> "TimeSyncMessageC" [label="Receive", URL="../ihtml/tos.interfaces.Receive.html", fontsize=10];
+  "TimeSyncC.TimeSyncP" -> "TimeSyncMessageC" [label="TimeSyncPacket<TMilli, uint32_t>", URL="../ihtml/tos.interfaces.TimeSyncPacket.html", fontsize=10];
+  "TimeSyncC.TimeSyncP" -> "TimeSyncC.TimerC" [label="Timer<TMilli>", URL="../ihtml/tos.lib.timer.Timer.html", fontsize=10];
+  "TimeSyncC.TimeSyncP" -> "LedsC" [label="Leds", URL="../ihtml/tos.interfaces.Leds.html", fontsize=10];
+  "TimeSyncC.TimeSyncP" -> "SerialActiveMessageC" [label="SplitControl", URL="../ihtml/tos.interfaces.SplitControl.html", fontsize=10];
+  "TimeSyncC.TimeSyncP" -> "SerialActiveMessageC" [label="Receive", URL="../ihtml/tos.interfaces.Receive.html", fontsize=10];
+  "TimeSyncC.TimeSyncP" -> "SerialActiveMessageC" [label="AMSend", URL="../ihtml/tos.interfaces.AMSend.html", fontsize=10];
+  "TimeSyncC.TimeSyncP" -> "SerialActiveMessageC" [label="Packet", URL="../ihtml/tos.interfaces.Packet.html", fontsize=10];
+}

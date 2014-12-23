@@ -1,0 +1,83 @@
+<?xml version="1.0" ?><interfacedef loc="24:/opt/tinyos-2.1.1/tos/interfaces/TimeSyncPacket.nc" nicename="tos.interfaces.TimeSyncPacket" qname="TimeSyncPacket">
+      <parameters>
+        <typedef loc="24:/opt/tinyos-2.1.1/tos/interfaces/TimeSyncPacket.nc" name="precision_tag" ref="0xb725c210">
+          <interfacedef-ref nicename="tos.interfaces.TimeSyncPacket" qname="TimeSyncPacket"/>
+          <type-var alignment="U:" size="U:"><typedef-ref name="precision_tag" ref="0xb725c210" scoped=""/></type-var>
+        </typedef>
+        <typedef loc="24:/opt/tinyos-2.1.1/tos/interfaces/TimeSyncPacket.nc" name="size_type" ref="0xb725c378">
+          <interfacedef-ref nicename="tos.interfaces.TimeSyncPacket" qname="TimeSyncPacket"/>
+          <type-var alignment="U:" size="U:"><typedef-ref name="size_type" ref="0xb725c378" scoped=""/></type-var>
+        </typedef>
+      </parameters>
+      <function command="" loc="35:/opt/tinyos-2.1.1/tos/interfaces/TimeSyncPacket.nc" name="isValid" provided="0" ref="0xb725c9e0">
+        <documentation loc="26:/opt/tinyos-2.1.1/tos/interfaces/TimeSyncPacket.nc">
+          <short>
+ Returns TRUE if the value returned by &lt;tt&gt;getTime&lt;/tt&gt; can be trusted.</short>
+          <long>
+ Returns TRUE if the value returned by &lt;tt&gt;getTime&lt;/tt&gt; can be trusted.
+ Under certain circumstances the received message cannot be properly
+ time stamped, so the sender-receiver synchronization cannot be finished
+ on the receiver side. In this case, this command returns FALSE.
+ This command MUST BE called only on the receiver side and only for
+ messages transmitted via the TimeSyncSend interface. It is recommended
+ that this command be called from the receive event handler.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.interfaces.TimeSyncPacket" qname="TimeSyncPacket"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="bool" ref="0xb76699a0"/></typename>
+          </type-int>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="35:/opt/tinyos-2.1.1/tos/interfaces/TimeSyncPacket.nc" name="msg" ref="0xb725c888">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+        </parameters>
+      </function>
+      <function command="" loc="45:/opt/tinyos-2.1.1/tos/interfaces/TimeSyncPacket.nc" name="eventTime" provided="0" ref="0xb7253200">
+        <documentation loc="37:/opt/tinyos-2.1.1/tos/interfaces/TimeSyncPacket.nc">
+          <short>
+ This command should be called by the receiver of a message.</short>
+          <long>
+ This command should be called by the receiver of a message. The time
+ of the synchronization event is returned as expressed in the local
+ clock of the caller. This command MUST BE called only on the receiver
+ side and only for messages transmitted via the TimeSyncSend interface.
+ It is recommended that this command be called from the receive event
+ handler.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.interfaces.TimeSyncPacket" qname="TimeSyncPacket"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-var alignment="U:" size="U:"><typedef-ref name="size_type" ref="0xb725c378" scoped=""/></type-var>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="45:/opt/tinyos-2.1.1/tos/interfaces/TimeSyncPacket.nc" name="msg" ref="0xb72530a8">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+        </parameters>
+      </function>
+    </interfacedef>

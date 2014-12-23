@@ -1,0 +1,12 @@
+<area shape="rect" id="node2" href="../chtml/tos.chips.msp430.usart.Msp430Uart1C.html" title="Msp430Uart1C\n(UartC)" alt="" coords="67,120,216,181">
+<area shape="poly" id="edge2" href="../ihtml/tos.interfaces.UartByte.html" title="UartByte" alt="" coords="81,51 117,107 112,110 77,54">
+<area shape="rect" id="edge2" href="../ihtml/tos.interfaces.UartByte.html" title="UartByte" alt="" coords="105,78,163,95">
+<area shape="rect" id="node5" href="../chtml/tos.platforms.telosa.TelosSerialP.html" title="TelosSerialP" alt="" coords="211,248,320,296">
+<area shape="poly" id="edge8" href="../ihtml/tos.chips.msp430.usart.Msp430UartConfigure.html" title="Msp430UartConfigure" alt="" coords="107,183 95,204 94,213 98,222 113,233 137,243 198,259 196,264 135,248 110,238 94,226 89,214 90,202 103,180">
+<area shape="rect" id="edge8" href="../ihtml/tos.chips.msp430.usart.Msp430UartConfigure.html" title="Msp430UartConfigure" alt="" coords="96,206,236,223">
+<area shape="poly" id="edge4" href="../ihtml/tos.interfaces.UartStream.html" title="UartStream" alt="" coords="206,55 171,110 166,107 201,52">
+<area shape="rect" id="edge4" href="../ihtml/tos.interfaces.UartStream.html" title="UartStream" alt="" coords="187,78,264,95">
+<area shape="poly" id="edge6" href="../ihtml/tos.interfaces.StdControl.html" title="StdControl" alt="" coords="351,176 342,201 327,226 314,241 310,237 323,222 337,198 346,174">
+<area shape="rect" id="edge6" href="../ihtml/tos.interfaces.StdControl.html" title="StdControl" alt="" coords="336,206,405,223">
+<area shape="poly" id="edge10" href="../ihtml/tos.interfaces.Resource.html" title="Resource" alt="" coords="256,249 247,227 234,207 217,191 220,187 238,204 252,225 261,247">
+<area shape="rect" id="edge10" href="../ihtml/tos.interfaces.Resource.html" title="Resource" alt="" coords="248,206,307,223">

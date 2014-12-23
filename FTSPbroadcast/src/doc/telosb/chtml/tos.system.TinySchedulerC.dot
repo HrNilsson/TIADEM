@@ -1,0 +1,11 @@
+digraph "tos.system.TinySchedulerC" {
+  n0xb75e97e8 [shape=ellipse, style=filled, label="TaskBasic", fontsize=12];
+  "SchedulerBasicP" [fontsize=12, shape=box, URL="../chtml/tos.system.SchedulerBasicP.html"];
+  n0xb75ee098 [shape=ellipse, style=filled, label="Scheduler", fontsize=12];
+  "SchedulerBasicP" [fontsize=12, shape=box, URL="../chtml/tos.system.SchedulerBasicP.html"];
+  "SchedulerBasicP" [fontsize=12, shape=box, URL="../chtml/tos.system.SchedulerBasicP.html"];
+  "McuSleepC" [fontsize=12, shape=box, URL="../chtml/tos.chips.msp430.McuSleepC.html"];
+  "n0xb75e97e8" -> "SchedulerBasicP" [label="TaskBasic[uint8_t]", style=bold, URL="../ihtml/tos.interfaces.TaskBasic.html", fontsize=10];
+  "n0xb75ee098" -> "SchedulerBasicP" [label="Scheduler", URL="../ihtml/tos.interfaces.Scheduler.html", fontsize=10];
+  "SchedulerBasicP" -> "McuSleepC" [label="McuSleep", URL="../ihtml/tos.interfaces.McuSleep.html", fontsize=10];
+}

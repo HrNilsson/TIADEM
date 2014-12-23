@@ -1,0 +1,32 @@
+digraph "tos.platforms.telosa.ActiveMessageC" {
+  n0xb686e750 [shape=ellipse, style=filled, label="SplitControl", fontsize=12];
+  "CC2420ActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.cc2420.CC2420ActiveMessageC.html"];
+  n0xb686b100 [shape=ellipse, style=filled, label="AMSend", fontsize=12];
+  "CC2420ActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.cc2420.CC2420ActiveMessageC.html"];
+  n0xb6869178 [shape=ellipse, style=filled, label="Snoop", fontsize=12];
+  "CC2420ActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.cc2420.CC2420ActiveMessageC.html"];
+  n0xb68694d0 [shape=ellipse, style=filled, label="Packet", fontsize=12];
+  "CC2420ActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.cc2420.CC2420ActiveMessageC.html"];
+  n0xb6867178 [shape=ellipse, style=filled, label="PacketTimeStamp32khz", fontsize=12];
+  "CC2420PacketC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.cc2420.packet.CC2420PacketC.html"];
+  n0xb68632e8 [shape=ellipse, style=filled, label="LowPowerListening", fontsize=12];
+  "CC2420ActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.cc2420.CC2420ActiveMessageC.html"];
+  n0xb686bac0 [shape=ellipse, style=filled, label="Receive", fontsize=12];
+  "CC2420ActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.cc2420.CC2420ActiveMessageC.html"];
+  n0xb6868930 [shape=ellipse, style=filled, label="PacketAcknowledgements", fontsize=12];
+  "CC2420ActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.cc2420.CC2420ActiveMessageC.html"];
+  n0xb6869bc0 [shape=ellipse, style=filled, label="AMPacket", fontsize=12];
+  "CC2420ActiveMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.cc2420.CC2420ActiveMessageC.html"];
+  n0xb6866b30 [shape=ellipse, style=filled, label="PacketTimeStampMilli", fontsize=12];
+  "CC2420PacketC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.cc2420.packet.CC2420PacketC.html"];
+  "n0xb686e750" -> "CC2420ActiveMessageC" [label="SplitControl", URL="../ihtml/tos.interfaces.SplitControl.html", fontsize=10];
+  "n0xb686b100" -> "CC2420ActiveMessageC" [label="AMSend[am_id_t]", style=bold, URL="../ihtml/tos.interfaces.AMSend.html", fontsize=10];
+  "n0xb6869178" -> "CC2420ActiveMessageC" [label="Receive[am_id_t]", style=bold, URL="../ihtml/tos.interfaces.Receive.html", fontsize=10];
+  "n0xb68694d0" -> "CC2420ActiveMessageC" [label="Packet", URL="../ihtml/tos.interfaces.Packet.html", fontsize=10];
+  "n0xb6867178" -> "CC2420PacketC" [label="PacketTimeStamp<T32khz, uint32_t>", URL="../ihtml/tos.interfaces.PacketTimeStamp.html", fontsize=10];
+  "n0xb68632e8" -> "CC2420ActiveMessageC" [label="LowPowerListening", URL="../ihtml/tos.interfaces.LowPowerListening.html", fontsize=10];
+  "n0xb686bac0" -> "CC2420ActiveMessageC" [label="Receive[am_id_t]", style=bold, URL="../ihtml/tos.interfaces.Receive.html", fontsize=10];
+  "n0xb6868930" -> "CC2420ActiveMessageC" [label="PacketAcknowledgements", URL="../ihtml/tos.interfaces.PacketAcknowledgements.html", fontsize=10];
+  "n0xb6869bc0" -> "CC2420ActiveMessageC" [label="AMPacket", URL="../ihtml/tos.interfaces.AMPacket.html", fontsize=10];
+  "n0xb6866b30" -> "CC2420PacketC" [label="PacketTimeStamp<TMilli, uint32_t>", URL="../ihtml/tos.interfaces.PacketTimeStamp.html", fontsize=10];
+}

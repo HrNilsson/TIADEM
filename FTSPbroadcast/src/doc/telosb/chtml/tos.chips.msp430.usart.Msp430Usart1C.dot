@@ -1,0 +1,20 @@
+digraph "tos.chips.msp430.usart.Msp430Usart1C" {
+  n0xb667c110 [shape=ellipse, style=filled, label="ResourceRequested", fontsize=12];
+  "Msp430UsartShare1P" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.msp430.usart.Msp430UsartShare1P.html"];
+  n0xb6679348 [shape=ellipse, style=filled, label="HplMsp430UsartInterrupts", fontsize=12];
+  "Msp430UsartShare1P" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.msp430.usart.Msp430UsartShare1P.html"];
+  n0xb667f928 [shape=ellipse, style=filled, label="Resource", fontsize=12];
+  "Msp430UsartShare1P" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.msp430.usart.Msp430UsartShare1P.html"];
+  n0xb667ca40 [shape=ellipse, style=filled, label="HplMsp430Usart", fontsize=12];
+  "HplMsp430Usart1C" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.msp430.usart.HplMsp430Usart1C.html"];
+  n0xb667c598 [shape=ellipse, style=filled, label="ArbiterInfo", fontsize=12];
+  "Msp430UsartShare1P" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.msp430.usart.Msp430UsartShare1P.html"];
+  "Msp430UsartShare1P" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.msp430.usart.Msp430UsartShare1P.html"];
+  n0xb6679810 [shape=ellipse, style=filled, label="ResourceConfigure", fontsize=12];
+  "n0xb667c110" -> "Msp430UsartShare1P" [label="ResourceRequested", URL="../ihtml/tos.interfaces.ResourceRequested.html", fontsize=10];
+  "n0xb6679348" -> "Msp430UsartShare1P" [label="HplMsp430UsartInterrupts", URL="../ihtml/tos.chips.msp430.usart.HplMsp430UsartInterrupts.html", fontsize=10];
+  "n0xb667f928" -> "Msp430UsartShare1P" [label="Resource", URL="../ihtml/tos.interfaces.Resource.html", fontsize=10];
+  "n0xb667ca40" -> "HplMsp430Usart1C" [label="HplMsp430Usart", URL="../ihtml/tos.chips.msp430.usart.HplMsp430Usart.html", fontsize=10];
+  "n0xb667c598" -> "Msp430UsartShare1P" [label="ArbiterInfo", URL="../ihtml/tos.interfaces.ArbiterInfo.html", fontsize=10];
+  "Msp430UsartShare1P" -> "n0xb6679810" [label="ResourceConfigure[uint8_t]", style=bold, URL="../ihtml/tos.interfaces.ResourceConfigure.html", fontsize=10];
+}

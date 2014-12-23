@@ -1,0 +1,34 @@
+digraph "DFTSPAppC" {
+  "MainC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.system.MainC.html"];
+  "TimeSyncC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/TimeSyncC.html"];
+  "TimeSyncC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/TimeSyncC.html"];
+  "MainC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.system.MainC.html"];
+  "TestResponderC" [fontsize=12, shape=box, URL="../chtml/TestResponderC.html"];
+  "TestResponderC" [fontsize=12, shape=box, URL="../chtml/TestResponderC.html"];
+  "TimeSyncMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.platforms.telosa.TimeSyncMessageC.html"];
+  "TestResponderC" [fontsize=12, shape=box, URL="../chtml/TestResponderC.html"];
+  "TimeSyncMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.platforms.telosa.TimeSyncMessageC.html"];
+  "TestResponderC" [fontsize=12, shape=box, URL="../chtml/TestResponderC.html"];
+  "TimeSyncMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.platforms.telosa.TimeSyncMessageC.html"];
+  "TestResponderC" [fontsize=12, shape=box, URL="../chtml/TestResponderC.html"];
+  "TimeSyncMessageC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.platforms.telosa.TimeSyncMessageC.html"];
+  "TestResponderC" [fontsize=12, shape=box, URL="../chtml/TestResponderC.html"];
+  "TimeSyncC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/TimeSyncC.html"];
+  "TestResponderC" [fontsize=12, shape=box, URL="../chtml/TestResponderC.html"];
+  "TimeSyncC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/TimeSyncC.html"];
+  "TestResponderC" [fontsize=12, shape=box, URL="../chtml/TestResponderC.html"];
+  "LedsC" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.system.LedsC.html"];
+  "TestResponderC" [fontsize=12, shape=box, URL="../chtml/TestResponderC.html"];
+  "DFTSPAppC.Sensor" [fontsize=12, shape=box,peripheries=2, style=dashed, label="SensirionSht11C\n(Sensor)", URL="../chtml/tos.platforms.telosa.chips.sht11.SensirionSht11C.html"];
+  "MainC" -> "TimeSyncC" [label="Init", URL="../ihtml/tos.interfaces.Init.html", fontsize=10];
+  "TimeSyncC" -> "MainC" [label="Boot", URL="../ihtml/tos.interfaces.Boot.html", fontsize=10];
+  "TestResponderC" -> "MainC" [label="Boot", URL="../ihtml/tos.interfaces.Boot.html", fontsize=10];
+  "TestResponderC" -> "TimeSyncMessageC" [label="SplitControl", URL="../ihtml/tos.interfaces.SplitControl.html", fontsize=10];
+  "TestResponderC" -> "TimeSyncMessageC" [label="Receive", URL="../ihtml/tos.interfaces.Receive.html", fontsize=10];
+  "TestResponderC" -> "TimeSyncMessageC" [label="TimeSyncAMSend<TMilli, uint32_t>", URL="../ihtml/tos.interfaces.TimeSyncAMSend.html", fontsize=10];
+  "TestResponderC" -> "TimeSyncMessageC" [label="Packet", URL="../ihtml/tos.interfaces.Packet.html", fontsize=10];
+  "TestResponderC" -> "TimeSyncC" [label="GlobalTime<TMilli>", URL="../ihtml/GlobalTime.html", fontsize=10];
+  "TestResponderC" -> "TimeSyncC" [label="TimeSyncInfo", URL="../ihtml/TimeSyncInfo.html", fontsize=10];
+  "TestResponderC" -> "LedsC" [label="Leds", URL="../ihtml/tos.interfaces.Leds.html", fontsize=10];
+  "TestResponderC" -> "DFTSPAppC.Sensor" [label="Read<uint16_t>", URL="../ihtml/tos.interfaces.Read.html", fontsize=10];
+}

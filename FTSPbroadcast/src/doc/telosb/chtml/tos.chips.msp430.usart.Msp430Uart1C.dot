@@ -1,0 +1,26 @@
+digraph "tos.chips.msp430.usart.Msp430Uart1C" {
+  n0xb67285a0 [shape=ellipse, style=filled, label="ResourceRequested", fontsize=12];
+  "Msp430Uart1C.UsartC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="Msp430Usart1C\n(UsartC)", URL="../chtml/tos.chips.msp430.usart.Msp430Usart1C.html"];
+  n0xb6727388 [shape=ellipse, style=filled, label="UartByte", fontsize=12];
+  "Msp430Uart1P" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.msp430.usart.Msp430Uart1P.html"];
+  n0xb6728a20 [shape=ellipse, style=filled, label="UartStream", fontsize=12];
+  "Msp430Uart1P" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.msp430.usart.Msp430Uart1P.html"];
+  n0xb6729da0 [shape=ellipse, style=filled, label="Resource", fontsize=12];
+  "Msp430Uart1P" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.msp430.usart.Msp430Uart1P.html"];
+  "Msp430Uart1P" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.msp430.usart.Msp430Uart1P.html"];
+  n0xb6725010 [shape=ellipse, style=filled, label="Msp430UartConfigure", fontsize=12];
+  "Msp430Uart1C.UsartC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="Msp430Usart1C\n(UsartC)", URL="../chtml/tos.chips.msp430.usart.Msp430Usart1C.html"];
+  "Msp430Uart1P" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.msp430.usart.Msp430Uart1P.html"];
+  "Msp430Uart1P" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.msp430.usart.Msp430Uart1P.html"];
+  "Msp430Uart1C.UsartC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="Msp430Usart1C\n(UsartC)", URL="../chtml/tos.chips.msp430.usart.Msp430Usart1C.html"];
+  "Msp430Uart1P" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.chips.msp430.usart.Msp430Uart1P.html"];
+  "Msp430Uart1C.UsartC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="Msp430Usart1C\n(UsartC)", URL="../chtml/tos.chips.msp430.usart.Msp430Usart1C.html"];
+  "n0xb67285a0" -> "Msp430Uart1C.UsartC" [label="ResourceRequested", URL="../ihtml/tos.interfaces.ResourceRequested.html", fontsize=10];
+  "n0xb6727388" -> "Msp430Uart1P" [label="UartByte", URL="../ihtml/tos.interfaces.UartByte.html", fontsize=10];
+  "n0xb6728a20" -> "Msp430Uart1P" [label="UartStream", URL="../ihtml/tos.interfaces.UartStream.html", fontsize=10];
+  "n0xb6729da0" -> "Msp430Uart1P" [label="Resource", URL="../ihtml/tos.interfaces.Resource.html", fontsize=10];
+  "Msp430Uart1P" -> "n0xb6725010" [label="Msp430UartConfigure[uint8_t]", style=bold, URL="../ihtml/tos.chips.msp430.usart.Msp430UartConfigure.html", fontsize=10];
+  "Msp430Uart1C.UsartC" -> "Msp430Uart1P" [label="ResourceConfigure", URL="../ihtml/tos.interfaces.ResourceConfigure.html", fontsize=10];
+  "Msp430Uart1P" -> "Msp430Uart1C.UsartC" [label="Resource[uint8_t]", style=bold, URL="../ihtml/tos.interfaces.Resource.html", fontsize=10];
+  "Msp430Uart1P" -> "Msp430Uart1C.UsartC" [label="HplMsp430UsartInterrupts[uint8_t]", style=bold, URL="../ihtml/tos.chips.msp430.usart.HplMsp430UsartInterrupts.html", fontsize=10];
+}

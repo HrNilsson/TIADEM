@@ -1,0 +1,157 @@
+<?xml version="1.0" ?><interfacedef loc="24:/opt/tinyos-2.1.1/tos/interfaces/PacketTimeStamp.nc" nicename="tos.interfaces.PacketTimeStamp" qname="PacketTimeStamp">
+      <parameters>
+        <typedef loc="24:/opt/tinyos-2.1.1/tos/interfaces/PacketTimeStamp.nc" name="precision_tag" ref="0xb71a40c0">
+          <interfacedef-ref nicename="tos.interfaces.PacketTimeStamp" qname="PacketTimeStamp"/>
+          <type-var alignment="U:" size="U:"><typedef-ref name="precision_tag" ref="0xb71a40c0" scoped=""/></type-var>
+        </typedef>
+        <typedef loc="24:/opt/tinyos-2.1.1/tos/interfaces/PacketTimeStamp.nc" name="size_type" ref="0xb71a4228">
+          <interfacedef-ref nicename="tos.interfaces.PacketTimeStamp" qname="PacketTimeStamp"/>
+          <type-var alignment="U:" size="U:"><typedef-ref name="size_type" ref="0xb71a4228" scoped=""/></type-var>
+        </typedef>
+      </parameters>
+      <function command="" loc="52:/opt/tinyos-2.1.1/tos/interfaces/PacketTimeStamp.nc" name="timestamp" provided="0" ref="0xb71a3418">
+        <documentation loc="40:/opt/tinyos-2.1.1/tos/interfaces/PacketTimeStamp.nc">
+          <short>
+ </short>
+          <long>
+ @param 'message_t *ONE msg' Message to get timestamp from.
+
+ Return the time stamp for the given message. Please check with the
+ isValid command if this value can be relied upon. If this command is
+ called after transmission, then the transmit time of the packet
+ is returned (the time when the frame synchronization byte was
+ transmitted). If this command is called after the message is received,
+ the tne receive time of the message is returned. It is recommended that
+ the timestamp command be called only from the receive or sendDone event
+ handler.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.interfaces.PacketTimeStamp" qname="PacketTimeStamp"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-var alignment="U:" size="U:"><typedef-ref name="size_type" ref="0xb71a4228" scoped=""/></type-var>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb7205308"/>
+                <typename><typedef-ref name="message_t" ref="0xb72040c8"/></typename>
+              </type-tag>
+            </type-pointer>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="52:/opt/tinyos-2.1.1/tos/interfaces/PacketTimeStamp.nc" name="msg" ref="0xb71a32c0">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb7205308"/>
+                <typename><typedef-ref name="message_t" ref="0xb72040c8"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+        </parameters>
+      </function>
+      <function command="" loc="59:/opt/tinyos-2.1.1/tos/interfaces/PacketTimeStamp.nc" name="clear" provided="0" ref="0xb71a3eb0">
+        <documentation loc="54:/opt/tinyos-2.1.1/tos/interfaces/PacketTimeStamp.nc">
+          <short>
+ </short>
+          <long>
+ @param 'message_t *ONE msg' Message to modify.
+
+ Sets the isValid flag to FALSE.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.interfaces.PacketTimeStamp" qname="PacketTimeStamp"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb7205308"/>
+                <typename><typedef-ref name="message_t" ref="0xb72040c8"/></typename>
+              </type-tag>
+            </type-pointer>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="59:/opt/tinyos-2.1.1/tos/interfaces/PacketTimeStamp.nc" name="msg" ref="0xb71a3d58">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb7205308"/>
+                <typename><typedef-ref name="message_t" ref="0xb72040c8"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+        </parameters>
+      </function>
+      <function command="" loc="38:/opt/tinyos-2.1.1/tos/interfaces/PacketTimeStamp.nc" name="isValid" provided="0" ref="0xb71a48b0">
+        <documentation loc="26:/opt/tinyos-2.1.1/tos/interfaces/PacketTimeStamp.nc">
+          <short>
+ </short>
+          <long>
+ @param 'message_t *ONE msg' Message to examine.
+
+ Returns TRUE if the time stamp of the message is valid. Under special
+ circumstances the radio chip might not be able to correctly assign a
+ precise time value to an incoming packet (e.g. under very heavy traffic
+ multiple interrupts can occur before they could be serviced, and even
+ if capture registers are used, it is not possible to get the time stamp
+ for the first or last unserviced event), in which case the time stamp
+ value should not be used. It is recommended that the isValid command be
+ called from the receive or sendDone event handler.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.interfaces.PacketTimeStamp" qname="PacketTimeStamp"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="bool" ref="0xb75f29a0"/></typename>
+          </type-int>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb7205308"/>
+                <typename><typedef-ref name="message_t" ref="0xb72040c8"/></typename>
+              </type-tag>
+            </type-pointer>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="38:/opt/tinyos-2.1.1/tos/interfaces/PacketTimeStamp.nc" name="msg" ref="0xb71a4758">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb7205308"/>
+                <typename><typedef-ref name="message_t" ref="0xb72040c8"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+        </parameters>
+      </function>
+      <function command="" loc="67:/opt/tinyos-2.1.1/tos/interfaces/PacketTimeStamp.nc" name="set" provided="0" ref="0xb71a1990">
+        <documentation loc="61:/opt/tinyos-2.1.1/tos/interfaces/PacketTimeStamp.nc">
+          <short>
+ </short>
+          <long>
+ @param 'message_t *ONE msg' Message to modify.
+
+ Sets the isValid flag to TRUE and the time stamp value to the
+ specified value.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.interfaces.PacketTimeStamp" qname="PacketTimeStamp"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb7205308"/>
+                <typename><typedef-ref name="message_t" ref="0xb72040c8"/></typename>
+              </type-tag>
+            </type-pointer>
+            <type-var alignment="U:" size="U:"><typedef-ref name="size_type" ref="0xb71a4228" scoped=""/></type-var>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="67:/opt/tinyos-2.1.1/tos/interfaces/PacketTimeStamp.nc" name="msg" ref="0xb71a1620">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb7205308"/>
+                <typename><typedef-ref name="message_t" ref="0xb72040c8"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+          <variable loc="67:/opt/tinyos-2.1.1/tos/interfaces/PacketTimeStamp.nc" name="value" ref="0xb71a1830">
+            <type-var alignment="U:" size="U:"><typedef-ref name="size_type" ref="0xb71a4228" scoped=""/></type-var>
+          </variable>
+        </parameters>
+      </function>
+    </interfacedef>

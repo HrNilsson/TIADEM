@@ -1,0 +1,33 @@
+<area shape="rect" id="node2" href="../chtml/TimeSyncP.html" title="TimeSyncP" alt="" coords="533,120,640,168">
+<area shape="poly" id="edge2" href="../ihtml/GlobalTime.html" title="GlobalTime&lt;TMilli&gt;" alt="" coords="226,50 259,73 298,94 355,112 414,125 520,138 519,144 413,130 354,117 296,98 256,78 222,54">
+<area shape="rect" id="edge2" href="../ihtml/GlobalTime.html" title="GlobalTime&lt;TMilli&gt;" alt="" coords="297,78,421,95">
+<area shape="poly" id="edge14" href="../ihtml/tos.interfaces.Boot.html" title="Boot" alt="" coords="533,149 278,165 155,178 112,186 88,194 71,210 58,231 54,228 67,207 85,190 111,181 155,173 278,160 533,144">
+<area shape="rect" id="edge14" href="../ihtml/tos.interfaces.Boot.html" title="Boot" alt="" coords="87,193,117,210">
+<area shape="rect" id="node9" href="../chtml/tos.platforms.telosa.TimeSyncMessageC.html" title="TimeSyncMessageC" alt="" coords="312,236,496,295">
+<area shape="poly" id="edge22" href="../ihtml/tos.interfaces.TimeSyncPacket.html" title="TimeSyncPacket&lt;TMilli, uint32_t&gt;" alt="" coords="533,148 297,162 186,175 148,184 129,194 125,201 129,209 154,226 195,239 299,256 298,261 194,244 152,231 125,212 120,201 125,190 146,179 185,170 297,157 533,143">
+<area shape="rect" id="edge22" href="../ihtml/tos.interfaces.TimeSyncPacket.html" title="TimeSyncPacket&lt;TMilli, uint32_t&gt;" alt="" coords="127,193,344,210">
+<area shape="poly" id="edge16" href="../ihtml/tos.interfaces.SplitControl.html" title="SplitControl" alt="" coords="533,150 429,164 383,177 366,185 356,193 351,208 358,224 353,226 346,209 351,191 363,180 381,172 428,159 533,145">
+<area shape="rect" id="edge16" href="../ihtml/tos.interfaces.SplitControl.html" title="SplitControl" alt="" coords="353,193,428,210">
+<area shape="poly" id="edge18" href="../ihtml/tos.interfaces.TimeSyncAMSend.html" title="TimeSyncAMSend&lt;TMilli, uint32_t&gt;" alt="" coords="534,159 496,173 460,194 430,226 426,223 457,190 494,169 532,154">
+<area shape="rect" id="edge18" href="../ihtml/tos.interfaces.TimeSyncAMSend.html" title="TimeSyncAMSend&lt;TMilli, uint32_t&gt;" alt="" coords="459,193,687,210">
+<area shape="poly" id="edge20" href="../ihtml/tos.interfaces.Receive.html" title="Receive" alt="" coords="641,156 665,166 685,178 695,194 694,203 689,212 661,231 617,245 564,255 510,261 509,256 564,249 616,240 658,226 685,209 689,202 689,195 681,182 663,171 639,161">
+<area shape="rect" id="edge20" href="../ihtml/tos.interfaces.Receive.html" title="Receive" alt="" coords="692,193,741,210">
+<area shape="rect" id="node10" href="../chtml/tos.chips.msp430.timer.HilTimerMilliC.html" title="HilTimerMilliC" alt="" coords="732,236,860,295">
+<area shape="poly" id="edge24" href="../ihtml/tos.lib.timer.LocalTime.html" title="LocalTime&lt;TMilli&gt;" alt="" coords="641,148 695,163 723,174 748,190 764,205 778,223 773,226 761,209 745,194 720,179 693,168 639,153">
+<area shape="rect" id="edge24" href="../ihtml/tos.lib.timer.LocalTime.html" title="LocalTime&lt;TMilli&gt;" alt="" coords="765,193,883,210">
+<area shape="rect" id="node11" href="../chtml/tos.system.TimerMilliC.html" title="TimerMilliC\n(TimerC)" alt="" coords="888,235,1000,296">
+<area shape="poly" id="edge26" href="../ihtml/tos.lib.timer.Timer.html" title="Timer&lt;TMilli&gt;" alt="" coords="641,145 777,160 843,173 889,190 907,204 922,221 918,225 904,208 887,194 842,178 777,166 640,150">
+<area shape="rect" id="edge26" href="../ihtml/tos.lib.timer.Timer.html" title="Timer&lt;TMilli&gt;" alt="" coords="908,193,997,210">
+<area shape="rect" id="node12" href="../chtml/tos.system.LedsC.html" title="LedsC" alt="" coords="1024,236,1107,295">
+<area shape="poly" id="edge28" href="../ihtml/tos.interfaces.Leds.html" title="Leds" alt="" coords="640,143 730,147 835,155 934,169 974,178 1004,190 1025,205 1042,223 1038,227 1021,209 1001,194 973,183 933,174 835,160 729,152 640,148">
+<area shape="rect" id="edge28" href="../ihtml/tos.interfaces.Leds.html" title="Leds" alt="" coords="1025,193,1056,210">
+<area shape="poly" id="edge4" href="../ihtml/TimeSyncInfo.html" title="TimeSyncInfo" alt="" coords="396,50 424,73 455,94 521,123 519,127 452,98 420,77 393,54">
+<area shape="rect" id="edge4" href="../ihtml/TimeSyncInfo.html" title="TimeSyncInfo" alt="" coords="455,78,540,95">
+<area shape="poly" id="edge6" href="../ihtml/tos.interfaces.Init.html" title="Init" alt="" coords="529,50 566,107 561,110 524,53">
+<area shape="rect" id="edge6" href="../ihtml/tos.interfaces.Init.html" title="Init" alt="" coords="553,78,573,95">
+<area shape="poly" id="edge8" href="../ihtml/TimeSyncMode.html" title="TimeSyncMode" alt="" coords="648,55 612,110 607,107 644,52">
+<area shape="rect" id="edge8" href="../ihtml/TimeSyncMode.html" title="TimeSyncMode" alt="" coords="628,78,725,95">
+<area shape="poly" id="edge10" href="../ihtml/TimeSyncNotify.html" title="TimeSyncNotify" alt="" coords="827,53 732,98 654,126 652,121 730,94 825,49">
+<area shape="rect" id="edge10" href="../ihtml/TimeSyncNotify.html" title="TimeSyncNotify" alt="" coords="772,78,872,95">
+<area shape="poly" id="edge12" href="../ihtml/tos.interfaces.StdControl.html" title="StdControl" alt="" coords="1010,51 948,76 878,99 760,124 654,139 653,134 759,119 877,93 946,71 1008,46">
+<area shape="rect" id="edge12" href="../ihtml/tos.interfaces.StdControl.html" title="StdControl" alt="" coords="931,78,1000,95">

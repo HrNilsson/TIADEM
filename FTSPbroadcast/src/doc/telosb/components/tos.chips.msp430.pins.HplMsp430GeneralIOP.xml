@@ -1,0 +1,63 @@
+<?xml version="1.0" ?><component abstract="" loc="28:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOP.nc" nicename="tos.chips.msp430.pins.HplMsp430GeneralIOP" qname="HplMsp430GeneralIOP" safe="">
+      <documentation loc="22:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOP.nc">
+        <short>
+ </short>
+        <long>
+ @author Joe Polastre
+</long>
+      </documentation>
+      <parameters>
+        <constant loc="29:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOP.nc" name="port_in_addr" ref="0xb6f6b810">
+          <component-ref nicename="tos.chips.msp430.pins.HplMsp430GeneralIOP" qname="HplMsp430GeneralIOP"/>
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+          </type-int>
+        </constant>
+        <constant loc="30:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOP.nc" name="port_out_addr" ref="0xb6f6ba68">
+          <component-ref nicename="tos.chips.msp430.pins.HplMsp430GeneralIOP" qname="HplMsp430GeneralIOP"/>
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+          </type-int>
+        </constant>
+        <constant loc="31:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOP.nc" name="port_dir_addr" ref="0xb6f6bcc0">
+          <component-ref nicename="tos.chips.msp430.pins.HplMsp430GeneralIOP" qname="HplMsp430GeneralIOP"/>
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+          </type-int>
+        </constant>
+        <constant loc="32:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOP.nc" name="port_sel_addr" ref="0xb6f6bf18">
+          <component-ref nicename="tos.chips.msp430.pins.HplMsp430GeneralIOP" qname="HplMsp430GeneralIOP"/>
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+          </type-int>
+        </constant>
+        <constant loc="33:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOP.nc" name="pin" ref="0xb6f68130">
+          <component-ref nicename="tos.chips.msp430.pins.HplMsp430GeneralIOP" qname="HplMsp430GeneralIOP"/>
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+          </type-int>
+        </constant>
+      </parameters>
+      <module/>
+    <specification><interface loc="36:/opt/tinyos-2.1.1/tos/chips/msp430/pins/HplMsp430GeneralIOP.nc" name="IO" provided="1" ref="0xb6f68680">
+      <component-ref nicename="tos.chips.msp430.pins.HplMsp430GeneralIOP" qname="HplMsp430GeneralIOP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="IO" ref="0xb6f68680" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.pins.HplMsp430GeneralIO" qname="HplMsp430GeneralIO"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="makeInput" ref="0xb6f68858" scoped=""/>
+        <function-ref name="isInput" ref="0xb6f68938" scoped=""/>
+        <function-ref name="toggle" ref="0xb6f68a18" scoped=""/>
+        <function-ref name="isOutput" ref="0xb6f68af8" scoped=""/>
+        <function-ref name="makeOutput" ref="0xb6f68bd8" scoped=""/>
+        <function-ref name="get" ref="0xb6f68cb8" scoped=""/>
+        <function-ref name="selectIOFunc" ref="0xb6f68d98" scoped=""/>
+        <function-ref name="getRaw" ref="0xb6f68e78" scoped=""/>
+        <function-ref name="set" ref="0xb6f67010" scoped=""/>
+        <function-ref name="selectModuleFunc" ref="0xb6f670f0" scoped=""/>
+        <function-ref name="isIOFunc" ref="0xb6f671d0" scoped=""/>
+        <function-ref name="isModuleFunc" ref="0xb6f672b0" scoped=""/>
+        <function-ref name="clr" ref="0xb6f67390" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced/></component>

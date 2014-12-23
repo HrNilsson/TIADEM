@@ -1,0 +1,40 @@
+<?xml version="1.0" ?><interfacedef loc="27:/opt/tinyos-2.1.1/tos/interfaces/SpiByte.nc" nicename="tos.interfaces.SpiByte" qname="SpiByte">
+      <documentation loc="23:/opt/tinyos-2.1.1/tos/interfaces/SpiByte.nc">
+        <short>
+ </short>
+        <long>
+ @author Jonathan Hui
+ @author Joe Polastre
+</long>
+      </documentation>
+      <function command="" loc="34:/opt/tinyos-2.1.1/tos/interfaces/SpiByte.nc" name="write" provided="0" ref="0xb6dc24e0">
+        <documentation loc="29:/opt/tinyos-2.1.1/tos/interfaces/SpiByte.nc">
+          <short>
+ Synchronous transmit and receive (can be in interrupt context)
+ </short>
+          <long>
+ Synchronous transmit and receive (can be in interrupt context)
+ @param tx Byte to transmit
+ @param rx Received byte is stored here.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.interfaces.SpiByte" qname="SpiByte"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+          </type-int>
+          <function-parameters>
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+            </type-int>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="34:/opt/tinyos-2.1.1/tos/interfaces/SpiByte.nc" name="tx" ref="0xb6dc2388">
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+            </type-int>
+          </variable>
+        </parameters>
+      </function>
+    </interfacedef>

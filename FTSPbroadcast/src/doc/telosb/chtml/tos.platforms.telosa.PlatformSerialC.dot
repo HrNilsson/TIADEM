@@ -1,0 +1,17 @@
+digraph "tos.platforms.telosa.PlatformSerialC" {
+  n0xb67292b0 [shape=ellipse, style=filled, label="UartByte", fontsize=12];
+  "PlatformSerialC.UartC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="Msp430Uart1C\n(UartC)", URL="../chtml/tos.chips.msp430.usart.Msp430Uart1C.html"];
+  n0xb672f490 [shape=ellipse, style=filled, label="UartStream", fontsize=12];
+  "PlatformSerialC.UartC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="Msp430Uart1C\n(UartC)", URL="../chtml/tos.chips.msp430.usart.Msp430Uart1C.html"];
+  n0xb672f010 [shape=ellipse, style=filled, label="StdControl", fontsize=12];
+  "TelosSerialP" [fontsize=12, shape=box, URL="../chtml/tos.platforms.telosa.TelosSerialP.html"];
+  "PlatformSerialC.UartC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="Msp430Uart1C\n(UartC)", URL="../chtml/tos.chips.msp430.usart.Msp430Uart1C.html"];
+  "TelosSerialP" [fontsize=12, shape=box, URL="../chtml/tos.platforms.telosa.TelosSerialP.html"];
+  "TelosSerialP" [fontsize=12, shape=box, URL="../chtml/tos.platforms.telosa.TelosSerialP.html"];
+  "PlatformSerialC.UartC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="Msp430Uart1C\n(UartC)", URL="../chtml/tos.chips.msp430.usart.Msp430Uart1C.html"];
+  "n0xb67292b0" -> "PlatformSerialC.UartC" [label="UartByte", URL="../ihtml/tos.interfaces.UartByte.html", fontsize=10];
+  "n0xb672f490" -> "PlatformSerialC.UartC" [label="UartStream", URL="../ihtml/tos.interfaces.UartStream.html", fontsize=10];
+  "n0xb672f010" -> "TelosSerialP" [label="StdControl", URL="../ihtml/tos.interfaces.StdControl.html", fontsize=10];
+  "PlatformSerialC.UartC" -> "TelosSerialP" [label="Msp430UartConfigure", URL="../ihtml/tos.chips.msp430.usart.Msp430UartConfigure.html", fontsize=10];
+  "TelosSerialP" -> "PlatformSerialC.UartC" [label="Resource", URL="../ihtml/tos.interfaces.Resource.html", fontsize=10];
+}

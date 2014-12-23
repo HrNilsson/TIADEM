@@ -1,0 +1,207 @@
+<?xml version="1.0" ?><interfacedef loc="40:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc" nicename="tos.chips.cc2420.interfaces.CC2420Packet" qname="CC2420Packet">
+      <documentation loc="32:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc">
+        <short>
+ </short>
+        <long>
+ @author Jonathan Hui &lt;jhui@archrock.com&gt;
+ @author David Moss
+ @author Chad Metcalf
+</long>
+      </documentation>
+      <function command="" loc="56:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc" name="setPower" provided="0" ref="0xb7136e80">
+        <documentation loc="49:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc">
+          <short>
+ Set transmission power for a given packet.</short>
+          <long>
+ Set transmission power for a given packet. Valid ranges are
+ between 0 and 31.
+
+ @param p_msg the message.
+ @param power transmission power.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.CC2420Packet" qname="CC2420Packet"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+            </type-int>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="56:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc" name="p_msg" ref="0xb7136b28">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+          <variable loc="56:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc" name="power" ref="0xb7136d20">
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+            </type-int>
+          </variable>
+        </parameters>
+      </function>
+      <function command="" loc="77:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc" name="setNetwork" provided="0" ref="0xb7131b28">
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.CC2420Packet" qname="CC2420Packet"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+            </type-int>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="77:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc" name="p_msg" ref="0xb71317a8">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+          <variable loc="77:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc" name="networkId" ref="0xb71319c8">
+            <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+              <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+            </type-int>
+          </variable>
+        </parameters>
+      </function>
+      <function command="" loc="64:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc" name="getRssi" provided="0" ref="0xb7132588">
+        <documentation loc="58:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc">
+          <short>
+ Get rssi value for a given packet.</short>
+          <long>
+ Get rssi value for a given packet. For received packets, it is
+ the received signal strength when receiving that packet. For sent
+ packets, it is the received signal strength of the ack if an ack
+ was received.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.CC2420Packet" qname="CC2420Packet"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="signed char" size="I:1">
+            <typename><typedef-ref name="int8_t" ref="0xb77c6048"/></typename>
+          </type-int>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="64:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc" name="p_msg" ref="0xb7132430">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+        </parameters>
+      </function>
+      <function command="" loc="75:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc" name="getNetwork" provided="0" ref="0xb7131368">
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.CC2420Packet" qname="CC2420Packet"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+          </type-int>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="75:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc" name="p_msg" ref="0xb7131210">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+        </parameters>
+      </function>
+      <function command="" loc="47:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc" name="getPower" provided="0" ref="0xb7136660">
+        <documentation loc="42:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc">
+          <short>
+ Get transmission power setting for current packet.</short>
+          <long>
+ Get transmission power setting for current packet.
+
+ @param the message
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.CC2420Packet" qname="CC2420Packet"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+          </type-int>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="47:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc" name="p_msg" ref="0xb7136508">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+        </parameters>
+      </function>
+      <function command="" loc="72:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc" name="getLqi" provided="0" ref="0xb7132c50">
+        <documentation loc="66:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc">
+          <short>
+ Get lqi value for a given packet.</short>
+          <long>
+ Get lqi value for a given packet. For received packets, it is the
+ link quality indicator value when receiving that packet. For sent
+ packets, it is the link quality indicator value of the ack if an
+ ack was received.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.CC2420Packet" qname="CC2420Packet"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+          </type-int>
+          <function-parameters>
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable loc="72:/opt/tinyos-2.1.1/tos/chips/cc2420/interfaces/CC2420Packet.nc" name="p_msg" ref="0xb7132af8">
+            <type-pointer alignment="I:2" size="I:2">
+              <type-tag alignment="I:1" size="I:52"><nx_struct-ref name="message_t" ref="0xb726e8f8"/>
+                <typename><typedef-ref name="message_t" ref="0xb726d6b0"/></typename>
+              </type-tag>
+            </type-pointer>
+          </variable>
+        </parameters>
+      </function>
+    </interfacedef>

@@ -1,0 +1,21 @@
+<area shape="rect" id="node2" href="../chtml/tos.chips.msp430.usart.Msp430SpiNoDmaP.html" title="Msp430SpiNoDmaP\n(SpiP)" alt="" coords="476,120,649,171">
+<area shape="poly" id="edge2" href="../ihtml/tos.interfaces.ResourceConfigure.html" title="ResourceConfigure[uint8_t]" alt="" coords="289,53 295,75 307,94 332,108 370,119 463,134 462,139 369,124 330,113 304,98 290,77 284,54">
+<area shape="rect" id="edge2" href="../ihtml/tos.interfaces.ResourceConfigure.html" title="ResourceConfigure[uint8_t]" alt="" coords="305,78,479,95">
+<area shape="poly" id="edge10" href="../ihtml/tos.chips.msp430.usart.Msp430SpiConfigure.html" title="Msp430SpiConfigure[uint8_t]" alt="" coords="476,156 336,173 273,185 228,197 193,215 163,236 160,232 191,210 226,192 272,179 336,168 475,151">
+<area shape="rect" id="edge10" href="../ihtml/tos.chips.msp430.usart.Msp430SpiConfigure.html" title="Msp430SpiConfigure[uint8_t]" alt="" coords="227,195,412,213">
+<area shape="poly" id="edge12" href="../ihtml/tos.interfaces.Resource.html" title="Resource[uint8_t]" alt="" coords="493,173 445,197 392,237 389,232 443,192 491,168">
+<area shape="rect" id="edge12" href="../ihtml/tos.interfaces.Resource.html" title="Resource[uint8_t]" alt="" coords="444,195,557,213">
+<area shape="poly" id="edge14" href="../ihtml/tos.chips.msp430.usart.HplMsp430UsartInterrupts.html" title="HplMsp430UsartInterrupts" alt="" coords="565,171 565,229 560,229 560,171">
+<area shape="rect" id="edge14" href="../ihtml/tos.chips.msp430.usart.HplMsp430UsartInterrupts.html" title="HplMsp430UsartInterrupts" alt="" coords="563,195,732,213">
+<area shape="rect" id="node9" href="../chtml/tos.chips.msp430.usart.HplMsp430Usart0C.html" title="HplMsp430Usart0C" alt="" coords="680,237,864,296">
+<area shape="poly" id="edge16" href="../ihtml/tos.chips.msp430.usart.HplMsp430Usart.html" title="HplMsp430Usart" alt="" coords="650,160 703,175 739,193 752,207 761,223 757,226 748,210 736,197 701,180 649,165">
+<area shape="rect" id="edge16" href="../ihtml/tos.chips.msp430.usart.HplMsp430Usart.html" title="HplMsp430Usart" alt="" coords="752,195,859,213">
+<area shape="rect" id="node10" href="../chtml/tos.system.LedsC.html" title="LedsC" alt="" coords="888,237,971,296">
+<area shape="poly" id="edge18" href="../ihtml/tos.interfaces.Leds.html" title="Leds" alt="" coords="650,151 772,167 827,178 865,192 886,207 903,225 900,229 883,211 863,197 825,184 771,172 649,156">
+<area shape="rect" id="edge18" href="../ihtml/tos.interfaces.Leds.html" title="Leds" alt="" coords="887,195,917,213">
+<area shape="poly" id="edge4" href="../ihtml/tos.interfaces.SpiPacket.html" title="SpiPacket[uint8_t]" alt="" coords="487,54 487,75 493,95 504,109 500,112 488,97 482,75 482,54">
+<area shape="rect" id="edge4" href="../ihtml/tos.interfaces.SpiPacket.html" title="SpiPacket[uint8_t]" alt="" coords="491,78,608,95">
+<area shape="poly" id="edge6" href="../ihtml/tos.interfaces.SpiByte.html" title="SpiByte" alt="" coords="631,54 610,97 600,111 596,108 606,95 627,52">
+<area shape="rect" id="edge6" href="../ihtml/tos.interfaces.SpiByte.html" title="SpiByte" alt="" coords="617,78,667,95">
+<area shape="poly" id="edge8" href="../ihtml/tos.interfaces.Resource.html" title="Resource[uint8_t]" alt="" coords="746,53 673,98 637,117 635,112 671,94 743,48">
+<area shape="rect" id="edge8" href="../ihtml/tos.interfaces.Resource.html" title="Resource[uint8_t]" alt="" coords="700,78,813,95">

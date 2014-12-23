@@ -1,0 +1,35 @@
+<?xml version="1.0" ?><component loc="1:/opt/tinyos-2.1.1/tos/platforms/telosa/TelosSerialP.nc" nicename="tos.platforms.telosa.TelosSerialP" qname="TelosSerialP">
+      <module/>
+    <specification><interface loc="3:/opt/tinyos-2.1.1/tos/platforms/telosa/TelosSerialP.nc" name="Msp430UartConfigure" provided="1" ref="0xb664f350">
+      <component-ref nicename="tos.platforms.telosa.TelosSerialP" qname="TelosSerialP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Msp430UartConfigure" ref="0xb664f350" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.usart.Msp430UartConfigure" qname="Msp430UartConfigure"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="getConfig" ref="0xb664f528" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="4:/opt/tinyos-2.1.1/tos/platforms/telosa/TelosSerialP.nc" name="Resource" provided="0" ref="0xb664f6e0">
+      <component-ref nicename="tos.platforms.telosa.TelosSerialP" qname="TelosSerialP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Resource" ref="0xb664f6e0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Resource" qname="Resource"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="release" ref="0xb664f8b8" scoped=""/>
+        <function-ref name="immediateRequest" ref="0xb664f998" scoped=""/>
+        <function-ref name="request" ref="0xb664fa78" scoped=""/>
+        <function-ref name="granted" ref="0xb664fb58" scoped=""/>
+        <function-ref name="isOwner" ref="0xb664fc38" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="2:/opt/tinyos-2.1.1/tos/platforms/telosa/TelosSerialP.nc" name="StdControl" provided="1" ref="0xb6652e30">
+      <component-ref nicename="tos.platforms.telosa.TelosSerialP" qname="TelosSerialP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="StdControl" ref="0xb6652e30" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.StdControl" qname="StdControl"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="start" ref="0xb664f050" scoped=""/>
+        <function-ref name="stop" ref="0xb664f130" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced/></component>

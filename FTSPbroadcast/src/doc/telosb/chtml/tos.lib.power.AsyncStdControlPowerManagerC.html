@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <LINK rel="stylesheet" href="nesdoc.css" type="text/css" media="screen"><title>Component: tos.lib.power.AsyncStdControlPowerManagerC</title>
+  </head>
+  <body>
+    <h2>Component: tos.lib.power.AsyncStdControlPowerManagerC
+    </h2>
+    <b>generic configuration AsyncStdControlPowerManagerC()</b>
+    <p>
+ Please refer to TEP 115 for more information about this component and its
+ intended use.<br><br>
+
+ This is the internal implementation of the standard power management
+ policy for managing the power states of non-virtualized devices.
+ Non-virtualized devices are shared using a parameterized Resource
+ interface, and are powered down according to some policy whenever there
+ are no more pending requests to that Resource.  The policy implemented
+ by this component is to power down a device as soon as it becomes free.
+ Such a policy is useful whenever a device has a negligible wake-up
+ latency.  There is no cost associated with waiting for the device to
+ power up, so it can be powered on and off as often as possible.<br><br>
+
+ Powerdown of the device is done through the <code>AsyncStdControl</code>
+ interface, so this component can only be used with those devices that
+ provide that interface.<br><br>
+
+ For devices providing either the <code>StdControl</code> or
+ <code>SplitControl</code> interfaces, please use either the
+ <code>StdControlPowerManagerC</code> component or the
+ <code>SplitControlPowerManagerC</code> component respectively.
+ 
+ 
+    <p>
+    <dl>
+      <dt><b>Author:</b>
+      <dd>
+        Kevin Klues (klueska@cs.wustl.edu)
+
+      </dd>
+    </dl>
+    <p><p><div id=heading>Uses</div><div id=funcsig>interface <a href="../ihtml/tos.interfaces.ArbiterInfo.html">ArbiterInfo</a></div><div id=funcsig>interface <a href="../ihtml/tos.interfaces.AsyncStdControl.html">AsyncStdControl</a></div><div id=funcsig>interface <a href="../ihtml/tos.lib.power.PowerDownCleanup.html">PowerDownCleanup</a></div><div id=funcsig>interface <a href="../ihtml/tos.interfaces.ResourceDefaultOwner.html">ResourceDefaultOwner</a></div><p><div id=heading>Wiring</div><p>
+    <map name="comp">
+      <area shape="rect" id="node1" href="../chtml/tos.lib.power.AsyncPowerManagerP.html" title="AsyncPowerManagerP\n(PowerManager)" alt="" coords="379,5,573,56">
+
+      <area shape="poly" id="edge2" href="../ihtml/tos.interfaces.AsyncStdControl.html" title="AsyncStdControl" alt="" coords="379,57 289,83 170,124 168,119 287,77 378,52">
+
+      <area shape="rect" id="edge2" href="../ihtml/tos.interfaces.AsyncStdControl.html" title="AsyncStdControl" alt="" coords="288,81,395,98">
+
+      <area shape="poly" id="edge4" href="../ihtml/tos.lib.power.PowerDownCleanup.html" title="PowerDownCleanup" alt="" coords="448,58 381,116 378,112 444,54">
+
+      <area shape="rect" id="edge4" href="../ihtml/tos.lib.power.PowerDownCleanup.html" title="PowerDownCleanup" alt="" coords="416,81,541,98">
+
+      <area shape="poly" id="edge6" href="../ihtml/tos.interfaces.ResourceDefaultOwner.html" title="ResourceDefaultOwner" alt="" coords="517,54 548,78 583,111 580,115 545,82 513,58">
+
+      <area shape="rect" id="edge6" href="../ihtml/tos.interfaces.ResourceDefaultOwner.html" title="ResourceDefaultOwner" alt="" coords="565,81,711,98">
+
+      <area shape="poly" id="edge8" href="../ihtml/tos.interfaces.ArbiterInfo.html" title="ArbiterInfo" alt="" coords="574,41 645,56 717,77 757,95 794,116 792,120 755,100 715,83 644,61 573,47">
+
+      <area shape="rect" id="edge8" href="../ihtml/tos.interfaces.ArbiterInfo.html" title="ArbiterInfo" alt="" coords="757,81,824,98">
+
+    </map>
+    <img src="tos.lib.power.AsyncStdControlPowerManagerC.png" usemap="#comp" id=imgwiring>
+  </body>
+</html>

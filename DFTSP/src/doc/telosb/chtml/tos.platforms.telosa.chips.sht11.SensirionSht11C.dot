@@ -1,0 +1,24 @@
+digraph "tos.platforms.telosa.chips.sht11.SensirionSht11C" {
+  n0xb6826888 [shape=ellipse, style=filled, label="HumidityMetadata", fontsize=12];
+  "SensirionSht11C.SensirionSht11ReaderP" [fontsize=12, shape=box, style=dashed, label="SensirionSht11ReaderP", URL="../chtml/tos.chips.sht11.SensirionSht11ReaderP.html"];
+  n0xb6824b58 [shape=ellipse, style=filled, label="Humidity", fontsize=12];
+  "SensirionSht11C.SensirionSht11ReaderP" [fontsize=12, shape=box, style=dashed, label="SensirionSht11ReaderP", URL="../chtml/tos.chips.sht11.SensirionSht11ReaderP.html"];
+  n0xb6824690 [shape=ellipse, style=filled, label="TemperatureMetadata", fontsize=12];
+  "SensirionSht11C.SensirionSht11ReaderP" [fontsize=12, shape=box, style=dashed, label="SensirionSht11ReaderP", URL="../chtml/tos.chips.sht11.SensirionSht11ReaderP.html"];
+  n0xb68270d0 [shape=ellipse, style=filled, label="Temperature", fontsize=12];
+  "SensirionSht11C.SensirionSht11ReaderP" [fontsize=12, shape=box, style=dashed, label="SensirionSht11ReaderP", URL="../chtml/tos.chips.sht11.SensirionSht11ReaderP.html"];
+  "SensirionSht11C.SensirionSht11ReaderP" [fontsize=12, shape=box, style=dashed, label="SensirionSht11ReaderP", URL="../chtml/tos.chips.sht11.SensirionSht11ReaderP.html"];
+  "HalSensirionSht11C" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.platforms.telosa.chips.sht11.HalSensirionSht11C.html"];
+  "SensirionSht11C.SensirionSht11ReaderP" [fontsize=12, shape=box, style=dashed, label="SensirionSht11ReaderP", URL="../chtml/tos.chips.sht11.SensirionSht11ReaderP.html"];
+  "HalSensirionSht11C" [fontsize=12, shape=box,peripheries=2, URL="../chtml/tos.platforms.telosa.chips.sht11.HalSensirionSht11C.html"];
+  "SensirionSht11C.SensirionSht11ReaderP" [fontsize=12, shape=box, style=dashed, label="SensirionSht11ReaderP", URL="../chtml/tos.chips.sht11.SensirionSht11ReaderP.html"];
+  "SensirionSht11C.SensirionSht11ReaderP" [fontsize=12, shape=box, style=dashed, label="SensirionSht11ReaderP", URL="../chtml/tos.chips.sht11.SensirionSht11ReaderP.html"];
+  "n0xb6826888" -> "SensirionSht11C.SensirionSht11ReaderP" [label="DeviceMetadata", URL="../ihtml/tos.interfaces.DeviceMetadata.html", fontsize=10];
+  "n0xb6824b58" -> "SensirionSht11C.SensirionSht11ReaderP" [label="Read<uint16_t>", URL="../ihtml/tos.interfaces.Read.html", fontsize=10];
+  "n0xb6824690" -> "SensirionSht11C.SensirionSht11ReaderP" [label="DeviceMetadata", URL="../ihtml/tos.interfaces.DeviceMetadata.html", fontsize=10];
+  "n0xb68270d0" -> "SensirionSht11C.SensirionSht11ReaderP" [label="Read<uint16_t>", URL="../ihtml/tos.interfaces.Read.html", fontsize=10];
+  "SensirionSht11C.SensirionSht11ReaderP" -> "HalSensirionSht11C" [label="Resource", URL="../ihtml/tos.interfaces.Resource.html", fontsize=10];
+  "SensirionSht11C.SensirionSht11ReaderP" -> "HalSensirionSht11C" [label="SensirionSht11", URL="../ihtml/tos.chips.sht11.SensirionSht11.html", fontsize=10];
+  "SensirionSht11C.SensirionSht11ReaderP" -> "HalSensirionSht11C" [label="Resource", URL="../ihtml/tos.interfaces.Resource.html", fontsize=10];
+  "SensirionSht11C.SensirionSht11ReaderP" -> "HalSensirionSht11C" [label="SensirionSht11", URL="../ihtml/tos.chips.sht11.SensirionSht11.html", fontsize=10];
+}

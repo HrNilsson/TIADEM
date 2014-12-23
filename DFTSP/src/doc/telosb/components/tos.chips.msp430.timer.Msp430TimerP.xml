@@ -1,0 +1,126 @@
+<?xml version="1.0" ?><component abstract="" loc="28:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430TimerP.nc" nicename="tos.chips.msp430.timer.Msp430TimerP" qname="Msp430TimerP" safe="">
+      <documentation loc="22:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430TimerP.nc">
+        <short>
+ </short>
+        <long>
+ @author Cory Sharp &lt;cssharp@eecs.berkeley.edu&gt;
+</long>
+      </documentation>
+      <parameters>
+        <constant loc="29:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430TimerP.nc" name="TxIV_addr" ref="0xb7359448">
+          <component-ref nicename="tos.chips.msp430.timer.Msp430TimerP" qname="Msp430TimerP"/>
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0xb77c66e8"/></typename>
+          </type-int>
+        </constant>
+        <constant loc="30:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430TimerP.nc" name="TxR_addr" ref="0xb7359680">
+          <component-ref nicename="tos.chips.msp430.timer.Msp430TimerP" qname="Msp430TimerP"/>
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0xb77c66e8"/></typename>
+          </type-int>
+        </constant>
+        <constant loc="31:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430TimerP.nc" name="TxCTL_addr" ref="0xb73598c8">
+          <component-ref nicename="tos.chips.msp430.timer.Msp430TimerP" qname="Msp430TimerP"/>
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0xb77c66e8"/></typename>
+          </type-int>
+        </constant>
+        <constant loc="32:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430TimerP.nc" name="TxIFG" ref="0xb7359ae0">
+          <component-ref nicename="tos.chips.msp430.timer.Msp430TimerP" qname="Msp430TimerP"/>
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0xb77c66e8"/></typename>
+          </type-int>
+        </constant>
+        <constant loc="33:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430TimerP.nc" name="TxCLR" ref="0xb7359cf8">
+          <component-ref nicename="tos.chips.msp430.timer.Msp430TimerP" qname="Msp430TimerP"/>
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0xb77c66e8"/></typename>
+          </type-int>
+        </constant>
+        <constant loc="34:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430TimerP.nc" name="TxIE" ref="0xb7359f08">
+          <component-ref nicename="tos.chips.msp430.timer.Msp430TimerP" qname="Msp430TimerP"/>
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0xb77c66e8"/></typename>
+          </type-int>
+        </constant>
+        <constant loc="35:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430TimerP.nc" name="TxSSEL0" ref="0xb7356148">
+          <component-ref nicename="tos.chips.msp430.timer.Msp430TimerP" qname="Msp430TimerP"/>
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0xb77c66e8"/></typename>
+          </type-int>
+        </constant>
+        <constant loc="36:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430TimerP.nc" name="TxSSEL1" ref="0xb7356370">
+          <component-ref nicename="tos.chips.msp430.timer.Msp430TimerP" qname="Msp430TimerP"/>
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0xb77c66e8"/></typename>
+          </type-int>
+        </constant>
+        <constant loc="37:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430TimerP.nc" name="isClockSourceAsync" ref="0xb73565e0">
+          <component-ref nicename="tos.chips.msp430.timer.Msp430TimerP" qname="Msp430TimerP"/>
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="bool" ref="0xb76699a0"/></typename>
+          </type-int>
+        </constant>
+      </parameters>
+      <module/>
+    <specification><interface loc="42:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430TimerP.nc" name="VectorTimerX0" provided="0" ref="0xb7353b30">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerP" qname="Msp430TimerP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="VectorTimerX0" ref="0xb7353b30" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430TimerEvent" qname="Msp430TimerEvent"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="fired" ref="0xb7353d08" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="41:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430TimerP.nc" name="Overflow" provided="0" ref="0xb73536a8">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerP" qname="Msp430TimerP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Overflow" ref="0xb73536a8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430TimerEvent" qname="Msp430TimerEvent"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="fired" ref="0xb7353880" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="43:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430TimerP.nc" name="VectorTimerX1" provided="0" ref="0xb7352010">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerP" qname="Msp430TimerP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="VectorTimerX1" ref="0xb7352010" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430TimerEvent" qname="Msp430TimerEvent"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="fired" ref="0xb73521e8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="40:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430TimerP.nc" name="Event" provided="1" ref="0xb7353250">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerP" qname="Msp430TimerP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Event" ref="0xb7353250" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430TimerEvent" qname="Msp430TimerEvent"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="fired" ref="0xb7353428" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="39:/opt/tinyos-2.1.1/tos/chips/msp430/timer/Msp430TimerP.nc" name="Timer" provided="1" ref="0xb7356b08">
+      <component-ref nicename="tos.chips.msp430.timer.Msp430TimerP" qname="Msp430TimerP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Timer" ref="0xb7356b08" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.msp430.timer.Msp430Timer" qname="Msp430Timer"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="clear" ref="0xb7356ce0" scoped=""/>
+        <function-ref name="setClockSource" ref="0xb7356dc0" scoped=""/>
+        <function-ref name="enableEvents" ref="0xb7356ea0" scoped=""/>
+        <function-ref name="get" ref="0xb7354010" scoped=""/>
+        <function-ref name="disableEvents" ref="0xb73540f0" scoped=""/>
+        <function-ref name="clearOverflow" ref="0xb73541d0" scoped=""/>
+        <function-ref name="getMode" ref="0xb73542b0" scoped=""/>
+        <function-ref name="isOverflowPending" ref="0xb7354390" scoped=""/>
+        <function-ref name="overflow" ref="0xb7354470" scoped=""/>
+        <function-ref name="setMode" ref="0xb7354550" scoped=""/>
+        <function-ref name="setInputDivider" ref="0xb7354630" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced/></component>

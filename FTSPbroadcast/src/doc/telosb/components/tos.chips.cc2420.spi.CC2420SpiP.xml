@@ -1,0 +1,181 @@
+<?xml version="1.0" ?><component loc="41:/opt/tinyos-2.1.1/tos/chips/cc2420/spi/CC2420SpiP.nc" nicename="tos.chips.cc2420.spi.CC2420SpiP" qname="CC2420SpiP" safe="">
+      <documentation loc="32:/opt/tinyos-2.1.1/tos/chips/cc2420/spi/CC2420SpiP.nc">
+        <short>
+ </short>
+        <long>
+ @author Jonathan Hui &lt;jhui@archrock.com&gt;
+ @author David Moss
+ @author Roman Lim
+ @author Razvan Musaloie-E.
+ @author Jeonggil Ko
+ @version $Revision: 1.4 $ $Date: 2008/06/23 20:25:15 $
+</long>
+      </documentation>
+      <module/>
+    <specification><interface loc="55:/opt/tinyos-2.1.1/tos/chips/cc2420/spi/CC2420SpiP.nc" name="SpiPacket" provided="0" ref="0xb6dbfa28">
+      <component-ref nicename="tos.chips.cc2420.spi.CC2420SpiP" qname="CC2420SpiP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SpiPacket" ref="0xb6dbfa28" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.SpiPacket" qname="SpiPacket"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="send" ref="0xb6dbfc00" scoped=""/>
+        <function-ref name="sendDone" ref="0xb6dbfce0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="46:/opt/tinyos-2.1.1/tos/chips/cc2420/spi/CC2420SpiP.nc" name="Fifo" provided="1" ref="0xb6dc7918">
+      <component-ref nicename="tos.chips.cc2420.spi.CC2420SpiP" qname="CC2420SpiP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Fifo" ref="0xb6dc7918" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.CC2420Fifo" qname="CC2420Fifo"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="continueRead" ref="0xb6dc7af0" scoped=""/>
+        <function-ref name="writeDone" ref="0xb6dc7bd0" scoped=""/>
+        <function-ref name="write" ref="0xb6dc7cb0" scoped=""/>
+        <function-ref name="beginRead" ref="0xb6dc7d90" scoped=""/>
+        <function-ref name="readDone" ref="0xb6dc7e70" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="44:/opt/tinyos-2.1.1/tos/chips/cc2420/spi/CC2420SpiP.nc" name="ChipSpiResource" provided="1" ref="0xb6dcb690">
+      <component-ref nicename="tos.chips.cc2420.spi.CC2420SpiP" qname="CC2420SpiP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="ChipSpiResource" ref="0xb6dcb690" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.ChipSpiResource" qname="ChipSpiResource"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="releasing" ref="0xb6dcb868" scoped=""/>
+        <function-ref name="abortRelease" ref="0xb6dcb948" scoped=""/>
+        <function-ref name="attemptRelease" ref="0xb6dcba28" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="54:/opt/tinyos-2.1.1/tos/chips/cc2420/spi/CC2420SpiP.nc" name="SpiByte" provided="0" ref="0xb6dc2718">
+      <component-ref nicename="tos.chips.cc2420.spi.CC2420SpiP" qname="CC2420SpiP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SpiByte" ref="0xb6dc2718" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.SpiByte" qname="SpiByte"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="write" ref="0xb6dc28f0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="56:/opt/tinyos-2.1.1/tos/chips/cc2420/spi/CC2420SpiP.nc" name="WorkingState" provided="0" ref="0xb6dbfef8">
+      <component-ref nicename="tos.chips.cc2420.spi.CC2420SpiP" qname="CC2420SpiP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="WorkingState" ref="0xb6dbfef8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.State" qname="State"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="getState" ref="0xb6dc40e0" scoped=""/>
+        <function-ref name="toIdle" ref="0xb6dc41c0" scoped=""/>
+        <function-ref name="isState" ref="0xb6dc42a0" scoped=""/>
+        <function-ref name="isIdle" ref="0xb6dc4380" scoped=""/>
+        <function-ref name="requestState" ref="0xb6dc4460" scoped=""/>
+        <function-ref name="forceState" ref="0xb6dc4540" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="53:/opt/tinyos-2.1.1/tos/chips/cc2420/spi/CC2420SpiP.nc" name="SpiResource" provided="0" ref="0xb6dc5730">
+      <component-ref nicename="tos.chips.cc2420.spi.CC2420SpiP" qname="CC2420SpiP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SpiResource" ref="0xb6dc5730" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Resource" qname="Resource"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="release" ref="0xb6dc5908" scoped=""/>
+        <function-ref name="immediateRequest" ref="0xb6dc59e8" scoped=""/>
+        <function-ref name="request" ref="0xb6dc5ac8" scoped=""/>
+        <function-ref name="granted" ref="0xb6dc5ba8" scoped=""/>
+        <function-ref name="isOwner" ref="0xb6dc5c88" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="47:/opt/tinyos-2.1.1/tos/chips/cc2420/spi/CC2420SpiP.nc" name="Ram" provided="1" ref="0xb6dc6370">
+      <component-ref nicename="tos.chips.cc2420.spi.CC2420SpiP" qname="CC2420SpiP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Ram" ref="0xb6dc6370" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.CC2420Ram" qname="CC2420Ram"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+          <typename><typedef-ref name="uint16_t" ref="0xb774f6e8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="read" ref="0xb6dc6548" scoped=""/>
+        <function-ref name="write" ref="0xb6dc6628" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="48:/opt/tinyos-2.1.1/tos/chips/cc2420/spi/CC2420SpiP.nc" name="Reg" provided="1" ref="0xb6dc6b18">
+      <component-ref nicename="tos.chips.cc2420.spi.CC2420SpiP" qname="CC2420SpiP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Reg" ref="0xb6dc6b18" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.CC2420Register" qname="CC2420Register"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="read" ref="0xb6dc6cf0" scoped=""/>
+        <function-ref name="write" ref="0xb6dc6dd0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="57:/opt/tinyos-2.1.1/tos/chips/cc2420/spi/CC2420SpiP.nc" name="Leds" provided="0" ref="0xb6dc46b0">
+      <component-ref nicename="tos.chips.cc2420.spi.CC2420SpiP" qname="CC2420SpiP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Leds" ref="0xb6dc46b0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Leds" qname="Leds"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="led0Off" ref="0xb6dc4888" scoped=""/>
+        <function-ref name="led0Toggle" ref="0xb6dc4968" scoped=""/>
+        <function-ref name="led1On" ref="0xb6dc4a48" scoped=""/>
+        <function-ref name="led1Toggle" ref="0xb6dc4b28" scoped=""/>
+        <function-ref name="led2Toggle" ref="0xb6dc4c08" scoped=""/>
+        <function-ref name="get" ref="0xb6dc4ce8" scoped=""/>
+        <function-ref name="led1Off" ref="0xb6dc4dc8" scoped=""/>
+        <function-ref name="led2Off" ref="0xb6dc31d0" scoped=""/>
+        <function-ref name="set" ref="0xb6dc4ea8" scoped=""/>
+        <function-ref name="led0On" ref="0xb6dc3010" scoped=""/>
+        <function-ref name="led2On" ref="0xb6dc30f0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="45:/opt/tinyos-2.1.1/tos/chips/cc2420/spi/CC2420SpiP.nc" name="Resource" provided="1" ref="0xb6dcbea0">
+      <component-ref nicename="tos.chips.cc2420.spi.CC2420SpiP" qname="CC2420SpiP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Resource" ref="0xb6dcbea0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.Resource" qname="Resource"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="release" ref="0xb6dc70c0" scoped=""/>
+        <function-ref name="immediateRequest" ref="0xb6dc71a0" scoped=""/>
+        <function-ref name="request" ref="0xb6dc7280" scoped=""/>
+        <function-ref name="granted" ref="0xb6dc7360" scoped=""/>
+        <function-ref name="isOwner" ref="0xb6dc7440" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="88:/opt/tinyos-2.1.1/tos/chips/cc2420/spi/CC2420SpiP.nc" name="grant" provided="0" ref="0xb6dbc520">
+      <component-ref nicename="tos.chips.cc2420.spi.CC2420SpiP" qname="CC2420SpiP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="grant" ref="0xb6dbc520" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.TaskBasic" qname="TaskBasic"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="postTask" ref="0xb6dbc6f8" scoped=""/>
+        <function-ref name="runTask" ref="0xb6dbc7d8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="49:/opt/tinyos-2.1.1/tos/chips/cc2420/spi/CC2420SpiP.nc" name="Strobe" provided="1" ref="0xb6dc52f0">
+      <component-ref nicename="tos.chips.cc2420.spi.CC2420SpiP" qname="CC2420SpiP"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Strobe" ref="0xb6dc52f0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.chips.cc2420.interfaces.CC2420Strobe" qname="CC2420Strobe"/>
+      </instance>
+      <interface-parameters>
+        <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+          <typename><typedef-ref name="uint8_t" ref="0xb774f2d8"/></typename>
+        </type-int>
+      </interface-parameters>
+      <interface-functions>
+        <function-ref name="strobe" ref="0xb6dc54c8" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced/></component>

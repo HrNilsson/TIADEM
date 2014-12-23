@@ -1,0 +1,39 @@
+<?xml version="1.0" ?><interfacedef loc="30:TimeSyncNotify.nc" nicename="TimeSyncNotify" qname="TimeSyncNotify">
+      <documentation loc="25:TimeSyncNotify.nc">
+        <short>
+ time sync module (TimeSyncM) provides notification of arriving
+ and transmitted time-sync msgs through TimeSyncNotify interface:
+</short>
+      </documentation>
+      <function event="" loc="35:TimeSyncNotify.nc" name="msg_received" provided="0" ref="0xb72a8070">
+        <documentation loc="32:TimeSyncNotify.nc">
+          <short>
+ fired when time-sync msg is received and accepted
+</short>
+        </documentation>
+        <interfacedef-ref nicename="TimeSyncNotify" qname="TimeSyncNotify"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function event="" loc="41:TimeSyncNotify.nc" name="msg_sent" provided="0" ref="0xb72a8460">
+        <documentation loc="37:TimeSyncNotify.nc">
+          <short>
+ fired when time-sync msg is sent by TimeSyncM or the sending did not
+ succeed
+</short>
+        </documentation>
+        <interfacedef-ref nicename="TimeSyncNotify" qname="TimeSyncNotify"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-void alignment="I:1" size="I:1"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+    </interfacedef>

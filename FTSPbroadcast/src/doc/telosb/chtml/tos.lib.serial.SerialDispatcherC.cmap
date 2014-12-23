@@ -1,0 +1,30 @@
+<area shape="rect" id="node2" href="../chtml/tos.lib.serial.SerialP.html" title="SerialP" alt="" coords="431,235,503,283">
+<area shape="poly" id="edge2" href="../ihtml/tos.interfaces.SplitControl.html" title="SplitControl" alt="" coords="716,168 626,213 570,233 517,249 516,244 569,228 624,208 713,163">
+<area shape="rect" id="edge2" href="../ihtml/tos.interfaces.SplitControl.html" title="SplitControl" alt="" coords="663,193,737,210">
+<area shape="poly" id="edge12" href="../ihtml/tos.interfaces.Leds.html" title="Leds" alt="" coords="432,284 399,313 384,331 372,350 362,376 357,404 356,456 351,456 352,403 357,375 367,348 379,328 395,309 429,280">
+<area shape="rect" id="edge12" href="../ihtml/tos.interfaces.Leds.html" title="Leds" alt="" coords="369,365,400,382">
+<area shape="rect" id="node9" href="../chtml/tos.lib.serial.HdlcTranslateC.html" title="HdlcTranslateC" alt="" coords="412,349,548,397">
+<area shape="poly" id="edge22" href="../ihtml/tos.lib.serial.SerialFrameComm.html" title="SerialFrameComm" alt="" coords="465,283 465,325 468,336 463,337 460,326 460,283">
+<area shape="rect" id="edge22" href="../ihtml/tos.lib.serial.SerialFrameComm.html" title="SerialFrameComm" alt="" coords="463,307,583,325">
+<area shape="rect" id="node10" href="../chtml/tos.platforms.telosa.PlatformSerialC.html" title="PlatformSerialC" alt="" coords="424,464,573,523">
+<area shape="poly" id="edge24" href="../ihtml/tos.interfaces.StdControl.html" title="StdControl" alt="" coords="504,260 547,274 568,287 584,305 592,311 601,314 611,317 619,323 621,337 616,358 574,441 563,456 559,453 570,439 611,357 616,336 614,326 609,321 600,319 589,316 581,309 565,291 545,279 502,266">
+<area shape="rect" id="edge24" href="../ihtml/tos.interfaces.StdControl.html" title="StdControl" alt="" coords="615,365,684,382">
+<area shape="rect" id="node4" href="../chtml/tos.lib.serial.SerialDispatcherP.html" title="SerialDispatcherP" alt="" coords="229,120,387,168">
+<area shape="poly" id="edge4" href="../ihtml/tos.interfaces.Send.html" title="Send[uart_id_t]" alt="" coords="241,53 241,74 246,95 256,109 252,112 242,97 235,75 236,53">
+<area shape="rect" id="edge4" href="../ihtml/tos.interfaces.Send.html" title="Send[uart_id_t]" alt="" coords="244,78,344,95">
+<area shape="poly" id="edge18" href="../ihtml/tos.lib.serial.ReceiveBytePacket.html" title="ReceiveBytePacket" alt="" coords="388,160 415,172 439,190 451,204 459,220 454,223 446,207 435,194 412,177 386,164">
+<area shape="rect" id="edge18" href="../ihtml/tos.lib.serial.ReceiveBytePacket.html" title="ReceiveBytePacket" alt="" coords="449,193,569,210">
+<area shape="poly" id="edge20" href="../ihtml/tos.lib.serial.SendBytePacket.html" title="SendBytePacket" alt="" coords="312,168 317,189 329,209 348,225 371,237 418,251 417,256 369,242 345,229 325,212 312,191 307,169">
+<area shape="rect" id="edge20" href="../ihtml/tos.lib.serial.SendBytePacket.html" title="SendBytePacket" alt="" coords="327,193,432,210">
+<area shape="poly" id="edge10" href="../ihtml/tos.lib.serial.SerialPacketInfo.html" title="SerialPacketInfo[uart_id_t]" alt="" coords="230,155 152,170 121,181 102,194 96,207 94,222 89,221 91,205 98,190 119,176 151,165 229,150">
+<area shape="rect" id="edge10" href="../ihtml/tos.lib.serial.SerialPacketInfo.html" title="SerialPacketInfo[uart_id_t]" alt="" coords="100,193,268,210">
+<area shape="poly" id="edge14" href="../ihtml/tos.interfaces.Leds.html" title="Leds" alt="" coords="311,168 313,210 332,346 352,456 347,457 327,347 308,211 306,168">
+<area shape="rect" id="edge14" href="../ihtml/tos.interfaces.Leds.html" title="Leds" alt="" coords="327,307,357,325">
+<area shape="poly" id="edge6" href="../ihtml/tos.interfaces.Init.html" title="Init" alt="" coords="614,169 605,192 590,213 555,236 517,251 515,246 552,232 586,209 600,189 609,167">
+<area shape="rect" id="edge6" href="../ihtml/tos.interfaces.Init.html" title="Init" alt="" coords="600,193,620,210">
+<area shape="poly" id="edge8" href="../ihtml/tos.interfaces.Receive.html" title="Receive[uart_id_t]" alt="" coords="367,55 346,97 338,110 333,107 342,95 362,52">
+<area shape="rect" id="edge8" href="../ihtml/tos.interfaces.Receive.html" title="Receive[uart_id_t]" alt="" coords="353,78,468,95">
+<area shape="poly" id="edge16" href="../ihtml/tos.interfaces.Leds.html" title="Leds" alt="" coords="457,400 390,466 386,462 453,396">
+<area shape="rect" id="edge16" href="../ihtml/tos.interfaces.Leds.html" title="Leds" alt="" coords="431,422,461,439">
+<area shape="poly" id="edge26" href="../ihtml/tos.interfaces.UartStream.html" title="UartStream" alt="" coords="486,397 495,450 489,451 481,398">
+<area shape="rect" id="edge26" href="../ihtml/tos.interfaces.UartStream.html" title="UartStream" alt="" coords="489,422,567,439">

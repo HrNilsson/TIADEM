@@ -1,0 +1,14 @@
+digraph "tos.system.AMSenderC" {
+  n0xb68b3980 [shape=ellipse, style=filled, label="AMSend", fontsize=12];
+  "AMSenderC.SenderC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="DirectAMSenderC\n(SenderC)", URL="../chtml/tos.system.DirectAMSenderC.html"];
+  n0xb68b00a0 [shape=ellipse, style=filled, label="Packet", fontsize=12];
+  "AMSenderC.SenderC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="DirectAMSenderC\n(SenderC)", URL="../chtml/tos.system.DirectAMSenderC.html"];
+  n0xb68b0790 [shape=ellipse, style=filled, label="AMPacket", fontsize=12];
+  "AMSenderC.SenderC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="DirectAMSenderC\n(SenderC)", URL="../chtml/tos.system.DirectAMSenderC.html"];
+  n0xb68af520 [shape=ellipse, style=filled, label="Acks", fontsize=12];
+  "AMSenderC.SenderC" [fontsize=12, shape=box,peripheries=2, style=dashed, label="DirectAMSenderC\n(SenderC)", URL="../chtml/tos.system.DirectAMSenderC.html"];
+  "n0xb68b3980" -> "AMSenderC.SenderC" [label="AMSend", URL="../ihtml/tos.interfaces.AMSend.html", fontsize=10];
+  "n0xb68b00a0" -> "AMSenderC.SenderC" [label="Packet", URL="../ihtml/tos.interfaces.Packet.html", fontsize=10];
+  "n0xb68b0790" -> "AMSenderC.SenderC" [label="AMPacket", URL="../ihtml/tos.interfaces.AMPacket.html", fontsize=10];
+  "n0xb68af520" -> "AMSenderC.SenderC" [label="PacketAcknowledgements", URL="../ihtml/tos.interfaces.PacketAcknowledgements.html", fontsize=10];
+}

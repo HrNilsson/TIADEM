@@ -1,0 +1,109 @@
+<?xml version="1.0" ?><component loc="42:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11P.nc" nicename="tos.platforms.telosa.chips.sht11.HplSensirionSht11P" qname="HplSensirionSht11P">
+      <documentation loc="34:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11P.nc">
+        <short>
+ HplSensirionSht11P is a low-level component that controls power for
+ the Sensirion SHT11 sensor on the telosb platform.</short>
+        <long>
+ HplSensirionSht11P is a low-level component that controls power for
+ the Sensirion SHT11 sensor on the telosb platform.
+
+ @author Gilman Tolle &lt;gtolle@archrock.com&gt;
+ @version $Revision: 1.4 $ $Date: 2006/12/12 18:23:45 $
+</long>
+      </documentation>
+      <module/>
+    <specification><interface loc="43:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11P.nc" name="SplitControl" provided="1" ref="0xb679c060">
+      <component-ref nicename="tos.platforms.telosa.chips.sht11.HplSensirionSht11P" qname="HplSensirionSht11P"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SplitControl" ref="0xb679c060" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.SplitControl" qname="SplitControl"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="startDone" ref="0xb679c238" scoped=""/>
+        <function-ref name="stopDone" ref="0xb679c318" scoped=""/>
+        <function-ref name="start" ref="0xb679c3f8" scoped=""/>
+        <function-ref name="stop" ref="0xb679c4d8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="50:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11P.nc" name="stopTask" provided="0" ref="0xb6798c50">
+      <component-ref nicename="tos.platforms.telosa.chips.sht11.HplSensirionSht11P" qname="HplSensirionSht11P"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="stopTask" ref="0xb6798c50" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.TaskBasic" qname="TaskBasic"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="postTask" ref="0xb6798e28" scoped=""/>
+        <function-ref name="runTask" ref="0xb6798f08" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="47:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11P.nc" name="SCK" provided="0" ref="0xb6799de0">
+      <component-ref nicename="tos.platforms.telosa.chips.sht11.HplSensirionSht11P" qname="HplSensirionSht11P"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="SCK" ref="0xb6799de0" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="makeInput" ref="0xb6798010" scoped=""/>
+        <function-ref name="isInput" ref="0xb67980f0" scoped=""/>
+        <function-ref name="toggle" ref="0xb67981d0" scoped=""/>
+        <function-ref name="isOutput" ref="0xb67982b0" scoped=""/>
+        <function-ref name="get" ref="0xb6798390" scoped=""/>
+        <function-ref name="makeOutput" ref="0xb6798470" scoped=""/>
+        <function-ref name="set" ref="0xb6798550" scoped=""/>
+        <function-ref name="clr" ref="0xb6798630" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="45:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11P.nc" name="PWR" provided="0" ref="0xb679a9c8">
+      <component-ref nicename="tos.platforms.telosa.chips.sht11.HplSensirionSht11P" qname="HplSensirionSht11P"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="PWR" ref="0xb679a9c8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="makeInput" ref="0xb679aba0" scoped=""/>
+        <function-ref name="isInput" ref="0xb679ac80" scoped=""/>
+        <function-ref name="toggle" ref="0xb679ad60" scoped=""/>
+        <function-ref name="isOutput" ref="0xb679ae40" scoped=""/>
+        <function-ref name="get" ref="0xb679af20" scoped=""/>
+        <function-ref name="makeOutput" ref="0xb6799018" scoped=""/>
+        <function-ref name="set" ref="0xb67990f8" scoped=""/>
+        <function-ref name="clr" ref="0xb67991d8" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="46:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11P.nc" name="DATA" provided="0" ref="0xb67993e8">
+      <component-ref nicename="tos.platforms.telosa.chips.sht11.HplSensirionSht11P" qname="HplSensirionSht11P"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="DATA" ref="0xb67993e8" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.interfaces.GeneralIO" qname="GeneralIO"/>
+      </instance>
+      <interface-functions>
+        <function-ref name="makeInput" ref="0xb67995c0" scoped=""/>
+        <function-ref name="isInput" ref="0xb67996a0" scoped=""/>
+        <function-ref name="toggle" ref="0xb6799780" scoped=""/>
+        <function-ref name="isOutput" ref="0xb6799860" scoped=""/>
+        <function-ref name="get" ref="0xb6799940" scoped=""/>
+        <function-ref name="makeOutput" ref="0xb6799a20" scoped=""/>
+        <function-ref name="set" ref="0xb6799b00" scoped=""/>
+        <function-ref name="clr" ref="0xb6799be0" scoped=""/>
+      </interface-functions>
+    </interface><interface loc="44:/opt/tinyos-2.1.1/tos/platforms/telosa/chips/sht11/HplSensirionSht11P.nc" name="Timer" provided="0" ref="0xb679c740">
+      <component-ref nicename="tos.platforms.telosa.chips.sht11.HplSensirionSht11P" qname="HplSensirionSht11P"/>
+      <type-interface alignment="I:2" size="I:2"><interface-ref name="Timer" ref="0xb679c740" scoped=""/></type-interface>
+      <instance>
+        <interfacedef-ref nicename="tos.lib.timer.Timer" qname="Timer"/>
+        <arguments>
+          <type-tag alignment="I:2" size="I:2"><struct-ref ref="0xb72b5c40"/>
+            <typename><typedef-ref name="TMilli" ref="0xb72b5e08"/></typename>
+          </type-tag>
+        </arguments>
+      </instance>
+      <interface-functions>
+        <function-ref name="getNow" ref="0xb679a248" scoped=""/>
+        <function-ref name="fired" ref="0xb679b4e8" scoped=""/>
+        <function-ref name="startPeriodicAt" ref="0xb679bbf0" scoped=""/>
+        <function-ref name="isOneShot" ref="0xb679b998" scoped=""/>
+        <function-ref name="getdt" ref="0xb679a6f8" scoped=""/>
+        <function-ref name="gett0" ref="0xb679a4a0" scoped=""/>
+        <function-ref name="isRunning" ref="0xb679b740" scoped=""/>
+        <function-ref name="startPeriodic" ref="0xb679cd68" scoped=""/>
+        <function-ref name="startOneShotAt" ref="0xb679bf10" scoped=""/>
+        <function-ref name="startOneShot" ref="0xb679b010" scoped=""/>
+        <function-ref name="stop" ref="0xb679b290" scoped=""/>
+      </interface-functions>
+    </interface></specification><referenced/></component>

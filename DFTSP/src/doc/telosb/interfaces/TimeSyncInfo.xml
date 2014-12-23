@@ -1,0 +1,163 @@
+<?xml version="1.0" ?><interfacedef loc="25:TimeSyncInfo.nc" nicename="TimeSyncInfo" qname="TimeSyncInfo">
+      <function command="" loc="44:TimeSyncInfo.nc" name="getSyncPoint" provided="0" ref="0xb72ae8b0">
+        <documentation loc="39:TimeSyncInfo.nc">
+          <short>
+ Returns the local time of the last synchronization point.</short>
+          <long>
+ Returns the local time of the last synchronization point. This 
+ value is close to the current local time and updated when a new
+ time synchronization message arrives.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="TimeSyncInfo" qname="TimeSyncInfo"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:2" cname="unsigned long" size="I:4" unsigned="">
+            <typename><typedef-ref name="uint32_t" ref="0xb77c6af8"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="49:TimeSyncInfo.nc" name="getRootID" provided="0" ref="0xb72aedd8">
+        <documentation loc="46:TimeSyncInfo.nc">
+          <short>
+ Returns the current root to which this node is synchronized.</short>
+          <long>
+ Returns the current root to which this node is synchronized. 
+</long>
+        </documentation>
+        <interfacedef-ref nicename="TimeSyncInfo" qname="TimeSyncInfo"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:2" cname="unsigned int" size="I:2" unsigned="">
+            <typename><typedef-ref name="uint16_t" ref="0xb77c66e8"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="54:TimeSyncInfo.nc" name="getSeqNum" provided="0" ref="0xb72ad2d8">
+        <documentation loc="51:TimeSyncInfo.nc">
+          <short>
+ Returns the latest seq number seen from the current root.</short>
+          <long>
+ Returns the latest seq number seen from the current root.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="TimeSyncInfo" qname="TimeSyncInfo"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="30:TimeSyncInfo.nc" name="getOffset" provided="0" ref="0xb72b7ef8">
+        <documentation loc="27:TimeSyncInfo.nc">
+          <short>
+ Returns current offset of the local time wrt global time.</short>
+          <long>
+ Returns current offset of the local time wrt global time.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="TimeSyncInfo" qname="TimeSyncInfo"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:2" cname="unsigned long" size="I:4" unsigned="">
+            <typename><typedef-ref name="uint32_t" ref="0xb77c6af8"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="60:TimeSyncInfo.nc" name="getNumEntries" provided="0" ref="0xb72ad7a8">
+        <documentation loc="56:TimeSyncInfo.nc">
+          <short>
+ Returns the number of entries stored currently in the 
+ regerssion table.</short>
+          <long>
+ Returns the number of entries stored currently in the 
+ regerssion table.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="TimeSyncInfo" qname="TimeSyncInfo"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="65:TimeSyncInfo.nc" name="getHeartBeats" provided="0" ref="0xb72adc98">
+        <documentation loc="62:TimeSyncInfo.nc">
+          <short>
+ Returns the value of heartBeats variable.</short>
+          <long>
+ Returns the value of heartBeats variable. 
+</long>
+        </documentation>
+        <interfacedef-ref nicename="TimeSyncInfo" qname="TimeSyncInfo"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="67:TimeSyncInfo.nc" name="getSyncPeriod" provided="0" ref="0xb72ac158">
+        <interfacedef-ref nicename="TimeSyncInfo" qname="TimeSyncInfo"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:1" cname="unsigned char" size="I:1" unsigned="">
+            <typename><typedef-ref name="uint8_t" ref="0xb77c62d8"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="69:TimeSyncInfo.nc" name="getDrift" provided="0" ref="0xb72ac578">
+        <interfacedef-ref nicename="TimeSyncInfo" qname="TimeSyncInfo"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-int alignment="I:2" cname="unsigned long" size="I:4" unsigned="">
+            <typename><typedef-ref name="uint32_t" ref="0xb77c6af8"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" loc="37:TimeSyncInfo.nc" name="getSkew" provided="0" ref="0xb72ae378">
+        <documentation loc="32:TimeSyncInfo.nc">
+          <short>
+ Returns current skew of the local time wrt global time.</short>
+          <long>
+ Returns current skew of the local time wrt global time.
+ This value is normalized to 0.0 (1.0 is subtracted) to get maximum 
+ representation precision.
+</long>
+        </documentation>
+        <interfacedef-ref nicename="TimeSyncInfo" qname="TimeSyncInfo"/>
+        <type-function alignment="I:1" size="I:1">
+          <type-float alignment="I:2" cname="float" size="I:4"/>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+    </interfacedef>
