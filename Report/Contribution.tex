@@ -33,7 +33,7 @@
 			\label{par:timesyncc}
 				The TimeSyncC component was original part of the FTSP implementation, but has been modified and extended to handle the DFTSP.
 				In Figure \ref{fig:nesdoc_time_sync_c} an overview of the TimeSyncC component is shown.
-				This overview is identical to the FTSP implementation, but the TimeSyncP module have been changed.
+				This overview is identical to the FTSP implementation, but the TimeSyncP module has been changed.
 
 				\begin{figure}[H]
 					\centering
@@ -49,7 +49,7 @@
 				
 					The motes needs to include both skew estimation and hop number in the broadcasted time synchronization messages. 
 					The hop number is needed, so that the motes can differentiate between parents, children and neighbors. 
-					The message is shown in listing \ref{lst:time_sync_msg}.
+					The message format is shown in listing \ref{lst:time_sync_msg}.
 					\begin{figure}[H]
 						\begin{lstlisting}[caption=TimeSyncMsg, style=Code-C, label=lst:time_sync_msg]
 		typedef nx_struct TimeSyncMsg
@@ -68,11 +68,12 @@
 				
 				\textbf{Child references}
 
-					The parent must keep reference about its children and their previous skew estimates in order to calculate their drift, since drift is defined as change in skew pr time.
-					In listing \ref{lst:child_table} the type definition for a childItem is shown. 
-					The childItem contains all the needed information that the parent need to calculate the drift of the child.
-					The nodeId is used to differentiate between different children.
-					The oldTime and oldSkew is needed to calculate the drift and the drift is used to iterate through all children and find the child with the maximum drift, and set the time synchronization period accordingly.
+
+					The parent must keep reference about its children and their previous skew estimates in order to calculate their drift, since drift is defined as change in skew over time.
+					In listing \ref{lst:child_table} a type definition for a childItem is shown. 
+					The childItem contains all information that the parent needs to know to calculate the drift of the child.
+					The $nodeId$ is used to differentiate between different children.
+					The $oldTime$ and $oldSkew$ is needed to calculate the $drift$, which is used to iterate through all children and find the child with the maximum drift, and set the time synchronization period accordingly.
 
 					To store multiple children a table of childItems is defined with a constant size. Depending on the application, the table size could vary a lot and should possibly be of dynamic size.
 
@@ -220,10 +221,11 @@ void handleNewChildSkew(TimeSyncMsg *msg) {
 				\end{figure}
 
 				All fields except the $temp$, which holds the temperature of the mote, are provided by the DFTSP module.
-				The temperature is read using the Sensirion SHT11\cite{tempSensorDatasheet} temperature and humidity sensor on the Telosb motes.
-				The module connection, read invoke and readDone event are shown in listing \ref{code:temp_impl}.
 
-				hvornår læser den tempen?
+				The temperature is read using the Sensirion SHT11\cite{tempSensorDatasheet} temperature and humidity sensor.
+
+				The module connection, read invoke and readDone event are shown in listing \ref{code:temp_impl}.
+				\\The temperature is read every time the mote receives a query message from the broadcaster.
 
 				\begin{figure}[H]
 					\begin{lstlisting}[caption=Temperature reading implementation, style=Code-C, label=code:temp_impl]
@@ -311,7 +313,7 @@ void handleNewChildSkew(TimeSyncMsg *msg) {
 	\subsection{Test Setup} % (fold)
 	\label{sub:test_setup}
 
-		As seen in figure \ref{fig:TestSetup} the test setup consisted of the following items:
+		As seen in figure \ref{fig:TestSetup} the test setup consists of the following items:
 
 		\begin{itemize}
 			\item Parent mote
@@ -385,9 +387,10 @@ void handleNewChildSkew(TimeSyncMsg *msg) {
 			 Figure \ref{fig:unstableSynchronization} shows the results from the test in an unstable environment.
 			 \\The temperature of the child mote is kept constant for the first approximately 400 seconds.
 			 The synchronization error is similar to the stable case, however the synchronization period rises somewhat slower.
-			 This indicates that some drift was present at the beginning of the test, even though the temperature was constant. 
+			 This indicates that some drift was present at the beginning of the test, even though the temperature was constant.
+			 This is also seen in the left side of the skew curve in figure \ref{fig:SkewunStable}. 
 
-			 A clear correlation between synchronization error and temperature is seen when the temperature is raised.
+			 A clear correlation between synchronization error and temperature is observed when the temperature is raised.
 			 660 seconds into the test, the synchronization period is drastically reduced, leading to an instantaneous reduction in the error.
 			 This showcases the principle behind adjusting the synchronization period dynamically in order to obtain the average error level.
 

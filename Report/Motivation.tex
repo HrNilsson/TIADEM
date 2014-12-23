@@ -10,8 +10,8 @@
 	The reader is assumed to have knowledge of the FTSP, which can be found in \cite{FTSParticle}. 
 
 	The improvements are mainly concerned with the trade off between protocol overhead and time estimation error, which is controlled by the synchronization period.
-	This period determines the duration of time between synchronization messages, where the nodes have to keep themselves synchronized based on the clock skew estimate from the regression table.
-	\\A higher synchronization period is more susceptible to changes in clock skew (clock drift) caused by temperature changes, since the skew estimation has to hold for a longer time period. 
+	This period determines the duration of time between synchronization messages, where the nodes have to keep themselves synchronized based on the clock skew estimate from their regression table.
+	\\A higher synchronization period is more susceptible to changes in clock skew (clock drift) caused by temperature changes, since the skew estimation has to hold for a longer period of time. 
 	Errors in the skew estimation and the assumption that the skew is constant within a synchronization period will result in a greater accumulated offset error with a large period than with a small period. 
 	This accumulated error should always be kept below the application error bound in order to ensure the desired functionality. 
 	\\However, since the synchronization period also is linearly proportional to the energy and bandwidth consumption caused by protocol overhead, a design trade off is present.
