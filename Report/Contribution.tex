@@ -34,12 +34,20 @@
 				The TimeSyncC component was original part of the FTSP implementation, but has been modified and extended to handle the DFTSP.
 				In Figure \ref{fig:nesdoc_time_sync_c} an overview of the TimeSyncC component is shown.
 				This overview is identical to the FTSP implementation, but the interfaces TimeSyncInfo and TimeSyncMode and the TimeSyncP module have been changed.
+
+				\begin{figure}[H]
+					\centering
 					\includegraphics[width=\linewidth]{NesdocTimeSyncC}
 					\caption{TimeSyncC module overview}
 					\label{fig:nesdoc_time_sync_c}
 				\end{figure}
 
-				In DFTSP 
+				In DFTSP the parent node must receive broadcast from their children in order to calculate their drift and update its time synchronization period.
+				This have numerous impacts on the protocol.
+				First of all, the motes needs to include both skew estimation and hop number in the broadcasted time synchronizing messages. 
+				The hop number is needed, so that the motes can differentiate between parents, children and neighbors. 
+				The skew estimate is needed so that the parent can calculate the drift of its children.
+				Secondly, the parent must keep reference about is children and their previous skew estimates, in order to calculate their drift
 
 
 				TODO
