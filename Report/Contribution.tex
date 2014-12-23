@@ -33,7 +33,7 @@
 			\label{par:timesyncc}
 				The TimeSyncC component was original part of the FTSP implementation, but has been modified and extended to handle the DFTSP.
 				In Figure \ref{fig:nesdoc_time_sync_c} an overview of the TimeSyncC component is shown.
-				This overview is identical to the FTSP implementation, but the interfaces TimeSyncInfo and TimeSyncMode and the TimeSyncP module have been changed.
+				This overview is identical to the FTSP implementation, but the TimeSyncP module have been changed.
 
 				\begin{figure}[H]
 					\centering
@@ -88,22 +88,99 @@
 		ChildItem childTable[MAX_CHILDREN];
 			    		\end{lstlisting}
 			    	\end{figure}
-		    	
-			    \textbf{Calculate time synchronization period}
 			    
-			    	UpdateBeaconPeriod()
-					handleNewChildSkew()
+			    \newpage
+			    \textbf{Child handling}	
 
-		    	\textbf{Time synchronization period and sequence number}
+			    	Since the TimeSyncMsg contains the hop number all received messages are compared with the motes own hop count, and if the hop count is smaller, then the message is assumed to be a child broadcast.
+			    	In listing \ref{lst:child_handling} the handling of incoming child messages is shown.
+			    	If the child exists in the childTable the drift is calculated and the maximum drift for all children is found and used to update the time synchronization period.
+			    	Otherwise the child is added to the table.
+			    	\begin{figure}[H]
+						\begin{lstlisting}[caption=Handling incoming child msg, style=Code-C, label=lst:child_handling]
+void handleNewChildSkew(TimeSyncMsg *msg) {
+	uint8_t i, childExist = 0;
+	float maxDrift = 0;
+	for(i = 0; i < childEntries; i++)
+	{
+		if(childTable[i].nodeId == msg->nodeID)
+		{
+			float skewChange = 0, drift = 0;
+			int32_t timeSinceLastSkew = 0;
+			childExist = 1;
 			
-					beaconPeriod
-					hop \& sequence number changes
-					New timer mode?
+			skewChange = u2f(msg->skew) - childTable[i].oldSkew;				
+			if(skewChange < 0)
+			{
+				skewChange = -skewChange; // unit is [ms/s]
+			}
 			
+			timeSinceLastSkew = (msg->localTime - childTable[i].oldTime); // unit is [ms]
+			if(timeSinceLastSkew != 0) {
+				drift = (skewChange*1000)/timeSinceLastSkew;	// unit is [ms/s^2]
+			}
+			childTable[i].drift = drift;
+			childTable[i].oldSkew = u2f(msg->skew);
+			childTable[i].oldTime = msg->localTime;					
+		}
+		
+		if(childTable[i].drift > maxDrift)
+			maxDrift = childTable[i].drift;
+	}
+	if(childExist == 0)
+	{
+		if(childEntries < MAX_CHILDREN)
+		{
+			childTable[childEntries].nodeId = msg->nodeID;
+			childTable[childEntries].oldSkew = u2f(msg->skew);
+			childTable[childEntries].oldTime = msg->localTime;
+			childEntries++;
+		}
+	} else {
+		updateBeaconPeriod(maxDrift);
+	}
+}
+
+						\end{lstlisting}
+			    	\end{figure}
+
+			    \newpage
+			    \textbf{Calculate time synchronization period}
+
+			    	As described in \cite{dynamicFTSParticle}, the calculation of the time synchronization period is a resource consuming process, since it contains a square root calculation.
+			    	This calculation is instead performed as shown in listing \ref{lst:time_sync_calc}.
+			    	This reduced the computational effort, but limits the precision of the period to a discrete number. 
+			    	It is chosen to increase the period with steps of 10 seconds, and limit it to maximum 255 seconds.
+			    	
+					\begin{figure}[H]
+						\begin{lstlisting}[caption=Calculate time synchronization period, style=Code-C, label=lst:time_sync_calc]
+		void updateBeaconPeriod(float maxDrift)
+	    {
+	    	float error = 0, tau = MIN_BEACON_INTERVAL;
+	    	float c = 10;
+	    	if(maxDrift != 0)
+	    	{
+	    		while(error < OFFSET_ERROR_BOUND)
+	    		{
+	    			tau = tau + c;
+	    			error = maxDrift*1000*((tau*tau)/2);
+				}
+				
+				if(tau < MIN_BEACON_INTERVAL)
+					tau = MIN_BEACON_INTERVAL;
+				else if(tau > MAX_BEACON_INTERVAL)
+					tau = MAX_BEACON_INTERVAL;
+					
+				atomic beaconPeriod = (unsigned char)(tau);
+	    	}
+	    }
+			    		\end{lstlisting}
+			    	\end{figure}			
 
 				\textbf{Testing changes}
 
-					TimeSyncInfo, Add drift and syncPeriod - only for testing purposes.
+					In order to test the performance of the DFTSP the TestResponderC module must be able to access both the drift and synchronization period from the motes. 
+					The existing TimeSyncInfo interface have been extended so that both variables is accessible.
 
 
 			% paragraph timesyncc (end)
@@ -111,7 +188,7 @@
 			
 
 			
-			
+			\newpage
 			\paragraph{Test Responder Module} % (fold)
 			\label{par:test_responder_module}
 				The test responder module has been added to the DFTSP application to enable it to participate in the tests.
