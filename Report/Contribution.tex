@@ -196,13 +196,57 @@
 		
 		\subsubsection{Serial Java Application} % (fold)
 		\label{sub:serial_java_application}
-		
+			The Serial Java Application is responsible for receiving test data from the broadcaster mote and writing the data to a text file.
+			The data is formatted appropriately prior to graphing in Matlab for presentation.
+			Furthermore the actual temperature is calculated from the temperature sensor output.
+			The temperature was calculated with the following formula\cite{tempSensorDatasheet}:
+
+			\begin{equation}
+			T = d_1 + d_2 * SO_T
+			\end{equation} 
+
+			The values used to obtain the temperature $T$ from the sensor ouput $SO_T$:
+			\begin{equation}
+			d_1 = -39,6\ \ \ d_2 = 0,01
+			\end{equation} 
+
+			Figure \ref{fig:JavaTextOutput} shows how an output file is formatted.
+			The columns represent from left to right: NodeID, Global Time Estimate, Synchronization Period, Drift/Skew, Temperature, DFTSP sequence number and Serial Java application time stamp.
+			
+			In figure \ref{fig:JavaTextOutput} the parent has NodeID 1 and the child has NodeID 3.
+			The synchronization period is 40 seconds, whereas the 10 seconds from the child should be disregarded as the child does not have any children of it's own.
+			The fourth column shows either skew or drift depending on whether the data comes from the child or parent respectively.
+			The DFTSP sequence number is not incremented in the figure because the broadcast rate is much smaller than the DFTSP synchronization period.
+			The final column with the Serial Java time stamp is used to pair data entries from the same broadcast round to be able to calculate the global time estimation error.
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=\linewidth]{JavaTextOutput.png}
+				\caption{Serial Java Application text output}
+				\label{fig:JavaTextOutput}
+			\end{figure}
+
+			
 		% subsection serial_java_application (end)
 
 	% subsection implementation (end)
 
 	\subsection{Test Setup} % (fold)
 	\label{sub:test_setup}
+
+		As seen in figure \ref{fig:TestSetup} the test setup consisted of the following items:
+
+		\begin{itemize}
+			\item Parent mote
+			\item Child mote
+			\item Broadcaster mote
+			\item Test PC
+			\item Blow dryer 
+		\end{itemize}
+
+		The broadcaster mote is connected to the test PC with a USB cable.
+		The child mote is placed in front of the blow dryer which is used to simulate an unstable environment.
+		The parent node is placed in the vicinity of the other motes to avoid dropped packages due to range issues.
 
 		\begin{figure}[H]
 			\centering
