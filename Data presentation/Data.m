@@ -1,8 +1,5 @@
 %data = dlmread('2014-12-22 20-13-52.txt'); % Stable measurements
 data = dlmread('2014-12-22 16-37-55.txt'); % Unstable measurements
-%data = dlmread('2014-12-22 15-49-36.txt');
-%data = dlmread('2014-12-22 15-26-48.txt');
-%data = dlmread('2014-12-22 12-42-09.txt');
 
 j = 1;
 pairedData = zeros(length(data),6);
