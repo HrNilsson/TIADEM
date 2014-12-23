@@ -15,16 +15,84 @@
 		\label{sub:dftsp_mote}
 			The DFTSP has been implemented on Crossbow Telosb motes\cite{TelosBDatasheet:Online} running the TinyOS\cite{TinyOS:Online} operating system.
 
-			Kan du lave nesc documentation Ivan? 
-			command: nesdoc -o doc -target=telosb DFTSPAppC.nc
+			\paragraph{Test Responder Module} % (fold)
+			\label{par:test_responder_module}
+				The test responder module has been added to the DFTSP application to enable it to participate in the tests.
+				An overview given in Figure \ref{fig:DFTSPResponderOverview} shows the modules used.
 
-		tempSensorRef \cite{tempSensorDatasheet}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=\linewidth]{DFTSPResponderOverview.png}
+					\caption{DFTSP Responder Module Overview}
+					\label{fig:DFTSPResponderOverview}
+				\end{figure}
+
+				The responsibility of the test responder module is to receive the query message from the broadcaster, acquire the necessary data and respond to the broadcaster.
+				The data is shown in listing \ref{code:test_data}.
+
+				\begin{figure}[H]
+					\begin{lstlisting}[caption=DFTSP Test Data, style=Code-C, label=code:test_data]
+		typedef nx_struct SyncReportMsg
+		{
+			nx_uint16_t	nodeID;			// the node if of the sender
+			nx_uint32_t	globalTimeEst;	// the senders estimation of the global time
+			nx_uint8_t  syncPeriod;		// the senders synchronization period
+			nx_uint32_t  drift;			// the senders estimation of its child's drift
+			nx_uint16_t  temp;			// the senders temperature measurement
+			nx_uint8_t	seqNum;		// sequence number for the root
+		} SyncReportMsg;
+
+					\end{lstlisting}
+				\end{figure}
+
+				All fields except the $temp$, which holds the temperature of the mote, are provided by the DFTSP module.
+				The temperature is read using the Sensirion SHT11\cite{tempSensorDatasheet} temperature and humidity sensor on the Telosb.
+				The module connection, read invoke and readDone event are shown in listing \ref{code:temp_impl}.
+
+				\begin{figure}[H]
+					\begin{lstlisting}[caption=Temperature reading implementation, style=Code-C, label=code:temp_impl]
+		typedef nx_struct SyncReportMsg
+		{
+		// Temperature Module Connection
+		components new SensirionSht11C() as Sensor;
+		App.Read -> Sensor.Temperature;
+
+		// Read invoke
+		event message_t* Receive.receive(message_t* msgPtr, void* payload, uint8_t len)
+		{
+	    	call Read.read();
+	    	// Rest of the receive implementation
+
+
+		// ReadDone event
+		event void Read.readDone(error_t result, uint16_t val)
+		{
+			if(result == SUCCESS)
+			temp = val;
+		}
+
+						\end{lstlisting}
+				\end{figure}
+			% paragraph test_responder_module (end)
 		% subsubsection dftsp_mote (end)
 		
 		
-		\subsubsection{Broadcaster Motes} % (fold)
+		\subsubsection{Broadcaster Mote} % (fold)
 		\label{sub:broadcaster_mote}
-		
+			The broadcaster application has also been implemented on a Crossbow Telosb mote. 
+			An overview of the application given in Figure \ref{fig:broadCastAppOverview} shows the modules used. 
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=\linewidth]{BroadcastAppOverview.png}
+				\caption{Broadcast application overview}
+				\label{fig:broadCastAppOverview}
+			\end{figure}
+
+			The broadcaster application is also based on the FTSP implementation given in \cite{FTSPImplementationTinyOS:Online}.	
+			Periodically, at the $BROADCAST\_RATE$, the broadcaster mote will query the DFTSP parent and child for the data shown in listing \ref{code:test_data}.
+			Upon reception, the broadcaster application sends the data to the test PC using a USB connection, as seen in Figure \ref{fig:TestSetup}.
+
 		% subsubsection broadcaster_mote (end)
 	
 
