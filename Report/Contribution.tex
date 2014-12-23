@@ -357,14 +357,22 @@ void handleNewChildSkew(TimeSyncMsg *msg) {
 		\subsubsection{Stable Environment} % (fold)
 		\label{sub:stable_environment}
 			
-			
+			In a stable environment the temperature of the nodes is not actively raised or lowered.
+			Figure \ref{fig:stableSynchronization} shows the results from the test in a stable environment.
+			\\The temperature remains approximately constant whilst the synchronization error remains under the average error bound.
+			The synchronization period is quickly set to the maximum allowed value of 255 seconds. This indicates that the drift calculated by the parent mote has been 0 for the duration of the test.   
 
 			\begin{figure}[H]
 				\centering
 				\includegraphics[width=\linewidth]{StableSynchronization.eps}
-				\caption{Time Synchronization Error}
-				\label{fig:Synchronization}
+				\caption{Stable Environment Test Results}
+				\label{fig:stableSynchronization}
 			\end{figure}
+
+			The DFTSP behaves as expected under these good conditions with no drift. 
+			The synchronization error remains below the bound even though the synchronization period is large, since the skew estimate in the child holds.
+			\\ In this case, the DFTSP behaves very similarly to the ordinary FTSP, since there is little need for the dynamic behavior. 
+
 
 		% subsubsection stable_environment (end)
 
@@ -374,8 +382,8 @@ void handleNewChildSkew(TimeSyncMsg *msg) {
 			\begin{figure}[H]
 				\centering
 				\includegraphics[width=\linewidth]{Synchronization.eps}
-				\caption{Time Synchronization Error}
-				\label{fig:Synchronization}
+				\caption{Unstable Environment Test Results}
+				\label{fig:unstableSynchronization}
 			\end{figure}
 
 		% subsubsection unstable_environment (end)
