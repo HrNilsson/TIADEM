@@ -44,47 +44,66 @@
 
 				In DFTSP the parent node must receive broadcast from their children in order to calculate their drift and update its time synchronization period.
 				This have numerous impacts on the protocol.
-				First of all, the motes needs to include both skew estimation and hop number in the broadcasted time synchronizing messages. 
-				The hop number is needed, so that the motes can differentiate between parents, children and neighbors. 
-				The skew estimate is needed so that the parent can calculate the drift of its children.
-				Secondly, the parent must keep reference about is children and their previous skew estimates, in order to calculate their drift
 
+				\textbf{Time Synchronization Message}
+				
+					The motes needs to include both skew estimation and hop number in the broadcasted time synchronization messages. 
+					The hop number is needed, so that the motes can differentiate between parents, children and neighbors. 
+					The message is shown in listing \ref{lst:time_sync_msg}.
+					\begin{figure}[H]
+						\begin{lstlisting}[caption=TimeSyncMsg, style=Code-C, label=lst:time_sync_msg]
+		typedef nx_struct TimeSyncMsg
+		{
+			nx_uint16_t	rootID;		// The node id of the synchronization root
+			nx_uint16_t	nodeID;		// The node id of the sender
+			nx_uint8_t	seqNum;		// Sequence number for the root
+			nx_uint32_t skew;			// Skew 
+			nx_uint8_t  hop;			// Hop count from root
+			nx_uint32_t	globalTime;
+			nx_uint32_t localTime;
+		} TimeSyncMsg;
+						\end{lstlisting}
+					\end{figure}
+			
+				
+				\textbf{Child references}
 
-				TODO
-			ChildTable\[MAX\_CHILDREN\]
-			-nodeId
-			-oldSkew
-			-oldTime
-			-drift
+					The parent must keep reference about its children and their previous skew estimates in order to calculate their drift, since drift is defined as change in skew pr time.
+					In listing \ref{lst:child_table} a type definition for a childItem is shown. 
+					The childItem contains all the needed information that the parent need to know to calculate the drift of the child.
+					The nodeId is used to differentiate between different children.
+					The oldTime and oldSkew is needed to calculate the drift and the drift is used to iterate through all children and find the child with the maximum drift, and set the time synchronization period accordingly.
 
-			childEntries
-			beaconPeriod
+					To store multiple children a table of childItems was defined with a constant size. Depending on the application, the table size could vary a lot and should possibly be of dynamic size.
 
-			UpdateBeaconPeriod()
-			handleNewChildSkew()
+					\begin{figure}[H]
+						\begin{lstlisting}[caption=Child table, style=Code-C, label=lst:child_table]
+		typedef struct ChildItem {
+			uint16_t nodeId;
+			uint32_t oldTime;
+			float oldSkew;
+			float drift;
+		} ChildItem;
 
-			hop \& sequence number changes
+		ChildItem childTable[MAX_CHILDREN];
+			    		\end{lstlisting}
+			    	\end{figure}
+		    	
+			    \textbf{Calculate time synchronization period}
+			    
+			    	UpdateBeaconPeriod()
+					handleNewChildSkew()
 
-			Added hop and skew in msg
-			\begin{figure}[H]
-				\begin{lstlisting}[caption=TimeSyncMsg, style=Code-C, label=lst:time_sync_msg]
-			typedef nx_struct TimeSyncMsg
-			{
-				nx_uint16_t	rootID;		// The node id of the synchronization root
-				nx_uint16_t	nodeID;		// The node id of the sender
-				nx_uint8_t	seqNum;		// Sequence number for the root
-				nx_uint32_t skew;			// Skew 
-				nx_uint8_t  hop;			// Hop count from root
-				nx_uint32_t	globalTime;
-				nx_uint32_t localTime;
-			} TimeSyncMsg;
-				\end{lstlisting}
-			\end{figure}
+		    	\textbf{Time synchronization period and sequence number}
+			
+					beaconPeriod
+					hop \& sequence number changes
+					New timer mode?
+			
 
-			New timer mode?
+				\textbf{Testing changes}
 
-
-			TimeSyncInfo, Add drift and syncPeriod - only for testing purposes.
+					TimeSyncInfo, Add drift and syncPeriod - only for testing purposes.
 
 
 			% paragraph timesyncc (end)
