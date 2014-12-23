@@ -57,10 +57,12 @@ axes(hAx(1))
 hold on
 plot(pairedData(:,7),pairedData(:,5),'--b');
 xlabel('Time')
+
 axes(hAx(2))
 hold on
 plot(pairedData(:,7),ones(size(pairedData(:,7)))*2,'--r');
-
+ylim([-2 3])
+hAx(2).YTick = [-2 -1 0 1 2 3];
 title('Time Synchronization Error')
 xlabel('Time')
 
